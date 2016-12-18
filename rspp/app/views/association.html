@@ -7,12 +7,13 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="http://arfin.by/xmlrpc.php">
 <link rel="stylesheet" href="./association_files/main.css">
+<link rel="stylesheet" href="bootstrap.css">
+
 <link href="./association_files/css" rel="stylesheet" type="text/css">
 
-<!--[if lt IE 9]>    
-<script src="http://arfin.by/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
-<![endif]-->
-<script async="" src="http://www.google-analytics.com/analytics.js"></script><script src="./association_files/jquery.min.js.download"></script>
+<script src="bootstrap.js"></script>
+<script async="" src="http://www.google-analytics.com/analytics.js"></script>
+<script src="./association_files/jquery.min.js.download"></script>
         <script>window.jQuery || document.write('<script src="http://arfin.by/wp-content/themes/twentytwelve/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
         <script src="./association_files/jquery.flexslider.js.download"></script>
@@ -44,7 +45,7 @@
 <script type="text/javascript" src="./association_files/jquery.fancybox.js.download"></script>
 <script type="text/javascript" src="http://arfin.by/wp-content/plugins/pc-google-analytics/assets/js/frontend.min.js?ver=1.0.0"></script>
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://arfin.by/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://arfin.by/wp-includes/wlwmanifest.xml"> 
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://arfin.by/wp-includes/wlwmanifest.xml">
 <link rel="next" title="Пресс-центр" href="http://arfin.by/press-tsentr/">
 <meta name="generator" content="WordPress 3.9.14">
 <link rel="canonical" href="http://arfin.by/">
@@ -100,18 +101,13 @@ jQuery("a.fancybox").fancybox({
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
+
 		ga('create', 'UA-85845109-1', 'auto');
 		ga('send', 'pageview');
-		
+
 		</script>
 <link rel="stylesheet" href="./association_files/wp-page-numbers.css" type="text/css" media="screen">	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-<style type="text/css">/*.lleo_errorSelection *::-moz-selection,
-.lleo_errorSelection *::selection,
-.lleo_errorSelection *::-webkit-selection {
-    background-color: red !important;
-    color: #fff !important;;
-}*/
+<style type="text/css">
 
 #lleo_dialog,
 #lleo_dialog * {
@@ -230,31 +226,10 @@ jQuery("a.fancybox").fancybox({
     text-decoration: none !important;
     cursor: default !important;
 }
-/*
-#lleo_dialog #lleo_text.lleo_known {
-    cursor: pointer !important;
-    text-decoration: underline !important;
-}
-*/
-/*#lleo_dialog #lleo_closeBtn {
-    position: absolute !important;
-    right: 6px !important;
-    top: 5px !important;
-    line-height: 1px !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-    font-size: 0 !important;
-    color: #aaa !important;
-    display: block !important;
-	z-index: 9999999999 !important;
-	width: 7px !important;
-	height: 7px !important;
-	padding: 0 !important;
-	margin: 0 !important;
-}*/
+
 
 #lleo_dialog #lleo_optionsBtn {
-    position: absolute !important; 
+    position: absolute !important;
     right: 3px !important;
     top: 5px !important;
     line-height: 1px !important;
@@ -478,19 +453,7 @@ jQuery("a.fancybox").fancybox({
     font-weight: bold !important;
     font-size: 11px !important;
 }
-/*#lleo_dialog #lleo_gBrand {
-    color: #aaa !important;
-    font-size: 10px !important;
-    *//*padding-right: 52px !important;*//*
-    padding-bottom: 14px !important;
-    margin: -3px 4px 0 4px !important;
-    background: left bottom url(data:image/png;base64,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) no-repeat !important;
-    display: inline-block !important;
-    float: right !important;
-}
-#lleo_dialog #lleo_gBrand.hidden {
-    display: none !important;
-}*/
+
 #lleo_dialog #lleo_translateContextLink {
     color: #444 !important;
     text-shadow: 1px 1px 0 #f4f4f4 !important;
@@ -837,7 +800,7 @@ jQuery("a.fancybox").fancybox({
 /**/
 </style><style type="text/css" data-ymaps="css-modules">.ymaps-2-1-45-pictogramCircleIconContent{display: block; background-size: contain; width: 22px; height: 22px; background-repeat: no-repeat; position: absolute; top: -11px; left: -11px;}
 .cnst_1481965623871-button{display: block; text-align:center;}
-.cnst_1481965623871-button-inner{ background-size: 10px 16px; background-repeat: no-repeat; background-position: left center;display: inline-block;} 
+.cnst_1481965623871-button-inner{ background-size: 10px 16px; background-repeat: no-repeat; background-position: left center;display: inline-block;}
 .ymaps_https___api_maps_yandex_ru_2_1_45_519388665802islands_icon___82CDFF_34x41_1481965624199{display:block;background-image:url(data:image/png;base64,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);background-size:34px 41px;}</style></head>
 
 <body class="home page page-id-2 page-template page-template-page-templatesfront-page-php template-front-page custom-font-enabled single-author">
@@ -845,46 +808,74 @@ jQuery("a.fancybox").fancybox({
             <header class="header">
                 <div class="container">
                     <div class="header-top">
-                        <a href="http://arfin.by/" title="Ассоциация развития финансового рынка" class="logo">АРФИН</a>
-                        <div class="search">
-                            <form role="search" method="get" id="searchform" action="http://arfin.by/">
-                                <input type="search" class="search-field" value="" name="s" id="s">
-                                <input type="submit" class="search-btn">
-                                
-                            </form>                        </div>
+
+
+                      <!-- header here -->
+
+
+
+
+                        <!-- <a href="http://arfin.by/" title="Ассоциация развития финансового рынка" class="logo">АРФИН</a>
+
                         <a href="http://arfin.by/#" data-toggle="modal" data-target="#locationModal" class="to-map">наш адрес на карте</a>
                         <span class="number">
                             <span class="prefix">+375 29</span> 127 37 37
-                        </span>
+                        </span> -->
+
+
+
+
                     </div>
-                    <nav class="nav">
-                        <ul id="menu-header-menu1" class="clearfix"><li id="menu-item-235" class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children item"><a href="http://arfin.by/istoriya/"><span class="title">Об арфин</span></a> <ul class="dropdown"><li id="menu-item-70" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/istoriya/">История</a></li>
-<li id="menu-item-106" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/dokumenty/dokumenty-arfin/">Документы Арфин</a></li>
-<li id="menu-item-104" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/zakonodatel-stvo/">Законодательство</a></li>
-<li id="menu-item-69" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/reestr-chlenov/">Реестр членов</a></li>
-<li id="menu-item-68" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/rekvizity/">Реквизиты</a></li>
 
-					</ul></li>
-<li id="menu-item-268" class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children item"><a href="http://arfin.by/struktura-arfin/pravlenie/"><span class="title">Структура Арфин</span></a> <ul class="dropdown"><li id="menu-item-110" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/struktura-arfin/pravlenie/">Правление</a></li>
-<li id="menu-item-109" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/struktura-arfin/obshhee-sobranie/">Общее собрание</a></li>
 
-					</ul></li>
-<li id="menu-item-130" class=" menu-item menu-item-type-post_type menu-item-object-page item"><a href="http://arfin.by/foreks-kompaniyam/"><span class="title">Форекс-компаниям</span></a></li>
-<li id="menu-item-270" class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children item"><a href="http://arfin.by/klientam/svedeniya-o-yuridicheskih-litsah-vklyuchenny-h-v-reestr-foreks-kompanij-natsional-nogo-banka/"><span class="title">Клиентам</span></a> <ul class="dropdown"><li id="menu-item-1058" class=" menu-item menu-item-type-post_type menu-item-object-page dropdown-item"><a href="http://arfin.by/klientam/svedeniya-o-yuridicheskih-litsah-vklyuchenny-h-v-reestr-foreks-kompanij-natsional-nogo-banka/">Реестр Форекс-компаний</a></li>
 
-					</ul></li>
-<li id="menu-item-324" class=" menu-item menu-item-type-post_type menu-item-object-page item"><a href="http://arfin.by/finansovaya-gramotnost/"><span class="title">Финансовая грамотность</span></a></li>
-<li id="menu-item-271" class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children item"><a href="http://arfin.by/news/news-company/"><span class="title">Пресс-центр</span></a> <ul class="dropdown"><li id="menu-item-28" class=" menu-item menu-item-type-taxonomy menu-item-object-category dropdown-item"><a href="http://arfin.by/news/news-company/">Новости Арфин</a></li>
-<li id="menu-item-29" class=" menu-item menu-item-type-taxonomy menu-item-object-category dropdown-item"><a href="http://arfin.by/news/media-review/">Обзор СМИ</a></li>
-
-					</ul></li>
-<li id="menu-item-138" class=" menu-item menu-item-type-post_type menu-item-object-page item"><a href="http://arfin.by/kontakty/"><span class="title">Контакты</span></a></li>
-</ul>                        
-                    </nav>
                 </div>
             </header>
+
+            <div class="bs-component">
+                          <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                              <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                  <span class="sr-only">Toggle navigation</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">РСПП</a>
+                              </div>
+
+                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                  <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                                  <li><a href="#">Link</a></li>
+                                  <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                      <li><a href="action">Action</a></li>
+                                      <li><a href="action">Another action</a></li>
+                                      <li><a href="action">Something else here</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#">Separated link</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                  </li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                  <li><a href="#">Link</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </nav>
+                        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+
+
+
+
             <div class="container">                <div class="flexslider">
-                    
+
                     <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1000%; transition-duration: 0s; transform: translate3d(-958px, 0px, 0px);"><li class="clone" aria-hidden="true" style="float: left; display: block; width: 958px;">
         <img src="./association_files/slide1.jpg" title="" alt="" width="960" height="300" draggable="false">
         <span class="txt-container">
@@ -897,14 +888,14 @@ jQuery("a.fancybox").fancybox({
                                 Представление интересов членов Ассоциации в законодательных органах Республики Беларусь
                             </span>
     </li>
-    
+
     <li style="float: left; display: block; width: 958px;" class="">
         <img src="./association_files/slide2.jpg" title="" alt="" width="960" height="300" draggable="false">
         <span class="txt-container">
                                 РАЗРАБОТКА, СТАНДАРТОВ И ПРАВИЛ ДЕЯТЕЛЬНОСТИ НА РЫНКЕ FOREX
                             </span>
     </li>
-    
+
     <li style="float: left; display: block; width: 958px;" class="">
         <img src="./association_files/slide1.jpg" title="" alt="" width="960" height="300" draggable="false">
         <span class="txt-container">
@@ -919,7 +910,7 @@ jQuery("a.fancybox").fancybox({
     </li></ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="http://arfin.by/#">Previous</a></li><li><a class="flex-next" href="http://arfin.by/#">Next</a></li></ul></div>
 
 
-			
+
 				<h4 class="violet">Главная</h4>
 
 				<p class="violet"><i>Ассоциация развития финансового рынка — некоммерческое, добровольное объединение участников международного валютного рынка Форекс и иных аналогичных рынков, осуществляющих финансовое посредничество при проведении операций с внебиржевыми финансовыми инструментами.</i></p>
@@ -1163,37 +1154,16 @@ jQuery("a.fancybox").fancybox({
                                     <a href="http://arfin.by/ofshor-nam-tol-ko-snitsya/" class="link-more">читать дальше</a>
                                 </div>
                             </article>
-                          
+
                         </div>
                         <div class="custom-scroll-overlay"></div>
                     </div>
                 </section>
-                <section class="downloads">
-                                    <ul>
-                        <li class="item">
-                            <i class="icon"></i>
-                            <strong class="title">Устав арфин</strong>
-                            <span class="link-place">
-                                <a href="http://arfin.by/wp-content/uploads/2015/11/2015-11-10_Ustav.pdf">скачать Устав</a>                            </span>
-                        </li>
-                        <li class="item">
-                            <i class="icon"></i>
-                            <strong class="title">ПОЛОЖЕНИЕ О ПОРЯДКЕ ПРИЕМА В ЧЛЕНЫ АРФИН</strong>
-                            <span class="link-place">
-                                 <a href="http://arfin.by/wp-content/uploads/2015/11/2015-11-10_Polozhenie-o-chlenstve.pdf">скачать положение</a>                            </span>
-                        </li>
-                        <li class="item">
-                            <i class="icon"></i>
-                            <strong class="title">РЕГУЛИРОВАНИЕ ФОРЕКС В БЕЛАРУСИ</strong>
-                            <span class="link-place">
-                                 В РАЗРАБОТКЕ                            </span>
-                        </li>
-                    </ul>
-                </section>
+
 </div>
             <footer class="footer">
                 <div class="footer-top">
-                    
+
                         <ul id="menu-footer-menu1" class="container"><li class="col"><span class="title">Об АРФИН</span> <ul style="margin-top:12px;"><li><a href="http://arfin.by/istoriya/">История</a></li>
 <li><a href="http://arfin.by/dokumenty/dokumenty-arfin/">Документы Арфин</a></li>
 <li><a href="http://arfin.by/zakonodatel-stvo/">Законодательство</a></li>
@@ -1219,8 +1189,8 @@ jQuery("a.fancybox").fancybox({
 
 					</ul></li>
 <li class="col"><span class="title">Финансовая грамотность</span></li>
-</ul>                        
-                    
+</ul>
+
                 </div>
                 <div class="footer-bottom">
                     <div class="container">
@@ -1253,11 +1223,11 @@ jQuery("a.fancybox").fancybox({
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
-        
 
-        
 
-    
+
+
+
 
 <script type="text/javascript" src="./association_files/jquery.form.min.js.download"></script>
 <script type="text/javascript">
