@@ -29,15 +29,26 @@
         </div>
       </div>
 
-      <div class="login">  
-        <h2 class="login-header">Войти</h2>
+      <%- if user_signed_in? %>
+        <div class="pull-right">
+          <%= current_user.first_name + " " + current_user.last_name %>
+          <br>
+          <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+        </div>
+      <%- else %>
+        <div class="login">  
+          <h2 class="login-header">Войти</h2>
 
-        <form class="login-container">
-          <p><input type="email" placeholder="Email"></p>
-          <p><input type="password" placeholder="Пароль"></p>
-          <p><input type="submit" value="Вход"></p>
-        </form>
-      </div>
+          <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
+
+            <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
+            <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
+            <p><%= f.submit "Вход" %></p>
+          <% end %>
+
+          
+        </div>
+      <% end %>
     </nav>
 
     <nav id="categories" class="navbar navbar-default text-center">
