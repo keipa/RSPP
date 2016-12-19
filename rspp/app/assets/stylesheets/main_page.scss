@@ -24,20 +24,28 @@
 }
 
 .contact {
-    border-bottom: 1px solid #ededed;
-    margin-top: 10px;
+    &:not(:last-child) {
+        border-bottom: 1px solid #ededed;
+    }
+    margin-top: 7px;
+
+    p {
+        margin: 1px;
+    }
 
     &-name {
         font-weight: bold;
     }
 
     &-credits {
+        padding-bottom: 3px;
+
         .email {
-            color: $main-color;
+            color: $main-color-first;
             text-decoration: none;
 
             &:hover {
-                color: darken($main-color, 20%);
+                color: darken($main-color-first, 20%);
             }
         }
     }
@@ -46,9 +54,7 @@
 #infoSlider {
     position: relative;
     margin-top: 25px;
-}
 
-.carousel {
     .item {
         height: 400px;
         overflow: hidden;
@@ -58,12 +64,6 @@
         width: 100%;
         top: -50px;
     }
-}
-
-#siteMap {
-    display: inline-block;
-    margin-top: 20px;
-    margin-right: 20px;
 }
 
 #categories {
@@ -80,7 +80,7 @@
     }
 
     .category {
-        color: $main-color;
+        color: $main-color-first;
         border-style: solid;
         border-width: 0 0 2px 0;
         border-color: #FAFAFA;
@@ -88,7 +88,7 @@
         transition: border 0.2s;
 
         &:hover {
-            border-color: $main-color;
+            border-color: $main-color-first;
 
             .dropdown-menu {
                 opacity: 1;
@@ -101,7 +101,7 @@
         }
 
         a {
-            color: $main-color;
+            color: $main-color-first;
         }
 
         .dropdown-menu {
@@ -112,7 +112,7 @@
 
         .dropdown-text:hover {
             color: #FFFFFF !important;
-            background-color: $main-color !important;
+            background-color: $main-color-first !important;
         }
     }
 }
@@ -131,7 +131,7 @@
     }
 
     &-header {
-        background: $main-color;
+        background: $main-color-first;
         padding: 10px;
         font-size: 1.4em;
         font-weight: normal;
@@ -174,7 +174,7 @@
     }
 
     input[type="submit"] {
-        background: $main-color;
+        background: $main-color-first;
         padding: 5px;
         border-color: transparent;
         color: #FFFFFF;
@@ -182,7 +182,7 @@
     }
 
     input[type="submit"]:hover {
-        background: darken($main-color, 10%);
+        background: darken($main-color-first, 10%);
     }
 
     input[type="submit"]:focus {
