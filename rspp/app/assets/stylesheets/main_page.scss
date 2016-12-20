@@ -123,23 +123,11 @@
     right: 0;
     font-size: 16px;
     display: none;
+    z-index: 15;
 
-
-    &-header,
     p {
         margin-top: 0;
         margin-bottom: 0;
-    }
-
-    &-header {
-        background: $main-color-first;
-        padding: 10px;
-        font-size: 1.4em;
-        font-weight: normal;
-        text-align: center;
-        text-transform: uppercase;
-        border: 1px solid $main-color-first;
-        color: #FFFFFF;
     }
 
     &-container {
@@ -150,7 +138,7 @@
     }
 
     p {
-        padding: 4px 7px;
+        padding: 4px 13px;
     }
 
     input {
@@ -182,10 +170,12 @@
     input[type="submit"] {
         background: $main-color-second;
         padding: 5px;
+        width: 100%;
         border-color: transparent;
         color: #FFFFFF;
         cursor: pointer;
         transition: background 0.4s;
+        display: inline-block;
     }
 
     input[type="submit"]:hover {

@@ -1,184 +1,191 @@
 <div class="container-fluid wrapper">
-    <nav id="mainNavbar" class="navbar navbar-default">
-      <img id="logo" src="logo.png">
+  <nav id="mainNavbar" class="navbar navbar-default">
+    <img id="logo" src="logo.png">
+    <ul id="contacts">
+      <li class="contact">
+        <p class="contact-name">Швец Александр Иосифович</p>
+        <p class="contact-credits">
+          + 111111111111,
+          <a class="email" href="">shvec@mail.ru</a>
+        </p>
+      </li>
+      <li class="contact">
+        <p class="contact-name">Иванов Иван Иванович</p>
+        <p class="contact-credits">+ 222222222222,
+          <a class="email" href="">ivan@mail.ru</a>
+        </p>
+      </li>
+      <li class="contact">
+        <p class="contact-name">Игорев Игорь Игоревич</p>
+        <p class="contact-credits">+ 333333333333,
+          <a class="email" href="">igor@mail.ru</a>
+        </p>
+      </li>
+    </ul>
 
-      <ul id="contacts">
-          <li class="contact">
-              <p class="contact-name">Швец Александр Иосифович</p>
-              <p class="contact-credits">+ 111111111111,
-                  <a class="email" href="">shvec@mail.ru</a>
-              </p>
-          </li>
-          <li class="contact">
-              <p class="contact-name">Иванов Иван Иванович</p>
-              <p class="contact-credits">+ 222222222222,
-                  <a class="email" href="">ivan@mail.ru</a>
-              </p>
-          </li>
-          <li class="contact">
-              <p class="contact-name">Игорев Игорь Игоревич</p>
-              <p class="contact-credits">+ 333333333333,
-                  <a class="email" href="">igor@mail.ru</a>
-              </p>
-          </li>
-      </ul>
-
-      <%- if user_signed_in? %>
-        <div class="pull-right">
-            <%= current_user.first_name + " " + current_user.last_name %>
-            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+    <%- if user_signed_in? %>
+      <div class="pull-right">
+        <%= current_user.first_name + " " + current_user.last_name %>
+        <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+      </div>
+    <%- else %>
+      <div class="user-actions">
+        <div class="user-actions-container">
+          <button class="login-btn">Войти</button>
+          <button class="signup-btn">Регистрация</button>
         </div>
-      <%- else %>
+      </div>
 
-        <div class="user-actions">
-          <div class="user-actions-container">
-            <button class="login-btn">Войти</button>
-            <button class="signup-btn">Регистрация</button>
-          </div>
-        </div>
-
-        <div class="login">
-
-          <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
-
+      <div class="login">
+        <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
           <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
           <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
           <p><%= f.submit "Вход" %></p>
-          <% end %>
+        <% end %>
+      </div>
 
-        </div>
-
-
-
-        <div class="signup">
-
-          <%= form_for(:user, url: registration_path(:user), html: {class: "signup-container"}) do |f| %>
-
+      <div class="signup">
+        <%= form_for(:user, url: registration_path(:user), html: {class: "signup-container"}) do |f| %>
           <p><%= f.text_field :first_name, autocomplete: "off", placeholder: "Имя" %></p>
           <p><%= f.text_field :last_name, autocomplete: "off", placeholder: "Фамилия" %></p>
           <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
           <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
           <p><%= f.submit "Регистрация" %></p>
-          <% end %>
+        <% end %>
 
-        </div>
+      </div>
 
 
-      <% end %>
-    </nav>
+    <% end %>
+  </nav>
 
-    <nav id="categories" class="navbar navbar-default text-center">
+  <nav id="categories" class="navbar navbar-default text-center">
 
-        <div class="category dropdown">
-            <a href="#" class="navbar-brand">О РСПП</a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-text" href="">
-                        Информация
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-text" href="">
-                        Информация
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-text" href="">
-                        Информация
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <div class="category dropdown">
+      <a href="#" class="navbar-brand">О РСПП</a>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-text" href="">
+            Информация
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-text" href="">
+            Информация
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-text" href="">
+            Информация
+          </a>
+        </li>
+      </ul>
+    </div>
 
-        <div class="category">
-            <a class="navbar-brand" href="">Сотрудничество</a>
-        </div>
+    <div class="category">
+      <a class="navbar-brand" href="">Сотрудничество</a>
+    </div>
 
-        <div class="category dropdown">
-            <a href="#" class="navbar-brand">Международная деятельность</a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-text" href="">
-                        Информация и еще информация</a>
-                </li>
-                <li>
-                    <a class="dropdown-text" href="">
-                        Информация у меня не хватает идей</a>
-                </li>
-                <li>
-                    <a class="dropdown-text" href="">
-                        Информация что писать кроме информация</a>
-                </li>
-            </ul>
-        </div>
+    <div class="category dropdown">
+      <a href="#" class="navbar-brand">Международная деятельность</a>
+      <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-text" href="">
+                Информация и еще информация</a>
+        </li>
+        <li>
+            <a class="dropdown-text" href="">
+                Информация у меня не хватает идей</a>
+        </li>
+        <li>
+            <a class="dropdown-text" href="">
+                Информация что писать кроме информация</a>
+        </li>
+      </ul>
+    </div>
 
-        <div class="category">
-            <a class="navbar-brand" href="">
-                Законодательство
-            </a>
-        </div>
-        <div class="category">
-            <a class="navbar-brand" href="">
-                Аналитика
-            </a>
-        </div>
-    </nav>
-
-    <div id="infoSlider" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#infoSlider" data-slide-to="0" class="active"></li>
-            <li data-target="#infoSlider" data-slide-to="1"></li>
-            <li data-target="#infoSlider" data-slide-to="2"></li>
-            <li data-target="#infoSlider" data-slide-to="3"></li>
-        </ol>
-
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img class="slide-photo" src="img_chania.jpg">
-            </div>
-
-            <div class="item">
-                <img class="slide-photo" src="img_chania2.jpg">
-            </div>
-
-            <div class="item">
-                <img class="slide-photo" src="img_chania3.jpg">
-            </div>
-
-            <div class="item">
-                <img class="slide-photo" src="img_chania4.jpg">
-            </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#infoSlider" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#infoSlider" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+    <div class="category">
+        <a class="navbar-brand" href="">
+            Законодательство
         </a>
     </div>
+    <div class="category">
+        <a class="navbar-brand" href="">
+            Аналитика
+        </a>
+    </div>
+  </nav>
+
+  <div id="infoSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#infoSlider" data-slide-to="0" class="active"></li>
+      <li data-target="#infoSlider" data-slide-to="1"></li>
+      <li data-target="#infoSlider" data-slide-to="2"></li>
+      <li data-target="#infoSlider" data-slide-to="3"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img class="slide-photo" src="img_chania.jpg">
+      </div>
+
+      <div class="item">
+        <img class="slide-photo" src="img_chania2.jpg">
+      </div>
+
+      <div class="item">
+        <img class="slide-photo" src="img_chania3.jpg">
+      </div>
+
+      <div class="item">
+        <img class="slide-photo" src="img_chania4.jpg">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#infoSlider" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#infoSlider" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
 </div>
 
 
 <script>
 
-    $(".login-btn").on("click", function() {
+    $(".login-btn").on("click", function(e) {
+      e.stopPropagation();
       $(".user-actions").slideUp(250);
       setTimeout(function() {
         $(".login").slideDown(250);
       }, 150);
     })
 
-    $(".signup-btn").on("click", function() {
+    $(".signup-btn").on("click", function(e) {
+      e.stopPropagation();
       $(".user-actions").slideUp(250);
       setTimeout(function() {
         $(".signup").slideDown(250);
       }, 150);
     })
 
+    $(".wrapper").click(function(e) {
+      if ((($(e.target).closest("form").hasClass("login-container")) || 
+           ($(e.target).closest("form").hasClass("signup-container"))) &&
+          (!($(e.target)[0].type == "submit"))) {
+        return false;
+      }
+      $(".signup").slideUp(250);
+      $(".login").slideUp(250);
+      setTimeout(function() {
+        $(".user-actions").slideDown(250);
+      }, 150);
+    })
 
 
 </script>
