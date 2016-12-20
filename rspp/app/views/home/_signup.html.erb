@@ -1,0 +1,10 @@
+<div class="signup">
+  <%= form_for(:user, url: registration_path(:user), html: {class: "signup-container"}) do |f| %>
+    <p><%= f.text_field :first_name, autocomplete: "off", placeholder: "Имя" %></p>
+    <p><%= f.text_field :last_name, autocomplete: "off", placeholder: "Фамилия" %></p>
+    <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
+    <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
+    <p><%= f.submit "Регистрация" %></p>
+  <% end %>
+
+</div>

@@ -24,36 +24,20 @@
     </ul>
 
     <%- if user_signed_in? %>
-      <div class="pull-right">
-        <%= current_user.first_name + " " + current_user.last_name %>
+      <div class="user-info pull-right">
+        <p>
+          Здравствуйте, <%= current_user.first_name %>!
+          <div>
+            <img class="user-image" src="user.png">
+          </div>
+        </p>
         <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
       </div>
     <%- else %>
-      <div class="user-actions">
-        <div class="user-actions-container">
-          <button class="login-btn">Войти</button>
-          <button class="signup-btn">Регистрация</button>
-        </div>
-      </div>
 
-      <div class="login">
-        <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
-          <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
-          <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
-          <p><%= f.submit "Вход" %></p>
-        <% end %>
-      </div>
-
-      <div class="signup">
-        <%= form_for(:user, url: registration_path(:user), html: {class: "signup-container"}) do |f| %>
-          <p><%= f.text_field :first_name, autocomplete: "off", placeholder: "Имя" %></p>
-          <p><%= f.text_field :last_name, autocomplete: "off", placeholder: "Фамилия" %></p>
-          <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
-          <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
-          <p><%= f.submit "Регистрация" %></p>
-        <% end %>
-
-      </div>
+      <%= render 'user_actions' %>      
+      <%= render 'login' %>
+      <%= render 'signup' %>
 
 
     <% end %>
@@ -153,39 +137,78 @@
     </a>
   </div>
 
+
+
+  <!-- Photos, comments - ??? -->
+  <div style="width: 60%; height: 500px; background: #F0F0F0; margin-top: 45px; display: inline-block;">
+
+  </div>
+
+  <div class="news">
+    <h2> Новости РСПП </h2>
+    <hr>
+    <div class="news-post">
+
+        <div class="post-title">
+          <h2><a href="">Какая-то новость про РСПП</a></h2>
+          <div class="tags">
+            <a href="" class="label label-default">Бизнес</a> 
+            <a href="" class="label label-default">3 Комментария</a>
+            <a class="label label-default">3 Июня, 2017</a> 
+          </div>
+        </div>
+
+        <hr>
+
+        <p>
+          Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+        </p>
+
+    </div>
+
+    <div class="news-post">
+
+        <div class="post-title">
+          <h2><a href="blog-single-sidebar-left.html">Какая-то новость про РСПП</a></h2>
+          <div class="tags">
+            <a href="" class="label label-default">Бизнес</a> 
+            <a href="" class="label label-default">3 Комментария</a>
+            <a class="label label-default">3 Июня, 2017</a> 
+          </div>
+        </div>
+
+        <hr>
+
+        <p>
+          Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+        </p>
+
+    </div>
+
+
+    <div class="news-post">
+
+        <div class="post-title">
+          <h2><a href="blog-single-sidebar-left.html">Какая-то новость про РСПП</a></h2>
+          <div class="tags">
+            <a href="" class="label label-default">Бизнес</a> 
+            <a href="" class="label label-default">3 Комментария</a>
+            <a class="label label-default">3 Июня, 2017</a> 
+          </div>
+        </div>
+
+        <hr>
+
+        <p>
+          Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+        </p>
+
+    </div>
+  </div>
+
+            
+
 </div>
 
 
-<script>
-
-    $(".login-btn").on("click", function(e) {
-      e.stopPropagation();
-      $(".user-actions").slideUp(250);
-      setTimeout(function() {
-        $(".login").slideDown(250);
-      }, 150);
-    })
-
-    $(".signup-btn").on("click", function(e) {
-      e.stopPropagation();
-      $(".user-actions").slideUp(250);
-      setTimeout(function() {
-        $(".signup").slideDown(250);
-      }, 150);
-    })
-
-    $(".wrapper").click(function(e) {
-      if ((($(e.target).closest("form").hasClass("login-container")) || 
-           ($(e.target).closest("form").hasClass("signup-container"))) &&
-          (!($(e.target)[0].type == "submit"))) {
-        return false;
-      }
-      $(".signup").slideUp(250);
-      $(".login").slideUp(250);
-      setTimeout(function() {
-        $(".user-actions").slideDown(250);
-      }, 150);
-    })
-
-
-</script>
+<%= javascript_include_tag "main_page_login_window" %>

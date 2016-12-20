@@ -1,8 +1,13 @@
 @import "variables";
 
+body {
+    //background-color: #F0F0F0 !important;
+    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 13%, #F0F0F0 13%, #F0F0F0 100%);
+}
+
 .wrapper {
     width: 90%;
-    min-height: 1500px; // for scrolling
+    min-height: 2500px; // for scrolling
 }
 
 #mainNavbar {
@@ -71,7 +76,7 @@
     display: flex;
     justify-content: space-around;
     border-radius: 0;
-    background: #FAFAFA;
+    background: #FFFFFF;
     border-color: #CCCCCC;
     box-shadow: 0 0 2px 0 #CCCCCC;
 
@@ -247,5 +252,89 @@
         &:hover {
             background: darken($main-color-first, 8%);
         }
+    }
+}
+
+.user-info {
+    text-align: center;
+    p {
+        font-size: 20px;
+    }
+}
+
+.user-image {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+}
+
+
+.news {
+    display: inline-block;
+    width: 37%;
+    margin-top: 45px;
+    padding: 20px 20px 20px 20px;
+    float: right;
+    background: #F0F0F0;
+
+    h2 {
+        margin-left: 15px;
+        font-weight: bold;
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+    }
+}
+
+.news-post {
+    border-radius: 6px;
+    background: #FFFFFF;
+    vertical-align: top;
+    max-height: 180px;
+    box-shadow: 0 0 1px 0 #000000;
+    padding: 20px;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .post-title {
+        margin-bottom: 20px;
+
+        h2 {
+            margin: 0;
+
+            a {
+                text-decoration: none;
+                margin: 0;
+                font-size: 23px;
+                color: $main-color-first;
+            }
+        }
+
+        .tags {
+            margin-top: 5px;
+            font-size: 15px;
+            
+            .label {
+                &:not(:last-child) {
+                   margin-right: 3px; 
+                }
+            }
+
+            .label-default {
+                background-color: #919191;
+
+                &:hover {
+                    background-color: darken(#919191, 10%);
+                }
+            }
+        }
+
+    }
+
+    hr {
+        margin: 10px 0;
     }
 }
