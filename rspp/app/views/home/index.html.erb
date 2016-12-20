@@ -1,46 +1,70 @@
 <div class="container-fluid wrapper">
     <nav id="mainNavbar" class="navbar navbar-default">
-        <img id="logo" src="logo.png">
+      <img id="logo" src="logo.png">
 
-        <ul id="contacts">
-            <li class="contact">
-                <p class="contact-name">Швец Александр Иосифович</p>
-                <p class="contact-credits">+ 111111111111,
-                    <a class="email" href="">shvec@mail.ru</a>
-                </p>
-            </li>
-            <li class="contact">
-                <p class="contact-name">Иванов Иван Иванович</p>
-                <p class="contact-credits">+ 222222222222,
-                    <a class="email" href="">ivan@mail.ru</a>
-                </p>
-            </li>
-            <li class="contact">
-                <p class="contact-name">Игорев Игорь Игоревич</p>
-                <p class="contact-credits">+ 333333333333,
-                    <a class="email" href="">igor@mail.ru</a>
-                </p>
-            </li>
-        </ul>
+      <ul id="contacts">
+          <li class="contact">
+              <p class="contact-name">Швец Александр Иосифович</p>
+              <p class="contact-credits">+ 111111111111,
+                  <a class="email" href="">shvec@mail.ru</a>
+              </p>
+          </li>
+          <li class="contact">
+              <p class="contact-name">Иванов Иван Иванович</p>
+              <p class="contact-credits">+ 222222222222,
+                  <a class="email" href="">ivan@mail.ru</a>
+              </p>
+          </li>
+          <li class="contact">
+              <p class="contact-name">Игорев Игорь Игоревич</p>
+              <p class="contact-credits">+ 333333333333,
+                  <a class="email" href="">igor@mail.ru</a>
+              </p>
+          </li>
+      </ul>
 
-        <%- if user_signed_in? %>
+      <%- if user_signed_in? %>
         <div class="pull-right">
             <%= current_user.first_name + " " + current_user.last_name %>
             <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
         </div>
-    <%- else %>
+      <%- else %>
+
+        <div class="user-actions">
+          <div class="user-actions-container">
+            <button class="login-btn">Войти</button>
+            <button class="signup-btn">Регистрация</button>
+          </div>
+        </div>
+
         <div class="login">
-            <h2 class="login-header">Войти</h2>
 
-            <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
+          <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
 
-            <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
-            <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
-            <p><%= f.submit "Вход" %></p>
-            <% end %>
+          <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
+          <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
+          <p><%= f.submit "Вход" %></p>
+          <% end %>
 
         </div>
-        <% end %>
+
+
+
+        <div class="signup">
+
+          <%= form_for(:user, url: registration_path(:user), html: {class: "signup-container"}) do |f| %>
+
+          <p><%= f.text_field :first_name, autocomplete: "off", placeholder: "Имя" %></p>
+          <p><%= f.text_field :last_name, autocomplete: "off", placeholder: "Фамилия" %></p>
+          <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
+          <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
+          <p><%= f.submit "Регистрация" %></p>
+          <% end %>
+
+        </div>
+
+
+      <% end %>
     </nav>
 
     <nav id="categories" class="navbar navbar-default text-center">
@@ -137,3 +161,24 @@
         </a>
     </div>
 </div>
+
+
+<script>
+
+    $(".login-btn").on("click", function() {
+      $(".user-actions").slideUp(250);
+      setTimeout(function() {
+        $(".login").slideDown(250);
+      }, 150);
+    })
+
+    $(".signup-btn").on("click", function() {
+      $(".user-actions").slideUp(250);
+      setTimeout(function() {
+        $(".signup").slideDown(250);
+      }, 150);
+    })
+
+
+
+</script>
