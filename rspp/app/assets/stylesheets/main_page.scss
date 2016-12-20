@@ -2,7 +2,7 @@
 
 body {
     //background-color: #F0F0F0 !important;
-    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 13%, #F0F0F0 13%, #F0F0F0 100%);
+    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 13%, $main-color-first 0.1%, #F0F0F0 13.1%, #F0F0F0 100%);
 }
 
 .wrapper {
@@ -285,6 +285,10 @@ body {
     hr {
         border-top: 1px solid #333333;
     }
+
+    &-container {
+        max-height: 650px;
+    }
 }
 
 .news-post {
@@ -294,10 +298,7 @@ body {
     max-height: 180px;
     box-shadow: 0 0 1px 0 #000000;
     padding: 20px;
-
-    &:not(:last-child) {
-        margin-bottom: 20px;
-    }
+    margin-bottom: 20px;
 
     .post-title {
         margin-bottom: 20px;
