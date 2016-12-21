@@ -1,0 +1,21 @@
+@import 'variables';
+$scroll-bar-thumb: $main-color-first;
+$scroll-bar-track: #b2b2b2;
+
+.news-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.news-container::-webkit-scrollbar-track {
+    background-color: $scroll-bar-track;
+    border-radius: 5px;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $scroll-bar-thumb;
+}
+
+.news-container::-webkit-scrollbar-thumb:hover {
+    background-color: darken($scroll-bar-thumb,10%);
+}

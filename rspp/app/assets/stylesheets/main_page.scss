@@ -1,13 +1,18 @@
 @import "variables";
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+
+// 1.1rem = Body font-size(10) * 1.1
+
 
 body {
     //background-color: #F0F0F0 !important;
     background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 13%, $main-color-first 0.1%, #F0F0F0 13.1%, #F0F0F0 100%);
+    font-family: 'PT Sans Narrow', sans-serif !important;
+    font-size: 17px !important;
 }
 
 .wrapper {
-    width: 90%;
-    min-height: 2500px; // for scrolling
+    min-height: 2000px; // for scrolling
 }
 
 #mainNavbar {
@@ -81,7 +86,7 @@ body {
     box-shadow: 0 0 2px 0 #CCCCCC;
 
     .navbar-brand {
-        font-size: 22px;
+        font-size: 2.2rem;
     }
 
     .category {
@@ -100,7 +105,7 @@ body {
             }
 
             .dropdown-text {
-                font-size: 18px;
+                font-size: 1.8rem;
                 transition-duration: 0.2s;
             }
         }
@@ -126,7 +131,7 @@ body {
     top: -50px;
     position: absolute;
     right: 0;
-    font-size: 16px;
+    font-size: 1.6rem;
     display: none;
     z-index: 15;
 
@@ -212,7 +217,7 @@ body {
 .user-actions {
     width: 270px;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1.6rem;
     text-align: center;
     position: absolute;
     right: 0;
@@ -222,7 +227,6 @@ body {
         box-shadow: 0 0 10px 0 $main-color-second;
         background: #EBEBEB;
         padding: 15px 10px;
-
     }
 
     button {
@@ -230,7 +234,7 @@ body {
             margin-right: 5px;
         }
         width: 47%;
-        font-size: 17px;
+        font-size: 1.7rem;
         padding: 4px;
         border-color: transparent;
         color: #FFFFFF;
@@ -245,7 +249,7 @@ body {
             background: darken($main-color-second, 8%);
         }
     }
-    
+
     .signup-btn {
         background: $main-color-first;
 
@@ -257,8 +261,9 @@ body {
 
 .user-info {
     text-align: center;
+
     p {
-        font-size: 20px;
+        font-size: 2rem;
     }
 }
 
@@ -268,12 +273,16 @@ body {
     height: 130px;
 }
 
+.scroller {
+    overflow-y: scroll;
+}
+$news-post-height: 220px;
 
 .news {
     display: inline-block;
     width: 37%;
     margin-top: 45px;
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
     float: right;
     background: #F0F0F0;
 
@@ -287,18 +296,20 @@ body {
     }
 
     &-container {
-        max-height: 650px;
+        max-height: $news-post-height * 4;
+        padding-right: 7px;
     }
 }
 
 .news-post {
-    border-radius: 6px;
+    // border-radius: 6px;
     background: #FFFFFF;
     vertical-align: top;
     max-height: 180px;
     box-shadow: 0 0 1px 0 #000000;
     padding: 20px;
     margin-bottom: 20px;
+    max-height: $news-post-height;
 
     .post-title {
         margin-bottom: 20px;
@@ -309,18 +320,18 @@ body {
             a {
                 text-decoration: none;
                 margin: 0;
-                font-size: 23px;
+                font-size: 2.3rem;
                 color: $main-color-first;
             }
         }
 
         .tags {
             margin-top: 5px;
-            font-size: 15px;
-            
+            font-size: 1.5rem;
+
             .label {
                 &:not(:last-child) {
-                   margin-right: 3px; 
+                    margin-right: 3px;
                 }
             }
 
@@ -332,7 +343,6 @@ body {
                 }
             }
         }
-
     }
 
     hr {

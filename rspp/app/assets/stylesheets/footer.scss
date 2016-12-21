@@ -1,0 +1,36 @@
+@import "variables";
+$footer-height: 100px;
+
+.footer {
+    width: 100%;
+    height: $footer-height;
+    background-color: #E80536;
+    color: #ffffff;
+    box-sizing: border-box;
+    padding-top: $footer-height /4;
+    font-size: 2rem;
+    overflow: hidden;
+
+    // a {
+    //     text-decoration: none !important;
+    //     color: #00ff00;
+    //     font-weight: bold;
+    //
+    //     &:hover {
+    //         color: darken(#00ff00, 10%);
+    //     }
+    // }
+
+    .copyright {
+        float: left;
+    }
+
+    &-address {
+        margin-left: 20%;
+        float: left;
+    }
+
+    &-contact {
+        float: right;
+    }
+}
