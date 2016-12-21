@@ -6,7 +6,7 @@
 
 body {
     //background-color: #F0F0F0 !important;
-    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 13%, $main-color-first 0.1%, #F0F0F0 13.1%, #F0F0F0 100%);
+    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 10%, $main-color-first 0.1%, #F0F0F0 10.1%, #F0F0F0 100%);
     font-family: 'PT Sans Narrow', sans-serif !important;
     font-size: 17px !important;
 }
@@ -282,7 +282,7 @@ $news-post-height: 200px;
 .news {
     display: inline-block;
     width: 40%;
-    margin-top: 45px;
+    margin-top: 15px;
     padding: 20px;
     float: right;
     background: #F0F0F0;
@@ -349,4 +349,91 @@ $news-post-height: 200px;
     hr {
         margin: 10px 0;
     }
+}
+
+.line {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.mass-media {
+    width: 48%;
+    display: inline-block;
+
+    h2 {
+        margin-left: 15px;
+        font-weight: bold;
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+    }
+
+    &-container {
+        padding: 10px;
+
+        hr {
+            width: 80%;
+            margin-top: 18px;
+            margin-bottom: 38px;
+            border-color: #333333;
+        }
+
+        .image {
+            width: 165px;
+            height: 110px;
+        }
+
+        .star-rated {
+            clear: both;
+            display: inline-block;
+            list-style: none;
+            color: $main-color-first;
+            padding: 0px;
+            padding-left: 13px;
+            margin-top: 7px;
+
+            li {
+                padding: 0 2px;
+                float: left;
+            }
+        }
+
+        h4 {
+            color: #CCC;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: normal;
+            line-height: 27px;
+            margin: 0 0 12px 0;
+            a {
+                color: $main-color-first;
+            }
+        }
+
+        .block {
+            display: block;
+            margin-top: 5px;
+            color: $main-color-first;        
+        }
+
+    }
+}
+
+.business-news {
+    width: 50%;
+    float: right;
+    display: inline-block;
+
+    h2 {
+        margin-left: 15px;
+        font-weight: bold;
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+    }
+
+
 }
