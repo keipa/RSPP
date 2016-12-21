@@ -1,12 +1,13 @@
 @import "variables";
 @import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans');
 
 // 1.1rem = Body font-size(10) * 1.1
 
 
 body {
     //background-color: #F0F0F0 !important;
-    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 10%, $main-color-first 0.1%, #F0F0F0 10.1%, #F0F0F0 100%);
+    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 8.5%, $main-color-first 0.07%, #F0F0F0 8.57%, #F0F0F0 100%);
     font-family: 'PT Sans Narrow', sans-serif !important;
     font-size: 17px !important;
 }
@@ -68,6 +69,17 @@ body {
     .item {
         height: 400px;
         overflow: hidden;
+
+        .carousel-caption {
+            top: 0;
+            h3 {
+                font-family: 'PT Sans', sans-serif;
+                font-size: 36px;
+                font-weight: 700;
+                text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
+                text-transform: uppercase;
+            }
+        }
     }
 
     .slide-photo {
@@ -435,5 +447,28 @@ $news-post-height: 200px;
         border-top: 1px solid #333333;
     }
 
+}
 
+.parallax {
+    border-width: 1px 0;
+    border-color: purple;
+    border-style: solid;
+    height: 400px;
+    margin-top: 60px;
+    background-image: url(../img_chania.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: #FFFFFF;
+    font-size: 55px;
+
+    p {
+        margin-top: 20px;
+        font-family: 'PT Sans', sans-serif;
+        text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
+        text-transform: uppercase;
+        font-weight: 700;
+    }
 }
