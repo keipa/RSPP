@@ -12,10 +12,6 @@ body {
     font-size: 17px !important;
 }
 
-.wrapper {
-    min-height: 2000px; // for scrolling
-}
-
 #mainNavbar {
     margin-top: 45px;
     position: relative;
@@ -450,9 +446,6 @@ $news-post-height: 200px;
 }
 
 .parallax {
-    border-width: 1px 0;
-    border-color: purple;
-    border-style: solid;
     height: 400px;
     margin-top: 60px;
     background-image: url(../img_chania.jpg);
@@ -460,7 +453,7 @@ $news-post-height: 200px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    margin-bottom: 20px;
     color: #FFFFFF;
     font-size: 55px;
 
@@ -470,5 +463,43 @@ $news-post-height: 200px;
         text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
         text-transform: uppercase;
         font-weight: 700;
+    }
+}
+
+.exchange-rates {
+    display: inline-block;
+    background: #FFFFFF;
+    padding: 0 15px;
+    border: 5px solid #DDDDDD;
+
+    table {
+        border: 1px solid #DDDDDD;
+
+        .value {
+            border-left: 1px solid #DDDDDD;
+            &.value-up {
+                background: rgba(77, 183, 72, 0.2);
+            }
+            &.value-down {
+                background: rgba(237, 27, 36, 0.2);
+            }
+        }
+
+        td {
+            padding: 8px 16px !important;
+        }
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+    }
+
+    h3 {
+        margin: 0;
     }
 }
