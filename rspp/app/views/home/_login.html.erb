@@ -1,0 +1,7 @@
+<div class="login">
+  <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
+    <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
+    <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
+    <p><%= f.submit "Вход" %></p>
+  <% end %>
+</div>
