@@ -14,3 +14,4 @@ Rails.application.config.assets.precompile += %w( main_page.css )
 
 Rails.application.config.assets.precompile += %w( main_page_login_window.js )
 Rails.application.config.assets.precompile += %w( exchange_rates.js )
+Rails.application.config.assets.precompile += %w( yandex_maps.js )
