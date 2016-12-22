@@ -12,8 +12,8 @@ var previousValue;
 var moneyCodes = [145, 292, 298];
 
 moneyCodes.forEach(function(moneyCode) {
-  var currentDateRequest = "http://www.nbrb.by/API/ExRates/Rates/" + moneyCode + "?onDate=" + currentDateString;
-  var previousDateRequest = "http://www.nbrb.by/API/ExRates/Rates/" + moneyCode + "?onDate=" + previousDateString;
+  var currentDateRequest = "https://www.nbrb.by/API/ExRates/Rates/" + moneyCode + "?onDate=" + currentDateString;
+  var previousDateRequest = "https://www.nbrb.by/API/ExRates/Rates/" + moneyCode + "?onDate=" + previousDateString;
   $.ajax({
     url: previousDateRequest,
     success: function(data) {
