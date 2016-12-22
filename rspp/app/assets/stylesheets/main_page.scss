@@ -1,15 +1,12 @@
 @import "variables";
 @import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
-@import url( 'https://fonts.googleapis.com/css?family=PT+Sans');
-
-// 1.1rem = Body font-size(10) * 1.1
-
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans'); // 1.1rem = Body font-size(10) * 1.1
 
 body {
     //background-color: #F0F0F0 !important;
     background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 8.5%, $main-color-first 0.07%, #F0F0F0 8.57%, #F0F0F0 100%);
     font-family: 'PT Sans Narrow', sans-serif !important;
-    font-size: 17px !important;
+    font-size: 10px !important;
 }
 
 #mainNavbar {
@@ -37,6 +34,7 @@ body {
     margin-top: 7px;
 
     p {
+        font-size: 1.6rem;
         margin: 1.5px;
     }
 
@@ -68,6 +66,7 @@ body {
 
         .carousel-caption {
             top: 0;
+
             h3 {
                 font-family: 'PT Sans', sans-serif;
                 font-size: 36px;
@@ -94,7 +93,7 @@ body {
     box-shadow: 0 0 2px 0 #CCCCCC;
 
     .navbar-brand {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     .category {
@@ -113,7 +112,7 @@ body {
             }
 
             .dropdown-text {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
                 transition-duration: 0.2s;
             }
         }
@@ -225,7 +224,7 @@ body {
 .user-actions {
     width: 270px;
     display: inline-block;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     text-align: center;
     position: absolute;
     right: 0;
@@ -242,7 +241,7 @@ body {
             margin-right: 5px;
         }
         width: 47%;
-        font-size: 1.7rem;
+        font-size: 1.9rem;
         padding: 4px;
         border-color: transparent;
         color: #FFFFFF;
@@ -271,7 +270,7 @@ body {
     text-align: center;
 
     p {
-        font-size: 2rem;
+        font-size: 3.4rem;
     }
 }
 
@@ -284,7 +283,6 @@ body {
 .scroller {
     overflow-y: scroll;
 }
-
 $news-post-height: 200px;
 
 .news {
@@ -306,8 +304,7 @@ $news-post-height: 200px;
 
     &-container {
         max-height: $news-post-height * 3.33;
-        padding: 7px;
-        padding-right: 10px;
+        padding: 7px 10px 7px 7px;
     }
 }
 
@@ -315,10 +312,14 @@ $news-post-height: 200px;
     // border-radius: 6px;
     background: #FFFFFF;
     vertical-align: top;
-    box-shadow: 0px 0px 1px 0px #000000;
+    box-shadow: 0 0 1px 0 #000000;
     padding: 20px;
     margin-bottom: 20px;
     max-height: $news-post-height;
+
+    p {
+        font-size: 1.4rem;
+    }
 
     .post-title {
         margin-bottom: 20px;
@@ -329,7 +330,7 @@ $news-post-height: 200px;
             a {
                 text-decoration: none;
                 margin: 0;
-                font-size: 2.3rem;
+                font-size: 3.1rem;
                 color: $main-color-first;
             }
         }
@@ -374,6 +375,10 @@ $news-post-height: 200px;
         font-weight: bold;
     }
 
+    p {
+        font-size: 1.4rem;
+    }
+
     hr {
         border-top: 1px solid #333333;
     }
@@ -398,13 +403,16 @@ $news-post-height: 200px;
             display: inline-block;
             list-style: none;
             color: $main-color-first;
-            padding: 0px;
-            padding-left: 13px;
+            padding: 0 0 0 13px;
             margin-top: 7px;
 
             li {
                 padding: 0 2px;
                 float: left;
+
+                span {
+                    font-size: 1.4rem;
+                }
             }
         }
 
@@ -414,7 +422,8 @@ $news-post-height: 200px;
             font-weight: bold;
             letter-spacing: normal;
             line-height: 27px;
-            margin: 0 0 12px 0;
+            margin: 0 0 12px;
+
             a {
                 color: $main-color-first;
             }
@@ -423,9 +432,8 @@ $news-post-height: 200px;
         .block {
             display: block;
             margin-top: 5px;
-            color: $main-color-first;        
+            color: $main-color-first;
         }
-
     }
 }
 
@@ -442,20 +450,19 @@ $news-post-height: 200px;
     hr {
         border-top: 1px solid #333333;
     }
-
 }
 
 .parallax {
     height: 400px;
     margin-top: 60px;
-    background-image: url(../img_chania.jpg);
+    background-image: url("../img_chania.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 20px;
     color: #FFFFFF;
-    font-size: 55px;
+    font-size: 4.5rem;
 
     p {
         margin-top: 20px;
@@ -466,22 +473,42 @@ $news-post-height: 200px;
     }
 }
 
-.exchange-rates {
+.boxstyle {
     display: inline-block;
     background: #FFFFFF;
     padding: 0 15px;
     border: 5px solid #DDDDDD;
+    min-height: 260px;
+}
+
+.exchange-rates {
+    @extend .boxstyle;
 
     table {
         border: 1px solid #DDDDDD;
 
         .value {
             border-left: 1px solid #DDDDDD;
+
             &.value-up {
                 background: rgba(77, 183, 72, 0.2);
             }
+
             &.value-down {
                 background: rgba(237, 27, 36, 0.2);
+            }
+        }
+
+        thead {
+            font-weight: bold;
+            background: #ededed;
+            font-size: 1.5rem;
+        }
+
+        tbody {
+            .currensy-name {
+                font-weight: bold;
+                font-size: 1.4rem;
             }
         }
 
@@ -501,5 +528,59 @@ $news-post-height: 200px;
 
     h3 {
         margin: 0;
+    }
+}
+
+.socials {
+    @extend .boxstyle;
+    float: right;
+    h2 {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &-list {
+        list-style: none;
+        padding: 8px;
+
+        li {
+            float: left;
+            margin: 7px;
+            cursor: pointer;
+            border-radius: 50%;
+            background: #ededed;
+            width: 40%;
+            height: 60px;
+            position: relative;
+
+            &:hover {
+                box-shadow: 1px 1px 5px $main-color-first;
+            }
+
+            i {
+                font-size: 4rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            .fa-vk {
+                color: #45668e;
+            }
+
+            .fa-youtube-play {
+                color: #bb0000;
+            }
+
+            .fa-odnoklassniki {
+                color: #ed812b;
+            }
+        }
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+        margin-bottom: 0;
     }
 }
