@@ -442,27 +442,46 @@
     </p>
 </div>
 
-<div class="container">
+<div class="container clearfix">
     <div class="exchange-rates">
-        <h2> Курсы валют </h2>
+        <h2>
+            Курсы валют
+        </h2>
         <hr>
         <table class="table table-striped text-center">
-            <tr>
+            <thead>
                 <td></td>
-                <td><b> Белорусский рубль </b></td>
-            </tr>
-            <tr>
-                <td><b> Доллар США </b></td>
-                <td id="USD" class="value"><h3> ... </h3></td>
-            </tr>
-            <tr>
-                <td><b> Евро </b></td>
-                <td id="EUR" class="value"><h3> ... </h3></td>
-            </tr>
-            <tr>
-                <td><b> Российский рубль </b></td>
-                <td id="RUB" class="value"><h3> ... </h3></td>
-            </tr>
+                <td>BYN(Покупка)</td>
+                <td>BYN(Продажа)</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="currensy-name">USD</td>
+                    <td class="value value-up">
+                        <h3>
+                            1,956
+                        </h3>
+                    </td>
+                    <td class="value value-up">
+                        <h3>
+                            1,962
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="currensy-name">EUR</td>
+                    <td class="value value-down">
+                        <h3>
+                            2,04
+                        </h3>
+                    </td>
+                    <td class="value value-down">
+                        <h3>
+                            2,043
+                        </h3>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 

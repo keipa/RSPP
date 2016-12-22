@@ -479,7 +479,56 @@ $news-post-height: 200px;
     padding: 0 15px;
     border: 5px solid #DDDDDD;
     min-height: 260px;
-    height: 295px; 
+}
+
+.exchange-rates {
+    @extend .boxstyle;
+
+    table {
+        border: 1px solid #DDDDDD;
+
+        .value {
+            border-left: 1px solid #DDDDDD;
+
+            &.value-up {
+                background: rgba(77, 183, 72, 0.2);
+            }
+
+            &.value-down {
+                background: rgba(237, 27, 36, 0.2);
+            }
+        }
+
+        thead {
+            font-weight: bold;
+            background: #ededed;
+            font-size: 1.5rem;
+        }
+
+        tbody {
+            .currensy-name {
+                font-weight: bold;
+                font-size: 1.4rem;
+            }
+        }
+
+        td {
+            padding: 8px 16px !important;
+        }
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+    }
+
+    h3 {
+        margin: 0;
+    }
 }
 
 .socials {
@@ -493,7 +542,6 @@ $news-post-height: 200px;
     &-list {
         list-style: none;
         padding: 8px;
-        margin-top: 30px;
 
         li {
             float: left;
@@ -501,8 +549,8 @@ $news-post-height: 200px;
             cursor: pointer;
             border-radius: 50%;
             background: #ededed;
-            width: 80px;
-            height: 80px;
+            width: 40%;
+            height: 60px;
             position: relative;
 
             &:hover {
@@ -534,41 +582,5 @@ $news-post-height: 200px;
     hr {
         border-top: 1px solid #333333;
         margin-bottom: 0;
-    }
-}
-
-.exchange-rates {
-    @extend .boxstyle;
-
-    table {
-        border: 1px solid #DDDDDD;
-
-        .value {
-            border-left: 1px solid #DDDDDD;
-            &.value-down {
-                background: rgba(77, 183, 72, 0.2);
-            }
-            &.value-up {
-                background: rgba(237, 27, 36, 0.2);
-            }
-        }
-
-        td {
-            font-size: 16px;
-            padding: 8px 16px !important;
-        }
-    }
-
-    h2 {
-        text-align: center;
-        font-weight: bold;
-    }
-
-    hr {
-        border-top: 1px solid #333333;
-    }
-
-    h3 {
-        margin: 0;
     }
 }

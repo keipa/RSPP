@@ -1,15 +1,16 @@
 @import "variables";
-$footer-height: 100px;
+$footer-height: 80px;
 
 .footer {
     width: 100%;
     height: $footer-height;
-    background-color: #E80536;
+    background-color: lighten(#E80536, 3%);
     color: #ffffff;
     box-sizing: border-box;
     padding-top: $footer-height /4;
     font-size: 2rem;
     overflow: hidden;
+    margin-top: 50px;
 
     // a {
     //     text-decoration: none !important;
