@@ -112,7 +112,7 @@ body {
             }
 
             .dropdown-text {
-                font-size: 2.5rem;
+                font-size: 2rem;
                 transition-duration: 0.2s;
             }
         }
@@ -270,14 +270,18 @@ body {
     text-align: center;
 
     p {
-        font-size: 3.4rem;
+        font-size: 2.5rem;
+    }
+
+    a {
+        font-size: 2rem;
     }
 }
 
 .user-image {
     border-radius: 50%;
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
 }
 
 .scroller {
@@ -455,7 +459,7 @@ $news-post-height: 200px;
 .parallax {
     height: 400px;
     margin-top: 60px;
-    background-image: url("../img_chania.jpg");
+    background-image: url("../parallax.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -463,9 +467,9 @@ $news-post-height: 200px;
     margin-bottom: 20px;
     color: #FFFFFF;
     font-size: 4.5rem;
+    padding-top: 20px;
 
     p {
-        margin-top: 20px;
         font-family: 'PT Sans', sans-serif;
         text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
         text-transform: uppercase;
@@ -571,4 +575,13 @@ $news-post-height: 200px;
     h3 {
         margin: 0;
     }
+}
+
+#map {
+    @extend .boxstyle;
+
+    width: 380px;
+    padding: 0;
+    margin-right: 40px;
+    float: right;
 }
