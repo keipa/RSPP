@@ -280,8 +280,8 @@ body {
 
 .user-image {
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 115px;
+    height: 115px;
 }
 
 .scroller {
@@ -442,7 +442,7 @@ $news-post-height: 200px;
 }
 
 .business-news {
-    width: 50%;
+    width: 48%;
     float: right;
     display: inline-block;
 
@@ -451,8 +451,33 @@ $news-post-height: 200px;
         font-weight: bold;
     }
 
+    p {
+        font-size: 1.4rem;
+    }
+
     hr {
         border-top: 1px solid #333333;
+    }
+
+    &-container {
+        @extend .mass-media-container;
+
+        .star-rated {
+            color: darken($main-color-second, 5%);
+        }
+
+        h4 {
+            a {
+                color: darken($main-color-second, 5%);
+            }
+        }
+
+        .block {
+            display: block;
+            margin-top: 5px;
+            color: darken($main-color-second, 5%);
+        }
+
     }
 }
 
@@ -584,4 +609,105 @@ $news-post-height: 200px;
     padding: 0;
     margin-right: 40px;
     float: right;
+}
+
+.video-block {
+    background: #F0F0F0;
+    margin-top: 45px;
+    display: inline-block;
+    margin-bottom: 20px;
+
+    .video {
+        margin-bottom: 10px;
+    }
+
+    .comments-block {
+        border: 1px solid #dddddd;
+        background-color: #fff;
+        border-color: #ddd;
+        border-top: 1px solid #ddd;
+        padding: 15px;
+
+        .input-group input {
+            font-size: 18px;
+        }
+
+        .input-group-addon a {
+            color: #454545;
+        }
+
+        .comments-list {
+            padding: 0;
+            margin-top: 20px;
+            list-style-type: none;
+
+            .comment {
+                display: block;
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 30px;
+
+                .avatar {
+                    width: 65px;
+                    height: 65px;
+                    margin-right: 10px;
+                }
+
+                .comment-heading {
+                    display: block;
+                    width: 100%;
+
+                    .user {
+                        font-size: 18px;
+                        font-weight: bold;
+                        display: inline;
+                        margin-top: 0;
+                        margin-right: 7px;
+                    }
+
+                    .time {
+                        font-size: 13px;
+                        color: #aaa;
+                        margin-top: 0;
+                        display: inline;
+                    }
+                }
+
+                .comment-body {
+                  margin-left: 50px;
+                  font-size: 17px;
+                }
+            }
+        }
+
+    }
+}
+
+.join-badge {
+    width: 140px;
+    height: 140px;
+    box-shadow: 0 0 10px 0 #000000;
+    border-radius: 50%;
+    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 57%;
+    background: $main-color-first;
+    color: #FFFFFF;
+    cursor: pointer;
+
+    .text {
+        top: 50%;
+        transform: translateY(-50%);
+        position: relative;
+    }
+
+    p {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
+        text-transform: uppercase;
+    }
 }

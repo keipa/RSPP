@@ -3,42 +3,36 @@
         <img id="logo" src="logo.png">
         <ul id="contacts">
             <li class="contact">
-                <p class="contact-name">Швец Александр Иосифович</p>
+                <p class="contact-name">Республиканский Союз <br> Промышленников и Предпринимателей</p>
                 <p class="contact-credits">
-                    + 111111111111,
-                    <a class="email" href="">shvec@mail.ru</a>
-                </p>
-            </li>
-            <li class="contact">
-                <p class="contact-name">Иванов Иван Иванович</p>
-                <p class="contact-credits">+ 222222222222,
-                    <a class="email" href="">ivan@mail.ru</a>
-                </p>
-            </li>
-            <li class="contact">
-                <p class="contact-name">Игорев Игорь Игоревич</p>
-                <p class="contact-credits">+ 333333333333,
-                    <a class="email" href="">igor@mail.ru</a>
+                    + 375 29 111 11 11,
+                    <a class="email" href="">rspp@mail.ru</a>
                 </p>
             </li>
         </ul>
 
-        <%- if user_signed_in? %>
-        <div class="user-info pull-right">
-            <p>
-                Здравствуйте,
-                <%= current_user.first_name %>!
-                <div>
-                    <img class="user-image" src="user.png">
-                </div>
-            </p>
-            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+        <div class="join-badge text-center">
+            <div class="text">
+                <p>Вступить<br>в<br>союз</p>
+            </div>
         </div>
-    <%- else %>
 
-        <%= render 'user_actions' %>
-        <%= render 'login' %>
-        <%= render 'signup' %>
+        <%- if user_signed_in? %>
+            <div class="user-info pull-right">
+                <p>
+                    Здравствуйте,
+                    <%= current_user.first_name %>!
+                    <div>
+                        <img class="user-image" src="user.png">
+                    </div>
+                </p>
+                <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+            </div>
+        <%- else %>
+
+            <%= render 'user_actions' %>
+            <%= render 'login' %>
+            <%= render 'signup' %>
 
         <% end %>
     </nav>
@@ -151,8 +145,58 @@
 
     <div class="line">
         <!-- Photos, comments - ??? -->
-        <div style="width: 60%; height: 500px; background: #F0F0F0; margin-top: 45px; display: inline-block;">
-            <!-- Не догнал, что они тут хотят. -->
+        <div class="video-block">
+            <iframe class="video" width="650" height="450" src="https://www.youtube.com/embed/OCWj5xgu5Ng" frameborder="0" allowfullscreen></iframe>
+
+            <div class="comments-block">
+                <div class="input-group"> 
+                    <input class="form-control" placeholder="Добавить комментарий" type="text">
+                    <span class="input-group-addon">
+                        <a href="#"><i class="fa fa-edit"></i></a>  
+                    </span>
+                </div>
+                <ul class="comments-list">
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Иван Иванов</h4>
+                                <h5 class="time">5 минут назад</h5>
+                            </div>
+                            <p>Полностью согласен!</p>
+                        </div>
+                    </li>
+
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Петр Петров</h4>
+                                <h5 class="time">15 минут назад</h5>
+                            </div>
+                            <p>Категорически не согласен!</p>
+                        </div>
+                    </li>
+
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Сергей Сергеев</h4>
+                                <h5 class="time">23 минуты назад</h5>
+                            </div>
+                            <p>Поддерживаю.</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
         </div>
 
         <div class="news">
@@ -431,7 +475,124 @@
                 Деловые новости
             </h2>
             <hr>
-            <div class="business-news-container"></div>
+            <div class="business-news-container">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder.png">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder2.jpg">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder3.jpg">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
