@@ -3,7 +3,9 @@
         <img id="logo" src="logo.png">
         <ul id="contacts">
             <li class="contact">
-                <p class="contact-name">Республиканский Союз <br> Промышленников и Предпринимателей</p>
+                <p class="contact-name">Республиканский Союз
+                    <br>
+                    Промышленников и Предпринимателей</p>
                 <p class="contact-credits">
                     + 375 29 111 11 11,
                     <a class="email" href="">rspp@mail.ru</a>
@@ -11,28 +13,26 @@
             </li>
         </ul>
 
+        <%- if user_signed_in? %>
+        <div class="user-info pull-right">
+            <p>
+                Здравствуйте,
+                <%= current_user.first_name %>!
+                <div>
+                    <img class="user-image" src="user.png">
+                </div>
+            </p>
+            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+        </div>
+    <%- else %>
         <div class="join-badge text-center">
             <div class="text">
                 <p>Вступить в союз</p>
             </div>
         </div>
-
-        <%- if user_signed_in? %>
-            <div class="user-info pull-right">
-                <p>
-                    Здравствуйте,
-                    <%= current_user.first_name %>!
-                    <div>
-                        <img class="user-image" src="user.png">
-                    </div>
-                </p>
-                <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-            </div>
-        <%- else %>
-
-            <%= render 'user_actions' %>
-            <%= render 'login' %>
-            <%= render 'signup' %>
+        <%= render 'user_actions' %>
+        <%= render 'login' %>
+        <%= render 'signup' %>
 
         <% end %>
     </nav>
@@ -152,7 +152,9 @@
                 <div class="input-group">
                     <input class="form-control" placeholder="Добавить комментарий" type="text">
                     <span class="input-group-addon">
-                        <a href="#"><i class="fa fa-edit"></i></a>
+                        <a href="#">
+                            <i class="fa fa-edit"></i>
+                        </a>
                     </span>
                 </div>
                 <ul class="comments-list">
@@ -605,24 +607,54 @@
 
 <div class="container">
     <div class="exchange-rates">
-        <h2> Курсы валют </h2>
+        <h2>
+            Курсы валют
+        </h2>
         <hr>
         <table class="table table-striped text-center">
             <tr>
                 <td></td>
-                <td><b> Белорусский рубль </b></td>
+                <td>
+                    <b>
+                        Белорусский рубль
+                    </b>
+                </td>
             </tr>
             <tr>
-                <td><b> Доллар США </b></td>
-                <td id="USD" class="value"><h3> ... </h3></td>
+                <td>
+                    <b>
+                        Доллар США
+                    </b>
+                </td>
+                <td id="USD" class="value">
+                    <h3>
+                        ...
+                    </h3>
+                </td>
             </tr>
             <tr>
-                <td><b> Евро </b></td>
-                <td id="EUR" class="value"><h3> ... </h3></td>
+                <td>
+                    <b>
+                        Евро
+                    </b>
+                </td>
+                <td id="EUR" class="value">
+                    <h3>
+                        ...
+                    </h3>
+                </td>
             </tr>
             <tr>
-                <td><b> Российский рубль </b></td>
-                <td id="RUB" class="value"><h3> ... </h3></td>
+                <td>
+                    <b>
+                        Российский рубль
+                    </b>
+                </td>
+                <td id="RUB" class="value">
+                    <h3>
+                        ...
+                    </h3>
+                </td>
             </tr>
         </table>
     </div>
@@ -643,9 +675,7 @@
         </ul>
     </div>
 
-    <div id="map">
-
-    </div>
+    <div id="map"></div>
 </div>
 
 <div class="footer">
