@@ -3,9 +3,7 @@
         <img id="logo" src="logo.png">
         <ul id="contacts">
             <li class="contact">
-                <p class="contact-name">Республиканский Союз
-                    <br>
-                    Промышленников и Предпринимателей</p>
+                <p class="contact-name">Республиканский Союз <br> Промышленников и Предпринимателей</p>
                 <p class="contact-credits">
                     + 375 29 111 11 11,
                     <a class="email" href="">rspp@mail.ru</a>
@@ -13,64 +11,87 @@
             </li>
         </ul>
 
-        <%- if user_signed_in? %>
-        <div class="user-info pull-right">
-            <p>
-                Здравствуйте,
-                <%= current_user.first_name %>!
-                <div>
-                    <img class="user-image" src="user.png">
-                </div>
-            </p>
-            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-        </div>
-    <%- else %>
         <div class="join-badge text-center">
             <div class="text">
-                <p>Вступить в союз</p>
+                <p>Вступить<br>в<br>союз</p>
             </div>
         </div>
-        <%= render 'user_actions' %>
-        <%= render 'login' %>
-        <%= render 'signup' %>
+
+        <%- if user_signed_in? %>
+            <div class="user-info pull-right">
+                <p>
+                    Здравствуйте,
+                    <%= current_user.first_name %>!
+                    <div>
+                        <img class="user-image" src="user.png">
+                    </div>
+                </p>
+                <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+            </div>
+        <%- else %>
+
+            <%= render 'user_actions' %>
+            <%= render 'login' %>
+            <%= render 'signup' %>
 
         <% end %>
     </nav>
 
     <nav id="categories" class="navbar navbar-default text-center">
 
+        <div class="category dropdown">
+            <a href="#" class="navbar-brand">О РСПП</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-text" href="">
+                        Информация
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-text" href="">
+                        Информация
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-text" href="">
+                        Информация
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-        <% @topics.each do |topic| %>
-            <div class="category dropdown">
-                <a href="#" class="navbar-brand"><%= topic.text %></a>
-                <% if topic.subtopics.present? || (user_signed_in? && current_user.role == "admin") %>
-                    <ul class="dropdown-menu">
-                        <% topic.subtopics.each do |subtopic| %>
-                            <li>
-                                <a class="dropdown-text" href="">
-                                    <%= subtopic.text %>
-                                </a>
-                            </li>
-                        <% end %>
-                    <% end %>
-                    <% if user_signed_in? && current_user.role == "admin" %>
-                        <li>
-                            <a class="dropdown-text text-center" href="">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </a>
-                        </li>
-                    </ul>
-                <% end %>
-            </div>
-        <% end %>
+        <div class="category">
+            <a class="navbar-brand" href="">Сотрудничество</a>
+        </div>
 
-        <% if user_signed_in? && current_user.role == "admin" %>
-            <div class="category">
-                <%= link_to new_topic_path, class: "navbar-brand" do %>
-                    <span class="glyphicon glyphicon-plus"></span>
-                <% end %>
-            </div>
-        <% end %>
+        <div class="category dropdown">
+            <a href="#" class="navbar-brand">Международная деятельность</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-text" href="">
+                        Информация и еще информация</a>
+                </li>
+                <li>
+                    <a class="dropdown-text" href="">
+                        Информация и информация</a>
+                </li>
+                <li>
+                    <a class="dropdown-text" href="">
+                        Информация и информация</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <a class="navbar-brand" href="">
+                Законодательство
+            </a>
+        </div>
+        <div class="category">
+            <a class="navbar-brand" href="">
+                Аналитика
+            </a>
+        </div>
     </nav>
 
     <div id="infoSlider" class="carousel slide" data-ride="carousel">
@@ -122,18 +143,16 @@
         </a>
     </div>
 
-    <div class="line row">
+    <div class="line">
         <!-- Photos, comments - ??? -->
-        <div class="video-block col-md-7">
-            <iframe class="video" style="width:100%;height:423px" src="https://www.youtube.com/embed/OCWj5xgu5Ng" frameborder="0" allowfullscreen></iframe>
+        <div class="video-block">
+            <iframe class="video" width="650" height="450" src="https://www.youtube.com/embed/OCWj5xgu5Ng" frameborder="0" allowfullscreen></iframe>
 
-            <div class="comments-block col-md-12">
-                <div class="input-group">
+            <div class="comments-block">
+                <div class="input-group"> 
                     <input class="form-control" placeholder="Добавить комментарий" type="text">
                     <span class="input-group-addon">
-                        <a href="#">
-                            <i class="fa fa-edit"></i>
-                        </a>
+                        <a href="#"><i class="fa fa-edit"></i></a>  
                     </span>
                 </div>
                 <ul class="comments-list">
@@ -180,7 +199,7 @@
             </div>
         </div>
 
-        <div class="news col-md-5">
+        <div class="news">
             <h2>
                 Новости РСПП
             </h2>
@@ -586,54 +605,24 @@
 
 <div class="container">
     <div class="exchange-rates">
-        <h2>
-            Курсы валют
-        </h2>
+        <h2> Курсы валют </h2>
         <hr>
         <table class="table table-striped text-center">
             <tr>
                 <td></td>
-                <td>
-                    <b>
-                        Белорусский рубль
-                    </b>
-                </td>
+                <td><b> Белорусский рубль </b></td>
             </tr>
             <tr>
-                <td>
-                    <b>
-                        Доллар США
-                    </b>
-                </td>
-                <td id="USD" class="value">
-                    <h3>
-                        ...
-                    </h3>
-                </td>
+                <td><b> Доллар США </b></td>
+                <td id="USD" class="value"><h3> ... </h3></td>
             </tr>
             <tr>
-                <td>
-                    <b>
-                        Евро
-                    </b>
-                </td>
-                <td id="EUR" class="value">
-                    <h3>
-                        ...
-                    </h3>
-                </td>
+                <td><b> Евро </b></td>
+                <td id="EUR" class="value"><h3> ... </h3></td>
             </tr>
             <tr>
-                <td>
-                    <b>
-                        Российский рубль
-                    </b>
-                </td>
-                <td id="RUB" class="value">
-                    <h3>
-                        ...
-                    </h3>
-                </td>
+                <td><b> Российский рубль </b></td>
+                <td id="RUB" class="value"><h3> ... </h3></td>
             </tr>
         </table>
     </div>
@@ -654,7 +643,9 @@
         </ul>
     </div>
 
-    <div id="map"></div>
+    <div id="map">
+
+    </div>
 </div>
 
 <div class="footer">

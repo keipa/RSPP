@@ -1,0 +1,4 @@
+<%= form_for(:topic, url: topics_path(:topic), html: {style: "font-size: 70px;"}) do |f| %>
+  <p><%= f.text_field :text, autocomplete: "off", placeholder: "Текст" %></p>
+  <p><%= f.submit "Добавить" %></p>
+<% end %>
