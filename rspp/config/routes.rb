@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     get "/users", to: "devise/registrations#new"
   end
   
+  resources :topics, only: [:new, :create, :edit, :update]
 end
