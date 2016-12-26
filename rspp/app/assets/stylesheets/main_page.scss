@@ -97,6 +97,21 @@ body {
         font-size: 2.5rem;
     }
 
+    .delete-cross {
+        width: 15px;
+        height: 15px;
+        background: rgba(0,0,0,0.6);
+        color: rgba(255,255,255,0.6);
+        position: absolute;
+        text-align: center;
+        cursor: pointer; 
+        margin-top: 10px; 
+
+        span {
+            font-size: 9px;
+        }
+    }
+
     .category {
         color: $main-color-first;
         border-style: solid;
