@@ -55,9 +55,9 @@
                     <% end %>
                     <% if user_signed_in? && current_user.role == "admin" %>
                         <li>
-                            <a class="dropdown-text text-center" href="">
+                            <%= link_to edit_topic_path(topic), class: "dropdown-text text-center" do %>
                                 <span class="glyphicon glyphicon-plus"></span>
-                            </a>
+                            <% end %>
                         </li>
                     </ul>
                 <% end %>
