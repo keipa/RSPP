@@ -1,6 +1,6 @@
-class CreateGaleries < ActiveRecord::Migration[5.0]
+class CreateGalleries < ActiveRecord::Migration[5.0]
   def change
-    create_table :galeries do |t|
+    create_table :galleries do |t|
       t.string :name
       t.string :description
 
