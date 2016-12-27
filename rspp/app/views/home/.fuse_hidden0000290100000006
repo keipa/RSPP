@@ -1,0 +1,680 @@
+<div class="container">
+    <nav id="mainNavbar" class="navbar navbar-default">
+        <img id="logo" src="logo.png">
+        <ul id="contacts">
+            <li class="contact">
+                <p class="contact-name">Республиканский Союз
+                    <br>
+                    Промышленников и Предпринимателей</p>
+                <p class="contact-credits">
+                    + 375 29 111 11 11,
+                    <a class="email" href="">rspp@mail.ru</a>
+                </p>
+            </li>
+        </ul>
+
+        <%- if user_signed_in? %>
+        <div class="user-info pull-right">
+            <p>
+                Здравствуйте,
+                <%= current_user.first_name %>!
+                <div>
+                    <img class="user-image" src="user.png">
+                </div>
+            </p>
+            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+        </div>
+    <%- else %>
+        <div class="join-badge text-center">
+            <div class="text">
+                <p>Вступить в союз</p>
+            </div>
+        </div>
+        <%= render 'user_actions' %>
+        <%= render 'login' %>
+        <%= render 'signup' %>
+
+        <% end %>
+    </nav>
+
+    <nav id="categories" class="navbar navbar-default text-center">
+
+
+        <% @topics.each do |topic| %>
+            <% if user_signed_in? && current_user.role == "admin" %>
+                <%= link_to topic_path(topic), method: :delete do %>
+                    <div class="delete-cross" title="Удалить раздел <%= topic.text %>">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </div>
+                <% end %>
+            <% end %>
+            <div class="category dropdown">
+                <a href="#" class="navbar-brand"><%= topic.text %></a>
+                <% if topic.subtopics.present? || (user_signed_in? && current_user.role == "admin") %>
+                    <ul class="dropdown-menu">
+                        <% topic.subtopics.each do |subtopic| %>
+                            <li>
+                                <a class="dropdown-text" href="">
+                                    <%= subtopic.text %>
+                                </a>
+                            </li>
+                        <% end %>
+                    <% end %>
+                    <% if user_signed_in? && current_user.role == "admin" %>
+                        <li>
+                            <%= link_to edit_topic_path(topic), class: "dropdown-text text-center", title: "Добавить подраздел" do %>
+                                <span class="glyphicon glyphicon-plus"></span>
+                            <% end %>
+                        </li>
+                    </ul>
+                <% end %>
+            </div>
+        <% end %>
+
+        <% if user_signed_in? && current_user.role == "admin" %>
+            <div class="category">
+                <%= link_to new_topic_path, class: "navbar-brand", title: "Добавить новый раздел" do %>
+                    <span class="glyphicon glyphicon-plus"></span>
+                <% end %>
+            </div>
+        <% end %>
+    </nav>
+
+    <div id="infoSlider" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#infoSlider" data-slide-to="0" class="active"></li>
+            <li data-target="#infoSlider" data-slide-to="1"></li>
+            <li data-target="#infoSlider" data-slide-to="2"></li>
+            <li data-target="#infoSlider" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item active text-center">
+                <div class="carousel-caption">
+                    <!-- <h3>Мы крутые</h3> -->
+                </div>
+                <img class="slide-photo" src="img_chania.jpg">
+            </div>
+
+            <div class="item">
+                <div class="carousel-caption">
+                    <h3>У нас бизнес</h3>
+                </div>
+                <img class="slide-photo" src="img_chania2.jpg">
+            </div>
+
+            <div class="item">
+                <div class="carousel-caption">
+                    <h3>Мы одна большая семья</h3>
+                </div>
+                <img class="slide-photo" src="img_chania3.jpg">
+            </div>
+
+            <div class="item">
+                <div class="carousel-caption">
+                    <!-- <h3>Стоковые фотки такие классные</h3> -->
+                </div>
+                <img class="slide-photo" src="img_chania4.jpg">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#infoSlider" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#infoSlider" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="line row">
+        <!-- Photos, comments - ??? -->
+        <div class="video-block col-md-7">
+            <iframe class="video" style="width:100%;height:423px" src="https://www.youtube.com/embed/OCWj5xgu5Ng" frameborder="0" allowfullscreen></iframe>
+
+            <div class="comments-block col-md-12">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Добавить комментарий" type="text">
+                    <span class="input-group-addon">
+                        <a href="#">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </span>
+                </div>
+                <ul class="comments-list">
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Иван Иванов</h4>
+                                <h5 class="time">5 минут назад</h5>
+                            </div>
+                            <p>Полностью согласен!</p>
+                        </div>
+                    </li>
+
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Петр Петров</h4>
+                                <h5 class="time">15 минут назад</h5>
+                            </div>
+                            <p>Категорически не согласен!</p>
+                        </div>
+                    </li>
+
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Сергей Сергеев</h4>
+                                <h5 class="time">23 минуты назад</h5>
+                            </div>
+                            <p>Поддерживаю.</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="news col-md-5">
+            <h2>
+                Новости РСПП
+            </h2>
+            <hr>
+            <div class="news-container">
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="blog-single-sidebar-left.html">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="blog-single-sidebar-left.html">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="blog-single-sidebar-left.html">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="blog-single-sidebar-left.html">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="blog-single-sidebar-left.html">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="blog-single-sidebar-left.html">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+
+                <div class="news-post">
+                    <div class="post-title">
+                        <h2>
+                            <a href="blog-single-sidebar-left.html">Новость про РСПП</a>
+                        </h2>
+                        <div class="tags">
+                            <a href="" class="label label-default">Бизнес</a>
+                            <a href="" class="label label-default">3 Комментария</a>
+                            <a class="label label-default">3 Июня, 2017</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="line">
+        <div class="mass-media">
+            <h2>
+                СМИ о нас
+            </h2>
+            <hr>
+            <div class="mass-media-container">
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder.png">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder2.jpg">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder3.jpg">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="business-news">
+            <h2>
+                Деловые новости
+            </h2>
+            <hr>
+            <div class="business-news-container">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder.png">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder2.jpg">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="image">
+                            <img class="image" src="placeholder3.jpg">
+                        </div>
+
+                        <!-- star rated -->
+                        <ul class="star-rated styleSecondColor">
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                        </ul>
+                        <!-- /star rated -->
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <a class="styleColor" href="">РСПП - отличный союз. Репортаж TUT.BY</a>
+                        </h4>
+                        <p>
+                            Dramatic pictures are released showing the destruction wrought by a huge boulder that smashed through a farm in northern Italy after being dislodged by a landslide.
+                            <small class="block">29 Июня 2016, 9:55</small>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="parallax text-center">
+    <p>
+        ПАРТНЕРЫ:
+    </p>
+</div>
+
+<div class="container">
+    <div class="exchange-rates">
+        <h2>
+            Курсы валют
+        </h2>
+        <hr>
+        <table class="table table-striped text-center">
+            <tr>
+                <td></td>
+                <td>
+                    <b>
+                        Белорусский рубль
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Доллар США
+                    </b>
+                </td>
+                <td id="USD" class="value">
+                    <h3>
+                        ...
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Евро
+                    </b>
+                </td>
+                <td id="EUR" class="value">
+                    <h3>
+                        ...
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Российский рубль
+                    </b>
+                </td>
+                <td id="RUB" class="value">
+                    <h3>
+                        ...
+                    </h3>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="socials">
+        <h2>Социальные сети</h2>
+        <hr>
+        <ul class="socials-list clearfix">
+            <li>
+                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+            </li>
+            <li>
+                <i class="fa fa-vk" aria-hidden="true"></i>
+            </li>
+            <li>
+                <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
+            </li>
+        </ul>
+    </div>
+
+    <div id="map"></div>
+</div>
+
+<div class="footer">
+    <div class="container clearfix">
+        <p class="copyright">© 2017 «РСПП», Все права защищены</p>
+        <div class="footer-address">
+            <p>
+                Минск, ул. Сторожевская, 5, офис 15
+            </p>
+            <!-- <a href="http://rspp.by">rssp.by</a> -->
+        </div>
+        <div class="footer-contact">
+            <p class="phone">+375 11 111 11 11</p>
+        </div>
+    </div>
+</div>
