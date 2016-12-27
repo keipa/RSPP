@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-    $.getScript("http://widget.cloudinary.com/global/all.js")
+    $.getScript("https://widget.cloudinary.com/global/all.js")
     $("#upload").click(function(event) {
         cloudinary.openUploadWidget({
                 cloud_name: 'dzcon8dw0',
