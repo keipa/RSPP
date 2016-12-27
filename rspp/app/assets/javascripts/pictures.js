@@ -1,4 +1,3 @@
-// Bad working
 $(document).on('turbolinks:load', function() {
     $.getScript("http://widget.cloudinary.com/global/all.js")
     $("#upload").click(function(event) {
