@@ -1,0 +1,26 @@
+@import "variables";
+
+.media {
+    #upload {
+        width: 400px;
+        height: 100px;
+        line-height: 100px;
+        background: $main-color-second;
+        color: #ffffff;
+        border-radius: 20px;
+        margin: 70px auto;
+        cursor: pointer;
+
+        &:hover {
+            background: darken($main-color-second,10%);
+        }
+
+        p {
+            text-align: center;
+            vertical-align: middle;
+            font-size: 5rem;
+        }
+    }
+
+    
+}
