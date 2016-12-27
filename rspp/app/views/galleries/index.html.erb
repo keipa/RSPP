@@ -1,4 +1,4 @@
-<% if !@galleries.size%>
+<% if @galleries.size == 0%>
 <h2>No Galleries</h2>
 <% else %>
 <ul>
@@ -10,3 +10,5 @@
 </ul>
 <% end %>
 <%= link_to 'Создать галерею', new_gallery_path %>
+<br />
+<%= link_to 'На главную', root_path %>
