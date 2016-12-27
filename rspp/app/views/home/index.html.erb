@@ -11,11 +11,6 @@
             </li>
         </ul>
 
-        <div class="join-badge text-center">
-            <div class="text">
-                <p>Вступить в союз</p>
-            </div>
-        </div>
 
         <%- if user_signed_in? %>
             <div class="user-info pull-right">
@@ -29,6 +24,12 @@
                 <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
             </div>
         <%- else %>
+
+            <div class="join-badge text-center">
+                <div class="text">
+                    <p>Вступить в союз</p>
+                </div>
+            </div>
 
             <%= render 'user_actions' %>
             <%= render 'login' %>
