@@ -11,7 +11,7 @@ body {
 }
 
 #mainNavbar {
-    margin-top: 45px;
+    margin-top: 35px;
     position: relative;
     background-color: #FFFFFF;
     border: none;
@@ -62,7 +62,7 @@ body {
     position: relative;
 
     .item {
-        height: 400px;
+        height: 300px;
         overflow: hidden;
 
         .carousel-caption {
@@ -255,7 +255,7 @@ body {
     text-align: center;
     position: absolute;
     right: 0;
-    top: -50px;
+    top: -40px;
 
     &-container {
         box-shadow: 0 0 10px 0 $main-color-second;
@@ -321,6 +321,7 @@ $news-post-height: 200px;
     width: 40%;
     margin-top: 15px;
     padding: 20px;
+    padding-right: 0;
     float: right;
     background: #F0F0F0;
 
