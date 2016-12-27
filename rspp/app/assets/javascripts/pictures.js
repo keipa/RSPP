@@ -7,15 +7,17 @@ $(document).on('turbolinks:load', function() {
             },
             function(error, result) {
                 var urlImage = $("#upload").attr("image-url");
-                var sendable = {
-                    'image_url': result[0]['url']
-                };
-                $.ajax({
-                    type: "POST",
-                    url: urlImage,
-                    dataType: 'json',
-                    data: sendable
-                });
+                result.forEach(function(res) {
+                    var sendable = {
+                        'image_url': res['url']
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: urlImage,
+                        dataType: 'json',
+                        data: sendable
+                    });
+                })
             });
     });
 });
