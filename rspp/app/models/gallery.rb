@@ -1,4 +1,4 @@
 class Gallery < ApplicationRecord
-    has_many :pictures, :dependent => :destroy
+    has_many :pictures
 
 end

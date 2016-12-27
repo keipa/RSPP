@@ -1,14 +1,25 @@
-<% if @galleries.size == 0%>
-<h2>No Galleries</h2>
-<% else %>
-<ul>
-    <% @galleries.all.each do |gallery| %>
-    <li>
-        <a href="<%=gallery_path(gallery)%>"><%= gallery.name %></a>
-    </li>
+<div class="container gallery-container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="<%=galleries_path%>">Галереи</a>
+                </li>
+                <li>
+                    <a href="<%=new_gallery_path%>">Создать галерею</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="<%=root_path%>">На главную</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1>Галереи</h1>
+    <% if @galleries.empty?%>
+    <h2>Нет галерей</h2>
+    <% else %>
+    <%= render 'gallery-items' %>
     <% end %>
-</ul>
-<% end %>
-<%= link_to 'Создать галерею', new_gallery_path %>
-<br />
-<%= link_to 'На главную', root_path %>
+</div>

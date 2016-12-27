@@ -21,6 +21,11 @@ class GalleriesController < ApplicationController
       @gallery.update_attributes(gallery_params)
   end
 
+  def destroy
+    @gallery.destroy
+    redirect_to galleries_path
+  end
+
   private
 
   def gallery_params
