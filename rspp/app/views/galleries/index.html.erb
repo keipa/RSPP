@@ -1,0 +1,12 @@
+<% if !@galleries.size%>
+<h2>No Galleries</h2>
+<% else %>
+<ul>
+    <% @galleries.all.each do |gallery| %>
+    <li>
+        <a href="<%=gallery_path(gallery)%>"><%= gallery.name %></a>
+    </li>
+    <% end %>
+</ul>
+<% end %>
+<%= link_to 'Создать галерею', new_gallery_path %>

@@ -4,11 +4,19 @@ $(document).on('turbolinks:load', function() {
     $("#upload").click(function(event) {
         cloudinary.openUploadWidget({
                 cloud_name: 'dzcon8dw0',
-                upload_preset: 'kttccpy3',
-                cropping: 'server'
+                upload_preset: 'fxk1eofn'
             },
             function(error, result) {
-                console.log(error, result)
-            }, false)
+                var urlImage = $("#upload").attr("image-url");
+                var sendable = {
+                    'image_url': result[0]['url']
+                };
+                $.ajax({
+                    type: "POST",
+                    url: urlImage,
+                    dataType: 'json',
+                    data: sendable
+                });
+            });
     });
 });
