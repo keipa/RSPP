@@ -1,0 +1,25 @@
+$(function() {
+
+	$('.flexslider').flexslider({
+		animation: "slide"
+	});
+
+	var $fakeInputFile = $('.input-file-custom input'),
+		$fakeInputFileBtn = $('.input-file-custom .upload-btn'),
+		$fakeInputFileName = $('.input-file-custom .file-name');
+
+	$fakeInputFileBtn.on('click', function(e){
+		e.preventDefault();
+		$fakeInputFile.click();
+	});
+
+	$fakeInputFile.on('change', function() {
+		var originalName = $(this).val(),
+			lastIndex = originalName.lastIndexOf("\\");
+	    if (lastIndex >= 0) {
+			originalName = originalName.substring(lastIndex + 1);
+	    }
+	    $fakeInputFileName.text(originalName);
+	});
+
+});
