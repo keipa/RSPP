@@ -27,12 +27,12 @@ $(document).ready(function() {
         }, 150);
     });
 
-    var maxNewsLength = 4;
-    addScroll($('.news-container'));
+    // var maxNewsLength = 3;
+    // addScroll($('.news-container'));
 
-    function addScroll(list) {
-        if (list.children().length > maxNewsLength && !list.hasClass('scroller')) {
-            list.addClass('scroller')
-        }
-    }
+    // function addScroll(list) {
+    //     if (list.children().length > maxNewsLength && !list.hasClass('scroller')) {
+    //         list.addClass('scroller')
+    //     }
+    // }
 })
