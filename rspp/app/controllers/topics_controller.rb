@@ -5,7 +5,12 @@ class TopicsController < ApplicationController
   end
 
   def create
-    Topic.create(topic_params.merge(user_id: current_user.id))
+    #binding.pry
+    @topic = Topic.create(text: topic_params[:text], user_id: current_user.id)
+    topic_params[:subtopics].each do |subtopic|
+      #first.second.first.second - getting name of subtopic from params
+      @topic.subtopics.create(text: topic_params[:subtopics][subtopic][:subtopic_name], user_id: current_user.id)
+    end
     redirect_to root_path
   end
 
@@ -28,7 +33,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:text)
+    params.require(:topic).permit(:text, subtopics: [[:subtopic_name, :subtopic_link]])
   end
 
 end

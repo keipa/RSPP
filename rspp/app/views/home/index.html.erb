@@ -1,4 +1,7 @@
 <div class="container">
+
+    <%= render 'add_topic_form' %>
+
     <nav id="mainNavbar" class="navbar navbar-default">
         <img id="logo" src="logo.png">
         <ul id="contacts">
@@ -63,9 +66,11 @@
                     <% end %>
                     <% if user_signed_in? && current_user.role == "admin" %>
                         <li>
+
                             <%= link_to edit_topic_path(topic), class: "dropdown-text text-center", title: "Добавить подраздел" do %>
                                 <span class="glyphicon glyphicon-plus"></span>
                             <% end %>
+
                         </li>
                     </ul>
                 <% end %>
@@ -74,9 +79,14 @@
 
         <% if user_signed_in? && current_user.role == "admin" %>
             <div class="category">
+                <!--
                 <%= link_to new_topic_path, class: "navbar-brand", title: "Добавить новый раздел" do %>
                     <span class="glyphicon glyphicon-plus"></span>
                 <% end %>
+                -->
+                <a class="navbar-brand add-topic-sign">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
             </div>
         <% end %>
 
