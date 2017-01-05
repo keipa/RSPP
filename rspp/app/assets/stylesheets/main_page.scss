@@ -816,4 +816,28 @@ $news-post-height: 200px;
     width: 70%;
     margin: 15px 0;
   }
+
+  .close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.add-subtopic-form {
+    @extend .add-topic-form;
+
+    &-header {
+        @extend .add-topic-form-header;
+        border: none;
+        
+        input {
+            width: 48%;
+        }
+
+        select {
+            margin-bottom: 20px;
+        }
+
+    }
 }

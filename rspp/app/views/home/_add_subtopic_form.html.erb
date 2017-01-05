@@ -1,16 +1,6 @@
-<div class="add-topic-form">
-  <%= form_for(:topic, url: topics_path(:topic)) do |f| %>
-    <div class="add-topic-form-header">
-      <h1> Добавить раздел </h1>
-      
-      <%= f.text_field :text, autocomplete: "off", placeholder: "Название" %>
-      <%= f.submit "Добавить" %>
-
-      <div class="close">
-        <span class="glyphicon glyphicon-remove"></span>
-      </div>
-    </div>
-    <div class="add-topic-form-footer">
+<div class="add-subtopic-form">
+  <%= form_for(:topic, url: topics_path(:topic), method: :put) do |f| %>
+    <div class="add-subtopic-form-header">
       <h2> Добавить подразделы </h2>
       <p>
         Количество:
@@ -28,6 +18,12 @@
 
       <div class="subtopicsInfo">
         
+      </div>
+
+       <%= f.submit "Добавить" %>
+
+      <div class="close">
+        <span class="glyphicon glyphicon-remove"></span>
       </div>
     </div>
   <% end %>

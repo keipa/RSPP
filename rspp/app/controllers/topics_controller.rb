@@ -5,10 +5,8 @@ class TopicsController < ApplicationController
   end
 
   def create
-    #binding.pry
     @topic = Topic.create(text: topic_params[:text], user_id: current_user.id)
     topic_params[:subtopics].each do |subtopic|
-      #first.second.first.second - getting name of subtopic from params
       @topic.subtopics.create(text: topic_params[:subtopics][subtopic][:subtopic_name], user_id: current_user.id)
     end
     redirect_to root_path
@@ -20,8 +18,10 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    @subtopic = Topic.create(topic_params.merge(user_id: current_user.id, topic_id: @topic.id))
-    redirect_to edit_topic_path(@topic)
+    topic_params[:subtopics].each do |subtopic|
+      @topic.subtopics.create(text: topic_params[:subtopics][subtopic][:subtopic_name], user_id: current_user.id)
+    end
+    redirect_to root_path
   end
 
   def destroy
