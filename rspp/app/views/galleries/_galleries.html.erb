@@ -3,15 +3,17 @@
     <div class="col-sm-6 col-md-4 ">
         <div class="thumbnail gallery-item">
             <a href="<%=gallery_path(gallery)%>">
-                <%if gallery.pictures.empty? %>
-                <img src="no-photo.jpg" alt="<%=gallery.name%>">
+
+                <% if gallery.type_gallery.to_s == 'photo' %>
+                <img src="photo-icon.png" alt="<%=gallery.name%>">
                 <% else %>
-                <img src="<%= gallery.pictures.first.image_url%>" alt="<%=gallery.name%>">
+                <img src="video-icon.png" alt="<%=gallery.name%>">
                 <% end %>
             </a>
             <div class="caption">
-                <h3><%=gallery.name%></h3>
-                <p><%=gallery.description%></p>
+                <a href="<%=gallery_path(gallery)%>">
+                    <h3><%=gallery.name%></h3>
+                </a>
                 <p>
                     <a href="<%=gallery_path(gallery)%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a>
                     <a href="#" class="btn btn-default" role="button">Редактировать</a>

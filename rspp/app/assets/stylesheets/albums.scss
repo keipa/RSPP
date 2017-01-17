@@ -1,0 +1,97 @@
+@import "variables";
+
+body {
+    background: #ffffff !important;
+}
+
+.album-container {
+    font-size: 2rem;
+
+    h1 {
+        text-align: center;
+    }
+
+    .album-item {
+        min-height: 400px;
+        max-height: 400px;
+
+        img {
+            max-height: 200px;
+        }
+    }
+}
+
+.new-album {
+    margin: auto;
+    width: 40%;
+
+    a {
+        text-decoration: none;
+    }
+
+    a,
+    button {
+        color: #FFFFFF;
+        font-size: 2rem;
+    }
+
+    input,
+    textarea {
+        box-sizing: border-box;
+        display: block;
+        border-width: 1px;
+        border-style: solid;
+        padding: 6px;
+        outline: 0;
+        font-family: inherit;
+        font-size: 2rem;
+    }
+
+    input[type="text"] {
+        background: #FFFFFF;
+        border-color: #BBBBBB;
+        color: #555555;
+    }
+}
+
+.media {
+    .big-button {
+        width: 400px;
+        height: 100px;
+        line-height: 100px;
+        color: #ffffff;
+        border-radius: 20px;
+        margin: 70px auto;
+        cursor: pointer;
+    }
+
+    .big-text {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 5rem;
+    }
+
+    a,
+    a:hover {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    #upload {
+        @extend .big-button;
+        background: $main-color-second;
+
+        &:hover {
+            background: darken($main-color-second,10%);
+        }
+    }
+
+    #back-to-albums {
+        @extend .big-button;
+        background-color: $main-color-first;
+
+        &:hover {
+            background: darken($main-color-first,10%);
+        }
+    }
+}

@@ -29,7 +29,7 @@ class GalleriesController < ApplicationController
   private
 
   def gallery_params
-    params.require(:gallery).permit(:name, :description)
+    params.require(:gallery).permit(:name,:type_gallery)
   end
 
   def set_gallery
