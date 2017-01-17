@@ -1,0 +1,748 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans");
+/* line 5, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+body {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 10.75%, #ED1B24 0.1%, #F0F0F0 10.85%, #F0F0F0 100%);
+  font-family: 'PT Sans Narrow', sans-serif !important;
+  font-size: 10px !important;
+}
+
+/* line 13, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#mainNavbar {
+  margin-top: 45px;
+  position: relative;
+  background-color: #FFFFFF;
+  border: none;
+}
+
+/* line 20, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#logo {
+  width: 235px;
+  height: 198px;
+}
+
+/* line 25, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#contacts {
+  display: inline-block;
+  list-style: none;
+  vertical-align: middle;
+}
+
+/* line 31, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.contact {
+  margin-top: 7px;
+}
+/* line 32, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.contact:not(:last-child) {
+  border-bottom: 1px solid #ededed;
+}
+/* line 37, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.contact p {
+  margin: 1.5px;
+}
+/* line 41, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.contact-name {
+  font-size: 3rem;
+  font-weight: bold;
+}
+/* line 46, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.contact-credits {
+  font-size: 2.1rem;
+  padding-bottom: 3px;
+}
+/* line 50, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.contact-credits .email {
+  color: #ED1B24;
+  text-decoration: none;
+}
+/* line 54, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.contact-credits .email:hover {
+  color: #ae0e15;
+}
+
+/* line 61, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#infoSlider {
+  position: relative;
+}
+/* line 64, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#infoSlider .item {
+  height: 400px;
+  overflow: hidden;
+}
+/* line 68, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#infoSlider .item .carousel-caption {
+  top: 0;
+}
+/* line 71, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#infoSlider .item .carousel-caption h3 {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+/* line 81, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#infoSlider .slide-photo {
+  width: 100%;
+  top: -50px;
+}
+
+/* line 87, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories {
+  margin-top: 35px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0;
+  background: #FFFFFF;
+  border-color: #CCCCCC;
+  box-shadow: 0 0 2px 0 #CCCCCC;
+}
+/* line 97, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .navbar-brand {
+  font-size: 2.5rem;
+}
+/* line 101, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .delete-cross {
+  width: 15px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/* line 111, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .delete-cross span {
+  font-size: 9px;
+}
+/* line 116, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category {
+  color: #ED1B24;
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  border-color: #FAFAFA;
+  padding: 7px 0;
+  transition: border 0.2s;
+}
+/* line 124, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category:hover {
+  border-color: #ED1B24;
+}
+/* line 127, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category:hover .dropdown-menu {
+  display: block;
+}
+/* line 131, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category:hover .dropdown-text {
+  font-size: 2rem;
+  transition-duration: 0.2s;
+}
+/* line 135, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category:hover .dropdown-text .text-center {
+  border: 1px solid red;
+}
+/* line 141, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category span {
+  font-size: 17px;
+  margin: 0;
+  padding: 0;
+}
+/* line 147, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category a {
+  color: #ED1B24;
+}
+/* line 151, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category .dropdown-menu {
+  display: none;
+  transition: display 0.2s;
+}
+/* line 156, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#categories .category .dropdown-text:hover {
+  color: #FFFFFF !important;
+  background-color: #ED1B24 !important;
+}
+
+/* line 163, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login, .signup {
+  width: 270px;
+  top: -50px;
+  position: absolute;
+  right: 0;
+  font-size: 1.6rem;
+  display: none;
+  z-index: 15;
+}
+/* line 172, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login p, .signup p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 177, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login-container, .signup-container {
+  border: 1px solid #4DB748;
+  border-top: none;
+  background: #EBEBEB;
+  padding: 10px;
+}
+/* line 184, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login p, .signup p {
+  padding: 4px 13px;
+}
+/* line 188, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login input, .signup input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 6px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 2rem;
+}
+/* line 200, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login input[type="email"], .signup input[type="email"],
+.login input[type="password"],
+.signup input[type="password"],
+.login input[type="text"],
+.signup input[type="text"] {
+  background: #FFFFFF;
+  border-color: #BBBBBB;
+  color: #555555;
+}
+/* line 208, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login input[type="email"]:focus, .signup input[type="email"]:focus,
+.login input[type="password"]:focus,
+.signup input[type="password"]:focus,
+.login input[type="text"]:focus,
+.signup input[type="text"]:focus {
+  border-color: #888888;
+}
+/* line 214, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login input[type="submit"], .signup input[type="submit"] {
+  background: #4DB748;
+  padding: 5px;
+  width: 100%;
+  border-color: transparent;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 0.4s;
+  display: inline-block;
+}
+/* line 225, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login input[type="submit"]:hover, .signup input[type="submit"]:hover {
+  background: #3e923a;
+}
+/* line 229, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.login input[type="submit"]:focus, .signup input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+/* line 237, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.signup-container {
+  border: 1px solid #ED1B24;
+}
+/* line 242, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.signup input[type="submit"] {
+  background: #ED1B24;
+}
+/* line 246, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.signup input[type="submit"]:hover {
+  background: #c51017;
+}
+
+/* line 251, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions {
+  width: 270px;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: -50px;
+}
+/* line 260, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions-container {
+  box-shadow: 0 0 10px 0 #4DB748;
+  background: #EBEBEB;
+  padding: 15px 10px;
+}
+/* line 266, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions button {
+  width: 47%;
+  font-size: 1.9rem;
+  padding: 4px;
+  border-color: transparent;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 0.4s;
+}
+/* line 267, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions button:not(:last-child) {
+  margin-right: 5px;
+}
+/* line 279, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions .login-btn {
+  background: #4DB748;
+}
+/* line 282, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions .login-btn:hover {
+  background: #419a3c;
+}
+/* line 287, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions .signup-btn {
+  background: #ED1B24;
+}
+/* line 290, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-actions .signup-btn:hover {
+  background: #cf1018;
+}
+
+/* line 296, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-info {
+  text-align: center;
+}
+/* line 299, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-info p {
+  font-size: 2.5rem;
+}
+/* line 303, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-info a {
+  font-size: 2rem;
+}
+
+/* line 308, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.user-image {
+  border-radius: 50%;
+  width: 115px;
+  height: 115px;
+}
+
+/* line 314, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.scroller {
+  overflow-y: scroll;
+}
+
+/* line 319, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news {
+  display: inline-block;
+  width: 40%;
+  margin-top: 15px;
+  padding: 20px;
+  float: right;
+  background: #F0F0F0;
+}
+/* line 327, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news h2 {
+  margin-left: 15px;
+  font-weight: bold;
+}
+/* line 332, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news hr {
+  border-top: 1px solid #333333;
+}
+/* line 336, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-container {
+  max-height: 666px;
+  padding: 7px 10px 7px 7px;
+}
+
+/* line 342, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post {
+  background: #FFFFFF;
+  vertical-align: top;
+  box-shadow: 0 0 1px 0 #000000;
+  padding: 20px;
+  margin-bottom: 20px;
+  max-height: 200px;
+}
+/* line 351, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post p {
+  font-size: 1.4rem;
+}
+/* line 355, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post .post-title {
+  margin-bottom: 20px;
+}
+/* line 358, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post .post-title h2 {
+  margin: 0;
+}
+/* line 361, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post .post-title h2 a {
+  text-decoration: none;
+  margin: 0;
+  font-size: 3.1rem;
+  color: #ED1B24;
+}
+/* line 369, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post .post-title .tags {
+  margin-top: 5px;
+  font-size: 1.5rem;
+}
+/* line 374, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post .post-title .tags .label:not(:last-child) {
+  margin-right: 3px;
+}
+/* line 379, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post .post-title .tags .label-default {
+  background-color: #919191;
+}
+/* line 382, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post .post-title .tags .label-default:hover {
+  background-color: #787878;
+}
+/* line 389, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.news-post hr {
+  margin: 10px 0;
+}
+
+/* line 394, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.line {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* line 400, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media {
+  width: 48%;
+  display: inline-block;
+}
+/* line 404, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media h2 {
+  margin-left: 15px;
+  font-weight: bold;
+}
+/* line 409, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media p {
+  font-size: 1.4rem;
+}
+/* line 413, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media hr {
+  border-top: 1px solid #333333;
+}
+/* line 417, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container, .business-news-container {
+  padding: 10px;
+}
+/* line 420, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container hr, .business-news-container hr {
+  width: 80%;
+  margin-top: 18px;
+  margin-bottom: 38px;
+  border-color: #333333;
+}
+/* line 427, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container .image, .business-news-container .image {
+  width: 165px;
+  height: 110px;
+}
+/* line 432, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container .star-rated, .business-news-container .star-rated {
+  clear: both;
+  display: inline-block;
+  list-style: none;
+  color: #ED1B24;
+  padding: 0 0 0 13px;
+  margin-top: 7px;
+}
+/* line 440, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container .star-rated li, .business-news-container .star-rated li {
+  padding: 0 2px;
+  float: left;
+}
+/* line 444, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container .star-rated li span, .business-news-container .star-rated li span {
+  font-size: 1.4rem;
+}
+/* line 450, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container h4, .business-news-container h4 {
+  color: #CCC;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: normal;
+  line-height: 27px;
+  margin: 0 0 12px;
+}
+/* line 458, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container h4 a, .business-news-container h4 a {
+  color: #ED1B24;
+}
+/* line 463, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.mass-media-container .block, .business-news-container .block {
+  display: block;
+  margin-top: 5px;
+  color: #ED1B24;
+}
+
+/* line 471, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.business-news {
+  width: 48%;
+  float: right;
+  display: inline-block;
+}
+/* line 476, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.business-news h2 {
+  margin-left: 15px;
+  font-weight: bold;
+}
+/* line 481, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.business-news p {
+  font-size: 1.4rem;
+}
+/* line 485, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.business-news hr {
+  border-top: 1px solid #333333;
+}
+/* line 492, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.business-news-container .star-rated {
+  color: #45a541;
+}
+/* line 497, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.business-news-container h4 a {
+  color: #45a541;
+}
+/* line 502, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.business-news-container .block {
+  display: block;
+  margin-top: 5px;
+  color: #45a541;
+}
+
+/* line 510, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.parallax {
+  height: 400px;
+  margin-top: 60px;
+  background-image: url("../parallax.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+  font-size: 4.5rem;
+  padding-top: 20px;
+}
+/* line 523, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.parallax p {
+  font-family: 'PT Sans', sans-serif;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* line 531, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.boxstyle, .socials, .exchange-rates, #map {
+  display: inline-block;
+  background: #FFFFFF;
+  padding: 0 15px;
+  border: 5px solid #DDDDDD;
+  min-height: 260px;
+  height: 295px;
+}
+
+/* line 540, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials {
+  float: right;
+}
+/* line 544, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials h2 {
+  font-weight: bold;
+  text-align: center;
+}
+/* line 549, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials-list {
+  list-style: none;
+  padding: 8px;
+  margin-top: 30px;
+}
+/* line 554, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials-list li {
+  float: left;
+  margin: 7px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #ededed;
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+/* line 564, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials-list li:hover {
+  box-shadow: 1px 1px 5px #ED1B24;
+}
+/* line 568, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials-list li i {
+  font-size: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* line 576, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials-list li .fa-vk {
+  color: #45668e;
+}
+/* line 580, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials-list li .fa-youtube-play {
+  color: #bb0000;
+}
+/* line 584, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials-list li .fa-odnoklassniki {
+  color: #ed812b;
+}
+/* line 590, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.socials hr {
+  border-top: 1px solid #333333;
+  margin-bottom: 0;
+}
+
+/* line 599, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates table {
+  border: 1px solid #DDDDDD;
+}
+/* line 602, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates table .value {
+  border-left: 1px solid #DDDDDD;
+}
+/* line 605, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates table .value.value-down {
+  background: rgba(77, 183, 72, 0.2);
+}
+/* line 609, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates table .value.value-up {
+  background: rgba(237, 27, 36, 0.2);
+}
+/* line 614, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates table td {
+  font-size: 16px;
+  padding: 8px 16px !important;
+}
+/* line 620, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates h2 {
+  text-align: center;
+  font-weight: bold;
+}
+/* line 625, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates hr {
+  border-top: 1px solid #333333;
+}
+/* line 629, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.exchange-rates h3 {
+  margin: 0;
+}
+
+/* line 634, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+#map {
+  width: 380px;
+  padding: 0;
+  margin-right: 40px;
+  float: right;
+}
+
+/* line 642, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block {
+  background: #F0F0F0;
+  margin-top: 45px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+/* line 648, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .video {
+  margin-bottom: 10px;
+}
+/* line 652, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block {
+  border: 1px solid #dddddd;
+  background-color: #fff;
+  border-color: #ddd;
+  border-top: 1px solid #ddd;
+  padding: 15px;
+}
+/* line 659, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .input-group input {
+  font-size: 18px;
+}
+/* line 663, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .input-group-addon a {
+  color: #454545;
+}
+/* line 667, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .comments-list {
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+}
+/* line 672, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .comments-list .comment {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+/* line 678, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .comments-list .comment .avatar {
+  width: 65px;
+  height: 65px;
+  margin-right: 10px;
+}
+/* line 684, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .comments-list .comment .comment-heading {
+  display: block;
+  width: 100%;
+}
+/* line 688, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .comments-list .comment .comment-heading .user {
+  font-size: 18px;
+  font-weight: bold;
+  display: inline;
+  margin-top: 0;
+  margin-right: 7px;
+}
+/* line 696, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .comments-list .comment .comment-heading .time {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 0;
+  display: inline;
+}
+/* line 704, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.video-block .comments-block .comments-list .comment .comment-body {
+  margin-left: 50px;
+  font-size: 17px;
+}
+
+/* line 713, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.join-badge {
+  width: 260px;
+  height: 60px;
+  box-shadow: 0 0 5px 0 #000000;
+  display: inline-block;
+  top: 42%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: .3%;
+  background: #f70539;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+/* line 727, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.join-badge:hover {
+  background: #dd111a;
+}
+/* line 731, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.join-badge .text {
+  display: inline-block;
+  line-height: 60px;
+}
+/* line 736, /home/mikhail/Projects/RSPP/rspp/app/assets/stylesheets/main_page.scss */
+.join-badge p {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}

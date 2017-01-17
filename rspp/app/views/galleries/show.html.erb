@@ -1,28 +1,28 @@
-<div class="container media">
-    <div id="upload" image-url="<%= gallery_pictures_path(@gallery) %>">
-        <p class="big-text">
-            Загрузить
-        </p>
-    </div>
-    <div id="back-to-galleries">
-        <a href="<%=galleries_path%>">
-            <p class="big-text">Назад</p>
-        </a>
-    </div>
-    <div class="row">
-        <% @gallery.pictures.all.each do |picture| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <%= image_tag picture.image_url, class: "img-responsive"%>
-                <div class="caption">
-                    <h3><%= picture.name %></h3>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">Редактировать</a>
-                        <a href="<%=gallery_picture_path(@gallery,picture)%>" data-method="delete" class="btn btn-danger" role="button">Удалить</a>
-                    </p>
-                </div>
-            </div>
+<div class="container album-container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="<%=galleries_path%>">Галерея</a>
+                </li>
+                <% if current_user can? :create, @gallery %>
+                <li>
+                    <a href="<%=new_gallery_album_path(@gallery)%>">Создать альбом</a>
+                </li>
+                <%end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="<%=root_path%>">На главную</a>
+                </li>
+            </ul>
         </div>
-        <% end %>
-    </div>
+    </nav>
+    <h1><%=@gallery.name %></h1>
+    <h1>Альбомы</h1>
+    <% if @gallery.albums.empty?%>
+    <h2>Нет альбомов</h2>
+    <% else %>
+    <%= render 'gallery-albums' %>
+    <% end %>
 </div>

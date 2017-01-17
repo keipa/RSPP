@@ -2,8 +2,11 @@
     <div class="new-gallery">
         <h1>Новая галерея</h1>
         <%= form_for(:gallery, url: galleries_path, method: :post) do |f| %>
-        <p><%= f.text_field :name, autocomplete: "off", placeholder: "Имя галлереи" %></p>
-        <p><%= f.text_area :description, autocomplete: "off", placeholder: "Описание" %></p>
+        <p><%= f.text_field :name, autocomplete: "off", placeholder: "Имя галереи" %></p>
+        <%= f.radio_button :type_gallery, 'photo', :checked => true %>
+        <%= label :type_photo, 'Фотогалерея' %>
+        <%= f.radio_button :type_gallery, 'video' %>
+        <%= label :type_video, 'Видеогалерея' %>
         <div class="btn-group">
             <button type="submit" class="btn btn-success">Создать</button>
             <%= link_to 'Назад',galleries_path, class: "btn btn-info" %>

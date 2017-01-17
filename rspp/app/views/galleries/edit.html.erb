@@ -1,0 +1,20 @@
+<div class="container ">
+    <div class="new-gallery">
+        <h1>Редактирование</h1>
+        <%= form_for(:gallery, url: gallery_path, method: :patch) do |f| %>
+        <p><%= f.text_field :name, autocomplete: "off", placeholder: "Имя галереи" %></p>
+        <p>
+            <%= f.radio_button :type_gallery, 'photo', :checked => true %>
+            <%= label :type_photo, 'Фотогалерея' %>
+        </p>
+        <p>
+            <%= f.radio_button :type_gallery, 'video' %>
+            <%= label :type_video, 'Видеогалерея' %>
+        </p>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success">Создать</button>
+            <%= link_to 'Назад',galleries_path, class: "btn btn-info" %>
+        </div>
+        <% end %>
+    </div>
+</div>
