@@ -5,9 +5,11 @@
                 <li>
                     <a href="<%=galleries_path%>">Галерея</a>
                 </li>
+                <% if current_user can? :create, @gallery %>
                 <li>
                     <a href="<%=new_gallery_album_path(@gallery)%>">Создать альбом</a>
                 </li>
+                <%end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>

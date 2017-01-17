@@ -8,6 +8,8 @@ gem 'font-awesome-sass'
 gem 'cloudinary'
 gem "paperclip", "~> 5.0.0"
 
+gem 'cancancan'
+gem "rolify"
 gem 'Bootstrap-Image-Gallery-rails'
 
 

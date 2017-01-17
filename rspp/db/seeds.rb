@@ -8,5 +8,5 @@
 
 Gallery.create(name: "Фотогалерея", type_gallery: "photo")
 Gallery.create(name: "Видеогалерея", type_gallery: "video")
-User.create(first_name: "Admin", last_name: "Admin", email: "admin@rspp.by", password: "123456789", role: "admin")
+User.create(first_name: "Admin", last_name: "Admin", email: "admin@rspp.by", password: "123456789")
 Topic.create([{text: "О РСПП", user_id: 1}, {text: "Сотрудничество", user_id: 1}, {text: "Международная деятельность", user_id: 1}, {text: "Законодательство", user_id: 1}, {text: "Аналитика", user_id: 1}])
