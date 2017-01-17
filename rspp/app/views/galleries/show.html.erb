@@ -1,28 +1,34 @@
-<div class="container album-container">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="<%=galleries_path%>">Галерея</a>
-                </li>
-                <% if can? :create, @gallery %>
-                <li>
-                    <a href="<%=new_gallery_album_path(@gallery)%>">Создать альбом</a>
-                </li>
-                <%end %>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="<%=root_path%>">На главную</a>
-                </li>
-            </ul>
+<div class="container-fluid gallery-page">
+    <div class="container gallery-page-content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid nav-content">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="<%=galleries_path%>">Галерея</a>
+                    </li>
+                    <% if can? :manage, @gallery %>
+                    <li>
+                        <a href="<%=new_gallery_album_path(@gallery)%>">Создать альбом</a>
+                    </li>
+                    <%end %>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<%=root_path%>">На главную</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="gallery-page-items">
+            <div class="gallery-page-header">
+                <% if @gallery.albums.empty?%>
+                <h1>Нет альбомов</h1>
+                <% else %>
+                <h1>Альбомы</h1>
+            </div>
+            <%= render 'gallery_albums' %>
+            <% end %>
         </div>
-    </nav>
-    <h1><%=@gallery.name %></h1>
-    <h1>Альбомы</h1>
-    <% if @gallery.albums.empty?%>
-    <h2>Нет альбомов</h2>
-    <% else %>
-    <%= render 'gallery-albums' %>
-    <% end %>
+    </div>
 </div>

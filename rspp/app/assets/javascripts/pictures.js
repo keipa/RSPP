@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', function() {
     $.getScript("https://widget.cloudinary.com/global/all.js")
-    $("#upload").click(function(event) {
+    $("#upload-picture").click(function(event) {
         cloudinary.openUploadWidget({
                 cloud_name: 'dzcon8dw0',
                 upload_preset: 'fxk1eofn'
             },
             function(error, result) {
-                var urlImage = $("#upload").attr("image-url");
+                var urlImage = $("#upload-picture").attr("image-url");
                 result.forEach(function(res) {
                     var sendable = {
                         'image_url': res['url']

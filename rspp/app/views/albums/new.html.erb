@@ -1,13 +1,32 @@
-<div class="container ">
-    <div class="new-album">
-        <h1>Новый альбом</h1>
-        <%= form_for(:album, url: gallery_albums_path(@gallery), method: :post) do |f| %>
-        <p><%= f.text_field :name, autocomplete: "off", placeholder: "Имя альбома" %></p>
-        <p><%= f.text_area :description, autocomplete: "off", placeholder: "Описание" %></p>
-        <div class="btn-group">
-            <button type="submit" class="btn btn-success">Создать</button>
-            <%= link_to 'Назад',gallery_path(@gallery), class: "btn btn-info" %>
+<div class="container-fluid gallery-page">
+    <div class="container ">
+        <div class="new-gallery">
+            <div class="gallery-page-header">
+                <h1>Новый альбом</h1>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                <%= form_for(:album, url: gallery_albums_path(@gallery), method: :post) do |f| %>
+                <div class="container form-content">
+                    <div class="name-field col-md-8 col-md-offset-2">
+                        <h2>
+                            Введите имя альбома:
+                        </h2>
+                        <%= f.text_field :name, autocomplete: "off", placeholder: "Имя альбома" %>
+                    </div>
+                    <div class="description-field col-md-8 col-md-offset-2">
+                        <h2>
+                            Добавьте описание:
+                        </h2>
+                        <%= f.text_area :description, autocomplete: "off", placeholder: "Описание" %>
+                    </div>
+                    <div class="btn-group col-md-4 col-md-offset-4">
+                        <button type="submit" class="btn btn-success">Создать</button>
+                        <%= link_to 'Назад',gallery_path(@gallery), class: "btn btn-info" %>
+                    </div>
+                </div>
+            </div>
+            <% end %>
         </div>
-        <% end %>
     </div>
+</div>
 </div>
