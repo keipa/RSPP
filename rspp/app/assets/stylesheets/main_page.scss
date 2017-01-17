@@ -323,7 +323,6 @@ $news-post-height: 200px;
     padding: 20px;
     padding-right: 0;
     float: right;
-    background: #F0F0F0;
 
     h2 {
         margin-left: 15px;
@@ -336,8 +335,13 @@ $news-post-height: 200px;
 
     &-container {
         overflow: hidden;
+        padding-right: 20px;
         &:hover {
             overflow-y: scroll;
+
+            .news-post {
+                margin-right: 0;
+            }
         }
         max-height: $news-post-height * 3.2;
         padding: 7px 10px 7px 7px;
@@ -345,13 +349,13 @@ $news-post-height: 200px;
 }
 
 .news-post {
-    // border-radius: 6px;
     background: #FFFFFF;
     vertical-align: top;
     box-shadow: 0 0 1px 0 #000000;
     padding: 20px;
     margin-bottom: 30px;
     max-height: $news-post-height;
+    margin-right: 10px;
 
     p {
         font-size: 1.4rem;
@@ -775,5 +779,65 @@ $news-post-height: 200px;
 
     &-img {
         border-radius: 5px;
+    }
+}
+
+.add-topic-form {
+    width: 35%;
+    height: 600px;
+    z-index: 1000;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    position: fixed;
+    background: #FFFFFF;
+    color: #000000;
+    box-shadow: 0 0 10px 0 #000000;
+    overflow-y: scroll;
+    display: none;
+
+  &-header {
+    font-size: 22px;
+    border-bottom: 1.5px solid #000000;
+    padding: 15px;
+  }
+
+  &-footer {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  &-footer input {
+    width: 48%;
+  }
+
+  &-footer hr {
+    width: 70%;
+    margin: 15px 0;
+  }
+
+  .close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.add-subtopic-form {
+    @extend .add-topic-form;
+
+    &-header {
+        @extend .add-topic-form-header;
+        border: none;
+        
+        input {
+            width: 48%;
+        }
+
+        select {
+            margin-bottom: 20px;
+        }
+
     }
 }
