@@ -12,7 +12,10 @@ class User < ApplicationRecord
     after_create :assign_default_role
 
     def assign_default_role
-        @user = User.first
-        @user.add_role :admin
+        if self == User.first # TODO: fix this method
+            add_role :admin
+        else
+            add_role :user
+        end
     end
 end

@@ -44,9 +44,9 @@
 
     <nav id="categories" class="navbar navbar-default text-center">
 
-        
+
         <% @topics.each do |topic| %>
-            <% if user_signed_in? && current_user.role == "admin" %>
+            <% if can? :manage, Topic %>
                 <%= link_to topic_path(topic), method: :delete do %>
                     <div class="delete-cross" title="Удалить раздел <%= topic.text %>">
                         <span class="glyphicon glyphicon-remove"></span>
@@ -55,7 +55,7 @@
             <% end %>
             <div class="category dropdown">
                 <a href="#" class="navbar-brand"><%= topic.text %></a>
-                <% if topic.subtopics.present? || (user_signed_in? && current_user.role == "admin") %>
+                <% if can? :manage, Topic || topic.subtopics.present? %>
                     <ul class="dropdown-menu">
                         <% topic.subtopics.each do |subtopic| %>
                             <li>
@@ -65,12 +65,12 @@
                             </li>
                         <% end %>
                     <% end %>
-                    <% if user_signed_in? && current_user.role == "admin" %>
+                    <% if can? :manage, Topic %>
                         <li>
                             <a data-id="<%= topic.id %>" class="dropdown-text text-center add-subtopic-sign" title="Добавить подраздел">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </a>
-<!-- 
+<!--
                             <%= link_to edit_topic_path(topic), class: "dropdown-text text-center", title: "Добавить подраздел" do %>
                                 <span class="glyphicon glyphicon-plus"></span>
                             <% end %>
@@ -81,7 +81,7 @@
             </div>
         <% end %>
 
-        <% if user_signed_in? && current_user.role == "admin" %>
+        <% if can? :manage, Topic %>
             <div class="category">
                 <a class="navbar-brand add-topic-sign" title="Добавить раздел">
                     <span class="glyphicon glyphicon-plus"></span>
@@ -146,10 +146,10 @@
             <iframe class="video" style="height: 385px; width: 100%;" src="https://www.youtube.com/embed/c1bzFCyMGk8" frameborder="0" allowfullscreen></iframe>
 
             <div class="comments-block">
-                <div class="input-group"> 
+                <div class="input-group">
                     <input class="form-control" placeholder="Добавить комментарий" type="text">
                     <span class="input-group-addon">
-                        <a href="#"><i class="fa fa-edit"></i></a>  
+                        <a href="#"><i class="fa fa-edit"></i></a>
                     </span>
                 </div>
                 <ul class="comments-list">
@@ -380,7 +380,7 @@
                             <a class="styleColor" href="">Александр ШВЕЦ: «О решениях в сфере реформ власти должны объявить до Нового года»</a>
                         </h4>
                         <p>
-                            Абсолютно независимому частному белорусскому бизнесу реформы нужны. А вот бизнесу, который построен на сателлитной промышленной или торговой кооперации с государственным или частным бизнесом, реформы не нужны. 
+                            Абсолютно независимому частному белорусскому бизнесу реформы нужны. А вот бизнесу, который построен на сателлитной промышленной или торговой кооперации с государственным или частным бизнесом, реформы не нужны.
                             <small class="block">17 Ноября 2015, 08:52</small>
                         </p>
                     </div>
