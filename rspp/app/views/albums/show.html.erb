@@ -6,7 +6,9 @@
         </p>
     </div>
     <%else %>
-
+    <p class="big-text">
+        Загрузить видео
+    </p>
     <% end %>
     <div id="back-to-albums">
         <a href="<%=gallery_path(@gallery)%>">
@@ -17,7 +19,7 @@
         <% @album.pictures.all.each do |picture| %>
         <div class="col-sm-4 col-md-2 thumbnail album-icon">
             <a href="<%= picture.image_url%>" title="" data-gallery>
-              <%= image_tag picture.image_url, class: "img-responsive"%>
+                <%= image_tag picture.image_url, class: "img-responsive"%>
             </a>
         </div>
         <% end %>
