@@ -6,9 +6,11 @@
                     <li>
                         <a href="<%= galleries_path %>">Галереи</a>
                     </li>
+                    <% if can? :manage, @gallery %>
                     <li>
                         <a href="<%= new_gallery_path %>">Создать галерею</a>
                     </li>
+                    <% end %>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -17,15 +19,15 @@
                 </ul>
             </div>
         </nav>
-        <div class="gallery-page-header">
-            <a href="<%= galleries_path %>">
-                <h1>Галереи</h1>
-            </a>
-        </div>
         <div class="gallery-page-items">
-            <% if @galleries.empty? %>
-            <h2>Нет галерей</h2>
-        <% else %>
+            <div class="gallery-page-header">
+                <% if @galleries.empty? %>
+                <h1>Нет галерей</h1>
+                <% else %>
+                <a href="<%= galleries_path %>">
+                    <h1>Галереи</h1>
+                </a>
+            </div>
             <%= render 'galleries' %>
             <% end %>
         </div>
