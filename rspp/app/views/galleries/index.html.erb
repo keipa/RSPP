@@ -1,25 +1,33 @@
-<div class="container gallery-container">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="<%= galleries_path %>">Галереи</a>
-                </li>
-                <li>
-                    <a href="<%= new_gallery_path %>">Создать галерею</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="<%= root_path %>">На главную</a>
-                </li>
-            </ul>
+<div class="container-fluid gallery-page">
+    <div class="container gallery-page-content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid nav-content">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="<%= galleries_path %>">Галереи</a>
+                    </li>
+                    <li>
+                        <a href="<%= new_gallery_path %>">Создать галерею</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<%= root_path %>">На главную</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="gallery-page-header">
+            <a href="<%= galleries_path %>">
+                <h1>Галереи</h1>
+            </a>
         </div>
-    </nav>
-    <h1>Галереи</h1>
-    <% if @galleries.empty? %>
-    <h2>Нет галерей</h2>
-    <% else %>
-    <%= render 'galleries' %>
-    <% end %>
+        <div class="gallery-page-items">
+            <% if @galleries.empty? %>
+            <h2>Нет галерей</h2>
+        <% else %>
+            <%= render 'galleries' %>
+            <% end %>
+        </div>
+    </div>
 </div>

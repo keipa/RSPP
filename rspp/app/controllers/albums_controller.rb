@@ -11,6 +11,11 @@ class AlbumsController < ApplicationController
           redirect_to gallery_album_path(@gallery,@album)
       end
 
+      def update
+          @album.update_attributes(album_params)
+          redirect_to @gallery
+      end
+
       def destroy
           @album.destroy
           redirect_to @gallery

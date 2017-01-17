@@ -2,10 +2,14 @@
 @import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 @import url( 'https://fonts.googleapis.com/css?family=PT+Sans'); // 1.1rem = Body font-size(10) * 1.1
 
+body,
+html {
+    height: 100%;
+}
+
 body {
     //background-color: #F0F0F0 !important;
     background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 5.8%, $main-color-first 0.1%, #F0F0F0 5.9%, #F0F0F0 100%);
-
     font-family: 'PT Sans Narrow', sans-serif !important;
     font-size: 10px !important;
 }
@@ -320,8 +324,7 @@ $news-post-height: 200px;
     display: inline-block;
     width: 48%;
     margin-top: 15px;
-    padding: 20px;
-    padding-right: 0;
+    padding: 20px 0 20px 20px;
     float: right;
 
     h2 {
@@ -336,6 +339,7 @@ $news-post-height: 200px;
     &-container {
         overflow: hidden;
         padding-right: 20px;
+
         &:hover {
             overflow-y: scroll;
 
@@ -729,28 +733,27 @@ $news-post-height: 200px;
     top: 68%;
     transform: translateY(-50%);
     position: absolute;
-    right: .3%;
-    -moz-box-shadow: 3px 4px 0px 0px #8a2a21;
-    -webkit-box-shadow: 3px 4px 0px 0px #8a2a21;
-    box-shadow: 3px 4px 0px 0px #8a2a21;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24437));
-    background:-moz-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-    background:-webkit-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-    background:-o-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-    background:-ms-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-    background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24437',GradientType=0);
-    background-color:#c62d1f;
-    -moz-border-radius:18px;
-    -webkit-border-radius:18px;
-    border-radius:18px;
-    border:1px solid #d02718;
-    cursor:pointer;
-    color:#ffffff;
-    padding:7px 25px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #810e05;
-
+    right: 0.3%;
+    -moz-box-shadow: 3px 4px 0 0 #8a2a21;
+    -webkit-box-shadow: 3px 4px 0 0 #8a2a21;
+    box-shadow: 3px 4px 0 0 #8a2a21;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24437));
+    background: -moz-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+    background: -webkit-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+    background: -o-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+    background: -ms-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+    background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr= '#c62d1f', endColorstr='#f24437',GradientType=0);
+    background-color: #c62d1f;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    border: 1px solid #d02718;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 7px 25px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #810e05;
 
     &:hover {
         background: darken($main-color-first,5%);
@@ -769,7 +772,6 @@ $news-post-height: 200px;
         text-transform: uppercase;
     }
 }
-
 
 .partner {
     display: inline-block;
@@ -797,31 +799,31 @@ $news-post-height: 200px;
     overflow-y: scroll;
     display: none;
 
-  &-header {
-    font-size: 22px;
-    border-bottom: 1.5px solid #000000;
-    padding: 15px;
-  }
+    &-header {
+        font-size: 22px;
+        border-bottom: 1.5px solid #000000;
+        padding: 15px;
+    }
 
-  &-footer {
-    padding: 15px;
-    font-size: 18px;
-  }
+    &-footer {
+        padding: 15px;
+        font-size: 18px;
+    }
 
-  &-footer input {
-    width: 48%;
-  }
+    &-footer input {
+        width: 48%;
+    }
 
-  &-footer hr {
-    width: 70%;
-    margin: 15px 0;
-  }
+    &-footer hr {
+        width: 70%;
+        margin: 15px 0;
+    }
 
-  .close {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-  }
+    .close {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
 }
 
 .add-subtopic-form {
@@ -830,7 +832,7 @@ $news-post-height: 200px;
     &-header {
         @extend .add-topic-form-header;
         border: none;
-        
+
         input {
             width: 48%;
         }
@@ -838,6 +840,5 @@ $news-post-height: 200px;
         select {
             margin-bottom: 20px;
         }
-
     }
 }

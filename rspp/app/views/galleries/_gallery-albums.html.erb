@@ -1,4 +1,4 @@
-<img src="album-icon.png" />
+<img src="album-icon.png"/>
 <div class="row">
     <% @gallery.albums.all.each do |album| %>
     <div class="col-sm-6 col-md-4 ">
@@ -11,7 +11,7 @@
                 <p><%=album.description%></p>
                 <p>
                     <a href="<%=gallery_album_path(@gallery,album)%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a>
-                    <a href="#" class="btn btn-default" role="button">Редактировать</a>
+                    <a href="<%=edit_gallery_album_path(@gallery,album) %>" class="btn btn-default" role="button">Редактировать</a>
                 </p>
             </div>
         </div>
