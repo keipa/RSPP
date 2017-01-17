@@ -2,11 +2,12 @@ Rails.application.routes.draw do
     devise_for :users
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'home#index'
-    resources :galleries do
+    resources :galleries, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
         resources :albums do
             resources :pictures
         end
     end
+
 
     devise_scope :user do
         get '/users', to: 'devise/registrations#new'
