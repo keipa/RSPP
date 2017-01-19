@@ -8,16 +8,17 @@ html {
 }
 
 body {
-    //background-color: #F0F0F0 !important;
-    background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 5.8%, $main-color-first 0.1%, #F0F0F0 5.9%, #F0F0F0 100%);
+    background-color: #F0F0F0 !important;
+    //background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 5.8%, $main-color-first 0.1%, #F0F0F0 5.9%, #F0F0F0 100%);
     font-family: 'PT Sans Narrow', sans-serif !important;
     font-size: 10px !important;
 }
 
 #mainNavbar {
     position: relative;
-    background-color: #FFFFFF;
+    background-color: #F0F0F0;
     border: none;
+    margin-top: 15px;
 }
 
 #logo {
@@ -184,7 +185,7 @@ body {
 
 .login {
     width: 270px;
-    top: -5px;
+    top: -16px;
     position: absolute;
     right: 0;
     font-size: 1.6rem;
@@ -277,7 +278,7 @@ body {
     text-align: center;
     position: absolute;
     right: 0;
-    top: -5px;
+    top: -15px;
 
     &-container {
         box-shadow: 0 0 10px 0 $main-color-second;
@@ -520,8 +521,21 @@ $news-post-height: 200px;
     &-container {
         @extend .mass-media-container;
 
-        .star-rated {
-            color: darken($main-color-second, 5%);
+        .row {
+            padding-left: 10px;
+
+            .col-md-4 {
+                margin-right: 15px;
+            }
+
+            .col-md-7 {
+                padding-left: 0; 
+            }
+
+            p {
+                padding: 0 15px;
+                font-size: 18px;
+            }
         }
 
         h4 {
@@ -531,7 +545,7 @@ $news-post-height: 200px;
         }
 
         .block {
-            display: block;
+            display: inline-block;
             margin-top: 5px;
             color: darken($main-color-second, 5%);
         }
