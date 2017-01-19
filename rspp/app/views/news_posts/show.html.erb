@@ -1,37 +1,38 @@
 <div class="back-btn">
-  <%= link_to root_path do %>
+    <%= link_to root_path do %>
     <span class="glyphicon glyphicon-chevron-left"></span>
-  <% end %>
+    <% end %>
 </div>
 
 <div class="container news-post-container">
-  <h1><%= @post.title %></h1>
+    <h1><%= @post.title %></h1>
 
-  <hr>
+    <hr>
 
-  <% if @post.description.present? %>
+    <% if @post.description.present? %>
     <h3>
-      <b>
-        <%= @post.description %>
-      </b>
+        <b>
+            <%= @post.description %>
+        </b>
     </h3>
 
     <hr>
-  <% end %>
+    <% end %>
 
-  <div class="news-post-content">
-    <img src="../news_post.jpg" class="news-post-image-container">
-    <h4>
-      <% @post.text.split("\n").each do |paragraph| %>
-        <p>
-          <%= paragraph %>
+    <div class="news-post-content">
+        <img src="<%= @post.image_url%>" class="news-post-image-container">
+        <h4>
+            <% @post.text.split("\n").each do |paragraph| %>
+            <p>
+                <%= paragraph %>
+            </p>
+            <% end %>
+        </h4>
+
+        <p style="font-size: 16px;">
+            Опубликовал:
+            <%= @post.user.first_name %>
+            <%= @post.user.last_name %>
         </p>
-      <% end %>
-    </h4>
-
-    <p style="font-size: 16px;">
-      Опубликовал: <%= @post.user.first_name %> <%= @post.user.last_name %>
-    </p>
-  </div>
+    </div>
 </div>
-

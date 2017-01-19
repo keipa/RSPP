@@ -13,10 +13,12 @@
     </h3>
 
     <hr>
-
-    <p><%= f.file_field :image_url, autocomplete: "off", placeholder: "Изображение" %></p>    
+    <div class="btn-load" id="upload-picture-2">
+      Загрузить фото
+      <input type="hidden" name="news_post[image_url]" id="news_post_image_url">
+    </div>
     <p><%= f.text_area :text, autocomplete: "off", placeholder: "Текст", class: "content-input" %></p>
-  
+
 
     <p><%= f.submit "Добавить" %></p>
   </div>

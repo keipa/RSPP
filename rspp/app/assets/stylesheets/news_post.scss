@@ -29,8 +29,8 @@
 
   .news-post-content {
     .news-post-image-container {
-      float: left; 
-      margin-right: 40px; 
+      float: left;
+      margin-right: 40px;
       margin-bottom: 30px;
     }
 
@@ -58,5 +58,13 @@
   .content-input {
     font-size: 18px;
     max-height: 250px;
+  }
+
+  .btn-load {
+    width: 100px;
+    height: 30px;
+    background: #ffffff;
+    cursor: pointer;
+    border: 1px solid #000000;
   }
 }
