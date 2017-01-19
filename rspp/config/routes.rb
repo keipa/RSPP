@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     end
 
     resources :topics, only: [:new, :create, :edit, :update, :destroy]
+    resources :news_posts
 end

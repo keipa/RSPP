@@ -6,6 +6,7 @@ class User < ApplicationRecord
            :recoverable, :rememberable, :trackable, :validatable
 
     has_many :topics
+    has_many :news_posts
 
     validates_presence_of :first_name, :last_name
 
