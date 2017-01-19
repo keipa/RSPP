@@ -4,6 +4,8 @@
       <h1> Добавить раздел </h1>
       
       <%= f.text_field :text, autocomplete: "off", placeholder: "Название" %>
+      <%= f.text_field :link, autocomplete: "off", placeholder: "Ссылка на материал" %>
+
       <%= f.submit "Добавить" %>
 
       <div class="close">

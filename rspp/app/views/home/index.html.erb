@@ -53,29 +53,30 @@
                     </div>
                 <% end %>
             <% end %>
+
             <div class="category dropdown">
-                <a href="#" class="navbar-brand"><%= topic.text %></a>
+                <a href="<%= topic.link %>" class="navbar-brand"><%= topic.text %></a>
                 <% if can? :manage, Topic || topic.subtopics.present? %>
                     <ul class="dropdown-menu">
                         <% topic.subtopics.each do |subtopic| %>
                             <li>
-                                <a class="dropdown-text" href="">
+                                <a class="dropdown-text" href="<%= subtopic.link %>">
                                     <%= subtopic.text %>
                                 </a>
                             </li>
-                        <% end %>
-                    <% end %>
-                    <% if can? :manage, Topic %>
-                        <li>
-                            <a data-id="<%= topic.id %>" class="dropdown-text text-center add-subtopic-sign" title="Добавить подраздел">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </a>
-<!--
-                            <%= link_to edit_topic_path(topic), class: "dropdown-text text-center", title: "Добавить подраздел" do %>
-                                <span class="glyphicon glyphicon-plus"></span>
+                            <%= link_to topic_path(subtopic), method: :delete do %>
+                                <div class="delete-cross-subtopic" title="Удалить раздел <%= subtopic.text %>">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </div>
                             <% end %>
- -->
-                        </li>
+                        <% end %>
+                        <% if can? :manage, Topic %>
+                            <li>
+                                <a data-id="<%= topic.id %>" class="dropdown-text text-center add-subtopic-sign" title="Добавить подраздел">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </li>
+                        <% end %>
                     </ul>
                 <% end %>
             </div>
