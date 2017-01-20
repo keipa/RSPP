@@ -11,6 +11,10 @@ class AlbumsController < ApplicationController
           redirect_to gallery_album_path(@gallery,@album)
       end
 
+      def show
+        @videos = @album.videos.order(created_at: :desc)
+      end
+
       def update
           @album.update_attributes(album_params)
           redirect_to @gallery

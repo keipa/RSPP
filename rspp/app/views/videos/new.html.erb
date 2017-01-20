@@ -19,10 +19,10 @@
                                 Выберите тип видео:
                             </h2>
                             <div class="radio">
-                                <label><%= f.radio_button :type_video, 'inerview', :checked => true %>Интервью</label>
+                                <label for="video_type_video_meeting"><%= f.radio_button :type_video, 'meeting'%>Мероприятие</label>
                             </div>
                             <div class="radio">
-                                <label><%= f.radio_button :type_video, 'meeting'%>Мероприятие</label>
+                                <label for="video_type_video_interview"><%= f.radio_button :type_video, 'interview', :checked => true %>Интервью</label>
                             </div>
                         </div>
                     </div>

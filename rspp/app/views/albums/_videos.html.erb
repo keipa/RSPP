@@ -13,7 +13,7 @@
         <h1>Нет Видео</h1>
         <% end %>
     </div>
-    <% @album.videos.all.each do |video| %>
+    <% @videos.all.each do |video| %>
     <div class="col-md-6">
         <div class="video-item thumbnail">
             <% if can? :manage, Gallery %>
