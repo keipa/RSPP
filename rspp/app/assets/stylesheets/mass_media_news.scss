@@ -1,0 +1,70 @@
+@import "variables";
+
+.mass-media-news {
+    width: 48%;
+    display: inline-block;
+
+    h2 {
+        margin-left: 15px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+    }
+
+    &-container {
+        padding: 10px;
+
+        hr {
+            width: 80%;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-color: #333333;
+        }
+
+        .date-block {
+            display: block;
+            margin-top: 5px;
+            color: $main-color-first;
+        }
+    }
+
+    &-post {
+        margin: 0;
+
+        .image {
+            width: 160px;
+            height: 115px;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 20px;
+        }
+
+        .text {
+            display: inline-block;
+            width: 65%;
+        }
+
+        h4 {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: normal;
+            line-height: 27px;
+            margin: 0 0 12px;
+
+            a {
+                color: $main-color-first;
+            }
+        }
+
+        p {
+            padding: 0;
+            font-size: 18px;
+        }
+    }
+}

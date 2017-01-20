@@ -1,0 +1,54 @@
+<div class="business-news">
+    <h2>
+        Деловые новости
+        <% if can? :manage, NewsPost %>
+            <small><i>
+                <%= link_to "Добавить", new_news_post_path %>
+            </i></small>
+        <% end %>
+    </h2>
+    <hr>
+    <div class="business-news-container">
+        <% @news.each do |news_post| %>
+            <div class="business-news-post">
+                <% if news_post.image_url.present? %>
+                    <div class="image text-center">
+                        <img class="image" src="<%=news_post.image_url%>">
+                    </div>
+                    <div class="text">
+                        <h4>
+                            <%= link_to news_post.title, news_post_path(news_post) %>
+                            <% if can? :manage, NewsPost %>
+                                <a href="<%= edit_news_post_path(news_post) %>" title="Редактировать"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <%= link_to news_post_path(news_post), method: :delete, title: "Удалить" do %>
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                <% end %>
+                            <% end %>
+                        </h4>
+                        <p>
+                            <%= news_post.description %>
+                            <p><small class="date-block">28 Декабря 2016, 9:55</small></p>
+                        </p>
+                    </div>
+                <% else %>
+                    <div class="full-text">
+                        <h4>
+                            <%= link_to news_post.title, news_post_path(news_post), html: {class: "styleColor"} %>
+                            <% if can? :manage, NewsPost %>
+                                <a href="<%= edit_news_post_path(news_post) %>" title="Редактировать"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <%= link_to news_post_path(news_post), method: :delete, title: "Удалить" do %>
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                <% end %>
+                            <% end %>
+                        </h4>
+                    </div>
+                    <p>
+                        <%= news_post.description %>
+                        <p><small class="block">28 Декабря 2016, 9:55</small></p>
+                    </p>
+                <% end %>
+            </div>
+            <hr>
+        <% end %>
+    </div>
+</div>

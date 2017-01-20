@@ -3,7 +3,7 @@ $(document).ready(function() {
         e.stopPropagation();
         $(".user-actions").slideUp(250);
         setTimeout(function() {
-            $(".login").slideDown(250);
+            $(".login-window").slideDown(250);
         }, 150);
     })
 
@@ -11,28 +11,19 @@ $(document).ready(function() {
         e.stopPropagation();
         $(".user-actions").slideUp(250);
         setTimeout(function() {
-            $(".signup").slideDown(250);
+            $(".signup-window").slideDown(250);
         }, 150);
     });
 
     $("body").click(function(e) {
-        if (($(e.target).closest("form").hasClass("login-container")) ||
-            ($(e.target).closest("form").hasClass("signup-container"))) {
+        if (($(e.target).closest("form").hasClass("login-window-container")) ||
+            ($(e.target).closest("form").hasClass("signup-window-container"))) {
             return $(e.target)[0].type === "submit" ? true : false;
         }
-        $(".signup").slideUp(250);
-        $(".login").slideUp(250);
+        $(".signup-window").slideUp(250);
+        $(".login-window").slideUp(250);
         setTimeout(function() {
             $(".user-actions").slideDown(250);
         }, 150);
     });
-
-    // var maxNewsLength = 3;
-    // addScroll($('.news-container'));
-
-    // function addScroll(list) {
-    //     if (list.children().length > maxNewsLength && !list.hasClass('scroller')) {
-    //         list.addClass('scroller')
-    //     }
-    // }
 })

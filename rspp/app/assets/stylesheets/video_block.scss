@@ -1,0 +1,73 @@
+.video-block {
+    background: #F0F0F0;
+    margin-top: 30px;
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 50%;
+
+    .video {
+        margin-bottom: 10px;
+    }
+
+    .comments-block {
+        border: 1px solid #dddddd;
+        background-color: #fff;
+        border-color: #ddd;
+        border-top: 1px solid #ddd;
+        padding: 15px;
+        width: 100%;
+        height: 100%;
+
+        .input-group input {
+            font-size: 18px;
+        }
+
+        .input-group-addon a {
+            color: #454545;
+        }
+
+        .comments-list {
+            padding: 0;
+            margin-top: 20px;
+            list-style-type: none;
+
+            .comment {
+                display: block;
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 30px;
+
+                .avatar {
+                    width: 65px;
+                    height: 65px;
+                    margin-right: 10px;
+                }
+
+                .comment-heading {
+                    display: block;
+                    width: 100%;
+
+                    .user {
+                        font-size: 18px;
+                        font-weight: bold;
+                        display: inline;
+                        margin-top: 0;
+                        margin-right: 7px;
+                    }
+
+                    .time {
+                        font-size: 13px;
+                        color: #aaa;
+                        margin-top: 0;
+                        display: inline;
+                    }
+                }
+
+                .comment-body {
+                    margin-left: 50px;
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
