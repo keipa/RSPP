@@ -20,14 +20,15 @@ $(document).on('turbolinks:load', function() {
                 })
             });
     });
-    $("#upload-picture-2").click(function(event) {
+    $("#upload-picture-news-post").click(function(event) {
         cloudinary.openUploadWidget({
                 cloud_name: 'dzcon8dw0',
                 upload_preset: 'fxk1eofn'
             },
             function(error, result) {
-                var imageInput = $("#upload-picture-2>input");
+                var imageInput = $("#news_post_image_url");
                 imageInput.val(result[0]['url']);
+                $("#upload-picture-news-post")[0].outerHTML = "<div><img id='loadedImage' src='" + result[0]['url'] +"'></div>"
             });
     });
 });
