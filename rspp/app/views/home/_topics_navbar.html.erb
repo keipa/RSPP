@@ -1,0 +1,49 @@
+<nav id="topics" class="navbar navbar-default text-center">
+
+    <% @topics.each do |topic| %>
+        <% if can? :manage, Topic %>
+            <%= link_to topic_path(topic), method: :delete do %>
+                <div class="delete-cross" title="Удалить раздел <%= topic.text %>">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </div>
+            <% end %>
+        <% end %>
+
+        <div class="category dropdown">
+            <a href="<%= topic.link %>" class="navbar-brand"><%= topic.text %></a>
+            <% if can? :manage, Topic || topic.subtopics.present? %>
+                <ul class="dropdown-menu">
+                    <% topic.subtopics.each do |subtopic| %>
+                        <li>
+                            <a class="dropdown-text" href="<%= subtopic.link %>">
+                                <%= subtopic.text %>
+                            </a>
+                        </li>
+                        <% if can? :manage, Topic %>
+                            <%= link_to topic_path(subtopic), method: :delete do %>
+                                <div class="delete-cross-subtopic" title="Удалить раздел <%= subtopic.text %>">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                    <% if can? :manage, Topic %>
+                        <li>
+                            <a data-id="<%= topic.id %>" class="dropdown-text text-center add-subtopic-sign" title="Добавить подраздел">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </a>
+                        </li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </div>
+    <% end %>
+
+    <% if can? :manage, Topic %>
+        <div class="category">
+            <a class="navbar-brand add-topic-sign" title="Добавить раздел">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+    <% end %>
+</nav>
