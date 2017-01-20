@@ -6,16 +6,21 @@ $(document).on('turbolinks:load', function() {
                 upload_preset: 'fxk1eofn'
             },
             function(error, result) {
-                var urlImage = $("#upload-picture").attr("image-url");
+                console.log(error, result)
+                var urlController = $("#upload-picture").attr("image-url");
+                var urlRedirect = $('#upload-picture').attr('data-redirect')
                 result.forEach(function(res) {
                     var sendable = {
                         'image_url': res['url']
                     };
                     $.ajax({
                         type: "POST",
-                        url: urlImage,
+                        url: urlController,
                         dataType: 'json',
-                        data: sendable
+                        data: sendable,
+                        success: function() {
+                            window.location = urlRedirect
+                        }
                     });
                 })
             });
