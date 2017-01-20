@@ -480,37 +480,39 @@
             <h2>
                 Деловые новости
                 <% if can? :manage, NewsPost %>
-                <small>
-                    <i>
+                    <small><i>
                         <%= link_to "Добавить", new_news_post_path %>
-                    </i>
-                </small>
+                    </i></small>
                 <% end %>
             </h2>
             <hr>
             <div class="business-news-container">
                 <% @news.each do |news_post| %>
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                        <div class="image">
-                            <img class="image" src="<%=news_post.image_url%>">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <div class="image">
+                                <img class="image" src="<%=news_post.image_url%>">
+                            </div>
                         </div>
+                        <div class="col-md-7">
+                            <h4>
+                                <%= link_to news_post.title, news_post_path(news_post), html: {class: "styleColor"} %>
+                                <%= link_to edit_news_post_path(news_post) do %>
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                <% end %>
+                                <%= link_to news_post_path(news_post), method: :delete do %>
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                <% end %>
+                            </h4>
+                        </div>
+                        <p>
+                            <%= news_post.description %>
+                            <p><small class="block">28 Декабря 2016, 9:55</small></p>
+                        </p>
                     </div>
-                    <div class="col-md-7">
-                        <h4>
-                            <%= link_to news_post.title, news_post_path(news_post), html: {class: "styleColor"} %>
-                        </h4>
-                    </div>
-                    <p>
-                        <%= news_post.description %>
-                        <small class="block">28 Декабря 2016, 9:55</small>
-                    </p>
-                </div>
-                <hr>
+                    <hr>
                 <% end %>
-
             </div>
-
         </div>
     </div>
 </div>
