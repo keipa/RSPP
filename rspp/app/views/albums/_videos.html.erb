@@ -8,40 +8,97 @@
 <div class="video-container container">
     <div class="gallery-page-header">
         <% if @album.videos.any? %>
-        <h1>Видео</h1>
+        <h1><%=@album.name%></h1>
     <% else %>
         <h1>Нет Видео</h1>
         <% end %>
     </div>
-    <% @album.videos.all.each do |video| %>
-    <div class="col-md-6">
+    <% @videos.all.each do |video| %>
+    <div class="col-md-10 col-md-offset-1 col-sm-10">
         <div class="video-item thumbnail">
-            <% if can? :manage, Gallery %>
             <div class="video-tools">
+
+                <% if can? :manage, Gallery %>
                 <a href="<%=gallery_album_video_path(@gallery, @album,video)%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a>
                 <a href="<%=edit_gallery_album_video_path(@gallery, @album, video)%>" class="btn btn-default" role="button">Редактировать</a>
+                <% end %>
             </div>
-            <% end %>
+
             <iframe src="<%=video.iframe_link%>" frameborder="0" width="100%" frameborder='0' allowfullscreen></iframe>
-            <a class="title-link" href="<%=video.youtube_link%>">
-                <h4><%= video.title %></h4>
-            </a>
-            <% if video.type_video == 'interview'%>
-            <span class="type-video">
+            <div class="title-block">
+                <a class="title-link" href="<%=video.youtube_link%>">
+                    <h3><%= video.title %></h3>
+                </a>
+                <% if video.type_video == 'interview'%>
+                <span class="type-video">
+                    <p>
+                        Видеоинтервью
+                    </p>
+                </span>
+                <%else%>
+                <span class="type-video">
+                    <p>
+                        Видеомероприятие
+                    </p>
+                </span>
+                <%end%>
+            </div>
+            <div class="video-description-block">
                 <p>
-                    Видеоинтервью
+                    <%= video.description %>
                 </p>
-            </span>
-            <%else%>
-            <span class="type-video">
-                <p>
-                    Видеомероприятие
-                </p>
-            </span>
-            <%end%>
-            <p class="video-description">
-                <%= video.description %>
-            </p>
+            </div>
+            <div class="comments-block">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Добавить комментарий" type="text">
+                    <span class="input-group-addon">
+                        <a href="#">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </span>
+                </div>
+                <ul class="comments-list">
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Иван Иванов</h4>
+                                <h5 class="time">5 минут назад</h5>
+                            </div>
+                            <p>Полностью согласен!</p>
+                        </div>
+                    </li>
+
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Петр Петров</h4>
+                                <h5 class="time">15 минут назад</h5>
+                            </div>
+                            <p>Категорически не согласен!</p>
+                        </div>
+                    </li>
+
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="user.png">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">Сергей Сергеев</h4>
+                                <h5 class="time">23 минуты назад</h5>
+                            </div>
+                            <p>Поддерживаю.</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
         </div>
     </div>
     <% end %>
