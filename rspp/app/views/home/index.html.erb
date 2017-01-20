@@ -489,11 +489,17 @@
                         <div class="col-md-7">
                             <h4>
                                 <%= link_to news_post.title, news_post_path(news_post), html: {class: "styleColor"} %>
+                                <%= link_to edit_news_post_path(news_post) do %>
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                <% end %>
+                                <%= link_to news_post_path(news_post), method: :delete do %>
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                <% end %>
                             </h4>
                         </div>
                         <p>
                             <%= news_post.description %>
-                            <small class="block">28 Декабря 2016, 9:55</small>
+                            <p><small class="block">28 Декабря 2016, 9:55</small></p>
                         </p>
                     </div>
                     <hr>
