@@ -25,4 +25,14 @@ $(document).on('turbolinks:load', function() {
                 })
             });
     });
+    $("#upload-picture-2").click(function(event) {
+        cloudinary.openUploadWidget({
+                cloud_name: 'dzcon8dw0',
+                upload_preset: 'fxk1eofn'
+            },
+            function(error, result) {
+                var imageInput = $("#upload-picture-2>input");
+                imageInput.val(result[0]['url']);
+            });
+    });
 });

@@ -1,0 +1,70 @@
+@import "variables";
+
+
+.back-btn {
+  position: fixed;
+  font-size: 55px;
+  top: 30px;
+  left: 120px;
+
+  span {
+    transition: 0.2s;
+    color: #555555;
+
+    &:hover {
+      cursor: pointer;
+      color: $main-color-second;
+    }
+  }
+}
+
+.news-post-container {
+  background-color: #FFFFFF;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  hr {
+    border-top: 1px solid #000000;
+  }
+
+  .news-post-content {
+    .news-post-image-container {
+      float: left;
+      margin-right: 40px;
+      margin-bottom: 30px;
+    }
+
+  }
+
+  p {
+    margin-bottom: 25px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    border: none;
+  }
+
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    max-height: 150px;
+  }
+
+  input[type="submit"] {
+    font-size: 25px;
+  }
+
+  .content-input {
+    font-size: 18px;
+    max-height: 250px;
+  }
+
+  .btn-load {
+    width: 100px;
+    height: 30px;
+    background: #ffffff;
+    cursor: pointer;
+    border: 1px solid #000000;
+  }
+}

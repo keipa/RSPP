@@ -483,8 +483,8 @@
                     <div class="row">
                         <div class="col-md-4 text-center">
                             <div class="image">
-                                <img class="image" src="<%=news_post.image_url%>">
-                            </div>
+                                <img class="image" src="placeholder.png">
+                            </div>                        
                         </div>
                         <div class="col-md-7">
                             <h4>

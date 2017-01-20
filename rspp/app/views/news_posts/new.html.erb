@@ -1,0 +1,25 @@
+<%= form_for(:news_post, url: news_posts_path(:news_post)) do |f| %>
+  <div class="container news-post-container">
+    <h1>
+      <p><%= f.text_field :title, autocomplete: "off", placeholder: "Заголовок" %></p>
+    </h1>
+
+    <hr>
+
+    <h3>
+      <b>
+        <p><%= f.text_area :description, autocomplete: "off", placeholder: "Краткое описание" %></p>
+      </b>
+    </h3>
+
+    <hr>
+    <div class="btn-load" id="upload-picture-2">
+      Загрузить фото
+      <input type="hidden" name="news_post[image_url]" id="news_post_image_url">
+    </div>
+    <p><%= f.text_area :text, autocomplete: "off", placeholder: "Текст", class: "content-input" %></p>
+
+
+    <p><%= f.submit "Добавить" %></p>
+  </div>
+<% end %>
