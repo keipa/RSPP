@@ -20,14 +20,10 @@
     <% end %>
 
     <div class="news-post-content">
-        <img src="<%= @post.image_url%>" class="news-post-image-container">
-        <h4>
-            <% @post.text.split("\n").each do |paragraph| %>
-            <p>
-                <%= paragraph %>
-            </p>
-            <% end %>
-        </h4>
+        <% if @post.image_url.present? %>
+          <img id="loadedImage" src="<%= @post.image_url%>" class="news-post-image-container">
+        <% end %>
+        <div id="content" class="no-border"></div>
 
         <p style="font-size: 16px;">
             Опубликовал:
@@ -36,3 +32,21 @@
         </p>
     </div>
 </div>
+
+
+<script>
+  var quill = new Quill('#content', {
+    modules: {
+      toolbar: false
+    },
+    theme: 'snow',
+    readOnly: true
+  });
+  obj = "<%= @post.text.inspect %>".replace(/&quot;/g, '"')
+  if (obj.slice(0,1) == '"') {
+    content = JSON.parse(obj.slice(1,-1));
+  } else {
+    content = JSON.parse(obj);
+  }
+  quill.setContents(content.ops);
+</script>

@@ -17,3 +17,6 @@ Rails.application.config.assets.precompile += %w( exchange_rates.js )
 Rails.application.config.assets.precompile += %w( yandex_maps.js )
 Rails.application.config.assets.precompile += %w( add_topics.js )
 Rails.application.config.assets.precompile += %w( add_subtopics.js )
+Rails.application.config.assets.precompile += %w( quill.js )
+
+

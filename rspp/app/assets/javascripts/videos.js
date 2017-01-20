@@ -1,4 +1,7 @@
 $(document).on('turbolinks:load', function() {
+    $('#video_type_video_meeting, #video_type_video_interview').change(function(e) {
+        toggleRadioVal(e)
+    })
     $('#video-add-button').on('click', function(e) {
         e.preventDefault();
         var url = $('#video-field').val();
@@ -10,8 +13,6 @@ $(document).on('turbolinks:load', function() {
             $.getJSON('https://www.googleapis.com/youtube/v3/videos?id=' + videoId + '&key=' + key + '&part=snippet&callback=?', function(data) {
                 if (typeof(data.items[0]) != "undefined") {
                     var video = getVideoObject(data.items[0]);
-                    // fillHiddenFields(video);
-
                     var urlController = $('#video-field').attr('data-url');
                     var urlRedirect = $('#video-field').attr('data-redirect')
                     $.ajax({
@@ -21,7 +22,7 @@ $(document).on('turbolinks:load', function() {
                         data: video,
                         success: function(result) {
                             console.log(result)
-                            window.location = urlRedirect 
+                            window.location = urlRedirect
                         }
                     })
                 } else {
@@ -40,11 +41,21 @@ $(document).on('turbolinks:load', function() {
             iframe_link: 'https://www.youtube.com/embed/' + data.id,
             title: data.snippet.title,
             description: data.snippet.description,
-            published_at: data.snippet.publishedAt.substring(0, 10)
+            published_at: data.snippet.publishedAt.substring(0, 10),
+            type_video: getRadioVal()
         }
     }
 
-    function fillHiddenFields(video) {
-
+    function toggleRadioVal(e) {
+        $('#video_type_video_meeting, #video_type_video_interview').attr('checked', false);
+        $(e.target).prop('checked', 'checked');
+        $(e.target).attr('checked', 'checked');
     }
+
+    function getRadioVal() {
+        var interview = $('#video_type_video_interview');
+        var meeting = $('#video_type_video_meeting');
+        return interview.attr('checked') ? interview.val() : meeting.val()
+    }
+
 });

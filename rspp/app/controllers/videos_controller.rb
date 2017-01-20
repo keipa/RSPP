@@ -14,6 +14,7 @@ class VideosController < ApplicationController
 
     def update
         @video.update_attributes(video_params)
+        redirect_to gallery_album_path(@gallery,@album)
     end
 
     def destroy
