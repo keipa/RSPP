@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :galleries, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
         resources :albums, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
             resources :pictures
+            resources :videos, only: [:new, :create, :edit, :update, :destroy]
         end
     end
 

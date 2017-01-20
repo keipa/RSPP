@@ -1,0 +1,15 @@
+<div class="container-fluid album-page">
+    <div class="video-form-container col-md-6">
+        <%= form_for(:video, url: gallery_album_videos_path(@gallery,@album), method: :post) do |f| %>
+        <div class="form-group">
+            <%= f.label :link %>
+            <input id="video-field" class="form-control" data-redirect="<%=gallery_album_path(@gallery,@album)%>" data-url="<%=gallery_album_videos_path(@gallery,@album)%>" type="text" name="video[link]">
+            <span class="help-block">Добавьте ссылку на YouTube видео</span>
+        </div>
+
+        <!-- <button class='btn btn-primary' id='video-add-button'>Save</button> -->
+        <%= f.submit class: 'btn btn-primary', id: 'video-add-button' %>
+        <%= link_to 'Назад',gallery_album_path(@gallery,@album), class: "btn btn-info" %>
+        <% end %>
+    </div>
+</div>
