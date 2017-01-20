@@ -50,57 +50,7 @@
                     <%= video.description %>
                 </p>
             </div>
-            <div class="comments-block">
-                <div class="input-group">
-                    <input class="form-control" placeholder="Добавить комментарий" type="text">
-                    <span class="input-group-addon">
-                        <a href="#">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                    </span>
-                </div>
-                <ul class="comments-list">
-                    <li class="comment">
-                        <a class="pull-left" href="#">
-                            <img class="avatar" src="user.png">
-                        </a>
-                        <div class="comment-body">
-                            <div class="comment-heading">
-                                <h4 class="user">Иван Иванов</h4>
-                                <h5 class="time">5 минут назад</h5>
-                            </div>
-                            <p>Полностью согласен!</p>
-                        </div>
-                    </li>
-
-                    <li class="comment">
-                        <a class="pull-left" href="#">
-                            <img class="avatar" src="user.png">
-                        </a>
-                        <div class="comment-body">
-                            <div class="comment-heading">
-                                <h4 class="user">Петр Петров</h4>
-                                <h5 class="time">15 минут назад</h5>
-                            </div>
-                            <p>Категорически не согласен!</p>
-                        </div>
-                    </li>
-
-                    <li class="comment">
-                        <a class="pull-left" href="#">
-                            <img class="avatar" src="user.png">
-                        </a>
-                        <div class="comment-body">
-                            <div class="comment-heading">
-                                <h4 class="user">Сергей Сергеев</h4>
-                                <h5 class="time">23 минуты назад</h5>
-                            </div>
-                            <p>Поддерживаю.</p>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
+            <%= render 'comments/comments' %>
         </div>
     </div>
     <% end %>

@@ -4,12 +4,12 @@
     .video-item {
         margin: 20px 0 !important;
         color: #000000;
-        height: 800px;
+        min-height: 800px;
         margin: 10px;
         overflow: hidden;
 
         iframe {
-            height: 60%;
+            height: 500px;
         }
 
         .title-block {

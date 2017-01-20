@@ -144,6 +144,7 @@
     <div class="line">
         <!-- Photos, comments - ??? -->
         <div class="video-block">
+            <% if !@videos.empty? %>
             <iframe class="video" style="height: 385px; width: 100%;" src="<%=@videos[0].iframe_link%>" frameborder="0" allowfullscreen></iframe>
             <div class="col-md-12">
                 <% @videos[1..4].each do |video| %>
@@ -152,6 +153,7 @@
                 </div>
                 <% end %>
             </div>
+            <% end %>
             <div class="comments-block">
                 <div class="input-group">
                     <input class="form-control" placeholder="Добавить комментарий" type="text">
