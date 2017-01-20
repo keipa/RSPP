@@ -8,7 +8,7 @@
         overflow: hidden;
 
         iframe {
-          height: 60%;
+            height: 60%;
         }
 
         .title-link {
@@ -32,6 +32,17 @@
             a {
                 color: #000000 !important;
             }
+        }
+
+        .type-video {
+            display: block;
+            margin: auto;
+            background: #000000;
+            color: #ffffff;
+            width: 100px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
         }
     }
 }

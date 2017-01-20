@@ -18,7 +18,7 @@ class VideosController < ApplicationController
 
     def destroy
         @video.destroy
-        redirect_to @album
+        redirect_to gallery_album_path(@gallery,@album)
     end
 
     private

@@ -1,15 +1,38 @@
-<div class="container-fluid album-page">
-    <div class="video-form-container col-md-6">
-        <%= form_for(:video, url: gallery_album_videos_path(@gallery,@album), method: :post) do |f| %>
-        <div class="form-group">
-            <%= f.label :link %>
-            <input id="video-field" class="form-control" data-redirect="<%=gallery_album_path(@gallery,@album)%>" data-url="<%=gallery_album_videos_path(@gallery,@album)%>" type="text" name="video[link]">
-            <span class="help-block">Добавьте ссылку на YouTube видео</span>
+<div class="container-fluid gallery-page">
+    <div class="container">
+        <div class="new-gallery">
+            <div class="gallery-page-header">
+                <h1>Добавить видео</h1>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <%= form_for(:video, url: gallery_album_videos_path(@gallery,@album), method: :post) do |f| %>
+                <div class="container form-content">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="name-field">
+                            <h2>
+                                Ссылку на видео с YouTube:
+                            </h2>
+                            <input id="video-field" class="form-control" data-redirect="<%=gallery_album_path(@gallery,@album)%>" data-url="<%=gallery_album_videos_path(@gallery,@album)%>" type="text" name="video[link]" placeholder="https://www.youtube.com/watch?v=abcdefghjkl">
+                        </div>
+                        <div class="choose-field">
+                            <h2>
+                                Выберите тип видео:
+                            </h2>
+                            <div class="radio">
+                                <label><%= f.radio_button :type_video, 'inerview', :checked => true %>Интервью</label>
+                            </div>
+                            <div class="radio">
+                                <label><%= f.radio_button :type_video, 'meeting'%>Мероприятие</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group col-md-4 col-md-offset-4">
+                    <button type="submit" id="video-add-button" class="btn btn-success">Добавить</button>
+                    <%= link_to 'Назад',gallery_album_path(@gallery,@album), class: "btn btn-info" %>
+                </div>
+                <% end %>
+            </div>
         </div>
-
-        <!-- <button class='btn btn-primary' id='video-add-button'>Save</button> -->
-        <%= f.submit class: 'btn btn-primary', id: 'video-add-button' %>
-        <%= link_to 'Назад',gallery_album_path(@gallery,@album), class: "btn btn-info" %>
-        <% end %>
     </div>
 </div>
