@@ -1,0 +1,48 @@
+.video-form-container {}
+
+.video-container {
+    .video-item {
+        color: #000000;
+        height: 500px;
+        margin: 10px;
+        overflow: hidden;
+
+        iframe {
+            height: 60%;
+        }
+
+        .title-link {
+            text-align: center;
+            color: #000000;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .video-description {
+            font-style: italic;
+        }
+
+        .video-tools {
+            box-sizing: border-box;
+            margin: 5px 0;
+            text-align: center;
+
+            a {
+                color: #000000 !important;
+            }
+        }
+
+        .type-video {
+            display: block;
+            margin: auto;
+            background: #000000;
+            color: #ffffff;
+            width: 100px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+}
