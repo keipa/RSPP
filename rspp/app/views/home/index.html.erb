@@ -1,3 +1,5 @@
+<%= render 'vertical_navbar' %>
+
 <div class="container">
 
     <%= render 'add_topic_form' %>
@@ -22,9 +24,11 @@
 
 <%= render 'partners_parallax' %>
 
-<div class="container">
-    <%= render 'exchange_rates' %>
-    <%= render 'social_networks' %>
+<div class="container flex">
+    <!-- <div class="extras"> -->
+        <%= render 'exchange_rates' %>
+        <%= render 'social_networks' %>
+    <!-- </div> -->
     <!-- Yandex Maps will use this div -->
     <div id="map"></div>
 </div>

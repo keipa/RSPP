@@ -1,0 +1,27 @@
+<div class="shadow"></div>
+<div class="vertical-navbar-wrapper">
+  <div class="vertical-navbar text-center">
+    <div class="hidden-scroll">
+      <img id="logo" src="logo.png">
+
+      <div class="join-badge text-center">
+          <div class="text">
+              <p>Вступить в союз</p>
+          </div>
+      </div>
+
+      <div class="topics">
+        <% @topics.each do |topic| %>
+          <a href="<%= topic.link %>">
+            <div class="topic">
+              <%= topic.text %>
+            </div>
+          </a>
+        <% end %>
+      </div>
+
+      <button class="signup-btn shadow-on">Регистрация</button>
+      <button class="login-btn shadow-on">Войти</button>
+    </div>
+  </div>
+</div>
