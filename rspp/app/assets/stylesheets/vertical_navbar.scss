@@ -29,7 +29,7 @@
             position: absolute;
             width: calc(100% + 10px);
             height: 100%;
-            overflow-y: auto;
+            overflow-y: scroll;
         }
 
         .join-badge {
@@ -139,14 +139,8 @@ and (orientation : landscape) {
     .vertical-navbar-wrapper {
         display: inline-block;
 
-        .vertical-navbar {
-            .hidden-scroll {
-                width: 100% !important;
-            }
-
-            .signup-btn {
-                display: none;
-            }
+        .hidden-scroll {
+            padding-right: 10px;
         }
     }
 
@@ -158,5 +152,6 @@ and (orientation : landscape) {
     .vertical-navbar-wrapper {
         display: inline-block;
     }
+
 }
 
