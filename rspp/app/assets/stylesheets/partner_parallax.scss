@@ -41,6 +41,7 @@ and (orientation : landscape) {
         float: right;
         background-position: 41%;
         background-size: cover;
+        background-attachment: scroll;
     }
 
 }
@@ -50,8 +51,9 @@ and (orientation : landscape) {
     .parallax {
         width: 80%;
         float: right;
-        background-position: 41%;
+        background-position: 50%;
         background-size: cover;
+        background-attachment: scroll;
     }
 
 }
