@@ -1,0 +1,27 @@
+<div class="add-partner-form">
+    <div class="add-partner-form-header">
+      <div class="close">
+        <span class="glyphicon glyphicon-remove"></span>
+      </div>
+      Добавить партнера
+    </div>
+
+    <div class="add-partner-form-body">
+      <div class="form-group">
+        <label for="partner-link">Ссылка на сайт партнера:</label>
+        <input id="partner-link" placeholder="http://www.sample.ru">
+      </div>
+      Добавить изображение:
+      <button id="upload-partner-picture">Обзор...</button>
+      <input id="partner-image-url" type="hidden">
+      <div class="text-center">
+        <div id="loadedImage"></div>
+      </div>
+    </div>
+
+    <div class="add-partner-form-footer text-center">
+      <button id="add-partner-btn" class="btn btn-success" data-controller="<%= partners_path %>">
+        Добавить
+      </button>
+    </div>
+</div>

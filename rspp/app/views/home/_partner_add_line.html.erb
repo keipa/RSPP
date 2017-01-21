@@ -1,0 +1,22 @@
+<div class="add-partner-line">
+  <% if partners %>
+
+    <% if partners[0] %>
+      <%= render 'partner_single', partner: partners[0] %>
+    <% else %>
+      <%= render 'partner_single', partner: nil %>
+    <% end %>
+
+    <% if partners[1] %>
+      <%= render 'partner_single', partner: partners[1] %>
+    <% else %>
+      <%= render 'partner_single', partner: nil %>
+    <% end %>
+
+  <% else %>
+
+    <%= render 'partner_single', partner: nil %>
+    <%= render 'partner_single', partner: nil %>
+
+  <% end %>
+</div>

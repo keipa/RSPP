@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 
     resources :topics, only: [:new, :create, :edit, :update, :destroy]
     resources :news_posts
+    resources :partners, only: [:create, :delete, :edit, :update]
 end

@@ -11,7 +11,7 @@
 
         <div class="category dropdown">
             <a href="<%= topic.link %>" class="navbar-brand"><%= topic.text %></a>
-            <% if can? :manage, Topic || topic.subtopics.present? %>
+            <% if (can? :manage, Topic) || (topic.subtopics.present?) %>
                 <ul class="dropdown-menu">
                     <% topic.subtopics.each do |subtopic| %>
                         <li>
