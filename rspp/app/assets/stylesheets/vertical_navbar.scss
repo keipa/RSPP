@@ -142,7 +142,10 @@ and (orientation : landscape) {
         .vertical-navbar {
             .hidden-scroll {
                 width: 100% !important;
-                padding-right: 0;
+            }
+
+            .signup-btn {
+                display: none;
             }
         }
     }
@@ -154,12 +157,6 @@ and (orientation : landscape) {
 
     .vertical-navbar-wrapper {
         display: inline-block;
-
-        .vertical-navbar {
-            .hidden-scroll {
-                padding-right: 0;
-            }
-        }
     }
 }
 
