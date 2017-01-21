@@ -141,7 +141,8 @@ and (orientation : landscape) {
 
         .vertical-navbar {
             .hidden-scroll {
-                padding-right: 10px;
+                width: 100% !important;
+                padding-right: 0;
             }
         }
     }
@@ -153,6 +154,12 @@ and (orientation : landscape) {
 
     .vertical-navbar-wrapper {
         display: inline-block;
+
+        .vertical-navbar {
+            .hidden-scroll {
+                padding-right: 0;
+            }
+        }
     }
 }
 
