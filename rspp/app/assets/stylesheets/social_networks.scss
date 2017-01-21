@@ -4,6 +4,7 @@
 .social-networks {
     @extend .boxstyle;
     float: right;
+    text-align: center;
 
     h2 {
         font-weight: bold;
@@ -14,6 +15,8 @@
         list-style: none;
         padding: 8px;
         margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
 
         li {
             float: left;
@@ -56,3 +59,4 @@
         margin-bottom: 0;
     }
 }
+

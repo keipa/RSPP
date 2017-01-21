@@ -25,3 +25,38 @@ $footer-height: 80px;
         float: right;
     }
 }
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1200px)
+and (orientation : landscape) {
+
+    .footer {
+        width: 79%;
+        height: 100px;
+        float: right;
+
+        .clearfix {
+            width: 98% !important;
+        }
+
+        .copyright {
+            display: inline-block;
+        }
+
+        &-address {
+            margin-left: 0;
+            display: inline-block;
+            float: right;
+            text-align: right;
+        }
+
+        &-contact {
+            width: 50%;
+            display: inline-block;
+            text-align: right;
+            float: right;
+        }
+    }
+
+}

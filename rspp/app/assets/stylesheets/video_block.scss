@@ -71,3 +71,15 @@
         }
     }
 }
+
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1200px)
+and (orientation : landscape) {
+
+    .video-block {
+        width: 100%;
+    }
+
+}
