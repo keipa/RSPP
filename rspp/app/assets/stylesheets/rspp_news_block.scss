@@ -97,3 +97,12 @@ and (orientation : landscape) {
     }
 
 }
+
+@media (min-width : 768px) and (max-width : 1200px) {
+
+    .rspp-news {
+        width: 100%;
+        margin-top: 0;
+    }
+
+}
