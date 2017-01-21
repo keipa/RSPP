@@ -60,3 +60,36 @@ and (orientation : landscape) {
     }
 
 }
+
+
+@media (min-width : 768px) and (max-width : 1200px) {
+
+    .footer {
+        width: 79%;
+        height: 100px;
+        float: right;
+
+        .clearfix {
+            width: 98% !important;
+        }
+
+        .copyright {
+            display: inline-block;
+        }
+
+        &-address {
+            margin-left: 0;
+            display: inline-block;
+            float: right;
+            text-align: right;
+        }
+
+        &-contact {
+            width: 50%;
+            display: inline-block;
+            text-align: right;
+            float: right;
+        }
+    }
+
+}

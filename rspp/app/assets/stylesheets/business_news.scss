@@ -92,3 +92,19 @@ and (orientation : landscape) {
     }
 
 }
+
+@media (min-width : 768px) and (max-width : 1200px) {
+
+    .business-news {
+        width: 100%;
+        padding-left: 20px;
+
+        &-container {
+
+            hr {
+                width: 90%;
+            }
+        }
+    }
+
+}

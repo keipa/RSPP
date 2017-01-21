@@ -83,3 +83,12 @@ and (orientation : landscape) {
     }
 
 }
+
+
+@media (min-width : 768px) and (max-width : 1200px) {
+
+    .video-block {
+        width: 100%;
+    }
+
+}

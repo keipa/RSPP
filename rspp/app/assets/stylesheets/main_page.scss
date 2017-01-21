@@ -112,3 +112,18 @@ and (orientation : landscape) {
     }
 
 }
+
+@media (min-width : 768px) and (max-width : 1200px) {
+
+    .container {
+        display: inline-block;
+        width: 78% !important;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: column;
+        float: right;
+    }
+
+}
