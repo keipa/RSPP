@@ -35,28 +35,32 @@ $(document).on('turbolinks:load', function() {
     });
 
 
-    $("#upload-partner-picture").click(function(event) {
-        cloudinary.openUploadWidget(CLOUDINARY_INFO,
-            function(error, result) {
-                var imageInput = $("#partner-image-url");
-                imageInput.val(result[0]['url']);
-                $("#loadedImage")[0].outerHTML = "<div><img id='loadedImage' src='" + result[0]['url'] + "'></div>"
-            });
-    });
+    // То, что закомменчено, вынесено в add_partner.js
 
-    $("#add-partner-btn").click(function() {
-        var partnerLink = $("#partner-link").val();
-        var partnerImageUrl = $("#partner-image-url").val();
-        var controller = $("#add-partner-btn").attr("data-controller");
-        if ((checkLink(partnerLink)) && (partnerImageUrl)) {
-            throughAJAX({
-                'partner': {
-                    'link': partnerLink,
-                    'image_url': partnerImageUrl
-                }
-            }, controller);
-        }
-    })
+
+    // $("#upload-partner-picture").click(function(event) {
+    //     cloudinary.openUploadWidget(CLOUDINARY_INFO,
+    //         function(error, result) {
+    //             var imageInput = $("#partner-image-url");
+    //             imageInput.val(result[0]['url']);
+    //             $("#loadedImage")[0].outerHTML = "<div><img id='loadedImage' src='" + result[0]['url'] + "'></div>"
+    //         });
+    // });
+
+    // $("#add-partner-btn").click(function() {
+    //     var partnerLink = $("#partner-link").val();
+    //     var partnerImageUrl = $("#partner-image-url").val();
+    //     var controller = $("#add-partner-btn").attr("data-controller");
+    //     if ((checkLink(partnerLink)) && (partnerImageUrl)) {
+    //         throughAJAX({
+    //             'partner': {
+    //                 'link': partnerLink,
+    //                 'image_url': partnerImageUrl
+    //             }
+    //         }, controller);
+    //     }
+    //     $(".add-partner-form").fadeOut(300);
+    // })
 
 
     function throughAJAX(sendable, controller, callback) {
@@ -69,8 +73,8 @@ $(document).on('turbolinks:load', function() {
         });
     }
 
-    function checkLink(link) {
-        var regexp = new RegExp(/(https?:\/\/){1}([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/);
-        return regexp.test(link) ? true : false;
-    }
+    // function checkLink(link) {
+    //     var regexp = new RegExp(/(https?:\/\/){1}([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/);
+    //     return regexp.test(link) ? true : false;
+    // }
 });
