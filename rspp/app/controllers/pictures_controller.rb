@@ -5,15 +5,18 @@ class PicturesController < ApplicationController
     end
 
     def create
-        @picture = @album.pictures.create(image_url: params[:image_url])
+        @picture = @album.pictures.create(picture_params)
     end
 
     def destroy
         @picture.destroy
-        redirect_to @album
     end
 
     private
+
+    def picture_params
+        params.require(:picture).permit(:image_url)
+    end
 
     def set_album_and_gallery
         @gallery = Gallery.find(params[:gallery_id])
@@ -21,6 +24,6 @@ class PicturesController < ApplicationController
     end
 
     def set_picture
-      @picture = @album.pictures.find(params[:id])
+        @picture = @album.pictures.find(params[:id])
     end
 end

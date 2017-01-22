@@ -60,7 +60,7 @@
     [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
     [{ 'font': [] }],
     [{ 'align': [] }],
-    ['link', 'image']                            
+    ['link', 'image']
   ];
   var quill = new Quill('#content-input', {
     modules: {
@@ -84,5 +84,5 @@
     var text = $('#text');
     text.val(JSON.stringify(quill.getContents()));
     text.appendTo(form);
-  }) 
+  })
 </script>

@@ -1,0 +1,20 @@
+<div id="upload-video" class="upload">
+    <a href="<%= new_gallery_album_video_path(@gallery,@album)%>">
+        <p class="big-text">
+            Добавить видео
+        </p>
+    </a>
+</div>
+<div class="video-container container">
+    <div class="gallery-page-header">
+        <% if @album.videos.any? %>
+        <h1><%=@album.name%></h1>
+    <% else %>
+        <h1>Нет Видео</h1>
+        <% end %>
+    </div>
+    <div class="gallery-video-block">
+        <%= render 'videos' %>
+    </div>
+
+</div>

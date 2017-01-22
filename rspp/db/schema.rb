@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 20170121194656) do
     t.index ["gallery_id"], name: "index_albums_on_gallery_id", using: :btree
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "title",            limit: 50, default: ""
+    t.text     "comment"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.integer  "user_id"
+    t.string   "role",                        default: "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+    t.index ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
   create_table "galleries", force: :cascade do |t|
     t.string   "name"
     t.string   "type_gallery"
