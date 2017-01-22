@@ -1,22 +1,31 @@
-<div class="add-partner-line">
-  <% if partners %>
+<% if can? :manage, Partner %>
 
-    <% if partners[0] %>
-      <%= render 'partner_single', partner: partners[0] %>
+  <div class="add-partner-line">
+
+<% else %>
+
+  <div class="partner-line">
+
+<%end %>
+
+    <% if partners %>
+
+      <% if partners[0] %>
+        <%= render 'partner_single', partner: partners[0], position: positions[0] %>
+      <% else %>
+        <%= render 'partner_single', partner: nil, position: positions[0] %>
+      <% end %>
+
+      <% if partners[1] %>
+        <%= render 'partner_single', partner: partners[1],  position: positions[1] %>
+      <% else %>
+        <%= render 'partner_single', partner: nil, position: positions[1] %>
+      <% end %>
+
     <% else %>
-      <%= render 'partner_single', partner: nil %>
+
+      <%= render 'partner_single', partner: nil, position: positions[0] %>
+      <%= render 'partner_single', partner: nil, position: positions[1] %>
+
     <% end %>
-
-    <% if partners[1] %>
-      <%= render 'partner_single', partner: partners[1] %>
-    <% else %>
-      <%= render 'partner_single', partner: nil %>
-    <% end %>
-
-  <% else %>
-
-    <%= render 'partner_single', partner: nil %>
-    <%= render 'partner_single', partner: nil %>
-
-  <% end %>
-</div>
+  </div>
