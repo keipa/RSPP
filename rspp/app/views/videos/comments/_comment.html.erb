@@ -13,11 +13,11 @@
             </div>
             <% if can? :destroy, comment %>
             <div class="action">
-              <%= link_to "Удалить", [commentable, comment],
+              <%= link_to "Удалить", [@commentable, comment],
                :method => :delete,
                :remote => true, class: "btn btn-danger" %>
             </div>
-            <% end %>
+              <% end %>
         </div>
     </div>
 </li>

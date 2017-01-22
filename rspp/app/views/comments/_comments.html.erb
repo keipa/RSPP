@@ -4,14 +4,14 @@
         <h3 class="panel-title">
             Последние комментарии
         </h3>
-        <span class="label label-info">
+        <span class="label label-info comment-size-<%= commentable.id %>">
             <%= commentable.comments.size %>
         </span>
     </div>
     <div class="panel-body">
-        <ul class="list-group comments-list">
+        <ul class="list-group comments-list-<%= commentable.id%>">
             <% commentable.comments.each do |comment| %>
-            <%= render comment, comment: comment %>
+            <%= render comment, commentable: commentable %>
             <% end %>
         </ul>
         <a href="#" class="btn btn-primary btn-sm btn-block" role="button">

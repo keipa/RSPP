@@ -5,18 +5,22 @@ class CommentsController < ApplicationController
         @comment.user_name = current_user.first_name
         @comment.save
         respond_to do |format|
-          format.js
+            format.js
         end
     end
 
     def destroy
+        @comment = @commentable.comments.find(params[:id])
+        @comment.destroy
+        respond_to do |format|
+            format.js
+        end
     end
 
     def update
     end
 
     private
-
 
     def comment_params
         params.require(:comment).permit(:comment)

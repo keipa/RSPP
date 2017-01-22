@@ -1,3 +1,4 @@
+<% if can? :manage, Gallery %>
 <div id="upload-video" class="upload">
     <a href="<%= new_gallery_album_video_path(@gallery,@album)%>">
         <p class="big-text">
@@ -5,6 +6,7 @@
         </p>
     </a>
 </div>
+<% end %>
 <div class="video-container container">
     <div class="gallery-page-header">
         <% if @album.videos.any? %>
