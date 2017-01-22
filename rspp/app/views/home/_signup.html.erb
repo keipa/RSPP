@@ -1,9 +1,13 @@
-<div class="signup">
-  <%= form_for(:user, url: registration_path(:user), html: {class: "signup-container"}) do |f| %>
-    <p><%= f.text_field :first_name, autocomplete: "off", placeholder: "Имя" %></p>
-    <p><%= f.text_field :last_name, autocomplete: "off", placeholder: "Фамилия" %></p>
-    <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
-    <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
+<div class="signup-window">
+  <%= form_for(:user, url: registration_path(:user), html: {class: "signup-window-container"}) do |f| %>
+    <div class="adaptive-modal-header">
+      <h3>Регистрация</h3>
+      <hr>
+    </div>
+    <p><%= f.text_field :first_name, autocomplete: "off", placeholder: "Имя", required: "on"%></p>
+    <p><%= f.text_field :last_name, autocomplete: "off", placeholder: "Фамилия", required: "on" %></p>
+    <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email", required: "on" %></p>
+    <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль", required: "on" %></p>
     <p><%= f.submit "Регистрация" %></p>
   <% end %>
 

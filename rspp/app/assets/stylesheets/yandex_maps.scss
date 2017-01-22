@@ -1,0 +1,31 @@
+@import "boxstyle";
+
+#map {
+    @extend .boxstyle;
+    width: 380px;
+    padding: 0;
+    margin-right: 40px;
+    float: right;
+}
+
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1200px)
+and (orientation : landscape) {
+
+    #map {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+}
+
+@media (min-width : 768px) and (max-width : 1200px) {
+
+    #map {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+}

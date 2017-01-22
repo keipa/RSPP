@@ -1,11 +1,8 @@
-<%= render 'vertical_navbar' %>
-
 <div class="container">
 
     <%= render 'add_topic_form' %>
     <%= render 'add_subtopic_form' %>
-    <%= render 'add_partner_form' %>
-    
+
     <%= render 'main_navbar_with_login_window' %>
     
     <%= render 'topics_navbar' %>
@@ -15,7 +12,6 @@
     <div class="line">
         <%= render 'video_block' %>
         <%= render 'rspp_news_block' %>
-
     </div>
 
     <div class="line">
@@ -26,11 +22,9 @@
 
 <%= render 'partners_parallax' %>
 
-<div class="container flex">
-    <!-- <div class="extras"> -->
-        <%= render 'exchange_rates' %>
-        <%= render 'social_networks' %>
-    <!-- </div> -->
+<div class="container">
+    <%= render 'exchange_rates' %>
+    <%= render 'social_networks' %>
     <!-- Yandex Maps will use this div -->
     <div id="map"></div>
 </div>

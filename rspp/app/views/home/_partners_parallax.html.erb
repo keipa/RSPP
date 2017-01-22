@@ -1,0 +1,34 @@
+<div class="parallax text-center">
+    <p>
+        ПАРТНЕРЫ:
+    </p>
+
+    <div class="col-md-4 partners-block">
+
+      <%= render 'partner_add_line', partners: @partners[0..1] %>
+
+      <%= render 'partner_add_line', partners: @partners[2..3] %>
+      
+      <%= render 'partner_add_line', partners: @partners[4..5] %>
+
+    </div>
+
+    <div class="col-md-4 partners-block">
+
+      <div class="add-partner-line main partner">
+        <span class="glyphicon glyphicon-plus"></span>
+      </div>
+
+    </div>
+
+    <div class="col-md-4 partners-block">
+
+      <%= render 'partner_add_line', partners: @partners[5..6] %>
+      
+      <%= render 'partner_add_line', partners: @partners[7..8] %>
+      
+      <%= render 'partner_add_line', partners: @partners[9..10] %>
+  
+    </div>
+
+</div>

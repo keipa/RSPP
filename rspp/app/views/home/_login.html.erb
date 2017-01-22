@@ -1,7 +1,11 @@
-<div class="login">
-  <%= form_for(:user, url: session_path(:user), html: {class: "login-container"}) do |f| %>
-    <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email" %></p>
-    <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %></p>
+<div class="login-window">
+  <%= form_for(:user, url: session_path(:user), html: {class: "login-window-container"}) do |f| %>
+    <div class="adaptive-modal-header">
+      <h3>Войти</h3>
+      <hr>
+    </div>
+    <p><%= f.email_field :email, autocomplete: "off", placeholder: "Email", required: "on" %></p>
+    <p><%= f.password_field :password, autocomplete: "off", placeholder: "Пароль", required: "on" %></p>
     <p><%= f.submit "Вход" %></p>
   <% end %>
 </div>

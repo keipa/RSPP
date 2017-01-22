@@ -1,8 +1,0 @@
-<%= form_for(:news_post, url: news_posts_path(:news_post)) do |f| %>
-  <p><%= f.text_field :title, autocomplete: "off", placeholder: "Заголовок" %></p>
-  <p><%= f.text_area :description, autocomplete: "off", placeholder: "Краткое описание" %></p>
-  <p><%= f.text_area :text, autocomplete: "off", placeholder: "Текст" %></p>
-  <p><%= f.file_field :image_url, autocomplete: "off", placeholder: "Изображение" %></p>
-
-  <p><%= f.submit "Добавить" %></p>
-<% end %>

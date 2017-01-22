@@ -6,9 +6,9 @@
     </div>
     <% if can? :manage, Gallery %>
     <% if @gallery.type_gallery == 'photo'%>
-    <%= render 'pictures' %>
+    <%= render 'picture_block' %>
     <%else %>
-    <%= render 'videos' %>
+    <%= render 'video_block' %>
     <% end %>
     <% end %>
 </div>

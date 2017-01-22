@@ -1,0 +1,102 @@
+.parallax {
+    height: 400px;
+    margin-top: 60px;
+    background-image: url("../parallax.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    font-size: 4.5rem;
+    padding-top: 20px;
+    position: relative;
+
+    p {
+        font-family: 'PT Sans', sans-serif;
+        text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .partners-block {
+        height: 100%;
+
+        .main {
+            line-height: 250px;
+            cursor: pointer;
+            height: 75%;
+
+            &:hover {
+                background: rgba(20,20,20,0.8);
+            }
+        }
+    }
+
+    .add-partner-line {
+        height: 25%;
+        top: 0;
+        border: 3px solid red;
+        background: rgba(0,0,0,0.6);
+
+        .partner {
+            height: 100%;
+            line-height: 90px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:not(:first-child) {
+                border-left: 3px solid red;
+            }
+
+            &:hover {
+                background: rgba(20,20,20,0.65);
+            }
+        }
+
+        .partner-image {
+            height: 100%;
+            cursor: pointer;
+            padding: 0;
+
+            &:not(:first-child) {
+                border-left: 3px solid red;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1200px)
+and (orientation : landscape) {
+
+    .parallax {
+        width: 79%;
+        float: right;
+        background-position: 41%;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+}
+
+@media (min-width : 768px) and (max-width : 1200px) {
+
+    .parallax {
+        width: 79%;
+        float: right;
+        background-position: 50%;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+}

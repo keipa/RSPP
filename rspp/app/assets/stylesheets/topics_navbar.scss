@@ -1,0 +1,109 @@
+@import "variables";
+
+#topics {
+    margin-top: 15px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0;
+    background: #FFFFFF;
+    border-color: #CCCCCC;
+    box-shadow: 0 0 2px 0 #CCCCCC;
+
+    .navbar-brand {
+        font-size: 2.5rem;
+    }
+
+    .delete-cross {
+        width: 15px;
+        height: 15px;
+        z-index: 25;
+        border-radius: 3px;
+        background: rgba(0,0,0,0.6);
+        color: rgba(255,255,255,0.6);
+        position: relative;
+        left: 20px;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 10px;
+
+        span {
+            font-size: 9px;
+        }
+    }
+
+    .delete-cross-subtopic {
+        @extend .delete-cross;
+        height: 20px;
+        width: 20px;
+        border-radius: 4px;
+        z-index: 25;
+        left: 120px;
+        top: -27px;
+        margin-top: 0;
+
+        span {
+            font-size: 10px !important;
+            margin-bottom: 4px !important;
+        }
+    }
+
+    .category {
+        color: $main-color-first;
+        border-style: solid;
+        border-width: 0 0 2px 0;
+        border-color: #FAFAFA;
+        padding: 7px 0;
+        transition: border 0.2s;
+
+        
+        .dropdown-menu {
+            display: none;
+            transition: display 0.2s;
+        }
+
+        &:hover {
+            border-color: $main-color-first;
+
+            .dropdown-menu {
+                display: block;
+                border-radius: 0;
+            }
+
+            .dropdown-text {
+                font-size: 2rem;
+                transition-duration: 0.2s;
+
+                &:hover {
+                    color: #FFFFFF;
+                    background-color: $main-color-first;
+                }
+            }
+        }
+
+        span {
+            font-size: 17px;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: $main-color-first;
+        }
+    }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1200px)
+and (orientation : landscape) {
+    #topics {
+        display: none;
+    }
+}
+
+@media (min-width : 768px) and (max-width : 1200px) {
+    #topics {
+        display: none;
+    }
+}

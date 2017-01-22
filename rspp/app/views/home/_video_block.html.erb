@@ -1,0 +1,13 @@
+<div class="video-block">
+    <% if @videos.any? %>
+        <iframe class="video" style="height: 385px; width: 100%;" src="<%=@videos[0].iframe_link%>" frameborder="0" allowfullscreen></iframe>
+        <div class="col-md-12">
+            <% @videos[1..4].each do |video| %>
+                <div class="col-md-3">
+                    <iframe src="<%= video.iframe_link %>" style="width:100%; height: 100px" frameborder="0"></iframe>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+    <%= render 'video_comments_block' %>
+</div>

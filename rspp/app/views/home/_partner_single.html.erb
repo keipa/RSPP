@@ -1,0 +1,15 @@
+<% if partner %>
+
+  <div class="col-md-6 partner-image">
+    <a href="<%= partner.link %>">
+      <img src="<%= partner.image_url %>" class="partner-image">
+    </a>
+  </div>
+
+<% else %>
+
+  <div class="col-md-6 partner">
+    <span class="glyphicon glyphicon-plus"></span>
+  </div>
+
+<% end %>
