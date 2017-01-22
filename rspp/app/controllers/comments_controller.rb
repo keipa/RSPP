@@ -1,13 +1,11 @@
 class CommentsController < ApplicationController
-    before_action :set_user
-
     def create
-        @comment = Comment.create(comment_params)
+        @comment = @commentable.comments.new comment_params
         @comment.user_id = current_user.id
-        if @comment.save
-            respond_to do |format|
-                format.js
-            end
+        @comment.user_name = current_user.first_name
+        @comment.save
+        respond_to do |format|
+          format.js
         end
     end
 
@@ -19,9 +17,6 @@ class CommentsController < ApplicationController
 
     private
 
-    def set_user
-        @user = User.find(params[:user_id])
-    end
 
     def comment_params
         params.require(:comment).permit(:comment)
