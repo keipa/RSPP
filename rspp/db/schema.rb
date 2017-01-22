@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20170122133422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +58,7 @@
   create_table "partners", force: :cascade do |t|
     t.string  "image_url"
     t.string  "link"
+    t.boolean "main_partner", default: false
     t.integer "position"
   end
 
