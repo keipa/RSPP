@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
     devise_for :users
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'home#index'
@@ -15,5 +16,7 @@ Rails.application.routes.draw do
 
     resources :topics, only: [:new, :create, :edit, :update, :destroy]
     resources :news_posts
+    resources :comments
     resources :partners, only: [:create, :delete, :edit, :update]
+
 end
