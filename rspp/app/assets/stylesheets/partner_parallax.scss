@@ -1,3 +1,5 @@
+@import "variables";
+
 .parallax {
     height: 400px;
     margin-top: 60px;
@@ -22,50 +24,96 @@
     .partners-block {
         height: 100%;
 
-        .main {
+        &.main {
             line-height: 250px;
-            cursor: pointer;
             height: 75%;
-
-            &:hover {
-                background: rgba(20,20,20,0.8);
-            }
-        }
-    }
-
-    .add-partner-line {
-        height: 25%;
-        top: 0;
-        border: 3px solid red;
-        background: rgba(0,0,0,0.6);
-
-        .partner {
-            height: 100%;
-            line-height: 90px;
-            cursor: pointer;
+            background: rgba(0,0,0,0.6);
+            border: 2px solid red;
             transition: 0.2s;
 
-            &:not(:first-child) {
-                border-left: 3px solid red;
+            &.partner-single {
+                border: none;
+                background: rgba(0,0,0,0);
+
+                &:hover {
+                    background: rgba(0,0,0,0);
+                }
+
+                .partner-image {
+                    box-shadow: 0 0 5px 2px $main-color-first;
+                    border-radius: 3px;
+                    vertical-align: 0;
+                    max-width: 100%;
+                    max-height: 100%;
+                    cursor: pointer;
+                }
             }
 
-            &:hover {
-                background: rgba(20,20,20,0.65);
+            &.add-partner-single {
+                cursor: pointer;
+                
+                &:hover {
+                    background: rgba(0,0,0,0.8);
+                }
+
+                .partner-image {
+                    vertical-align: 0;
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+
+        }
+
+        .add-partner-line {
+            height: 25%;
+            border: 2px solid red;
+            background: rgba(0,0,0,0.6);
+
+            .add-partner-single {
+                height: 100%;
+                line-height: 90px;
+                cursor: pointer;
+                transition: 0.2s;
+                padding: 0;
+
+                &:not(:first-child) {
+                    border-left: 2px solid red;
+                }
+
+                &:hover {
+                    background: rgba(20,20,20,0.65);
+                }
+            }
+
+            .partner-single {
+                @extend .add-partner-single;
+
+                .partner-image {
+                    vertical-align: 0;
+                    max-width: 100%;
+                    max-height: 100%;
+                }
             }
         }
 
-        .partner-image {
-            height: 100%;
-            cursor: pointer;
-            padding: 0;
+        .partner-line {
+            height: 25%;
 
-            &:not(:first-child) {
-                border-left: 3px solid red;
-            }
-
-            img {
+            .partner-single {
+                max-height: 100%;
+                padding: 4.5px 0;
                 height: 100%;
-                width: 100%;
+                line-height: 90px;
+                cursor: pointer;
+
+                .partner-image {
+                    box-shadow: 0 0 5px 2px $main-color-first;
+                    border-radius: 3px;
+                    vertical-align: 0;
+                    max-width: 100%;
+                    max-height: 100%;
+                }
             }
         }
     }

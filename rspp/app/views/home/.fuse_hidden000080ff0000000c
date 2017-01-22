@@ -15,7 +15,6 @@
     <div class="line">
         <%= render 'video_block' %>
         <%= render 'rspp_news_block' %>
-
     </div>
 
     <div class="line">
@@ -24,7 +23,7 @@
     </div>
 </div>
 
-<%= render 'partners_parallax', partners: @partners %>
+<%= render 'partners_parallax' %>
 
 <div class="container flex">
     <!-- <div class="extras"> -->
