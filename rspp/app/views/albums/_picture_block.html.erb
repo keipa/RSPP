@@ -1,8 +1,11 @@
+<% if can? :manage, Gallery %>
 <div id="upload-picture-gallery" class="upload" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
     <p class="big-text">
         Загрузить фото
     </p>
 </div>
+<% end %>
+
 <div class="container" id="links">
     <% @album.pictures.all.each do |picture| %>
     <div class="col-sm-4 col-md-2 thumbnail album-item">

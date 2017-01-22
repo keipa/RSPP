@@ -13,14 +13,11 @@
             </div>
             <% if can? :destroy, comment %>
             <div class="action">
-              <%= link_to "Удалить", [commentable, comment],
+              <%= link_to "Удалить", [@commentable, comment],
                :method => :delete,
                :remote => true, class: "btn btn-danger btn-xs" %>
             </div>
-            <!-- <button type="button" class="btn btn-danger btn-xs" title="Удалить">
-                <span class="glyphicon glyphicon-trash"></span>
-            </button> -->
-            <% end %>
+              <% end %>
         </div>
     </div>
 </li>

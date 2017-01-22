@@ -4,11 +4,10 @@
             <p class="big-text">Назад</p>
         </a>
     </div>
-    <% if can? :manage, Gallery %>
+
     <% if @gallery.type_gallery == 'photo'%>
     <%= render 'picture_block' %>
     <%else %>
     <%= render 'video_block' %>
-    <% end %>
     <% end %>
 </div>

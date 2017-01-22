@@ -1,0 +1,3 @@
+$("ul.comments-list-" + "<%= @commentable.id %>").html("<%= escape_javascript render (@commentable.comments) %>");
+$("span.comment-size-" + "<%= @commentable.id %>").html("<%= @commentable.comments.size  %>")
+$(".video-comments textarea.form-control").val('')

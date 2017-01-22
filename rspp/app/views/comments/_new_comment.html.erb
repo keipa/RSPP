@@ -1,0 +1,9 @@
+<% if can? :create , Comment %>
+<%= form_for [ commentable, commentable.comments.build ], remote: true do |f| %>
+<div class="form-group">
+    <%= f.text_area :comment, class: "form-control", placeholder: "Добавить комментарий..." %>
+</div>
+<%= f.submit value: "Отправить", class: "btn btn-primary" %>
+<% end %>
+
+<% end %>
