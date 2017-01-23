@@ -1,0 +1,71 @@
+@import "variables";
+$survey-title-back: #ffe5e5;
+$survey-content-back: #ffffff;
+
+.survey {
+    border-radius: 10px;
+    z-index: 999;
+    position: fixed;
+    top: 25%;
+    left: 2%;
+    background: $survey-content-back;
+    width: 250px;
+    height: auto;
+    box-shadow: 1px 1px 6px #000000;
+
+    &-close {
+        position: absolute;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        background: rgba(34, 34, 34, 0.7);
+        right: -8px;
+        top: -14px;
+        text-align: center;
+        cursor: pointer;
+
+        i {
+            color: #Ffffff;
+            font-size: 2rem;
+            line-height: 25px;
+        }
+
+        &:hover {
+            background: rgba(34, 34, 34, 1);
+        }
+    }
+
+    &-title {
+        border-top-left-radius: 10px;
+        background: $survey-title-back;
+        color: #000000;
+        min-height: 40px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        border-bottom: 1px dashed #000000;
+    }
+
+    &-content {
+        box-sizing: border-box;
+        padding: 10px;
+
+        &-question-list {
+            .survey-question {
+                margin-bottom: 10px;
+
+                &:before {
+                    margin-right: 7px;
+                }
+            }
+        }
+
+        &-bottom {
+            .survey-total {
+                &-count {}
+            }
+        }
+    }
+}

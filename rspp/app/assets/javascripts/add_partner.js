@@ -57,7 +57,7 @@ $(document).on('turbolinks:load', function() {
     })
 
 
-    function throughAJAX(sendable, controller, callback) {
+    window.throughAJAX = function(sendable, controller, callback) {
         $.ajax({
             type: "POST",
             url: controller,
