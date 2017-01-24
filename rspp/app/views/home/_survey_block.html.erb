@@ -1,0 +1,52 @@
+<div class="survey">
+    <div class="survey-close">
+        <i class="glyphicon glyphicon-remove"></i>
+    </div>
+    <% if !@survey %>
+    <%= render "survey_add"%>
+    <% else%>
+    <%= render "survey"%>
+    <% end %>
+</div>
+
+<!-- <div class="survey">
+    <div class="survey-title">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+    </div>
+    <div class="survey-content">
+        <div class="survey-stats">
+            <div class="survey-stat">
+                <div class="survey-text">
+                    Да
+                </div>
+                <div class="survey-row">
+                    <div class="percent">
+                        0%
+                    </div>
+                    <div class="survey-row">
+                        <div class="survey-row-progress-percent"></div>
+                        <div class="survey-row-count">
+                            0
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="survey-stat">
+                <div class="survey-text">
+                    Нет
+                </div>
+                <div class="survey-row">
+                    <div class="percent">
+                        0%
+                    </div>
+                    <div class="survey-row">
+                        <div class="survey-row-progress-percent"></div>
+                        <div class="survey-row-count">
+                            0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

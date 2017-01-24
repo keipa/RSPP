@@ -8,6 +8,7 @@ class HomeController < ApplicationController
         (0..12).each do |i|
           @partners[i] = @partners_unsorted.where(position: i)[0]
         end
-        @survey = Survey.all.where(closed: false)
+        @survey = Survey.all.where(:closed => false).first
+
     end
 end

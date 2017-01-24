@@ -1,4 +1,4 @@
-class SureysController < ApplicationController
+class SurveysController < ApplicationController
   def new
 
   end
@@ -15,6 +15,6 @@ class SureysController < ApplicationController
   private
 
   def surveys_params
-    params.require(:survey).permit(:context, :title)
+    params.require(:survey).permit(:content, :title, :closed, :count_votes)
   end
 end
