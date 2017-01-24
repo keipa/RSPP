@@ -46,7 +46,7 @@ $survey-content-back: #ffffff;
         width: 100%;
         box-sizing: border-box;
         padding: 5px;
-        font-size: 1.4rem;
+        font-size: 1.7rem;
         font-weight: bold;
         border-bottom: 1px dashed #000000;
         text-align: center;
@@ -80,7 +80,7 @@ $survey-content-back: #ffffff;
                 }
 
                 &:before {
-                  margin-left: 3px;
+                    margin-left: 3px;
                 }
             }
         }
@@ -96,10 +96,74 @@ $survey-content-back: #ffffff;
 
         &-question-list {
             .survey-question {
+                width: 100%;
+                overflow: hidden;
+                word-wrap: break-word;
                 margin-bottom: 10px;
 
-                &:before {
-                    margin-right: 7px;
+                .question-text {
+                    max-width: 80%;
+                    display: inline-block;
+                    font-size: 1.7rem;
+                    vertical-align: middle;
+                }
+
+                input[name="answer-survey"] {
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        &-result-list {
+            .survey-result {
+                width: 100%;
+                margin-bottom: 5px;
+                display: inline-block;
+
+                .result-text {
+                    font-size: 1.4rem;
+                    font-weight: bold;
+                    width: 85%;
+                }
+
+                .progress-bar {
+                    float: left;
+                    overflow: hidden;
+                    border-radius: 2px;
+                    border: 1px solid #dae1e8;
+                    width: 85%;
+                    position: relative;
+                    background-color: #f2f4f7;
+                    height: 30px;
+
+                    &-filled {
+                        position: absolute;
+                        width: 0;
+                        height: 100%;
+                        background-color: #dae1e8;
+                    }
+                }
+
+                .count-result {
+                    position: absolute;
+                    height: 100%;
+                    width: 85%;
+                    line-height: 30px;
+                    text-align: center;
+                    color: #000000;
+                    font-size: 1.5rem;
+                }
+
+                .percent-result {
+                    float: right;
+                    line-height: 30px;
+                    font-size: 1.5rem;
+
+                    &:after {
+                        content: '%';
+                        font-size: 1.2rem;
+                    }
                 }
             }
         }
@@ -115,7 +179,7 @@ $survey-content-back: #ffffff;
             text-align: center;
 
             &:hover {
-              background: darken(#ededed, 10%);
+                background: darken(#ededed, 10%);
             }
         }
 
@@ -125,7 +189,9 @@ $survey-content-back: #ffffff;
             text-align: center;
 
             .survey-total {
-                &-count {}
+                &-count {
+                    font-size: 1.6rem;
+                }
             }
         }
     }

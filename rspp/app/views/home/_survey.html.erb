@@ -1,22 +1,16 @@
+<%= javascript_tag do %>
+window.currentUserId = '<%= current_user.id %>'
+<% end %>
 <div class="survey-title">
     <%= @survey.title %>
 </div>
 <div class="survey-content">
-    <div class="survey-content-question-list">
-        <div class="survey-question"></div>
-        <div class="survey-question radiobtn"></div>
-    </div>
     <div class="survey-content-bottom">
         <div class="survey-total">
             <div class="survey-total-count">
+                Проголосовали:
                 <b><%= @survey.count_votes %></b>
-                людей проголосовало
             </div>
-        </div>
-        <div class="survey-vote">
-            <button id="btn-vote-survey" class="btn btn-primary btn-xs" type="button" name="button">
-                Проголосовать
-            </button>
         </div>
     </div>
 </div>

@@ -9,6 +9,6 @@ class HomeController < ApplicationController
           @partners[i] = @partners_unsorted.where(position: i)[0]
         end
         @survey = Survey.all.where(:closed => false).first
-
+        gon.surveyContent = @survey
     end
 end

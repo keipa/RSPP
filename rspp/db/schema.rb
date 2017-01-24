@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123225753) do
+ActiveRecord::Schema.define(version: 20170123122247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20170123225753) do
   create_table "partners", force: :cascade do |t|
     t.string  "image_url"
     t.string  "link"
-    t.boolean "main_partner", default: false
     t.integer "position"
   end
 
@@ -84,8 +83,9 @@ ActiveRecord::Schema.define(version: 20170123225753) do
   create_table "surveys", force: :cascade do |t|
     t.string  "title"
     t.text    "content"
-    t.integer "count_votes"
     t.boolean "closed"
+    t.text    "users"
+    t.integer "count_votes"
   end
 
   create_table "topics", force: :cascade do |t|
