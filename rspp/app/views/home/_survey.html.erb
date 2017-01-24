@@ -4,13 +4,6 @@ window.currentUserId = '<%= current_user.id %>'
 <div class="survey-title">
     <%= @survey.title %>
 </div>
-<div class="survey-content">
-    <div class="survey-content-bottom">
-        <div class="survey-total">
-            <div class="survey-total-count">
-                Проголосовали:
-                <b><%= @survey.count_votes %></b>
-            </div>
-        </div>
-    </div>
+<div class="survey-content" data-controller="<%= survey_path(@survey) %>">
+
 </div>

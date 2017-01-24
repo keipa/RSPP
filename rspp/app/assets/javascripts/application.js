@@ -13,7 +13,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require_tree .
 //= require blueimp-gallery
 //= require blueimp-gallery-fullscreen
 //= require blueimp-gallery-indicator
@@ -22,3 +21,4 @@
 //= require jquery.blueimp-gallery
 //= require bootstrap-image-gallery
 //= require turbolinks
+//= require_tree .

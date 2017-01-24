@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
     var SURVEY;
     var SURVEY_QUESTIONS;
     var CURRENT_USER_ID;
-    if (gon.surveyContent && window.currentUserId) {
+    if (window.currentUserId) {
         SURVEY = gon.surveyContent;
         SURVEY_QUESTIONS = JSON.parse(SURVEY.content);
         CURRENT_USER_ID = window.currentUserId;
@@ -11,6 +11,28 @@ $(document).on('turbolinks:load', function() {
 
     function checkVotedUser(users) {
         return users.split(',').indexOf(CURRENT_USER_ID);
+    }
+
+    function addToggleToRadios() {
+        $("input[name='answer-survey']").on('change', function(e) {
+            $("input[name='answer-survey']").attr('checked', false);
+            $(e.target).prop('checked', 'checked');
+            $(e.target).attr('checked', 'checked');
+        })
+    }
+
+    function renderCommonBottom() {
+        var container = $('.survey-content');
+        var contentBottom = $('<div/>').addClass('survey-content-bottom')
+        container.append(contentBottom);
+    }
+
+    function renderSurveyTotal() {
+        var contentBottom = $('.survey-content-bottom')
+        contentBottom.append($('<div/>').addClass('survey-total')
+            .append('<div/>')
+            .addClass('survey-total-count')
+            .html('Проголосовали: <b>' + SURVEY.count_votes + '</b>'))
     }
 
     function renderQuestions() {
@@ -36,15 +58,9 @@ $(document).on('turbolinks:load', function() {
         addToggleToRadios();
     }
 
-    function addToggleToRadios() {
-        $("input[name='answer-survey']").on('change', function(e) {
-            $("input[name='answer-survey']").attr('checked', false);
-            $(e.target).prop('checked', 'checked');
-            $(e.target).attr('checked', 'checked');
-        })
-    }
-
     function renderQuestionBottom() {
+        renderCommonBottom();
+        renderSurveyTotal();
         var bottomContent = $('.survey-content-bottom');
         var divVote = $('<div/>').addClass('survey-vote')
         var btnVote = $('<button/>')
@@ -82,14 +98,15 @@ $(document).on('turbolinks:load', function() {
                     .append($('<div/>').addClass('count-result')
                         .append(SURVEY_QUESTIONS[i].count))
                     .append($('<div/>').addClass('percent-result')
-                        .text(percentCount)))
+                        .text(Math.floor(percentCount))))
 
         }
         container.prepend(resultList);
     }
 
     function renderResultBottom() {
-        $('.survey-total-count b').text(SURVEY.count_votes)
+        $('.survey-total-count b').text(SURVEY.count_votes);
+        $('.survey-vote').remove();
     }
 
 
@@ -129,8 +146,10 @@ $(document).on('turbolinks:load', function() {
                 users: ''
             }
         }
-        var controller = $('#btn-create-survey').attr('data-controller');
-        throughAJAX(json, controller, "POST")
+        var controllerPOST = $('#btn-create-survey').attr('data-controller');
+        throughAJAX(json, controllerPOST, "POST", function() {
+            window.location.reload()
+        })
     })
 
     $('.survey-content-add-field').click(function() {

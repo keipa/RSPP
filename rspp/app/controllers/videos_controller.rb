@@ -7,9 +7,9 @@ class VideosController < ApplicationController
      end
 
     def create
-        @video = Video.create(:youtube_link => params['youtube_link'], :iframe_link => params['iframe_link'],
-        :title => params['title'], :published_at => params['published_at'], :description => params['description'],
-        :type_video => params['type_video'], :video_id => params['video_id'], :album_id => @album.id)
+        @video = Video.new video_params
+        @video.album_id = @album.id
+        @video.save
     end
 
     def update

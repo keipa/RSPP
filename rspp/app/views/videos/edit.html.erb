@@ -12,13 +12,13 @@
                             <h2>
                                 Заголовок видео:
                             </h2>
-                            <%= f.text_field :title, autocomplete: "off", placeholder: "Заголовок видео..." %>
+                            <%= f.text_field :title, autocomplete: "off", placeholder: "Заголовок видео...", value: @video.title %>
                         </div>
                         <div class="name-field">
                             <h2>
                                 Описание видео:
                             </h2>
-                            <%= f.text_field :description, autocomplete: "off", placeholder: "Описание видео..." %>
+                            <%= f.text_field :description, autocomplete: "off", placeholder: "Описание видео...", value: @video.description %>
                         </div>
                         <div class="choose-field">
                             <h2>

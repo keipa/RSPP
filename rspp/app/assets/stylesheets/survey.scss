@@ -13,7 +13,9 @@ $survey-content-back: #ffffff;
     height: auto;
     box-shadow: 1px 1px 6px #000000;
 
-    &-add {}
+    &-vote {
+      margin-top: 10px;
+    }
 
     &-close {
         position: absolute;
