@@ -13,6 +13,8 @@ $survey-content-back: #ffffff;
     height: auto;
     box-shadow: 1px 1px 6px #000000;
 
+    &-add {}
+
     &-close {
         position: absolute;
         border-radius: 50%;
@@ -37,6 +39,7 @@ $survey-content-back: #ffffff;
 
     &-title {
         border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         background: $survey-title-back;
         color: #000000;
         min-height: 40px;
@@ -46,11 +49,50 @@ $survey-content-back: #ffffff;
         font-size: 1.4rem;
         font-weight: bold;
         border-bottom: 1px dashed #000000;
+        text-align: center;
+
+        input {
+            box-sizing: border-box;
+            padding: 2px 5px;
+            height: 40px;
+            font-size: 2rem;
+            width: 90%;
+            border-radius: 5px;
+        }
     }
 
     &-content {
         box-sizing: border-box;
         padding: 10px;
+        min-height: 40px;
+
+        .options-content {
+            margin-bottom: 10px;
+
+            .remove-option {
+                color: rgba(34, 34, 34, .7);
+                font-size: 2rem;
+                line-height: 35px;
+                cursor: pointer;
+
+                &:hover {
+                    color: rgba(34, 34, 34, 1);
+                }
+
+                &:before {
+                  margin-left: 3px;
+                }
+            }
+        }
+
+        .input-options {
+            width: 90%;
+            box-sizing: border-box;
+            padding: 2px 5px;
+            height: 35px;
+            border-radius: 2px;
+            font-size: 1.8rem;
+        }
 
         &-question-list {
             .survey-question {
@@ -62,7 +104,26 @@ $survey-content-back: #ffffff;
             }
         }
 
+        &-add-field {
+            width: 70%;
+            height: 30px;
+            border: 1px solid lighten(#000000,40%);
+            background: #ededed;
+            cursor: pointer;
+            margin: auto;
+            font-size: 2rem;
+            text-align: center;
+
+            &:hover {
+              background: darken(#ededed, 10%);
+            }
+        }
+
         &-bottom {
+            margin-top: 10px;
+            width: 100%;
+            text-align: center;
+
             .survey-total {
                 &-count {}
             }

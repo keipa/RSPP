@@ -4,7 +4,7 @@ class SureysController < ApplicationController
   end
 
   def create
-
+    @survey = Survey.create(surveys_params)
   end
 
   def vote

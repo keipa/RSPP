@@ -5,8 +5,9 @@ class HomeController < ApplicationController
         @videos = Video.all.where(type_video: 'interview').order('created_at desc').limit(5)
         @partners_unsorted = Partner.all
         @partners = []
-        (0..12).each do |i| 
+        (0..12).each do |i|
           @partners[i] = @partners_unsorted.where(position: i)[0]
         end
+        @survey = Survey.all.where(closed: false)
     end
 end

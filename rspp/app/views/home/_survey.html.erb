@@ -1,18 +1,18 @@
 <div class="survey">
-
     <div class="survey-close">
         <i class="glyphicon glyphicon-remove"></i>
     </div>
+    <% if @survey.empty? %>
+    <%= render "survey_add"%>
+    <% else%>
     <div class="survey-title">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
     </div>
     <div class="survey-content">
-        <%= form_for survey_path do |f| %>
         <div class="survey-content-question-list">
             <div class="survey-question"></div>
             <div class="survey-question radiobtn"></div>
         </div>
-        <%end%>
         <div class="survey-content-bottom">
             <div class="survey-total">
                 <div class="survey-total-count">
@@ -27,6 +27,7 @@
             </div>
         </div>
     </div>
+    <% end %>
 </div>
 
 <!-- <div class="survey">
