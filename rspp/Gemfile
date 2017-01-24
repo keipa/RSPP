@@ -14,6 +14,8 @@ gem 'Bootstrap-Image-Gallery-rails'
 
 gem 'acts_as_commentable'
 
+gem 'gon'
+
 gem 'jquery-turbolinks'
 
 

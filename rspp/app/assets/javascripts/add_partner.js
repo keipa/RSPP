@@ -57,15 +57,7 @@ $(document).on('turbolinks:load', function() {
     })
 
 
-    function throughAJAX(sendable, controller, callback) {
-        $.ajax({
-            type: "POST",
-            url: controller,
-            dataType: 'json',
-            data: sendable,
-            success: callback
-        });
-    }
+
 
     function checkLink(link) {
         var regexp = new RegExp(/(https?:\/\/){1}([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/);

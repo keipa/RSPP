@@ -19,7 +19,3 @@ Rails.application.config.assets.precompile += %w( add_topics.js )
 Rails.application.config.assets.precompile += %w( add_subtopics.js )
 Rails.application.config.assets.precompile += %w( quill.js )
 Rails.application.config.assets.precompile += %w( add_partner.js )
-
-
-
-

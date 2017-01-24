@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+<div class="survey">
+    <% if (@survey) %>
+    <% if  can? :manage, Survey %>
+    <div class="survey-close">
+        <a href="<%=survey_path(@survey)%>" data-remote="true" data-method="delete" title="Удалить опрос">
+            <i class="glyphicon glyphicon-remove"></i>
+        </a>
+    </div>
+    <% end %>
+    <%= render "survey"%>
+<% else %>
+    <% if can? :manage, Survey %>
+    <%= render "survey_add"%>
+    <% end %>
+    <% end %>
+</div>
+<% end %>
