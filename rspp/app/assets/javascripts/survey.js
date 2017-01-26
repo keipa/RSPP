@@ -23,6 +23,7 @@ $(document).on('turbolinks:load', function() {
 
     function renderCommonBottom() {
         var container = $('.survey-content');
+        $('.survey-content .survey-content-bottom').remove();
         var contentBottom = $('<div/>').addClass('survey-content-bottom')
         container.append(contentBottom);
     }
@@ -105,8 +106,8 @@ $(document).on('turbolinks:load', function() {
     }
 
     function renderResultBottom() {
-        $('.survey-total-count b').text(SURVEY.count_votes);
-        $('.survey-vote').remove();
+        renderCommonBottom();
+        renderSurveyTotal();
     }
 
 
@@ -181,4 +182,16 @@ $(document).on('turbolinks:load', function() {
         })
         return arr;
     }
+
+    $('.survey-hide').click(function(e) {
+        if ($('.survey-hide').attr('state') == 'opened') {
+            $('.survey-hide').attr('state', 'closed');
+            $('.survey-hide').attr('title', 'Открыть опрос')
+            $('.survey-body').hide('slide', {direction: 'left'}, 100)
+        } else {
+            $('.survey-hide').attr('state', 'opened');
+            $('.survey-hide').attr('title', 'Закрыть опрос')
+            $('.survey-body').show('slide',{direction: 'left'}, 100 );
+        }
+    })
 });

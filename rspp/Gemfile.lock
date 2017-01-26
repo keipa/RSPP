@@ -101,6 +101,8 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (6.0.1)
+      railties (>= 3.2.16)
     json (2.0.3)
     less (2.6.0)
       commonjs (~> 0.2.7)
@@ -243,6 +245,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry
@@ -258,4 +261,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.13.7
+   1.14.2
