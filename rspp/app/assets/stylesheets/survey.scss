@@ -1,20 +1,52 @@
 @import "variables";
-$survey-title-back: #ffe5e5;
+$survey-title-back: #00b200;
 $survey-content-back: #ffffff;
+$survey-hide-button: #009900;
 
 .survey {
-    border-radius: 10px;
-    z-index: 999;
     position: fixed;
     top: 25%;
-    left: 2%;
-    background: $survey-content-back;
+    left: 30px;
     width: 250px;
-    height: auto;
-    box-shadow: 1px 1px 6px #000000;
+
+    &-body {
+        box-shadow: 1px 1px 6px #000000;
+        border-radius: 10px;
+        z-index: 999;
+        background: $survey-content-back;
+        width: 250px;
+        height: auto;
+        overflow: hidden;
+    }
+
+    &-hide {
+        width: 25px;
+        height: 40px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        background: $survey-hide-button;
+        position: absolute;
+        left: -30px;
+        color: #ffffff;
+        transition: background 0.2s;
+        cursor: pointer;
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        &:hover {
+            background: darken($survey-hide-button,13%);
+        }
+    }
 
     &-vote {
-      margin-top: 10px;
+        margin-top: 10px;
     }
 
     &-close {
@@ -23,6 +55,7 @@ $survey-content-back: #ffffff;
         width: 25px;
         height: 25px;
         background: rgba(34, 34, 34, 0.7);
+        z-index: 999;
         right: -8px;
         top: -14px;
         text-align: center;
@@ -50,6 +83,7 @@ $survey-content-back: #ffffff;
         padding: 5px;
         font-size: 1.7rem;
         font-weight: bold;
+        word-wrap: break-word;
         border-bottom: 1px dashed #000000;
         text-align: center;
 

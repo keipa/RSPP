@@ -16,6 +16,8 @@ gem 'acts_as_commentable'
 
 gem 'gon'
 
+gem 'jquery-ui-rails'
+
 gem 'jquery-turbolinks'
 
 
