@@ -1,5 +1,5 @@
 @import "variables";
-$survey-title-back: #00b200;
+$survey-title-back: #d1dfea;
 $survey-content-back: #ffffff;
 $survey-hide-button: #009900;
 
@@ -8,11 +8,11 @@ $survey-hide-button: #009900;
     top: 25%;
     left: 30px;
     width: 250px;
+    z-index: 999;
 
     &-body {
         box-shadow: 1px 1px 6px #000000;
         border-radius: 10px;
-        z-index: 999;
         background: $survey-content-back;
         width: 250px;
         height: auto;
@@ -34,7 +34,7 @@ $survey-hide-button: #009900;
         span {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 40%;
             transform: translate(-50%,-50%);
             font-size: 3rem;
             font-weight: bold;
@@ -56,8 +56,8 @@ $survey-hide-button: #009900;
         height: 25px;
         background: rgba(34, 34, 34, 0.7);
         z-index: 999;
-        right: -8px;
-        top: -14px;
+        right: -10px;
+        top: -15px;
         text-align: center;
         cursor: pointer;
 

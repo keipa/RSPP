@@ -187,9 +187,11 @@ $(document).on('turbolinks:load', function() {
         if ($('.survey-hide').attr('state') == 'opened') {
             $('.survey-hide').attr('state', 'closed');
             $('.survey-hide').attr('title', 'Открыть опрос')
+            $('.survey-hide').html('<span class="fa fa-angle-right"></span>')
             $('.survey-body').hide('slide', {direction: 'left'}, 100)
         } else {
             $('.survey-hide').attr('state', 'opened');
+            $('.survey-hide').html('<span class="fa fa-angle-left"></span>')
             $('.survey-hide').attr('title', 'Закрыть опрос')
             $('.survey-body').show('slide',{direction: 'left'}, 100 );
         }
