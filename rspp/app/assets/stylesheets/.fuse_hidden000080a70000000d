@@ -1,0 +1,62 @@
+@import "variables";
+@import "boxstyle";
+
+.social-networks {
+    @extend .boxstyle;
+    float: right;
+    text-align: center;
+
+    h2 {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &-list {
+        list-style: none;
+        padding: 8px;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            float: left;
+            margin: 7px;
+            cursor: pointer;
+            border-radius: 50%;
+            background: #ededed;
+            width: 80px;
+            height: 80px;
+            position: relative;
+
+            &:hover {
+                box-shadow: 1px 1px 5px $main-color-first;
+            }
+
+            i {
+                font-size: 4rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            .fa-vk {
+                color: #45668e;
+            }
+
+            .fa-youtube-play {
+                color: #bb0000;
+            }
+
+            .fa-odnoklassniki {
+                color: #ed812b;
+            }
+        }
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+        margin-bottom: 0;
+    }
+}
+

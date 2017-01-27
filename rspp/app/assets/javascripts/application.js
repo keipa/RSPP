@@ -20,5 +20,6 @@
 //= require blueimp-gallery-youtube
 //= require jquery.blueimp-gallery
 //= require bootstrap-image-gallery
+//= require jquery.slick
 //= require turbolinks
 //= require_tree .
