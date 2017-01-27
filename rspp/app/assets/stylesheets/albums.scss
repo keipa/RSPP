@@ -59,12 +59,33 @@
     }
 
     #back-to {
-        @extend .big-button;
-        background-color: $gallery-color-second;
+        position: fixed;
+        left: 0;
+        height: 100%;
+        width: 200px;
 
         &:hover {
-            background: darken($gallery-color-second,10%);
+            background: rgba(237,237,237,0.05);
         }
+
+        span {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%);
+            font-size: 10rem;
+            color: #ffffff;
+
+            &:hover {
+                color: darken(#ffffff,20%);
+            }
+        }
+        // @extend .big-button;
+        // background-color: $gallery-color-second;
+        //
+        // &:hover {
+        //     background: darken($gallery-color-second,10%);
+        // }
     }
 }
 

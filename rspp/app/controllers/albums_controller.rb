@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
       before_action :set_gallery
-      before_action :set_album, except: [:create, :new, :index]
+      before_action :set_album, except: [:create, :new, :index, :show]
       def index
           @albums = @gallery.albums.all.reverse.to_a
       end
@@ -12,7 +12,8 @@ class AlbumsController < ApplicationController
       end
 
       def show
-        @videos = @album.videos.order(created_at: :desc)
+        @album = @gallery.albums.find(params[:id])
+        @videos = @album.videos.includes(:comments).paginate(page: params[:page], per_page: 8).order(created_at: :desc)
       end
 
       def update

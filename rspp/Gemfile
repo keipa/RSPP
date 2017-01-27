@@ -16,9 +16,11 @@ gem 'acts_as_commentable'
 
 gem 'gon'
 
-gem 'jquery-turbolinks'
+gem 'jquery-ui-rails'
 
 gem 'jquery-slick-rails'
+gem 'jquery-turbolinks'
+gem 'will_paginate-bootstrap'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
