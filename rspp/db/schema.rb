@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123122247) do
+ActiveRecord::Schema.define(version: 20170127140722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20170123122247) do
     t.index ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
     t.index ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "complaints", force: :cascade do |t|
+    t.string  "title"
+    t.text    "body"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -139,6 +146,7 @@ ActiveRecord::Schema.define(version: 20170123122247) do
   end
 
   add_foreign_key "albums", "galleries"
+  add_foreign_key "complaints", "users"
   add_foreign_key "news_posts", "users"
   add_foreign_key "topics", "users"
   add_foreign_key "videos", "albums"

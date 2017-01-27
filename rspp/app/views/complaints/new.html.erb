@@ -1,0 +1,11 @@
+<%= form_for @complaint, html: {id: "news-post-form"} do |f| %>
+  <div>
+    <%= f.text_field :title, autocomplete: "off", placeholder: "Тема обращения" %>
+  </div>
+  <div>
+    <%= f.text_area :body, autocomplete: "off", placeholder: "Описание" %>
+  </div>
+
+  <%= f.submit "Отправить" %>
+
+<% end %>
