@@ -7,12 +7,16 @@
 <% end %>
 
 <div class="container" id="links">
+    <% if @album.pictures.any? %>
     <% @album.pictures.all.each do |picture| %>
     <div class="col-sm-4 col-md-2 thumbnail album-item">
         <a href="<%= picture.image_url%>" data-gallery>
             <img src="<%=picture.image_url%>" class="img-responsive">
         </a>
     </div>
+    <% end %>
+    <% else %>
+    <h1>Нету фотографий</h1>
     <% end %>
 </div>
 <div id="blueimp-gallery" class="blueimp-gallery">

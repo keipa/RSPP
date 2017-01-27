@@ -10,7 +10,12 @@
 <div class="video-container container">
     <div class="gallery-page-header">
         <% if @album.videos.any? %>
-        <h1><%=@album.name%></h1>
+        <h1>Название альбома:
+            <%=@album.name%></h1>
+        <% if @album.description.length > 0 %>
+        <p>Описание альбома:
+            <%=@album.description%></p>
+        <% end %>
     <% else %>
         <h1>Нет Видео</h1>
         <% end %>

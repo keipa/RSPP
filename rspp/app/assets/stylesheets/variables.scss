@@ -1,6 +1,32 @@
 $main-color-first: #ED1B24;
 $main-color-second: #4DB748;
-$gallery-color-first: #6897bb;
-$gallery-color-second: #4DB748;
-$gallery-color-third: #222;
-$form-font-color: #000000;
+
+//
+// $gallery-color-first: #6897bb;
+// $gallery-color-second: #4DB748;
+// $gallery-color-third: #222;
+
+$gallery-background: #ffffff;
+
+$gallery-navbar-border-color:  #222;
+$gallery-navbar-hover-border-color: #222;
+$gallery-navbar-li-hover-color: #00ab6b;
+
+$gallery-title-color: #222;
+
+$gallery-item-border-color: #222;
+$gallery-item-hover-color: #222;
+$gallery-item-first-color: #ffffff;
+$gallery-item-second-color: #00ab6b;
+$gallery-item-title-link-color: #ffffff;
+
+$gallery-new-font-color: #6897bb;
+$gallery-new-form-color: #ffffff;
+$gallery-new-form-border-color: #222;
+$gallery-new-form-hover-color: #00ab6b;
+$gallery-new-form-input-color: #000000;
+
+$back-arrow-background: rgba(0,171,106,0.1);
+$back-arrow-color: #0AFFA1;
+$back-div-hover-arrow-color: #00ab6b;
+$back-arrow-color-hover: darken(#00ab6b,10%);
