@@ -7,6 +7,6 @@ class PartnersController < ApplicationController
   private
 
   def partner_params
-    params.require(:partner).permit(:image_url, :link, :position)
+    params.require(:partner).permit(:image_url, :link)
   end
 end
