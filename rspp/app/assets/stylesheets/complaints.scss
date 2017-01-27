@@ -1,9 +1,9 @@
 @import "variables";
 
-form {
+#complaint-form {
   font-size: 4rem;
 }
 
-div {
+.title, .body {
   margin-bottom: 20px;
 }
