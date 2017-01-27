@@ -1,0 +1,6 @@
+<div style="font-size: 40px;">
+  <% @complaints.each do |complaint| %>
+    <p>Жалоба по поводу <%= link_to complaint.title, complaint_path(complaint) %> </p>
+
+  <% end %>
+</div>

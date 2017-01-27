@@ -25,4 +25,6 @@ Rails.application.routes.draw do
       end
     end
     resources :partners, only: [:create, :delete, :edit, :update]
+
+    resources :complaints
 end
