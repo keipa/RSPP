@@ -9,7 +9,7 @@
             <% end %>
         <% end %>
 
-        <div class="category dropdown">
+        <div class="topic dropdown">
             <a href="<%= topic.link %>" class="navbar-brand"><%= topic.text %></a>
             <% if (can? :manage, Topic) || (topic.subtopics.present?) %>
                 <ul class="dropdown-menu">
@@ -18,14 +18,14 @@
                             <a class="dropdown-text" href="<%= subtopic.link %>">
                                 <%= subtopic.text %>
                             </a>
-                        </li>
-                        <% if can? :manage, Topic %>
-                            <%= link_to topic_path(subtopic), method: :delete do %>
-                                <div class="delete-cross-subtopic" title="Удалить раздел <%= subtopic.text %>">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </div>
+                            <% if can? :manage, Topic %>
+                                <%= link_to topic_path(subtopic), method: :delete, class: "delete-topic-link" do %>
+                                    <div class="delete-cross-subtopic" title="Удалить раздел <%= subtopic.text %>">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </div>
+                                <% end %>
                             <% end %>
-                        <% end %>
+                        </li>
                     <% end %>
                     <% if can? :manage, Topic %>
                         <li>
@@ -40,7 +40,7 @@
     <% end %>
 
     <% if can? :manage, Topic %>
-        <div class="category">
+        <div class="topic">
             <a class="navbar-brand add-topic-sign" title="Добавить раздел">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
