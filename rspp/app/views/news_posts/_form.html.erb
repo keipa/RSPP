@@ -3,7 +3,7 @@
   <div class="container news-post-container">
     <p class="info">Введите заголовок:</p>
     <h1>
-      <p><%= f.text_field :title, autocomplete: "off", placeholder: "Заголовок" %></p>
+      <p><%= f.text_field :title, autocomplete: "off", placeholder: "Заголовок", required: "true" %></p>
     </h1>
 
     <!-- <hr> -->
@@ -70,7 +70,6 @@
   });
 
   obj = "<%= @post.text.inspect %>".replace(/&quot;/g, '"')
-  console.log(obj == "nil")
   if ((obj != "nil") && (obj.slice(0,1) == '"')) {
     content = JSON.parse(obj.slice(1,-1));
     quill.setContents(content.ops);
@@ -81,8 +80,14 @@
 
   var form = $("#news-post-form");
   form.on('submit', function() {
-    var text = $('#text');
-    text.val(JSON.stringify(quill.getContents()));
-    text.appendTo(form);
+    var content = $(".ql-editor");
+    if (!content.hasClass("ql-blank")) {
+      var text = $('#text');
+      text.val(JSON.stringify(quill.getContents()));
+      text.appendTo(form);
+    } else {
+      alert("Необходимо добавить содержание новости.");
+      return false;
+    }
   })
 </script>
