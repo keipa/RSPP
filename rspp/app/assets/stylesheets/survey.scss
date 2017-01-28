@@ -1,13 +1,11 @@
 @import "variables";
-$survey-title-back: #00b200;
-$survey-content-back: #ffffff;
-$survey-hide-button: #009900;
 
 .survey {
     position: fixed;
     top: 25%;
     left: 30px;
     width: 250px;
+    z-index: 999;
 
     &-body {
         box-shadow: 1px 1px 6px #000000;
@@ -16,6 +14,44 @@ $survey-hide-button: #009900;
         width: 250px;
         height: auto;
         overflow: hidden;
+    }
+
+    &-comments {
+        display: none;
+        width: 99%;
+        padding: 0 !important;
+        margin: 10px auto;
+
+        .comments-list {
+            max-height: 175px;
+            overflow-y: scroll;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .send-comment {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .new-comment {
+            margin-top: 5px;
+
+            textarea {
+                width: 100%;
+            }
+        }
+
+        .show-comments {
+            background: $survey-show-comments-color !important;
+            color: $survey-show-comments-font-color;
+
+            &:hover {
+                background: darken($survey-show-comments-color,10%) !important;
+                color: $survey-show-comments-font-color;
+            }
+        }
     }
 
     &-hide {
@@ -33,7 +69,7 @@ $survey-hide-button: #009900;
         span {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 40%;
             transform: translate(-50%,-50%);
             font-size: 3rem;
             font-weight: bold;
@@ -55,8 +91,8 @@ $survey-hide-button: #009900;
         height: 25px;
         background: rgba(34, 34, 34, 0.7);
         z-index: 999;
-        right: -8px;
-        top: -14px;
+        right: -10px;
+        top: -15px;
         text-align: center;
         cursor: pointer;
 

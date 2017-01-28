@@ -1,0 +1,43 @@
+class ComplaintsController < ApplicationController
+
+  def index
+    if can? :manage, Complaint
+      @complaints = Complaint.all
+    else
+      redirect_to root_path
+    end
+  end
+
+  def show
+    I18n.locale = :ru
+    if can? :manage, Complaint
+      @complaint = Complaint.includes(:user).find(params[:id])
+    else
+      redirect_to root_path
+    end
+  end
+
+  def new
+    if can? :manage, Complaint
+      @complaint = Complaint.new
+    else
+      redirect_to root_path
+    end
+  end
+
+  def create
+    if can? :manage, Complaint
+      Complaint.create(complaint_params.merge(user_id: current_user.id))
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  private
+
+  def complaint_params
+    params.require(:complaint).permit(:title, :body)
+  end
+
+end

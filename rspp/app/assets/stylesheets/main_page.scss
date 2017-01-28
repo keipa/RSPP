@@ -1,6 +1,6 @@
 @import "variables";
-@import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
-@import url( 'https://fonts.googleapis.com/css?family=PT+Sans'); // 1.1rem = Body font-size(10) * 1.1
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans'); // 1.1rem = Body font-size(10) * 1.1
 
 body,
 html {
@@ -9,7 +9,7 @@ html {
 
 body {
     background-color: #F0F0F0 !important;
-    //background: linear-gradient(to bottom, #FFFFFF 0% ,#FFFFFF 5.8%, $main-color-first 0.1%, #F0F0F0 5.9%, #F0F0F0 100%);
+    //background: linear-gradient(#FFFFFF 26.5%, $main-color-first 0.4%, #F0F0F0 26.9%);
     font-family: 'PT Sans Narrow', sans-serif !important;
     font-size: 10px !important;
 }
@@ -19,6 +19,20 @@ body {
     display: inline-block;
     width: 100%;
     margin-bottom: 20px;
+
+    .complaint-btn {
+        font-size: 3rem;
+        height: 60px;
+        font-weight: bold;
+        font-family: 'PT Sans', sans-serif;
+        border-radius: 15px;
+        padding: 0 15px;
+        background-color: lighten($complaint-btn-color, 10%);
+
+        &:hover {
+            background-color: $complaint-btn-color;
+        }
+    }
 }
 
 .glyphicon-trash {
@@ -92,7 +106,6 @@ body {
         }
     }
 }
-
 
 
 @media only screen

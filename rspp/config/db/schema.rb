@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123122247) do
+ActiveRecord::Schema.define(version: 20170127140722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20170123122247) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "complaints", force: :cascade do |t|
+    t.string  "title",   null: false
+    t.text    "body",    null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
+  end
+
   create_table "galleries", force: :cascade do |t|
     t.string   "name"
     t.string   "type_gallery"
@@ -47,17 +54,19 @@ ActiveRecord::Schema.define(version: 20170123122247) do
   end
 
   create_table "news_posts", force: :cascade do |t|
-    t.string  "title"
-    t.text    "description"
-    t.text    "text"
-    t.string  "image_url"
-    t.integer "user_id"
+    t.string   "title",       null: false
+    t.text     "description"
+    t.text     "text",        null: false
+    t.string   "image_url"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_news_posts_on_user_id", using: :btree
   end
 
   create_table "partners", force: :cascade do |t|
-    t.string  "image_url"
-    t.string  "link"
+    t.string  "image_url", null: false
+    t.string  "link",      null: false
     t.integer "position"
   end
 
@@ -139,6 +148,7 @@ ActiveRecord::Schema.define(version: 20170123122247) do
   end
 
   add_foreign_key "albums", "galleries"
+  add_foreign_key "complaints", "users"
   add_foreign_key "news_posts", "users"
   add_foreign_key "topics", "users"
   add_foreign_key "videos", "albums"

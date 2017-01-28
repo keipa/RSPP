@@ -78,6 +78,7 @@ $(document).on('turbolinks:load', function() {
     function renderResluts() {
         var container = $('.survey-content');
         container.find('.survey-content-question-list').remove();
+        $('.survey-comments').show();
         renderResultList();
         renderResultBottom();
     }
@@ -138,10 +139,20 @@ $(document).on('turbolinks:load', function() {
     }
 
     $('#btn-create-survey').click(function() {
+        var valFromOptions = getQuestionVals();
+        var titleSurvey = $('#survey-title-input').val().trim();
+        if(valFromOptions.length == 0) {
+          alert('Not valid options');
+          return;
+        }
+        if(titleSurvey == '' || !titleSurvey) {
+          alert('Not valid title');
+          return;
+        }
         var json = {
             survey: {
-                title: $('#survey-title-input').val(),
-                content: JSON.stringify(getQuestionVals()),
+                title: titleSurvey,
+                content: JSON.stringify(valFromOptions),
                 count_votes: 0,
                 closed: false,
                 users: ''
@@ -175,10 +186,12 @@ $(document).on('turbolinks:load', function() {
         var vals = $('.input-option');
         var arr = [];
         $.each(vals, function(i, v) {
-            arr.push({
-                body: $(v).val(),
-                count: 0
-            })
+            if ($(v).val().trim() != '' || $(v).val().trim()) {
+                arr.push({
+                    body: $(v).val(),
+                    count: 0
+                })
+            }
         })
         return arr;
     }
@@ -187,11 +200,17 @@ $(document).on('turbolinks:load', function() {
         if ($('.survey-hide').attr('state') == 'opened') {
             $('.survey-hide').attr('state', 'closed');
             $('.survey-hide').attr('title', 'Открыть опрос')
-            $('.survey-body').hide('slide', {direction: 'left'}, 100)
+            $('.survey-hide').html('<span class="fa fa-angle-right"></span>')
+            $('.survey-body').hide('slide', {
+                direction: 'left'
+            }, 100)
         } else {
             $('.survey-hide').attr('state', 'opened');
+            $('.survey-hide').html('<span class="fa fa-angle-left"></span>')
             $('.survey-hide').attr('title', 'Закрыть опрос')
-            $('.survey-body').show('slide',{direction: 'left'}, 100 );
+            $('.survey-body').show('slide', {
+                direction: 'left'
+            }, 100);
         }
     })
 });

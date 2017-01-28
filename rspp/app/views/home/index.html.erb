@@ -10,12 +10,27 @@
 
     <%= render 'topics_navbar' %>
 
-    <%= render 'main_slider' %>
+    <div class="line">
+        <%= render 'main_slider' %> 
+    </div>
+
+    <div class="line text-center">
+        <% if user_signed_in? %>
+            <div>
+                <%= link_to new_complaint_path do %>
+                    <button class="btn btn-danger complaint-btn">Обратиться</button>
+                <% end %>
+            </div>
+        <% else %>
+            <div>
+                <button class="btn btn-danger complaint-btn" onclick="alert('Сначала необходимо войти или зарегистрироваться')">Обратиться</button>
+            </div>
+        <% end %>
+    </div>
 
     <div class="line">
         <%= render 'video_block' %>
         <%= render 'rspp_news_block' %>
-
     </div>
 
     <div class="line">

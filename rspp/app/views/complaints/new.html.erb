@@ -1,0 +1,30 @@
+<div class="container container-complaints text-center">
+  <h1>
+    Обращение
+  </h1>
+</div>
+
+<div class="container panel panel-default">
+  <%= form_for @complaint, html: {id: "complaint-form"} do |f| %>
+
+    <div class="title">
+      <%= f.text_field :title, autocomplete: "off", placeholder: "Тема обращения" %>
+    </div>
+
+    <div class="body">
+      <%= f.text_area :body, autocomplete: "off", placeholder: "Описание" %>
+    </div>
+
+    <div class="footer">
+      <div>
+        <%= f.submit "Отправить", class: "btn btn-success submit" %>
+      </div>
+      <div>
+        <%= link_to root_path do %>
+          <button class="btn btn-danger">Назад</button>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

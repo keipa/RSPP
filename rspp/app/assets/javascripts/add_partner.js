@@ -18,7 +18,6 @@ $(document).on('turbolinks:load', function() {
   })
 
   $(".add-partner-single").click(function() {
-    partnerPosition = $(this).attr("id");
     $("#partner-link").val("");
     $("#partner-image-url").val("");
     $("#loadedImage").hide();
@@ -39,20 +38,14 @@ $(document).on('turbolinks:load', function() {
         var partnerLink = $("#partner-link").val();
         var partnerImageUrl = $("#partner-image-url").val();
         var controller = $("#add-partner-btn").attr("data-controller");
-        var pPosition = partnerPosition.match(/\d+/)[0];
         if ((checkLink(partnerLink)) && (partnerImageUrl)) {
             throughAJAX({
                 'partner': {
                     'link': partnerLink,
-                    'image_url': partnerImageUrl,
-                    'position': pPosition
+                    'image_url': partnerImageUrl
                 }
-            }, controller);
+            }, controller, 'POST');
             $(".add-partner-form").fadeOut(300);
-            $("#" + partnerPosition)[0].innerHTML = "<img src='" + partnerImageUrl +"'>"
-            $("#" + partnerPosition).find("img").each(function() {
-                $(this).css({"vertical-align": "0", "max-width": "100%", "max-height": "100%"});
-            })
         }
     })
 
@@ -63,8 +56,5 @@ $(document).on('turbolinks:load', function() {
         var regexp = new RegExp(/(https?:\/\/){1}([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/);
         return regexp.test(link) ? true : false;
     }
-
-
-
 
 })

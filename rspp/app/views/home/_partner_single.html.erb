@@ -1,30 +1,7 @@
-<% if partner %>
+<div style="position: relative; height: 170px;">
+  <a href="<%= partner.link %>">
+    <img style="max-height: 150px; max-width: 90%; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" class="partner-image" src="<%= partner.image_url %>">
+  </a>
+</div>
 
-  <% if can? :manage, Partner %>
-    <div id="partner-position-<%= position %>" class="col-md-6 partner-single">
-      <img src="<%= partner.image_url %>" class="partner-image">
-    </div>
-  <% else %>
-    <div id="partner-position-<%= position %>" class="col-md-6 partner-single">
-      <a href="<%= partner.link %>">
-        <img src="<%= partner.image_url %>" class="partner-image">
-      </a>
-    </div>
-  <% end %>
 
-<% else %>
-
-  <% if can? :manage, Partner %>
-
-    <div id="partner-position-<%= position %>" class="col-md-6 add-partner-single">
-      <span class="glyphicon glyphicon-plus"></span>
-    </div>
-
-  <% else %>
-
-    <div class="col-md-6">
-    </div>
-
-  <% end %>
-
-<% end %>
