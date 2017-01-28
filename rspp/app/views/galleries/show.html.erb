@@ -1,6 +1,6 @@
 <div class="container-fluid gallery-page">
-    <div class="container gallery-page-content">
-        <nav class="navbar navbar-default">
+    <div class="gallery-page-content">
+        <nav class="navbar-big navbar navbar-default">
             <div class="container-fluid nav-content">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
@@ -19,12 +19,29 @@
                 </ul>
             </div>
         </nav>
+        <nav class="navbar-small navbar navbar-default">
+            <div class="nav-content">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="<%=galleries_path%>"><%=@gallery.name%></a>
+                    </li>
+                    <% if can? :manage, @gallery %>
+                    <li>
+                        <a href="<%=new_gallery_album_path(@gallery)%>">Создать альбом</a>
+                    </li>
+                    <%end %>
+                    <li>
+                        <a href="<%=root_path%>">На главную</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <div class="gallery-page-items">
             <div class="gallery-page-header">
                 <% if @gallery.albums.empty?%>
                 <h1>Нет альбомов</h1>
-                <% else %>
+            <% else %>
                 <h1>Альбомы</h1>
             </div>
             <%= render 'gallery_albums' %>

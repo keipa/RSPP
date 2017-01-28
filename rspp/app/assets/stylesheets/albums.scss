@@ -8,10 +8,17 @@
         text-align: center;
     }
 
+    .picture-container {
+        width: 60%;
+        margin: auto;
+    }
+
     .album-item {
         box-sizing: border-box;
         padding: 1px;
         height: 130px;
+        width: 22%;
+        display: inline-block;
         margin: 10px;
         border: 0;
         overflow: hidden;
@@ -26,8 +33,50 @@
             }
         }
     }
+    @media (max-width: 1251px) {
+        .album-item {
+            width: 45%;
+        }
+    }
+    @media (max-width: 800px) {
+        .album-item {
+            width: 100%;
+            height: 200px;
+        }
+    }
+
+    a,
+    a:hover {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .upload {
+        @extend .big-button;
+        display: block !important;
+        background: $main-color-second;
+
+        &:hover {
+            background: darken($main-color-second,10%);
+        }
+    }
+    @media (max-width: 1000px) {
+        .big-button {
+            display: block !important;
+            background: $main-color-second;
+
+            &:hover {
+                background: darken($main-color-second,10%);
+            }
+        }
+
+        .arrow-back {
+            display: none;
+        }
+    }
 
     .big-button {
+        display: none;
         width: 200px;
         height: 60px;
         line-height: 60px;
@@ -43,22 +92,7 @@
         font-size: 3rem;
     }
 
-    a,
-    a:hover {
-        text-decoration: none;
-        color: #ffffff;
-    }
-
-    .upload {
-        @extend .big-button;
-        background: $main-color-second;
-
-        &:hover {
-            background: darken($main-color-second,10%);
-        }
-    }
-
-    #back-to {
+    .arrow-back {
         position: fixed;
         left: 0;
         height: 100%;
@@ -86,17 +120,16 @@
                 color: $back-arrow-color-hover;
             }
         }
-        // @extend .big-button;
-        // background-color: $gallery-color-second;
-        //
-        // &:hover {
-        //     background: darken($gallery-color-second,10%);
-        // }
     }
 }
 
 #blueimp-gallery {
     @media (min-width: 768px) {
+        .modal-dialog {
+            max-width: 70%;
+        }
+    }
+    @media (max-width: 500px) {
         .modal-dialog {
             max-width: 70%;
         }
