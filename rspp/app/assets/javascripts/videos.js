@@ -47,46 +47,6 @@ $(document).on('turbolinks:load', function() {
         return $("input[name='video_type']:checked").val()
     }
 
-    /////// Main page //////////////
 
-    var myConfObj = {
-        iframeMouseOver: false
-    }
-
-    var target;
-
-    $(window).focus()
-
-    $(window).focusout(function() {
-        if (myConfObj.iframeMouseOver) {
-            var clickedVideoSrc = $(target).attr('src');
-            var swapSrc = $('.video-block iframe.main-video').attr('src');
-            $('.video-block iframe.main-video').attr('src', clickedVideoSrc);
-            $(target).attr('src', swapSrc);
-        }
-    });
-
-    $('.video-iframe').mouseover(function(e) {
-        myConfObj.iframeMouseOver = true;
-        $(window).focus()
-        target = $(e.target);
-
-    });
-    $('.video-iframe').mouseout(function() {
-        myConfObj.iframeMouseOver = false;
-        $(window).focus()
-    });
-
-
-    $('.video-block iframe').click(function(e) {
-        if ($(e.target).hasClass('main-video')) {
-            return;
-        }
-        var clickedVideoSrc = $(e.target).attr('src');
-        console.log(clickedVideoSrc)
-        var swapSrc = $('.video-block iframe.main-video').attr('src');
-        $('.video-block iframe.main-video').attr('src', clickedVideoSrc);
-        $(e.target).attr('src', swapSrc);
-    })
 
 });
