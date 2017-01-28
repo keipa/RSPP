@@ -1,7 +1,10 @@
 @import "variables";
 
 .container {
-    margin-top: 20px;
+  
+    &-complaints {
+      margin-top: 20px;
+    }
 
   .title, .body, .footer {
     margin-top: 20px;

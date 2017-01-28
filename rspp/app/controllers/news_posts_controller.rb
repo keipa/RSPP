@@ -4,28 +4,48 @@ class NewsPostsController < ApplicationController
     end
 
     def new
-        @post = NewsPost.new
+        if can? :manage, NewsPost
+            @post = NewsPost.new
+        else
+            redirect_to root_path
+        end
     end
 
     def create
-        @post = NewsPost.create(news_post_params.merge(user_id: current_user.id))
-        redirect_to root_path
+        if can? :manage, NewsPost
+            @post = NewsPost.create(news_post_params.merge(user_id: current_user.id))
+            redirect_to root_path
+        else
+            redirect_to root_path
+        end
     end
 
     def edit
-        @post = NewsPost.find(params[:id])
+        if can? :manage, NewsPost
+            @post = NewsPost.find(params[:id])
+        else
+            redirect_to root_path
+        end
     end
 
     def update
-        @post = NewsPost.find(params[:id])
-        @post.update(news_post_params)
-        redirect_to root_path
+        if can? :manage, NewsPost
+            @post = NewsPost.find(params[:id])
+            @post.update(news_post_params)
+            redirect_to root_path
+        else
+            redirect_to root_path
+        end
     end
 
     def destroy
-        @post = NewsPost.find(params[:id])
-        @post.destroy
-        redirect_to root_path
+        if can? :manage, NewsPost
+            @post = NewsPost.find(params[:id])
+            @post.destroy
+            redirect_to root_path
+        else
+            redirect_to root_path
+        end
     end
 
     private
