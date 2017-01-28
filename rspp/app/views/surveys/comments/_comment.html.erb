@@ -1,0 +1,25 @@
+<li class="list-group-item">
+    <div class="row">
+        <div class="col-xs-10 col-md-11">
+            <div>
+                <div class="mic-info">
+                    Автор:
+                    <a href="#"><%= comment.user_name %></a>
+                    <%= comment.created_at.strftime("%d-%m-%Y") %>
+                </div>
+            </div>
+            <div class="comment-text">
+                <%= comment.comment %>
+            </div>
+            <% if can? :destroy, comment %>
+            <div class="action">
+              <%= link_to [@commentable, comment],
+               :method => :delete,
+               :remote => true, class: "btn btn-default btn-xs" do %>
+               <span class="glyphicon glyphicon-trash"></span>
+               <% end %>
+            </div>
+              <% end %>
+        </div>
+    </div>
+</li>
