@@ -40,11 +40,9 @@ ActiveRecord::Schema.define(version: 20170127140722) do
   end
 
   create_table "complaints", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "title",   null: false
+    t.text    "body",    null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
   end
 
@@ -72,18 +70,19 @@ ActiveRecord::Schema.define(version: 20170127140722) do
   end
 
   create_table "news_posts", force: :cascade do |t|
-    t.string  "title"
-    t.text    "description"
-    t.text    "text"
-    t.string  "image_url"
-    t.integer "user_id"
+    t.string   "title",       null: false
+    t.text     "description"
+    t.text     "text",        null: false
+    t.string   "image_url"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_news_posts_on_user_id", using: :btree
   end
 
   create_table "partners", force: :cascade do |t|
-    t.string  "image_url"
-    t.string  "link"
-    t.integer "position"
+    t.string "image_url", null: false
+    t.string "link",      null: false
   end
 
   create_table "pictures", force: :cascade do |t|
