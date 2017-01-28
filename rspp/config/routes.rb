@@ -18,11 +18,14 @@ Rails.application.routes.draw do
     resources :videos do
         resources :comments, module: :videos
     end
-    resources :surveys do
+    resources :surveys, only: [:create, :destroy] do
+      resources :comments, module: :surveys
       member do
         put "vote" => "surveys#vote"
         delete "destroy" => "surveys#destroy"
       end
     end
     resources :partners, only: [:create, :delete, :edit, :update]
+
+    resources :complaints
 end

@@ -10,6 +10,13 @@
         <div class="item active text-center">
             <div class="carousel-caption">
                 <h3>Важнейшая задача РСПП - защита законных прав и интересов частного бизнеса.</h3>
+                <% if user_signed_in? %>
+                    <div>
+                        <%= link_to new_complaint_path do %>
+                            <button class="btn btn-danger complaint-btn">Обратиться</button>
+                        <% end %>
+                    </div>
+                <% end %>
             </div>
             <img class="slide-photo" src="img_chania.jpg">
         </div>

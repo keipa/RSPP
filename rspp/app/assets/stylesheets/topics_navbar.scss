@@ -48,13 +48,14 @@
         }
     }
 
-    .category {
+    .topic {
         color: $main-color-first;
         border-style: solid;
         border-width: 0 0 2px 0;
         border-color: #FAFAFA;
         padding: 7px 0;
         transition: border 0.2s;
+        margin-bottom: 0;
 
         
         .dropdown-menu {
@@ -68,11 +69,19 @@
             .dropdown-menu {
                 display: block;
                 border-radius: 0;
+
+                .delete-topic-link {
+                    height: 0;
+                    width: 0;
+                    padding: 0;
+                    position: absolute;
+                }
             }
 
             .dropdown-text {
                 font-size: 2rem;
                 transition-duration: 0.2s;
+                height: auto;
 
                 &:hover {
                     color: #FFFFFF;

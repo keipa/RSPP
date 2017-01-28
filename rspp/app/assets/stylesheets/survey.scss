@@ -1,7 +1,4 @@
 @import "variables";
-$survey-title-back: #d1dfea;
-$survey-content-back: #ffffff;
-$survey-hide-button: #009900;
 
 
 .survey {
@@ -18,6 +15,44 @@ $survey-hide-button: #009900;
         width: 250px;
         height: auto;
         overflow: hidden;
+    }
+
+    &-comments {
+        display: none;
+        width: 99%;
+        padding: 0 !important;
+        margin: 10px auto;
+
+        .comments-list {
+            max-height: 175px;
+            overflow-y: scroll;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .send-comment {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .new-comment {
+            margin-top: 5px;
+
+            textarea {
+                width: 100%;
+            }
+        }
+
+        .show-comments {
+            background: $survey-show-comments-color !important;
+            color: $survey-show-comments-font-color;
+
+            &:hover {
+                background: darken($survey-show-comments-color,10%) !important;
+                color: $survey-show-comments-font-color;
+            }
+        }
     }
 
     &-hide {

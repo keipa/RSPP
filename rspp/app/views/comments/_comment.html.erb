@@ -1,11 +1,11 @@
 <li class="list-group-item">
     <div class="row">
-        <div class="col-xs-10 col-md-11">
+        <div class="col-xs-10 col-md-12">
             <div>
                 <div class="mic-info">
                     Автор:
-                    <a href="#"><%= comment.user_name %></a>
-                    <%= comment.created_at.strftime("%d-%m-%Y") %>
+                    <span class="comment-author"><%= comment.user_name %></span>
+                    <span class="comment-date"><%= comment.created_at.strftime("%d-%m-%Y") %></span>
                 </div>
             </div>
             <div class="comment-text">
@@ -13,13 +13,12 @@
             </div>
             <% if can? :destroy, comment %>
             <div class="action">
-              <%= link_to "Удалить", [commentable, comment],
+              <%= link_to [commentable, comment],
                :method => :delete,
-               :remote => true, class: "btn btn-danger btn-xs" %>
-            </div>
-            <!-- <button type="button" class="btn btn-danger btn-xs" title="Удалить">
+               :remote => true, class: "btn btn-default btn-xs" do %>
                 <span class="glyphicon glyphicon-trash"></span>
-            </button> -->
+               <% end %>
+            </div>
             <% end %>
         </div>
     </div>

@@ -1,67 +1,57 @@
 <div class="parallax text-center">
     <p>
-        ПАРТНЕРЫ:
+      <% if can? :manage, Partner %>
+        <button class="add-partner-single btn btn-primary">+</button>
+      <% end %>
+      ПАРТНЕРЫ:
     </p>
 
-    <div class="col-md-4 partners-block">
-
-      <%= render 'partner_add_line', partners: partners[0..1], positions: [0,1] %>
-
-      <%= render 'partner_add_line', partners: partners[2..3], positions: [2,3] %>
-      
-      <%= render 'partner_add_line', partners: partners[4..5], positions: [4,5] %>
-
+    <div class="partners">
+      <% @partners.each do |partner| %>
+        <%= render 'partner_single', partner: partner %>
+      <% end %>
     </div>
 
-    <% if partners[6] %>
-      <% if can? :manage, Partner %>
-
-        <div class="col-md-4 partners-block main add-partner-single text-center">
-          <img src="<%= partners[6].image_url %>" class="partner-image">
-        </div>
-
-      <% else %>
-
-        <div class="col-md-4 partners-block main partner-single text-center">
-          <a href="<%= partners[6].link %>">
-            <img src="<%= partners[6].image_url %>" class="partner-image">
-          </a>
-        </div>
-
-      <% end %>
-
-    <% else %>
-
-      <% if can? :manage, Partner %>
-
-        <div id="partner-position-6" class="col-md-4 partners-block main add-partner-single text-center">
-            <span class="glyphicon glyphicon-plus"></span>
-        </div>
-
-      <% else %>
-
-        <div class="col-md-4">
-        </div>
-
-      <% end %>
-
-    <% end %>
-
-    <div class="col-md-4 partners-block">
-
-      <%= render 'partner_add_line', partners: partners[7..8], positions: [7,8] %>
-      
-      <%= render 'partner_add_line', partners: partners[9..10], positions: [9,10] %>
-      
-      <%= render 'partner_add_line', partners: partners[11..12], positions: [11,12] %>
-  
-    </div>
-
+    
 </div>
 
+
 <script type="text/javascript">
-   $('.partner-image').find('img').each(function(){
-    var imgClass = (this.naturalWidth/this.naturalHeight > 1) ? 'wide' : 'tall';
-    $(this).addClass(imgClass);
-   })
+$('.partners').slick({
+  slidesToShow: 5,
+  autoplay: true,
+  autoplaySpeed: 1800,
+  arrows: false,
+
+  responsive: [
+    {
+      breakpoint: 1600,
+      settings: {
+        arrows: false,
+        slidesToShow: 4
+      }
+    },
+    {
+      breakpoint: 1400,
+      settings: {
+        arrows: false,
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 1100,
+      settings: {
+        arrows: false,
+        slidesToShow: 2
+      }
+    }
+  ]
+});
+
+ // $('.partner-image').each(function(){
+ //  var imgClass = (this.naturalWidth/this.naturalHeight > 1) ? 'wide' : 'tall';
+ //  $(this).addClass(imgClass);
+ //  console.log($(this))
+ // })
+
 </script>
