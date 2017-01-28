@@ -1,94 +1,64 @@
+@import "variables";
+
 .video-block {
     background: #F0F0F0;
-    margin-top: 30px;
+    margin-top: 20px;
     display: inline-block;
     margin-bottom: 20px;
     width: 50%;
 
-    .video {
-        margin-bottom: 10px;
+    .main-video {
+        margin-top: 7px;
     }
 
-    .comments-block {
-        border: 1px solid #dddddd;
-        background-color: #fff;
-        border-color: #ddd;
-        border-top: 1px solid #ddd;
-        padding: 15px;
-        width: 100%;
-        height: 100%;
+    h2 {
+        font-weight: bold;
+    }
 
-        .input-group input {
-            font-size: 18px;
-        }
+    hr {
+        border-top: 1px solid #333333;
+    }
 
-        .input-group-addon a {
-            color: #454545;
-        }
+    .comments-body {
+        margin-top: -4px;
 
         .comments-list {
-            padding: 0;
-            margin-top: 20px;
-            list-style-type: none;
+            max-height: 170px;
+            overflow-y: scroll;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
 
-            .comment {
-                display: block;
-                width: 100%;
-                margin-top: 20px;
-                margin-bottom: 30px;
+        .show-comments {
+            background: $video-show-comments-color !important;
+            color: $video-show-comments-font-color;
 
-                .avatar {
-                    width: 65px;
-                    height: 65px;
-                    margin-right: 10px;
-                }
-
-                .comment-heading {
-                    display: block;
-                    width: 100%;
-
-                    .user {
-                        font-size: 18px;
-                        font-weight: bold;
-                        display: inline;
-                        margin-top: 0;
-                        margin-right: 7px;
-                    }
-
-                    .time {
-                        font-size: 13px;
-                        color: #aaa;
-                        margin-top: 0;
-                        display: inline;
-                    }
-                }
-
-                .comment-body {
-                    margin-left: 50px;
-                    font-size: 17px;
-                }
+            &:hover {
+                background: darken($video-show-comments-color,10%) !important;
+                color: $video-show-comments-font-color;
             }
         }
     }
+
+    .video-preview-container {
+        padding: 0;
+
+        .video-preview {
+            padding-left: 0;
+        }
+
+        .video-preview:last-child {
+            padding-right: 0;
+        }
+    }
 }
-
-
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1200px)
-and (orientation : landscape) {
-
+@media only screen and (min-device-width : 768px) and (max-device-width : 1200px) and (orientation : landscape) {
     .video-block {
         width: 100%;
     }
-
 }
-
-
 @media (min-width : 768px) and (max-width : 1200px) {
-
     .video-block {
         width: 100%;
     }
-
 }

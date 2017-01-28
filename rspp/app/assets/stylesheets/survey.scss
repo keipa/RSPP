@@ -1,7 +1,4 @@
 @import "variables";
-$survey-title-back: #d1dfea;
-$survey-content-back: #ffffff;
-$survey-hide-button: #009900;
 
 .survey {
     position: fixed;
@@ -26,7 +23,7 @@ $survey-hide-button: #009900;
         margin: 10px auto;
 
         .comments-list {
-            max-height: 178px;
+            max-height: 175px;
             overflow-y: scroll;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -39,8 +36,20 @@ $survey-hide-button: #009900;
         }
 
         .new-comment {
+            margin-top: 5px;
+
             textarea {
                 width: 100%;
+            }
+        }
+
+        .show-comments {
+            background: $survey-show-comments-color !important;
+            color: $survey-show-comments-font-color;
+
+            &:hover {
+                background: darken($survey-show-comments-color,10%) !important;
+                color: $survey-show-comments-font-color;
             }
         }
     }
