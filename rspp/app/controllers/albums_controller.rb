@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
 
       def show
         @album = @gallery.albums.find(params[:id])
-        @videos = @album.videos.includes(:comments).paginate(page: params[:page], per_page: 8).order(created_at: :desc)
+        @videos = @album.videos.includes(:comments).paginate(page: params[:page], per_page: 5).order(created_at: :desc)
       end
 
       def update
