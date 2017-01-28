@@ -1,6 +1,14 @@
-<div style="font-size: 40px;">
-  <% @complaints.each do |complaint| %>
-    <p>Жалоба по поводу <%= link_to complaint.title, complaint_path(complaint) %> </p>
-
-  <% end %>
+<div class="container">
+  <div class="complaints-list">
+    <ul class="list-group">
+      <% @complaints.each do |complaint| %>
+        <li class="list-group-item">
+          Обращение по поводу <%= link_to complaint.title, complaint_path(complaint) %>
+          <%= link_to complaint_path(complaint), method: :delete do %>
+            <span class="glyphicon glyphicon-trash" title="Удалить жалобу"></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

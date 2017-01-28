@@ -1,9 +1,52 @@
 @import "variables";
 
-#complaint-form {
-  font-size: 4rem;
-}
+.container {
+    margin-top: 20px;
 
-.title, .body {
-  margin-bottom: 20px;
+  .title, .body, .footer {
+    margin-top: 20px;
+    width: 100%;
+
+    input[type=text], textarea {
+      width: 100%;
+      resize: none;
+    }
+
+    input[type=text] {
+      font-size: 3.7rem;
+    }
+
+    textarea {
+      height: 222px;
+      font-size: 3rem
+    }
+
+    input[type=submit], button {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  .title {
+    font-size: 3.7rem;
+  }
+
+  .body {
+    font-size: 3rem;
+  }
+
+  .user-complaint-info {
+    font-size: 2rem;
+  }
+
+  .footer {
+    background: none;
+    text-align: center;
+    height: 120px;
+    padding-top: 0;
+  }
+
+  .complaints-list {
+    font-size: 3.3rem;
+  }
 }
