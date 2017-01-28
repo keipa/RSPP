@@ -51,13 +51,22 @@
             padding-right: 0;
         }
     }
+    @media (max-width: 1000px) {
+        .video-preview {
+            padding-right: 0 !important;
+
+            .video-iframe {
+                height: 300px !important;
+            }
+        }
+    }
 
     .video-preview-comments {
         display: none;
     }
 
     .main-video-preview-comments {
-        box-shadow: 0px 0 1px 0px #000000;
+        box-shadow: 0 0 1px 0 #000000;
 
         .new_comment {
             background: #ffffff;
