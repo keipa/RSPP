@@ -19,6 +19,25 @@ $survey-hide-button: #009900;
         overflow: hidden;
     }
 
+    &-comments {
+        display: none;
+        width: 99%;
+        padding: 0 !important;
+        margin: 10px auto;
+
+        .send-comment {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .new-comment {
+            textarea {
+                width: 100%;
+            }
+        }
+    }
+
     &-hide {
         width: 25px;
         height: 40px;

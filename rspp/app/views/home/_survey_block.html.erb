@@ -13,11 +13,12 @@
         </div>
         <% end %>
         <%= render "survey"%>
+        <div class="survey-comments col-md-12">
+          <%= render 'comments/comments', commentable: @survey %>
+          <%= render 'comments/new_comment', commentable: @survey %>
+        </div>
     </div>
-    <div class="survey-comments col-md-12">
-      <%= render 'comments/comments', commentable: @survey %>
-      <%= render 'comments/new_comment', commentable: @survey %>
-    </div>
+
 <% else %>
     <% if can? :manage, Survey %>
     <div class="survey-body">

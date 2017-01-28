@@ -4,8 +4,8 @@
             <div>
                 <div class="mic-info">
                     Автор:
-                    <a href="#"><%= comment.user_name %></a>
-                    <%= comment.created_at.strftime("%d-%m-%Y") %>
+                    <span class="comment-author"><%= comment.user_name %></span>
+                    <span class="comment-date"><%= comment.created_at.strftime("%d-%m-%Y") %></span>
                 </div>
             </div>
             <div class="comment-text">
@@ -16,10 +16,10 @@
               <%= link_to [@commentable, comment],
                :method => :delete,
                :remote => true, class: "btn btn-default btn-xs" do %>
-               <span class="glyphicon glyphicon-trash"></span>
+                <span class="glyphicon glyphicon-trash"></span>
                <% end %>
             </div>
-              <% end %>
+            <% end %>
         </div>
     </div>
 </li>

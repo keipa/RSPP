@@ -2,7 +2,7 @@ $("div.comments-content-"+ "<%= @commentable.id %>" + " ul.comments-list").html(
 $("div.comments-content-"+ "<%= @commentable.id %>" + " span.comment-size").text("<%= @commentable.comments.size  %>")
 $("div.comments-content-"+ "<%= @commentable.id %>" + ' .comments-body').show('slow');
 $("div.comments-content-"+ "<%= @commentable.id %>" + ' .panel-body').show('slow');
-$(".video-comments textarea.form-control").val('')
+$(".new-comment textarea.form-control").val('')
 
 if(!$(".comments-content-" + "<%= @commentable.id %>" + " .show-comments").hasClass("active")) {
   $(".comments-content-" + "<%= @commentable.id %>" + " .show-comments").toggleClass("active")
