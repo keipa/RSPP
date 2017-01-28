@@ -1,3 +1,13 @@
 $("div.comments-content-"+ "<%= @commentable.id %>" + " ul.comments-list").html("<%= escape_javascript render (@commentable.comments) %>");
-$("div.comments-content-"+ "<%= @commentable.id %>" + " span.comment-size").html("<%= @commentable.comments.size  %>")
+$("div.comments-content-"+ "<%= @commentable.id %>" + " span.comment-size").text("<%= @commentable.comments.size  %>")
+$("div.comments-content-"+ "<%= @commentable.id %>" + ' .comments-body').show('slow');
+$("div.comments-content-"+ "<%= @commentable.id %>" + ' .panel-body').show('slow');
 $(".video-comments textarea.form-control").val('')
+
+if(!$(".comments-content-" + "<%= @commentable.id %>" + " .show-comments").hasClass("active")) {
+  $(".comments-content-" + "<%= @commentable.id %>" + " .show-comments").toggleClass("active")
+  $(".comments-content-" + "<%= @commentable.id %>" + " .show-comments").html('');
+  $(".comments-content-" + "<%= @commentable.id %>" + " .show-comments")
+      .append($('<span/>').addClass('glyphicon glyphicon-chevron-up'))
+      .append(' Спрятать комментарии')
+}
