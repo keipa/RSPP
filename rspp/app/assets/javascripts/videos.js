@@ -47,4 +47,6 @@ $(document).on('turbolinks:load', function() {
         return $("input[name='video_type']:checked").val()
     }
 
+
+
 });

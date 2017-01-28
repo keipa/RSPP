@@ -1,13 +1,28 @@
 <div class="video-block">
     <% if @videos.any? %>
-        <iframe class="video" style="height: 385px; width: 100%;" src="<%=@videos[0].iframe_link%>" frameborder="0" allowfullscreen></iframe>
-        <div class="col-md-12">
-            <% @videos[1..4].each do |video| %>
-                <div class="col-md-3">
-                    <iframe src="<%= video.iframe_link %>" style="width:100%; height: 100px" frameborder="0"></iframe>
-                </div>
-            <% end %>
+    <h2>
+        Интервью
+    </h2>
+    <hr>
+    <iframe class="main-video" style="height: 385px; width: 100%;" src="<%=@videos[0].iframe_link%>" frameborder="0" allowfullscreen></iframe>
+    <div class="main-video-preview-comments">
+        <%= render 'comments/comments', commentable: @videos[0] %>
+        <%= render 'comments/new_comment', commentable: @videos[0] %>
+    </div>
+    <h2>
+        Последние интервью
+    </h2>
+    <hr>
+    <div class="col-md-12 video-preview-container">
+        <% @videos[1..3].each do |video| %>
+        <div class="col-md-4 video-preview">
+            <iframe class="video-iframe" src="<%= video.iframe_link %>" style="width:100%; height: 150px" frameborder="0" title="<%=video.title%>" allowfullscreen></iframe>
+            <div class="video-preview-comments">
+                <%= render 'comments/comments', commentable: video %>
+                <%= render 'comments/new_comment', commentable: video %>
+            </div>
         </div>
+        <% end %>
+    </div>
     <% end %>
-    <%= render 'video_comments_block' %>
 </div>
