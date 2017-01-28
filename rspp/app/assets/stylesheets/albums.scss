@@ -34,8 +34,13 @@
         }
     }
     @media (max-width: 1251px) {
+      .picture-container {
+          width: 80%;
+      }
+
         .album-item {
             width: 45%;
+            height: 200px;
         }
     }
     @media (max-width: 800px) {
@@ -129,9 +134,10 @@
             max-width: 70%;
         }
     }
-    @media (max-width: 500px) {
+    @media (max-width: 700px) {
         .modal-dialog {
             max-width: 70%;
+            min-height: 800px !important;
         }
     }
 }
