@@ -9,8 +9,9 @@ class ComplaintsController < ApplicationController
   end
 
   def show
+    I18n.locale = :ru
     if can? :manage, Complaint
-      @complaint = Complaint.find(params[:id])
+      @complaint = Complaint.includes(:user).find(params[:id])
     else
       redirect_to root_path
     end
