@@ -25,6 +25,13 @@ $survey-hide-button: #009900;
         padding: 0 !important;
         margin: 10px auto;
 
+        .comments-list {
+            max-height: 178px;
+            overflow-y: scroll;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
         .send-comment {
             position: relative;
             left: 50%;
