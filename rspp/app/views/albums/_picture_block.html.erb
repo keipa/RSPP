@@ -7,13 +7,9 @@
     </div>
     <% end %>
 
-    <% @album.pictures.all.each do |picture| %>
-    <div class="thumbnail album-item">
-        <a href="<%= picture.image_url%>" data-gallery>
-            <img src="<%=picture.image_url%>" class="img-responsive">
-        </a>
+    <div class="pictures-list">
+        <%= render 'pictures', album: @album %>
     </div>
-    <% end %>
 </div>
 <div id="blueimp-gallery" class="blueimp-gallery">
     <div class="slides"></div>
