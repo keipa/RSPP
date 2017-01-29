@@ -213,4 +213,19 @@ $(document).on('turbolinks:load', function() {
             }, 100);
         }
     })
+
+    $('.survey-close').click(function(e) {
+        closeSurvey();
+    })
+
+    function closeSurvey() {
+        var controller = '/surveys/' + SURVEY.id + '/update';
+        throughAJAX({
+            survey: {
+                closed: true
+            }
+        }, controller, 'PUT', function() {
+            window.location.reload();
+        })
+    }
 });

@@ -29,10 +29,11 @@ Rails.application.routes.draw do
     resources :videos do
         resources :comments, module: :videos
     end
-    resources :surveys, only: [:create, :destroy] do
+    resources :surveys, only: [:create, :destroy, :update] do
       resources :comments, module: :surveys
       member do
         put "vote" => "surveys#vote"
+        put "update" => "surveys#update"
         delete "destroy" => "surveys#destroy"
       end
     end

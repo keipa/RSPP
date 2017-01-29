@@ -14,6 +14,11 @@ class SurveysController < ApplicationController
         @survey.update_attributes(surveys_params)
     end
 
+    def update
+        @survey = Survey.find(params[:id])
+        @survey.update_attributes(surveys_params)
+    end
+
     def destroy
         @survey = Survey.find(params[:id])
         @survey.destroy
