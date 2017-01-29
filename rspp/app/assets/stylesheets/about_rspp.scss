@@ -58,7 +58,6 @@ $about-footer-height: 60px;
             }
 
             .aside-nav {
-                margin-left: 20px;
                 float: right;
                 width: 30%;
                 height: 100%;
@@ -69,14 +68,6 @@ $about-footer-height: 60px;
                     margin-top: 45px;
                     list-style: none;
                     padding: 0;
-
-                    li {
-                        margin-top: 10px;
-                    }
-
-                    a {
-                        text-decoration: underline;
-                    }
                 }
             }
         }
@@ -137,11 +128,6 @@ $about-footer-height: 60px;
             .partitions-list {
                 margin-top: 10px !important;
                 text-align: center;
-
-                li {
-                    display: inline-block;
-                    margin-left: 10px;
-                }
             }
         }
     }
