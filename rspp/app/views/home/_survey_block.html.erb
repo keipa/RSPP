@@ -6,8 +6,8 @@
     <% if (@survey) %>
     <div class="survey-body">
         <% if  can? :manage, Survey %>
-        <div class="survey-close">
-            <a href="<%=survey_path(@survey)%>" data-remote="true" data-method="delete" title="Удалить опрос">
+        <div class="survey-close" data-remote="true">
+            <a title="Закрыть опрос">
                 <i class="glyphicon glyphicon-remove"></i>
             </a>
         </div>

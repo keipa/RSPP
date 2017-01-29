@@ -40,11 +40,9 @@ ActiveRecord::Schema.define(version: 20170127140722) do
   end
 
   create_table "complaints", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "title"
+    t.text    "body"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
   end
 
