@@ -24,10 +24,8 @@ Rails.application.routes.draw do
         get '/users', to: 'devise/registrations#new'
     end
 
-    resources :topics, only: [:new, :create, :edit, :update, :destroy]
-
+    resources :topics, only: [:index, :show, :new, :create, :edit, :update, :destroy] 
     resources :news_posts , only: [:show]
-
     resources :videos do
         resources :comments, module: :videos
     end
@@ -39,7 +37,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get '/about', to: 'home#about' 
+    get '/about', to: 'home#about'
 
     resources :complaints
 end
