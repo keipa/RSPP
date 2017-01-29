@@ -25,10 +25,10 @@
         position: relative;
 
         .delete-picture {
-          position: absolute;
-          right: 0;
-          top: 0;
-          z-index: 1;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
         }
 
         img {
@@ -42,9 +42,9 @@
         }
     }
     @media (max-width: 1251px) {
-      .picture-container {
-          width: 80%;
-      }
+        .picture-container {
+            width: 80%;
+        }
 
         .album-item {
             width: 45%;
@@ -57,15 +57,19 @@
             height: 200px;
         }
     }
+}
 
-    a,
-    a:hover {
-        text-decoration: none;
-        color: #ffffff;
+.upload {
+    @extend .big-button;
+    display: block !important;
+    background: $main-color-second;
+
+    &:hover {
+        background: darken($main-color-second,10%);
     }
-
-    .upload {
-        @extend .big-button;
+}
+@media (max-width: 1000px) {
+    .big-button {
         display: block !important;
         background: $main-color-second;
 
@@ -73,65 +77,55 @@
             background: darken($main-color-second,10%);
         }
     }
-    @media (max-width: 1000px) {
-        .big-button {
-            display: block !important;
-            background: $main-color-second;
-
-            &:hover {
-                background: darken($main-color-second,10%);
-            }
-        }
-
-        .arrow-back {
-            display: none;
-        }
-    }
-
-    .big-button {
-        display: none;
-        width: 200px;
-        height: 60px;
-        line-height: 60px;
-        color: #ffffff;
-        border-radius: 20px;
-        margin: 20px auto;
-        cursor: pointer;
-    }
-
-    .big-text {
-        text-align: center;
-        vertical-align: middle;
-        font-size: 3rem;
-    }
 
     .arrow-back {
-        position: fixed;
-        left: 0;
-        height: 100%;
-        width: 200px;
-        transition: background 0.6s ease;
+        display: none;
+    }
+}
+
+.big-button {
+    display: none;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.big-text {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3rem;
+}
+
+.arrow-back {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    transition: background 0.6s ease;
+
+    &:hover {
+        background: $back-arrow-background;
+    }
+
+    &:hover span {
+        color: $back-div-hover-arrow-color;
+    }
+
+    span {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 10rem;
+        font-weight: bold;
+        color: $back-arrow-color;
 
         &:hover {
-            background: $back-arrow-background;
-        }
-
-        &:hover span {
-            color: $back-div-hover-arrow-color;
-        }
-
-        span {
-            position: absolute;
-            top: 100px;
-            left: 50%;
-            transform: translate(-50%);
-            font-size: 10rem;
-            font-weight: bold;
-            color: $back-arrow-color;
-
-            &:hover {
-                color: $back-arrow-color-hover;
-            }
+            color: $back-arrow-color-hover;
         }
     }
 }
