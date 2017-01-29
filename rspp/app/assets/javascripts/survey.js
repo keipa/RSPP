@@ -141,13 +141,13 @@ $(document).on('turbolinks:load', function() {
     $('#btn-create-survey').click(function() {
         var valFromOptions = getQuestionVals();
         var titleSurvey = $('#survey-title-input').val().trim();
-        if(valFromOptions.length == 0) {
-          alert('Not valid options');
-          return;
+        if (valFromOptions.length == 0) {
+            alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-create-survey'))
+            return;
         }
-        if(titleSurvey == '' || !titleSurvey) {
-          alert('Not valid title');
-          return;
+        if (titleSurvey == '' || !titleSurvey) {
+            alertMessage('warning', 'Некорректное название опроса', $('#btn-create-survey'))
+            return;
         }
         var json = {
             survey: {
@@ -199,7 +199,7 @@ $(document).on('turbolinks:load', function() {
     $('.survey-hide').click(function(e) {
         if ($('.survey-hide').attr('state') == 'opened') {
             $('.survey-hide').attr('state', 'closed');
-            $('.survey-hide').attr('title', 'Открыть опрос')
+            $('.survey-hide').attr('title', 'Показать опрос')
             $('.survey-hide').html('<span class="fa fa-angle-right"></span>')
             $('.survey-body').hide('slide', {
                 direction: 'left'
@@ -207,7 +207,7 @@ $(document).on('turbolinks:load', function() {
         } else {
             $('.survey-hide').attr('state', 'opened');
             $('.survey-hide').html('<span class="fa fa-angle-left"></span>')
-            $('.survey-hide').attr('title', 'Закрыть опрос')
+            $('.survey-hide').attr('title', 'Спрятать опрос')
             $('.survey-body').show('slide', {
                 direction: 'left'
             }, 100);
