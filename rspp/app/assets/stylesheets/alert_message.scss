@@ -11,6 +11,7 @@
     text-align: center;
     border-radius: 5px;
     z-index: 999;
+    font-size: 1.3rem;
 
     &-warning {
         color: #fff;
@@ -40,9 +41,9 @@
             transform: translate(-50%);
             width: 0;
             height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 7px solid #222;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-top: 8px solid #222;
         }
     }
 
