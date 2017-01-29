@@ -1,6 +1,6 @@
 @import "variables";
-@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans'); // 1.1rem = Body font-size(10) * 1.1
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans'); // 1.1rem = Body font-size(10) * 1.1
 
 body,
 html {
@@ -13,7 +13,6 @@ body {
     font-family: 'PT Sans Narrow', sans-serif !important;
     font-size: 10px !important;
 }
-
 
 .line {
     display: inline-block;
@@ -46,7 +45,6 @@ body {
         color: darken(#1560BD, 5%);
     }
 }
-
 
 .add-topic-form {
     width: 35%;
@@ -106,13 +104,7 @@ body {
         }
     }
 }
-
-
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1200px)
-and (orientation : landscape) {
-
+@media only screen and (min-device-width : 768px) and (max-device-width : 1200px) and (orientation : landscape) {
     .container {
         display: inline-block;
         width: 78% !important;
@@ -123,11 +115,8 @@ and (orientation : landscape) {
         flex-direction: column;
         float: right;
     }
-
 }
-
 @media (min-width : 768px) and (max-width : 1200px) {
-
     .container {
         display: inline-block;
         width: 78% !important;
@@ -138,5 +127,4 @@ and (orientation : landscape) {
         flex-direction: column;
         float: right;
     }
-
 }

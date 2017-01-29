@@ -4,7 +4,7 @@ $footer-height: 80px;
 .footer {
     width: 100%;
     height: $footer-height;
-    background-color: lighten(#E80536, 3%);
+    background-color: $main-color-first;
     color: #ffffff;
     box-sizing: border-box;
     padding-top: $footer-height /4;
