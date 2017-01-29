@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     end
     resources :partners, only: [:create, :delete, :edit, :update]
 
+    get '/about', to: 'home#about' 
+
     resources :complaints
 end
