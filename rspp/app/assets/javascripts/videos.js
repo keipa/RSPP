@@ -21,11 +21,11 @@ $(document).on('turbolinks:load', function() {
                         window.location = urlRedirect;
                     })
                 } else {
-                    console.log('video not exists');
+                    alertMessage('warning', 'Видео не существует', $('#video-add-button'))
                 }
             });
         } else {
-            console.log('wrong link')
+            alertMessage('warning', 'Некорректная ссылка на видео', $('#video-add-button'))
         }
     })
 
