@@ -7,4 +7,8 @@ class HomeController < ApplicationController
         @survey = Survey.all.where(closed: false).first
         gon.surveyContent = @survey
     end
+
+    def about
+      
+    end
 end

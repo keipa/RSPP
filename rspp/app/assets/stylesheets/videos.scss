@@ -1,6 +1,21 @@
 @import "variables";
 
+@media (max-width: 1000px) {
+    .video-container {
+        width: 70% !important;
+    }
+}
+
 .video-container {
+    margin: 20px auto;
+    width: 55%;
+
+    .pagination {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
     .video-item {
         margin: 20px 0 !important;
         color: #000000;

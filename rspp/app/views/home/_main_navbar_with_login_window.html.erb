@@ -15,11 +15,14 @@
             <p>
                 Здравствуйте,
                 <%= current_user.first_name %>!
-                <div>
+<!--                 <div>
                     <img class="user-image" src="user.png">
-                </div>
+                </div> -->
             </p>
+            <%= link_to "Кабинет", admin_news_posts_path %>
+            <br>
             <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+
         </div>
     <% else %>
 

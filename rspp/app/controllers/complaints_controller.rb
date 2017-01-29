@@ -18,12 +18,20 @@ class ComplaintsController < ApplicationController
   end
 
   def new
-    @complaint = Complaint.new
+    if can? :manage, Complaint
+      @complaint = Complaint.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    Complaint.create(complaint_params.merge(user_id: current_user.id))
-    redirect_to root_path
+    if can? :manage, Complaint
+      Complaint.create(complaint_params.merge(user_id: current_user.id))
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   private

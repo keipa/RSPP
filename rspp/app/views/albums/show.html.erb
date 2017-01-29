@@ -1,7 +1,10 @@
 <div class="container-fluid album-page">
     <a href="<%=gallery_path(@gallery)%>">
-        <div id="back-to">
+        <div class="arrow-back">
             <span class="fa fa-angle-left" title="Назад"></span>
+        </div>
+        <div class="big-button">
+            <p class="big-text">Назад</p>
         </div>
     </a>
     <% if @gallery.type_gallery == 'photo'%>

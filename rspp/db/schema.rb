@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127140722) do
+ActiveRecord::Schema.define(version: 20170129152857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,22 +40,14 @@ ActiveRecord::Schema.define(version: 20170127140722) do
   end
 
   create_table "complaints", force: :cascade do |t|
-    t.string  "title"
-    t.text    "body"
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
-  end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
-    t.datetime "created_at"
-    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+    t.string   "title",      null: false
+    t.text     "body",       null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
+    t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -63,24 +55,23 @@ ActiveRecord::Schema.define(version: 20170127140722) do
     t.string   "type_gallery"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "slug_en"
-    t.string   "slug_ru"
-    t.index ["slug_en"], name: "index_galleries_on_slug_en", using: :btree
-    t.index ["slug_ru"], name: "index_galleries_on_slug_ru", using: :btree
   end
 
   create_table "news_posts", force: :cascade do |t|
-    t.string  "title"
-    t.text    "description"
-    t.text    "text"
-    t.string  "image_url"
-    t.integer "user_id"
+    t.string   "title",       null: false
+    t.text     "description"
+    t.text     "text",        null: false
+    t.string   "image_url"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "post_type",   null: false
     t.index ["user_id"], name: "index_news_posts_on_user_id", using: :btree
   end
 
   create_table "partners", force: :cascade do |t|
-    t.string  "image_url"
-    t.string  "link"
+    t.string  "image_url", null: false
+    t.string  "link",      null: false
     t.integer "position"
   end
 

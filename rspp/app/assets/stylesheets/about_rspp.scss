@@ -1,0 +1,161 @@
+@import "variables";
+$about-page-color: #ffffff;
+$about-footer-color: $main-color-first;
+$about-footer-height: 60px;
+
+.about-wrapper {
+    min-height: 100%;
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    background: $about-page-color;
+    box-shadow: 0 0 4px #000000;
+    position: relative;
+
+    .about-header {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #000000;
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
+
+        h3 {
+            font-weight: bold;
+            margin-left: 10px;
+            display: inline-block;
+        }
+    }
+
+    .about-container {
+        height: 100%;
+        padding-bottom: $about-footer-height;
+
+        .about-body {
+            box-sizing: border-box;
+            padding: 50px 20px 0;
+            height: 100%;
+
+            .about-title {
+                text-transform: uppercase;
+                font-weight: bold;
+                margin: 0;
+            }
+
+            .description {
+                float: left;
+                width: 65%;
+                height: 100%;
+                font-size: 1.6rem;
+
+                &-body {
+                    margin-top: 40px;
+                }
+            }
+
+            .aside-nav {
+                float: right;
+                width: 30%;
+                height: 100%;
+                font-size: 1.6rem;
+
+                .partitions-list {
+                    min-height: 100%;
+                    margin-top: 45px;
+                    list-style: none;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .about-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        min-height: $about-footer-height;
+        background: $about-footer-color;
+        color: #ffffff;
+        padding-top: $about-footer-height /4;
+        font-size: 1.6rem;
+
+        .copyright {
+            float: left;
+        }
+
+        &-address {
+            margin-left: 20%;
+            float: left;
+        }
+
+        &-contact {
+            float: right;
+        }
+    }
+}
+@media (max-width: 1040px) {
+    .about-wrapper {
+        width: 100%;
+    }
+
+    .about-container {
+        .about-body {
+            padding-top: 5px;
+        }
+
+        .about-title {
+            text-align: center;
+        }
+
+        .description {
+            width: 100% !important;
+
+            &-body {
+                margin-top: 10px !important;
+            }
+        }
+
+        .aside-nav {
+            width: 100% !important;
+            padding-bottom: $about-footer-height * 2;
+
+            .partitions-list {
+                margin-top: 10px !important;
+                text-align: center;
+            }
+        }
+    }
+
+    .about-footer {
+        width: 100%;
+        padding: 10px;
+        min-height: $about-footer-height;
+        background: $about-footer-color;
+        color: #ffffff;
+        padding-top: $about-footer-height /4;
+        font-size: 1.6rem;
+        text-align: center;
+
+        .copyright {
+            width: 100%;
+            float: left;
+        }
+
+        &-address {
+            width: 100%;
+            margin-left: 0 !important;
+            float: left;
+        }
+
+        &-contact {
+            float: left;
+            width: 100%;
+        }
+    }
+}

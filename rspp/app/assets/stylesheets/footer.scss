@@ -1,10 +1,10 @@
 @import "variables";
 $footer-height: 80px;
 
-.footer {
+.mainpage-footer {
     width: 100%;
     height: $footer-height;
-    background-color: lighten(#E80536, 3%);
+    background-color: $main-color-first;
     color: #ffffff;
     box-sizing: border-box;
     padding-top: $footer-height /4;
@@ -31,7 +31,7 @@ and (min-device-width : 768px)
 and (max-device-width : 1200px)
 and (orientation : landscape) {
 
-    .footer {
+    .mainpage-footer {
         width: 79%;
         height: 100px;
         float: right;
@@ -64,7 +64,7 @@ and (orientation : landscape) {
 
 @media (min-width : 768px) and (max-width : 1200px) {
 
-    .footer {
+    .mainpage-footer {
         width: 79%;
         height: 100px;
         float: right;

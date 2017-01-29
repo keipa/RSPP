@@ -1,19 +1,15 @@
-<% if can? :manage, Gallery %>
-<div id="upload-picture-gallery" class="upload" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
-    <p class="big-text">
-        Загрузить фото
-    </p>
-</div>
-<% end %>
-
-<div class="container" id="links">
-    <% @album.pictures.all.each do |picture| %>
-    <div class="col-sm-4 col-md-2 thumbnail album-item">
-        <a href="<%= picture.image_url%>" data-gallery>
-            <img src="<%=picture.image_url%>" class="img-responsive">
-        </a>
+<div class="picture-container" id="links">
+    <% if can? :manage, Gallery %>
+    <div id="upload-picture-gallery" class="upload" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
+        <p class="big-text">
+            Загрузить фото
+        </p>
     </div>
     <% end %>
+
+    <div class="pictures-list">
+        <%= render 'pictures', album: @album %>
+    </div>
 </div>
 <div id="blueimp-gallery" class="blueimp-gallery">
     <div class="slides"></div>
