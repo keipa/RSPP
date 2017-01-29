@@ -7,6 +7,7 @@ class Ability
             can :manage, :all
         elsif user.has_role? :user
             can :manage, Comment, user_id: user.id
+            сan :manage, Complaint, user_id: user.id
             can :read, :all
         else
             can :read, :all
