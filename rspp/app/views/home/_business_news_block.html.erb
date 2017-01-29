@@ -1,11 +1,6 @@
 <div class="business-news">
     <h2>
         Деловые новости
-        <% if can? :manage, NewsPost %>
-            <small><i>
-                <%= link_to "Добавить", new_news_post_path %>
-            </i></small>
-        <% end %>
     </h2>
     <hr>
     <div class="business-news-container">
@@ -18,12 +13,6 @@
                     <div class="text">
                         <h4>
                             <%= link_to news_post.title, news_post_path(news_post) %>
-                            <% if can? :manage, NewsPost %>
-                                <a href="<%= edit_news_post_path(news_post) %>" title="Редактировать"><span class="glyphicon glyphicon-pencil"></span></a>
-                                <%= link_to news_post_path(news_post), method: :delete, title: "Удалить" do %>
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                <% end %>
-                            <% end %>
                         </h4>
                         <p>
                             <%= news_post.description %>
@@ -34,12 +23,6 @@
                     <div class="full-text">
                         <h4>
                             <%= link_to news_post.title, news_post_path(news_post), html: {class: "styleColor"} %>
-                            <% if can? :manage, NewsPost %>
-                                <a href="<%= edit_news_post_path(news_post) %>" title="Редактировать"><span class="glyphicon glyphicon-pencil"></span></a>
-                                <%= link_to news_post_path(news_post), method: :delete, title: "Удалить" do %>
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                <% end %>
-                            <% end %>
                         </h4>
                     </div>
                     <p>

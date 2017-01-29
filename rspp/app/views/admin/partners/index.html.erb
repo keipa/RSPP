@@ -1,0 +1,56 @@
+<%= render 'add_partner_form' %>
+
+<div class="add-partner-single-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
+    <button class="btn btn-default add-partner-single" style="font-size: 20px;">
+        Добавить партнера
+    </button>
+</div>
+
+<table class="table table-striped text-center" style="font-size: 20px;">
+    <tr>
+        <td style="width: 5%;">
+            <b>
+                ID
+            </b>
+        </td>
+        <td style="width: 40%; text-align: center;">
+            <b>
+                Логотип
+            </b>
+        </td>
+        <td style="width: 20%;">
+            <b>
+                Ссылка
+            </b>
+        </td>
+        <td style="width: 13%;">
+        </td>
+    </tr>
+
+    <% @partners.each do |partner| %>
+        <tr>
+            <td>
+                <%= partner.id %>
+            </td>
+
+            <td>
+                <img src="<%= partner.image_url %>" style="max-width: 100%;">
+            </td>
+
+            <td>
+                <%= partner.link %>
+            </td>            
+
+            <td class="text-right">
+                <button class="btn btn-success update-partner-single" data-link="<%= partner.link %>" data-imageUrl="<%= partner.image_url %>" data-id="<%= partner.id %>">
+                    Редактировать
+                </button>
+                <%= link_to admin_partner_path(partner), method: :delete do %>
+                    <button class="btn btn-danger"> 
+                        Удалить
+                    </button>
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
+</table>
