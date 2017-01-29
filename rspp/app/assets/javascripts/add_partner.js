@@ -12,18 +12,31 @@ $(document).on('turbolinks:load', function() {
 
   var partnerPosition = "";
 
+    $(".add-partner-form-header .close").click(function(argument) {
+        $(".add-partner-form").fadeOut(300);
+    })
 
-  $(".add-partner-form-header .close").click(function(argument) {
-    $(".add-partner-form").fadeOut(300);
-  })
+    var method = 'POST'
 
-  $(".add-partner-single").click(function() {
-    $("#partner-link").val("");
-    $("#partner-image-url").val("");
-    $("#loadedImage").hide();
-    $(".add-partner-form").fadeIn(300);
-  })
+    $(".add-partner-single").click(function() {
+        $("#partner-link").val("");
+        $("#partner-image-url").val("");
+        $("#loadedImage").hide();
+        $(".add-partner-form").fadeIn(300);
+    })
 
+    var id = ""
+
+    $(".update-partner-single").click(function() {
+        var link = $(this).attr('data-link');
+        var imageUrl = $(this).attr('data-imageUrl');
+        id = $(this).attr('data-id');
+        $("#partner-link").val(link);
+        $("#partner-image-url").val(imageUrl);
+        $("#loadedImage")[0].outerHTML = "<div><img id='loadedImage' src='" + imageUrl + "'></div>"
+        $(".add-partner-form").fadeIn(300);
+        method = 'PATCH'
+    })
 
     $("#upload-partner-picture").click(function(event) {
         cloudinary.openUploadWidget(CLOUDINARY_INFO,
@@ -38,13 +51,16 @@ $(document).on('turbolinks:load', function() {
         var partnerLink = $("#partner-link").val();
         var partnerImageUrl = $("#partner-image-url").val();
         var controller = $("#add-partner-btn").attr("data-controller");
+        if (id != "") {
+            controller += "/" + id;
+        }
         if ((checkLink(partnerLink)) && (partnerImageUrl)) {
             throughAJAX({
                 'partner': {
                     'link': partnerLink,
                     'image_url': partnerImageUrl
                 }
-            }, controller, 'POST');
+            }, controller, method);
             $(".add-partner-form").fadeOut(300);
         }
     })
