@@ -7,23 +7,25 @@
     <hr>
 
     <div class="rspp-news-container">
+
+        <% @rspp_news.each do |post| %>
     
-        <div class="rspp-news-post">
-            <div class="post-title">
-                <h2>
-                    <a href="">Новость про РСПП</a>
-                </h2>
-                <div class="tags">
-                    <a href="" class="label label-default">Бизнес</a>
-                    <a href="" class="label label-default">3 Комментария</a>
-                    <a class="label label-default">3 Июня, 2017</a>
+            <div class="rspp-news-post">
+                <div class="post-title">
+                    <h2>
+                        <a href="<%= news_post_path(post) %>"><%= post.title %></a>
+                    </h2>
+                    <div class="tags">
+                        <a class="label label-default"><%= l post.created_at, format: :short %></a>
+                    </div>
                 </div>
+                <hr>
+                <p>
+                    <%= post.description %>
+                </p>
             </div>
-            <hr>
-            <p>
-                Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In...
-            </p>
-        </div>
+
+        <% end %>
 
     </div>
 </div>

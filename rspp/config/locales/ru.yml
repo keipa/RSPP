@@ -19,6 +19,7 @@ ru:
   time:
     formats:
       long: "%d %B, %Y в %H:%M"
+      short: "%d %B, %Y"
 
   devise:
     confirmations:
