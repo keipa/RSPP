@@ -1,14 +1,18 @@
-<%= form_for(template,url: update_content_path(template), method: :patch, html: {id: "template-form"}) do |f| %>
-<%= f.hidden_field :description, id: "description-template" %>
-<div class="editor">
-	<div id="toolbar"></div>
-	<div id="template-input"></div>
-</div>
+<%= form_for(template, url: update_content_path(template), method: :patch, html: {id: "template-form"}) do |f| %>
+  
+  <%= f.hidden_field :description, id: "description-template" %>
 
-<p><%= f.submit "Добавить", class: "add-topic-changes" %></p>
+  <div class="editor">
+  	<div id="toolbar"></div>
+  	<div id="template-input"></div>
+  </div>
+
+  <p><%= f.submit "Добавить", class: "add-topic-changes" %></p>
 
 <% end %>
+
 <script>
+
   var toolbarOptions = [
     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
     [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
@@ -24,6 +28,7 @@
     [{ 'align': [] }],
     ['link', 'image']
   ];
+
   var quill = new Quill('#template-input', {
     modules: {
       toolbar: toolbarOptions
@@ -31,29 +36,25 @@
     theme: 'snow',
   });
 
-
-
   var obj = "<%= template.description.inspect %>".replace(/&quot;/g, '"')
 
-  if ((obj != "nil") && (obj.slice(0,1) == '"')) {
+  if (obj == '""') {
+    obj = {"ops" :[ {"insert": "\n" } ] }
+    content = obj;
+  } else {
     content = JSON.parse(obj.slice(1,-1));
-    quill.setContents(content.ops);
-  } else if (obj != "nil") {
-    content = JSON.parse(obj);
-    quill.setContents(content.ops);
   }
 
+  quill.setContents(content.ops);
+
   var form = $("#template-form");
+
   form.on('submit',function(e) {
     var content = $(".ql-editor");
     if (!content.hasClass("ql-blank")) {
       var description = $('#description-template');
-			alert(JSON.stringify(quill.getContents()))
       description.val(JSON.stringify(quill.getContents()));
       description.appendTo(form);
-			// throughAJAX({ topic: {
-			// 	description: JSON.stringify(quill.getContents())
-			// }}, "<%=update_content_path(template) %>", "PATCH")
     } else {
       alert("Необходимо добавить содержание.");
       return false;

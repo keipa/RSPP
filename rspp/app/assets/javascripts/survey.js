@@ -2,16 +2,16 @@ $(document).on('turbolinks:load', function() {
 	var SURVEY;
 	var SURVEY_QUESTIONS;
 	var CURRENT_USER_ID;
-	if (gon.surveyContent) {
-		SURVEY = gon.surveyContent;
-		SURVEY_QUESTIONS = JSON.parse(SURVEY.content);
-		if (window.currentUserId) {
-			CURRENT_USER_ID = window.currentUserId;
-			checkVotedUser(SURVEY.users) >= 0 ? renderResluts() : renderQuestions();
-		} else {
-			renderResluts()
-		}
-	}
+	// if (gon.surveyContent) {
+	// 	SURVEY = gon.surveyContent;
+	// 	SURVEY_QUESTIONS = JSON.parse(SURVEY.content);
+	// 	if (window.currentUserId) {
+	// 		CURRENT_USER_ID = window.currentUserId;
+	// 		checkVotedUser(SURVEY.users) >= 0 ? renderResluts() : renderQuestions();
+	// 	} else {
+	// 		renderResluts()
+	// 	}
+	// }
 
 	function checkVotedUser(users) {
 		return users.split(',').indexOf(CURRENT_USER_ID);
