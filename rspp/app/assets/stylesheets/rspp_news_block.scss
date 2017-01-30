@@ -1,5 +1,5 @@
 @import "variables";
-$news-post-height: 200px;
+$news-post-height: 400px;
 
 .rspp-news {
     display: inline-block;
@@ -37,7 +37,7 @@ $news-post-height: 200px;
         box-shadow: 0 0 1px 0 #000000;
         padding: 20px;
         margin-bottom: 30px;
-        max-height: $news-post-height;
+        min-height: $news-post-height;
         margin-right: 10px;
 
         p {
