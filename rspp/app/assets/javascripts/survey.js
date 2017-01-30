@@ -213,4 +213,28 @@ $(document).on('turbolinks:load', function() {
             }, 100);
         }
     })
+
+    /////////////////////////////////////////////////
+    
+    $(".add-survey").click(function() {
+        $("input").val("");
+        $(".survey-admin").fadeIn(250);
+    })
+
+    /////////////////////////////////////////////////
+
+    $('.survey-close').click(function(e) {
+        closeSurvey();
+    })
+
+    function closeSurvey() {
+        var controller = '/surveys/' + SURVEY.id + '/update';
+        throughAJAX({
+            survey: {
+                closed: true
+            }
+        }, controller, 'PUT', function() {
+            window.location.reload();
+        })
+    }
 });

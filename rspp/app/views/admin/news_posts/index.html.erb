@@ -1,0 +1,84 @@
+<div class="add-news-post-btn-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
+    <%= link_to new_admin_news_post_path do %>
+        <button class="btn btn-default add-news-post-btn" style="font-size: 20px;">
+            Добавить новость
+        </button>
+    <% end %>
+</div>
+
+<table class="table table-striped text-center" style="font-size: 20px;">
+    <tr>
+        <td style="width: 5%;">
+            <b>
+                ID
+            </b>
+        </td>
+        <td style="width: 26%;">
+            <b>
+                Заголовок
+            </b>
+        </td>
+        <td style="width: 26%;">
+            <b>
+                Описание
+            </b>
+        </td>
+        <td style="width: 15%;">
+            <b>
+                Автор
+            </b>
+        </td>
+        <td style="width: 15%;">
+            <b>
+                Время публикации
+            </b>
+        </td>
+        <td style="width: 13%;">
+        </td>
+    </tr>
+
+    <% @news_posts.each do |news_post| %>
+        <tr>
+            <td>
+                <%= news_post.id %>
+            </td>
+
+            <td>
+                <% if news_post.title.chars[30] %>
+                    <%= news_post.title.chars.first(30).join + "..." %>
+                <% else %>
+                    <%= news_post.title %>
+                <% end %>
+            </td>
+
+            <td>
+                <% if news_post.description.chars[30] %>
+                    <%= news_post.description.chars.first(30).join + "..." %>
+                <% else %>
+                    <%= news_post.description %>
+                <% end %>
+            </td>
+
+            <td>
+                <%= news_post.author %>
+            </td>
+
+            <td>
+                <%= l news_post.created_at, format: :long %>
+            </td>
+
+            <td class="text-right">
+                <%= link_to edit_admin_news_post_path(news_post) do %>
+                    <button class="btn btn-success">
+                        Редактировать
+                    </button>
+                <% end %>
+                <%= link_to admin_news_post_path(news_post), method: :delete do %>
+                    <button class="btn btn-danger"> 
+                        Удалить
+                    </button>
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
+</table>
