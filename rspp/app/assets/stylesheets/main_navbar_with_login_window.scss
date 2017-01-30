@@ -190,9 +190,11 @@
         display: inline-block;
         list-style: none;
         vertical-align: middle;
-        width: 45%;
+        width: 50%;
 
         .contact {
+            margin-left: 70px;
+            
             p {
                 margin: 1.5px;
             }
@@ -200,6 +202,7 @@
             &-info {
                 font-size: 3rem;
                 font-weight: bold;
+                margin-left: 50px;
             }
 
             &-credits {
