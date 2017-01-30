@@ -1,9 +1,9 @@
+<% if user_signed_in? %>
 <%= javascript_tag do %>
 window.currentUserId = '<%= current_user.id %>'
 <% end %>
+<% end %>
 <div class="survey-title">
-    <%= @survey.title %>
+	<%= @survey.title %>
 </div>
-<div class="survey-content" data-controller="<%= survey_path(@survey) %>">
-
-</div>
+<div class="survey-content" data-controller="<%= survey_path(@survey) %>"></div>
