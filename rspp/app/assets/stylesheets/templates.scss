@@ -1,0 +1,175 @@
+@import "variables";
+$template-page-color: #ffffff;
+$template-footer-color: $main-color-first;
+$template-footer-height: 60px;
+
+.hidden-template {
+	display: none;
+}
+
+.active-template {
+	display: block;
+}
+
+.template {
+	&-header {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 20px;
+		text-align: center;
+		border-bottom: 1px solid #000000;
+
+		img {
+			height: 100px;
+			width: 100px;
+		}
+
+		h3 {
+			font-weight: bold;
+			margin-left: 10px;
+			display: inline-block;
+		}
+	}
+
+	&-wrapper {
+		min-height: 100%;
+		width: 70%;
+		margin: auto;
+		overflow: hidden;
+		background: $template-page-color;
+		box-shadow: 0 0 4px #000000;
+		position: relative;
+	}
+
+	&-container {
+		height: 100%;
+		padding-bottom: $template-footer-height;
+
+		.template-body {
+			box-sizing: border-box;
+			padding: 50px 20px 0;
+			height: 100%;
+
+			.template-title {
+				text-transform: uppercase;
+				margin: 0;
+				font-weight: bold;
+
+				h2 {
+					font-weight: bold;
+				}
+			}
+
+			.description {
+				float: left;
+				width: 70%;
+				height: 100%;
+				font-size: 1.6rem;
+
+				&-body {
+					margin-top: 40px;
+				}
+			}
+
+			.template-aside {
+				float: right;
+				width: 25%;
+				height: 100%;
+				font-size: 1.6rem;
+
+				.partitions-list {
+					min-height: 100%;
+					margin-top: 45px;
+					list-style: none;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	&-footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 20px;
+		min-height: $template-footer-height;
+		background: $template-footer-color;
+		color: #ffffff;
+		padding-top: $template-footer-height /4;
+		font-size: 1.6rem;
+
+		.copyright {
+			float: left;
+		}
+
+		&-address {
+			margin-left: 20%;
+			float: left;
+		}
+
+		&-contact {
+			float: right;
+		}
+	}
+}
+@media (max-width: 1040px) {
+	.template-wrapper {
+		width: 100%;
+	}
+
+	.template-container {
+		.template-body {
+			padding-top: 5px;
+		}
+
+		.template-title {
+			text-align: center;
+		}
+
+		.description {
+			width: 100% !important;
+
+			&-body {
+				margin-top: 10px !important;
+			}
+		}
+
+		.template-aside {
+			width: 100% !important;
+			padding-bottom: $template-footer-height * 2;
+
+			.partitions-list {
+				margin-top: 10px !important;
+				text-align: center;
+			}
+		}
+	}
+
+	.template-footer {
+		width: 100%;
+		padding: 10px;
+		min-height: $template-footer-height;
+		background: $template-footer-color;
+		color: #ffffff;
+		padding-top: $template-footer-height /4;
+		font-size: 1.6rem;
+		text-align: center;
+
+		.copyright {
+			width: 100%;
+			float: left;
+		}
+
+		&-address {
+			width: 100%;
+			margin-left: 0 !important;
+			float: left;
+		}
+
+		&-contact {
+			float: left;
+			width: 100%;
+		}
+	}
+}

@@ -65,9 +65,8 @@ ActiveRecord::Schema.define(version: 20170127140722) do
   end
 
   create_table "partners", force: :cascade do |t|
-    t.string  "image_url", null: false
-    t.string  "link",      null: false
-    t.integer "position"
+    t.string "image_url", null: false
+    t.string "link",      null: false
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -98,11 +97,13 @@ ActiveRecord::Schema.define(version: 20170127140722) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string   "text",       null: false
+    t.string   "text",                     null: false
+    t.string   "smart_id"
+    t.text     "description", default: "", null: false
     t.integer  "topic_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "link"
     t.index ["topic_id"], name: "index_topics_on_topic_id", using: :btree
     t.index ["user_id"], name: "index_topics_on_user_id", using: :btree
