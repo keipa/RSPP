@@ -268,3 +268,22 @@
         }
     }
 }
+
+.survey-admin {
+    display: none;
+    width: 300px;
+    position: fixed;
+    box-shadow: 0 1px 6px 3px #333333;
+    top: 35%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+
+    .survey-add {
+
+        .survey-content{
+            background: #FFFFFF;
+            border-radius: 10px;
+        }
+    }
+}

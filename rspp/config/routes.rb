@@ -4,10 +4,10 @@ Rails.application.routes.draw do
         root 'news_posts#index'
         resources :news_posts, only: [:index, :new, :create, :edit, :update, :destroy]
         resources :partners, only: [:index, :create, :destroy, :edit, :update]
+        resources :surveys
 
 
         get 'news_posts/:post_type', to: 'news_posts#index'
-        get 'news_posts/:post_type/:id', to: 'news_posts#edit'
     end
 
     devise_for :users
