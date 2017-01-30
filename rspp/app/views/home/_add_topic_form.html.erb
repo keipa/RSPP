@@ -4,8 +4,9 @@
       <h1> Добавить раздел </h1>
 
       <%= f.text_field :text, autocomplete: "off", placeholder: "Название", id: "text_topic"  %>
-      <%= f.text_field :link, autocomplete: "off", placeholder: "Ссылка на материал", id: "link_topic" %>
-      <%= f.submit "Добавить", id: "add_topic_button", data_controller: topics_path %>
+      <%= f.text_field :smart_id, autocomplete: "off", placeholder: "Ссылка на материал", id: "smart_id_topic" %>
+      <%= f.hidden_field :link, autocomplete: "off", placeholder: "Ссылка на материал", id: "link_topic" %>
+      <%= f.submit "Добавить", id: "add_topic_button"%>
 
       <div class="close">
         <span class="glyphicon glyphicon-remove"></span>

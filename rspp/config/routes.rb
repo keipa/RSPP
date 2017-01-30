@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
     namespace :admin do
         root 'news_posts#index'
         resources :news_posts, only: [:index, :new, :create, :edit, :update, :destroy]
@@ -20,25 +19,26 @@ Rails.application.routes.draw do
         end
     end
 
-    devise_scope :user do
-        get '/users', to: 'devise/registrations#new'
-    end
+  devise_scope :user do
+    get '/users', to: 'devise/registrations#new'
+  end
 
-    resources :topics, only: [:index, :show, :new, :create, :edit, :update, :destroy] 
-    resources :news_posts , only: [:show]
-    resources :videos do
-        resources :comments, module: :videos
-    end
-    resources :surveys, only: [:create, :destroy, :update] do
-      resources :comments, module: :surveys
-      member do
-        put "vote" => "surveys#vote"
-        put "update" => "surveys#update"
-        delete "destroy" => "surveys#destroy"
-      end
-    end
+  patch 'topics/:id' => 'topics#update_content', as: 'update_content'
+  resources :topics, only: [:index, :show, :new, :create, :edit, :update, :patch, :destroy]
 
-    get '/about', to: 'home#about'
+  resources :news_posts , only: [:show]
+  resources :videos do
+      resources :comments, module: :videos
+  end
+  resources :surveys, only: [:create, :destroy, :update] do
+    resources :comments, module: :surveys
+    member do
+      put "vote" => "surveys#vote"
+      put "update" => "surveys#update"
+      delete "destroy" => "surveys#destroy"
+    end
+  end
+  get '/about', to: 'home#about'
 
-    resources :complaints
+  resources :complaints
 end

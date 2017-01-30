@@ -28,23 +28,12 @@ $(document).on('turbolinks:load', function() {
     }
 
     $('#add_topic_button').click(function(e) {
-        e.preventDefault();
-        var link = $('#link_topic').val();
-        var sendable = {
-            topic: {
-                link: '',
-                text: ''
-            }
-        };
-        var controller = $('#add_topic_button').attr('data_controller')
+        var link = $('#smart_id_topic').val();
         if (link == 'galleries' || link == 'about') {
-            sendable.topic.link = '/' + link;
+            link = '/' + link;
         } else {
-            sendable.topic.link = '/topics/' + link;
-            sendable.id = link;
+            link = '/topics/' + link;
         }
-        sendable.topic.text = $('#text_topic').val(); 
-
-        throughAJAX(sendable, controller, "POST")
+        $('#link_topic').val(link)
     })
 })

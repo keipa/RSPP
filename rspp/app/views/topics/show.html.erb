@@ -1,0 +1,56 @@
+<%= render 'home/back'%>
+<div class="template-wrapper">
+	<%= render 'templates/template_header' %>
+	<div class="template-container clearfix">
+		<div class="template-body">
+			<div class="description">
+				<div class="template-title">
+					<h2>
+						<%= @topic.text %>
+						<% if can? :manage, Topic %>
+						<a class="update-description-topic">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+						<% end %>
+					</h2>
+
+				</div>
+				<% if !@topic.description %>
+				<div class="description-body">
+					<%= render 'templates/template_form', template: @topic %>
+				</div>
+			<% else %>
+				<div class="description-body active-template">
+					<div id="description-content" class="no-border"></div>
+				</div>
+				<div class="description-body hidden-template">
+					<%= render 'templates/template_form', template: @topic %>
+				</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+	<%= render 'templates/template_footer' %>
+</div>
+
+<script>
+  	var quill = new Quill('#description-content', {
+  		modules: {
+  			toolbar: false
+  		},
+  		theme: 'snow',
+  		readOnly: true
+  	});
+  	obj = "<%= @topic.description.inspect %>".replace(/&quot;/g, '"');
+    console.log(obj);
+    var content = JSON.parse(obj.slice(1,-1));
+    console.log(content)
+
+    // console.log(obj)
+  	// if (obj.slice(0, 1) == '"') {
+  	// 	content = JSON.parse(obj.slice(1, -1));
+  	// } else {
+  	// 	content = JSON.parse(obj);
+  	// }
+  	quill.setContents(content.ops);
+</script>
