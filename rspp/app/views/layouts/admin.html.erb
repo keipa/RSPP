@@ -18,9 +18,9 @@
 
   <body>
 
-    <div class="text-center">
+    <div>
       <%= link_to root_path do %>
-        <button class="btn btn-primary">
+        <button class="btn btn-primary" style="border-radius: 0;">
           <span class="glyphicon glyphicon-chevron-left"></span>
           К сайту
         </button>
@@ -34,7 +34,7 @@
         <li class="tab"><a href="<%= admin_news_post_path(:mass_media) %>">СМИ о нас</a></li>
         <li class="tab"><a href="">Слайдер</a></li>
         <li class="tab"><a href="<%= admin_partners_path %>">Партнеры</a></li>
-        <li class="tab"><a href="">Опросы</a></li>
+        <li class="tab"><a href="<%= admin_surveys_path %>">Опросы</a></li>
       </ul>
     </div>
 

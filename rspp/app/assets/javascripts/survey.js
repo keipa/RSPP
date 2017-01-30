@@ -214,6 +214,15 @@ $(document).on('turbolinks:load', function() {
         }
     })
 
+    /////////////////////////////////////////////////
+    
+    $(".add-survey").click(function() {
+        $("input").val("");
+        $(".survey-admin").fadeIn(250);
+    })
+
+    /////////////////////////////////////////////////
+
     $('.survey-close').click(function(e) {
         closeSurvey();
     })
