@@ -44,6 +44,16 @@
             display: inline-block;
             vertical-align: top;
             margin-right: 20px;
+            position: relative;
+
+            img {
+                position: absolute;
+                left: 45%;
+                top: 50%;
+                height: 100%;
+                width: auto;
+                transform: translate(-50%,-50%);
+            }
         }
 
         .text {
