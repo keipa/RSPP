@@ -4,30 +4,30 @@
     </h2>
     <hr>
     <div class="business-news-container">
-        <% @news.each do |news_post| %>
+        <% @business_news.each do |post| %>
             <div class="business-news-post">
-                <% if news_post.image_url.present? %>
+                <% if post.image_url.present? %>
                     <div class="image text-center">
-                        <img class="image" src="<%=news_post.image_url%>">
+                        <img class="image" src="<%=post.image_url%>">
                     </div>
                     <div class="text">
                         <h4>
-                            <%= link_to news_post.title, news_post_path(news_post) %>
+                            <%= link_to post.title, news_post_path(post) %>
                         </h4>
                         <p>
-                            <%= news_post.description %>
-                            <p><small class="date-block">28 Декабря 2016, 9:55</small></p>
+                            <%= post.description %>
+                            <p><small class="date-block"><%= l post.created_at, format: :short %></small></p>
                         </p>
                     </div>
                 <% else %>
                     <div class="full-text">
                         <h4>
-                            <%= link_to news_post.title, news_post_path(news_post), html: {class: "styleColor"} %>
+                            <%= link_to post.title, news_post_path(post) %>
                         </h4>
                     </div>
                     <p>
-                        <%= news_post.description %>
-                        <p><small class="block">28 Декабря 2016, 9:55</small></p>
+                        <%= post.description %>
+                        <p><small class="block"><%= l post.created_at, format: :short %></small></p>
                     </p>
                 <% end %>
             </div>
