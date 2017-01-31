@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
 <%= javascript_tag do %>
 window.currentUserId = '<%= current_user.id %>'
+window.surveyContent = '<%=  escape_javascript @survey.to_json %>'
 <% end %>
 <% end %>
 <div class="survey-title">

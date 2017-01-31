@@ -50,7 +50,7 @@
   	var obj = "<%= @topic.description.inspect %>".replace(/&quot;/g, '"')
 
     if (obj == '""') {
-      obj = {"ops" :[ {"insert": "TESTING\n" } ] }
+      obj = {"ops" :[ {"insert": "\n" } ] }
       content = obj;
     } else {
       content = JSON.parse(obj.slice(1,-1));
