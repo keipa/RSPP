@@ -1,0 +1,54 @@
+<%= render 'vertical_navbar' %>
+
+<%= render 'surveys/survey_block' %>
+
+<div class="main-page-container container">
+
+    <%= render 'add_topic_form' %>
+    <%= render 'add_subtopic_form' %>
+
+    <%= render 'main_navbar_with_login_window' %>
+
+    <%= render 'topics_navbar' %>
+
+    <div class="line">
+        <%= render 'main_slider' %>
+    </div>
+
+    <div class="line text-center">
+        <% if user_signed_in? %>
+            <div>
+                <%= link_to new_complaint_path do %>
+                    <button class="btn btn-danger complaint-btn">Обратиться</button>
+                <% end %>
+            </div>
+        <% else %>
+            <div>
+                <button class="btn btn-danger complaint-btn" onclick="alert('Сначала необходимо войти или зарегистрироваться')">Обратиться</button>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="line">
+        <%= render 'video_block' %>
+        <%= render 'rspp_news_block' %>
+    </div>
+
+    <div class="line">
+        <%= render 'mass_media_news_block' %>
+        <%= render 'business_news_block' %>
+    </div>
+</div>
+
+<%= render 'partners_parallax', partners: @partners %>
+
+<div class="pre-footer-container container flex">
+    <!-- <div class="extras"> -->
+        <%= render 'exchange_rates' %>
+        <%= render 'social_networks' %>
+    <!-- </div> -->
+    <!-- Yandex Maps will use this div -->
+    <div id="map"></div>
+</div>
+
+<%= render 'footer' %>

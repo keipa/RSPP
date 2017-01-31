@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
 	surveyContent = $(".survey-content").attr("data-survey-content")
 	currentUserId = $(".survey-content").attr("data-user-id")
 
-	if (surveyContent) {
+	if ((surveyContent) && (surveyContent != "")) {
 		SURVEY = surveyContent.replace(/&quot;/g, '"')
 		SURVEY = JSON.parse(SURVEY)
 		SURVEY_QUESTIONS = JSON.parse(SURVEY.content);
@@ -146,30 +146,33 @@ $(document).on('turbolinks:load', function() {
 		}
 	}
 
-	$('#btn-create-survey').click(function() {
+	$('#btn-submit-survey').click(function() {
 		var valFromOptions = getQuestionVals();
 		var titleSurvey = $('#survey-title-input').val().trim();
 		if (valFromOptions.length == 0) {
-			alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-create-survey'))
-			return;
+			alertMessage('warning', 'Отсутствуют поля выбора', $('.input-option'))
+			return false;
 		}
 		if (titleSurvey == '' || !titleSurvey) {
-			alertMessage('warning', 'Некорректное название опроса', $('#btn-create-survey'))
-			return;
+			alertMessage('warning', 'Некорректное название опроса', $('.survey-title'))
+			return false;
 		}
-		var json = {
-			survey: {
-				title: titleSurvey,
-				content: JSON.stringify(valFromOptions),
-				count_votes: 0,
-				closed: false,
-				users: ''
-			}
-		}
-		var controllerPOST = $('#btn-create-survey').attr('data-controller');
-		throughAJAX(json, controllerPOST, "POST", function() {
-			window.location.reload()
-		})
+
+		$("#content-input").val(JSON.stringify(valFromOptions))
+
+		// var json = {
+		// 	survey: {
+		// 		title: titleSurvey,
+		// 		content: JSON.stringify(valFromOptions),
+		// 		count_votes: 0,
+		// 		closed: false,
+		// 		users: ''
+		// 	}
+		// }
+		// var controllerPOST = $('#btn-submit-survey').attr('data-controller');
+		// throughAJAX(json, controllerPOST, "POST", function() {
+		// 	window.location.reload()
+		// })
 	})
 
 	$('.survey-content-add-field').click(function() {
@@ -225,20 +228,21 @@ $(document).on('turbolinks:load', function() {
 	/////////////////////////////////////////////////
 
 	$(".add-survey").click(function() {
-		$("input").val("");
+		$("input[type='text']").val("");
 		$(".options-content").remove();
 		$(".survey-admin").fadeToggle(250);
 	})
 
 	var controllerPUT;
 
-	$(".edit-survey").click(function(event) {
+	$(".edit-survey").click(function() {
 		$(".options-content").remove();
-		surveyTitle = $(event.target).attr("data-survey-title");
-		surveyOptions = JSON.parse($(event.target).attr("data-survey-options"));
-		controllerPUT = $(event.target).attr("data-controller");
-		
-		$(".survey-title-input").val(surveyTitle)
+		surveyTitle = $(this).attr("data-survey-title");
+		console.log($(this).attr("data-survey-options"))
+		surveyOptions = JSON.parse($(this).attr("data-survey-options"));
+		controllerPUT = $(this).attr("data-controller");
+
+		$("#survey-title-input").val(surveyTitle);
 
 		surveyOptions.forEach(function(option) {
 
@@ -249,34 +253,34 @@ $(document).on('turbolinks:load', function() {
 		});
 
 
-		$(".survey-admin-edit").fadeToggle(250);
+		$(".survey-admin").fadeToggle(250);
 	})
 
 
-	$('#btn-edit-survey').click(function() {
-		var valFromOptions = getQuestionVals();
-		var titleSurvey = $('.survey-title-input').val().trim();
-		if (valFromOptions.length == 0) {
-			alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-edit-survey'))
-			return;
-		}
-		if (titleSurvey == '' || !titleSurvey) {
-			alertMessage('warning', 'Некорректное название опроса', $('#btn-edit-survey'))
-			return;
-		}
-		var json = {
-			survey: {
-				title: titleSurvey,
-				content: JSON.stringify(valFromOptions),
-				count_votes: 0,
-				closed: false,
-				users: ''
-			}
-		}
-		throughAJAX(json, controllerPUT, "PUT", function() {
-			window.location.reload()
-		})
-	})
+	// $('#btn-edit-survey').click(function() {
+	// 	var valFromOptions = getQuestionVals();
+	// 	var titleSurvey = $('#survey-title-input').val().trim();
+	// 	if (valFromOptions.length == 0) {
+	// 		alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-edit-survey'))
+	// 		return;
+	// 	}
+	// 	if (titleSurvey == '' || !titleSurvey) {
+	// 		alertMessage('warning', 'Некорректное название опроса', $('#btn-edit-survey'))
+	// 		return;
+	// 	}
+	// 	var json = {
+	// 		survey: {
+	// 			title: titleSurvey,
+	// 			content: JSON.stringify(valFromOptions),
+	// 			count_votes: 0,
+	// 			closed: false,
+	// 			users: ''
+	// 		}
+	// 	}
+	// 	throughAJAX(json, controllerPUT, "PUT", function() {
+	// 		window.location.reload()
+	// 	})
+	// })
 
 
 	/////////////////////////////////////////////////
