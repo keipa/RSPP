@@ -4,8 +4,9 @@ $(document).on('turbolinks:load', function() {
             type: method,
             url: controller,
             dataType: 'json',
-            data: sendable,
-            success: callback ? callback.call() : undefined
-        });
+            data: sendable
+        }).done(
+          callback ? callback.call() : undefined
+        )
     }
 });
