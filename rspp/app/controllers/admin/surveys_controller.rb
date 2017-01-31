@@ -6,19 +6,20 @@ class Admin::SurveysController < Admin::AdminController
     end
 
     def create
-        @survey = Survey.create(surveys_params)
-        redirect_to admin_surveys_path
+      @survey = Survey.create(surveys_params)
+      redirect_to admin_surveys_path
     end
 
     def update
-        @survey = Survey.find(params[:id])
-        @survey.update_attributes(surveys_params)
+      @survey = Survey.find(params[:id])
+      @survey.update(surveys_params)
+      redirect_to admin_surveys_path
     end
 
     def destroy
-        @survey = Survey.find(params[:id])
-        @survey.destroy
-        redirect_to admin_surveys_path
+      @survey = Survey.find(params[:id])
+      @survey.destroy
+      redirect_to admin_surveys_path
     end
 
     private
