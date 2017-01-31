@@ -1,4 +1,5 @@
 <%= render 'survey_add' %>
+<%= render 'survey_edit' %>
 
 <div class="add-survey-btn-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
     <button class="btn btn-default add-survey" style="font-size: 20px;">
@@ -68,7 +69,7 @@
             </td>
 
             <td class="text-right">
-                    <button class="btn btn-success">
+                    <button class="btn btn-success edit-survey" data-survey-title="<%= survey.title %>" data-survey-options="<%= survey.content %>" data-controller="<%= admin_survey_path(survey) %>">
                         Редактировать
                     </button>
                 <%= link_to admin_survey_path(survey), method: :delete do %>

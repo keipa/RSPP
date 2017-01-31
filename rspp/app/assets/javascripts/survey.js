@@ -2,12 +2,15 @@ $(document).on('turbolinks:load', function() {
 	var SURVEY;
 	var SURVEY_QUESTIONS;
 	var CURRENT_USER_ID;
-	if (window.surveyContent) {
-		SURVEY = window.surveyContent.replace(/&quot;/g, '"')
+	surveyContent = $(".survey-content").attr("data-survey-content")
+	currentUserId = $(".survey-content").attr("data-user-id")
+
+	if (surveyContent) {
+		SURVEY = surveyContent.replace(/&quot;/g, '"')
 		SURVEY = JSON.parse(SURVEY)
 		SURVEY_QUESTIONS = JSON.parse(SURVEY.content);
-		if (window.currentUserId) {
-			CURRENT_USER_ID = window.currentUserId;
+		if (currentUserId) {
+			CURRENT_USER_ID = currentUserId;
 			checkVotedUser(SURVEY.users) >= 0 ? renderResluts() : renderQuestions();
 		} else {
 			renderResluts()
@@ -179,9 +182,9 @@ $(document).on('turbolinks:load', function() {
 		}
 	})
 
-	function createOptionField() {
+	function createOptionField(value) {
 		return $('<div/>').addClass('options-content')
-			.append($('<input/>').attr('type', 'text')
+			.append($('<input/>').val(value).attr('type', 'text')
 				.attr('placeholder', 'Вариант ответа')
 				.addClass('input-option'))
 			.append($('<span/>').addClass('glyphicon glyphicon-remove remove-option'))
@@ -191,7 +194,7 @@ $(document).on('turbolinks:load', function() {
 		var vals = $('.input-option');
 		var arr = [];
 		$.each(vals, function(i, v) {
-			if ($(v).val().trim() != '' || $(v).val().trim()) {
+			if (($(v).val().trim() != '' || $(v).val().trim()) && (v.clientWidth > 0)) {
 				arr.push({
 					body: $(v).val(),
 					count: 0
@@ -223,8 +226,58 @@ $(document).on('turbolinks:load', function() {
 
 	$(".add-survey").click(function() {
 		$("input").val("");
-		$(".survey-admin").fadeIn(250);
+		$(".options-content").remove();
+		$(".survey-admin").fadeToggle(250);
 	})
+
+	var controllerPUT;
+
+	$(".edit-survey").click(function() {
+		$(".options-content").remove();
+		surveyTitle = $(this).attr("data-survey-title");
+		surveyOptions = JSON.parse($(this).attr("data-survey-options"));
+		controllerPUT = $(this).attr("data-controller");
+
+		$("input").val(surveyTitle);
+
+		surveyOptions.forEach(function(option) {
+
+			$(".survey-content").prepend(
+				createOptionField(option.body)
+			);
+
+		});
+
+
+		$(".survey-admin-edit").fadeToggle(250);
+	})
+
+
+	$('#btn-edit-survey').click(function() {
+		var valFromOptions = getQuestionVals();
+		var titleSurvey = $('#survey-title-input').val().trim();
+		if (valFromOptions.length == 0) {
+			alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-edit-survey'))
+			return;
+		}
+		if (titleSurvey == '' || !titleSurvey) {
+			alertMessage('warning', 'Некорректное название опроса', $('#btn-edit-survey'))
+			return;
+		}
+		var json = {
+			survey: {
+				title: titleSurvey,
+				content: JSON.stringify(valFromOptions),
+				count_votes: 0,
+				closed: false,
+				users: ''
+			}
+		}
+		throughAJAX(json, controllerPUT, "PUT", function() {
+			window.location.reload()
+		})
+	})
+
 
 	/////////////////////////////////////////////////
 
