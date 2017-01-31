@@ -1,22 +1,25 @@
 <% if can? :manage, Gallery %>
-<div id="upload-video" class="upload">
-    <a href="<%= new_gallery_album_video_path(@gallery,@album)%>">
-        <p class="big-text">
-            Добавить видео
-        </p>
-    </a>
+<div id="upload-video" class="upload ">
+	<a href="<%= new_gallery_album_video_path(@gallery,@album)%>">
+		<p class="big-text">
+			Добавить видео
+		</p>
+	</a>
 </div>
 <% end %>
 <div class="video-container">
-    <div class="gallery-page-header">
-        <% if @album.videos.any? %>
-        <h1><%=@album.name%></h1>
-    <% else %>
-        <h1>Нет Видео</h1>
-        <% end %>
-    </div>
-    <div class="gallery-video-block">
-        <%= render 'videos' %>
-    </div>
+	<div class="gallery-page-header">
+		<% if @album.videos.any? %>
+		<h1><%=@album.name%></h1>
+    <p class="gallery-description">
+			<%= @album.description %>
+		</p>
+	<% else %>
+		<h1>Нет видео</h1>
+		<% end %>
+	</div>
+	<div class="gallery-video-block">
+		<%= render 'videos' %>
+	</div>
 
 </div>

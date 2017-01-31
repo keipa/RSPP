@@ -1,42 +1,52 @@
 <div class="picture-container" id="links">
-    <% if can? :manage, Gallery %>
-    <div id="upload-picture-gallery" class="upload" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
-        <p class="big-text">
-            Загрузить фото
-        </p>
-    </div>
-    <% end %>
+	<% if can? :manage, Gallery %>
+	<div id="upload-picture-gallery" class="upload" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
+		<p class="big-text">
+			Загрузить фото
+		</p>
+	</div>
+	<% end %>
+	<div class="gallery-page-header">
+		<% if @album.pictures.any? %>
+		<h1><%=@album.name%></h1>
+		<p class="gallery-description">
+			<%= @album.description %>
+		</p>
+	<% else %>
+		<h1>Нет фотографий</h1>
+		<% end %>
+	</div>
 
-    <div class="pictures-list">
-        <%= render 'pictures', album: @album %>
-    </div>
+	<div class="pictures-list">
+		<%= render 'pictures', album: @album %>
+	</div>
 </div>
 <div id="blueimp-gallery" class="blueimp-gallery">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body next"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left prev">
-                        <i class="glyphicon glyphicon-chevron-left"></i>
-                        Назад
-                    </button>
-                    <button type="button" class="btn btn-primary next">
-                        Вперед
-                        <i class="glyphicon glyphicon-chevron-right"></i>
-                    </button>
-                    <!-- <a href="<%=gallery_album_path(@gallery,@album)%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a> -->
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="slides"></div>
+	<h3 class="title"></h3>
+	<a class="prev">‹</a>
+	<a class="next">›</a>
+	<a class="close">×</a>
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"></h4>
+				</div>
+				<div class="modal-body next"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default pull-left prev">
+						<i class="glyphicon glyphicon-chevron-left"></i>
+						Назад
+					</button>
+					<button type="button" class="btn btn-primary next">
+						Вперед
+						<i class="glyphicon glyphicon-chevron-right"></i>
+					</button>
+					<!-- <a href="<%=gallery_album_path(@gallery,@album)%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
