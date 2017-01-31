@@ -38,7 +38,6 @@ Rails.application.routes.draw do
       delete "destroy" => "surveys#destroy"
     end
   end
-  get '/about', to: 'home#about'
 
   resources :complaints
 end

@@ -7,7 +7,8 @@ $(document).on('turbolinks:load', function() {
       $(".subtopicsInfo")[1].innerHTML = "";
       for (i = 0; i < num; i++) {
           $(".subtopicsInfo")[1].innerHTML += '<input placeholder="Название подраздела" name="topic[subtopics][' + i + '][text]">'+
-                                              '<input placeholder="Ссылка на материал" name="topic[subtopics][' + i + '][link]">'+
+                                              '<input placeholder="Ссылка на материал" name="topic[subtopics][' + i + '][smart_id]">'+
+                                              '<input type="hidden" name="topic[subtopics][' + i + '][link]">'+
                                               '<hr>';
       }
 
@@ -15,7 +16,8 @@ $(document).on('turbolinks:load', function() {
           $(".subtopicsInfo")[1].innerHTML = "";
           for (i = 0; i < this.value; i++) {
               $(".subtopicsInfo")[1].innerHTML += '<input placeholder="Название подраздела" name="topic[subtopics][' + i + '][text]">'+
-                                                  '<input placeholder="Ссылка на материал" name="topic[subtopics][' + i + '][link]">'+
+                                                  '<input placeholder="Ссылка на материал" name="topic[subtopics][' + i + '][smart_id]">'+
+																									'<input type="hidden" name="topic[subtopics][' + i + '][link]">'+
                                                   '<hr>';
           }
       });
@@ -33,5 +35,5 @@ $(document).on('turbolinks:load', function() {
           $(".add-subtopic-form").hide();
       })
     }
-    
+
 })
