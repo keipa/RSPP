@@ -7,6 +7,14 @@ html {
     height: 100%;
 }
 
+textarea {
+  resize: none !important;
+}
+
+a {
+	text-decoration: none !important;
+}
+
 body {
     background-color: #F0F0F0 !important;
     //background: linear-gradient(#FFFFFF 26.5%, $main-color-first 0.4%, #F0F0F0 26.9%);

@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
 
     function commentChange(e) {
         var containerId = $(e.target).closest("div[class^='comments-content-").attr('data-id');
-        $(".comments-content-" + containerId + " .panel-body").toggle('slow');
+        $(".comments-content-" + containerId + " .panel-body").slideToggle('slow');
         $(".comments-content-" + containerId + " .show-comments").toggleClass("active")
         showOrHide(containerId)
     }

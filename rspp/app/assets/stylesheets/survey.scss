@@ -1,12 +1,17 @@
 @import "variables";
 
 
+
 .survey {
     position: fixed;
-    top: 25%;
+    top: 15%;
     left: 30px;
     width: 250px;
     z-index: 999;
+
+		.panel-heading {
+			display: none;
+		}
 
     &-body {
         box-shadow: 1px 1px 6px #000000;

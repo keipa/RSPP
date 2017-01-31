@@ -1,5 +1,5 @@
-$("div.comments-content-"+ "<%= @commentable.id %>" + " ul.comments-list").html("<%= escape_javascript render (@commentable.comments) %>");
-$("div.comments-content-"+ "<%= @commentable.id %>" + " span.comment-size").text("<%= @commentable.comments.size %>");
-if($("div.comments-content-"+ "<%= @commentable.id %>" + " span.comment-size").text() == '0') {
-  $("div.comments-content-"+ "<%= @commentable.id %>" + ' .comments-body').hide('slow');
+$("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + " ul.comments-list").html("<%= escape_javascript render (@commentable.comments) %>");
+$("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + " span.comment-size").text("<%= @commentable.comments.size %>");
+if($("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + " span.comment-size").text() == '0') {
+  $("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + ' .comments-body').hide('slow');
 }
