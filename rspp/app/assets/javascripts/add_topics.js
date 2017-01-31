@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function() {
 
 	$('#add_topic_button').click(function(e) {
 		var link = $('#smart_id_topic').val();
-		if (link == 'galleries' || link == 'about') {
+		if (link == 'galleries') {
 			link = '/' + link;
 		} else {
 			link = '/topics/' + link;
@@ -52,14 +52,4 @@ $(document).on('turbolinks:load', function() {
 
 		}
 	}
-
-	$('#add_subtopics_button').click(function(e) {
-		var link = $('#smart_id_topic').val();
-		if (link == 'galleries' || link == 'about') {
-			link = '/' + link;
-		} else {
-			link = '/topics/' + link;
-		}
-		$('#link_topic').val(link)
-	})
 })

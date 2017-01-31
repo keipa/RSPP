@@ -10,7 +10,4 @@ class HomeController < ApplicationController
         @survey = Survey.all.where(closed: false).first
     end
 
-    def about
-
-    end
 end

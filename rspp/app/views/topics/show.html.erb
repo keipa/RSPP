@@ -13,36 +13,29 @@
 					<h2>
 						<%= @topic.text %>
 						<% if can? :manage, Topic %>
-  						<a class="update-description-topic">
-  							<span class="glyphicon glyphicon-pencil"></span>
-  						</a>
+						<a class="update-description-topic">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
 						<% end %>
 					</h2>
 				</div>
 
-        <div class="description-body active-template">
-          <div id="description-content" class="no-border"></div>
-        </div>
+				<div class="description-body active-template">
+					<div id="description-content" class="no-border"></div>
+				</div>
 
-        <div class="description-body hidden-template">
-          <%= render 'templates/template_form', template: @topic %>
-        </div>
-
-				<div class="template-aside">
-					<a href="/<%=@topic.smart_id%>" class="template-root">
-						<h4 class="template-title"><%= @topic.text %></h4>
-					</a>
-					<div class="partitions-list list-group">
-						<a href="#vstuplenie" class="list-group-item">Как вступить в РСПП</a>
-						<a href="#managment" class="list-group-item">Руководящие органы</a>
-						<a href="#records" class="list-group-item">Документы РСПП</a>
-						<a href="#oks" class="list-group-item">РСПП в ОКС(общественно-консультативных советах)</a>
-						<a href="#partners" class="list-group-item">Партнеры</a>
-						<a href="#contacts" class="list-group-item">Контакты</a>
-					</div>
+				<div class="description-body hidden-template">
+					<%= render 'templates/template_form', template: @topic %>
 				</div>
 
 			</div>
+			<div class="template-aside">
+				<a href="<%=@parent_topic.link%>" class="template-root">
+					<h4 class="template-title"><%= @parent_topic.text %></h4>
+				</a>
+				<%= render 'subtopics' %>
+			</div>
+
 		</div>
 
 	</div>
@@ -53,23 +46,28 @@
 
 <script>
 
-  	var quillShow = new Quill('#description-content', {
-  		modules: {
-  			toolbar: false
-  		},
-  		theme: 'snow',
-  		readOnly: true
-  	});
+	var quillShow = new Quill('#description-content', {
+		modules: {
+			toolbar: false
+		},
+		theme: 'snow',
+		readOnly: true
+	});
 
-  	var obj = "<%= @topic.description.inspect %>".replace(/&quot;/g, '"')
+	var obj = "<%= @topic.description.inspect %>".replace(/&quot;/g, '"')
 
-    if (obj == '""') {
-      obj = {"ops" :[ {"insert": "\n" } ] }
-      content = obj;
-    } else {
-      content = JSON.parse(obj.slice(1,-1));
-    }
+	if (obj == '""') {
+		obj = {
+			"ops": [
+				{
+					"insert": "\n"
+				}
+			]
+		}
+		content = obj;
+	} else {
+		content = JSON.parse(obj.slice(1, -1));
+	}
 
-    quillShow.setContents(content.ops);
-
+	quillShow.setContents(content.ops);
 </script>
