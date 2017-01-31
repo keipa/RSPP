@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
 		localStorage.setItem('activeLink', link);
 	}
 
-	$('.orspp-root').click(function() {
+	$('.template-root').click(function() {
 		hidetemplateContents();
 		$('#orspp-content').addClass('active').show();
 		saveInLocalStorage('#orspp');

@@ -28,6 +28,20 @@
           <%= render 'templates/template_form', template: @topic %>
         </div>
 
+				<div class="template-aside">
+					<a href="/<%=@topic.smart_id%>" class="template-root">
+						<h4 class="template-title"><%= @topic.text %></h4>
+					</a>
+					<div class="partitions-list list-group">
+						<a href="#vstuplenie" class="list-group-item">Как вступить в РСПП</a>
+						<a href="#managment" class="list-group-item">Руководящие органы</a>
+						<a href="#records" class="list-group-item">Документы РСПП</a>
+						<a href="#oks" class="list-group-item">РСПП в ОКС(общественно-консультативных советах)</a>
+						<a href="#partners" class="list-group-item">Партнеры</a>
+						<a href="#contacts" class="list-group-item">Контакты</a>
+					</div>
+				</div>
+
 			</div>
 		</div>
 

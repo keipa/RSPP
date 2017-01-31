@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
       @topic.subtopics.create(
         text: topic_params[:subtopics][subtopic][:text],
         user_id: current_user.id,
+				smart_id: topic_params[:subtopics][subtopic][:smart_id],
         link: topic_params[:subtopics][subtopic][:link]
       )
     end
@@ -41,7 +42,8 @@ class TopicsController < ApplicationController
       @topic.subtopics.create(
         text: topic_params[:subtopics][subtopic][:text],
         user_id: current_user.id,
-        link: topic_params[:subtopics][subtopic][:link]
+        link: topic_params[:subtopics][subtopic][:link],
+        smart_id: topic_params[:subtopics][subtopic][:smart_id]
       )
     end
     redirect_to root_path
@@ -59,6 +61,6 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:smart_id, :text, :description, :link, subtopics: [[:text, :link]])
+    params.require(:topic).permit(:smart_id, :text, :description, :link, subtopics: [[:text, :link, :smart_id]])
   end
 end
