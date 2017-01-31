@@ -40,16 +40,25 @@ $(document).on('turbolinks:load', function() {
 		getSubtopicVals(0);
 	})
 
+	$('#add_subtopics_button').click(function(e) {
+		getSubtopicVals(1);
+	})
+
 	function getSubtopicVals(num) {
 		if (num == 0) {
-			var subtopicsInfo = $(".subtopicsInfo")[0];
+			setSubtopicsHiddenVals(0);
+		} else if (num == 1) {
+			setSubtopicsHiddenVals(1);
+		}
+
+		function setSubtopicsHiddenVals(num) {
+			var subtopicsInfo = $(".subtopicsInfo")[num];
 			var inputsLinkSubtopics = $(subtopicsInfo).children("input[name*='link']");
 			var inputsSmartIdSubtopics = $(subtopicsInfo).children("input[name*='smart_id']");
-			$(inputsLinkSubtopics).each(function(index,el) {
+			$(inputsLinkSubtopics).each(function(index, el) {
 				$(el).val('/topics/' + $(inputsSmartIdSubtopics[index]).val())
 			})
-		} else if (num == 1) {
-
 		}
 	}
+
 })
