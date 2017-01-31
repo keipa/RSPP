@@ -39,5 +39,7 @@ Rails.application.routes.draw do
     end
   end
 
+	get 'home/join_rspp', to: 'home#join_rspp', as: 'join_rspp'
+
   resources :complaints
 end

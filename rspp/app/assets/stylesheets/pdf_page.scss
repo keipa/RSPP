@@ -1,0 +1,51 @@
+#pdf-page-form {
+	font-size: 1.4rem;
+	margin: auto;
+
+	.pdf-page {
+		&-title {
+			text-align: center;
+
+			* {
+				font-weight: bold;
+			}
+		}
+
+		&-content {
+			width: 60%;
+			margin: auto;
+		}
+	}
+
+	.table-pdf {
+		border: 1px solid #000000;
+
+		.table-title-pdf {
+			text-align: center;
+			font-size: 2rem;
+		}
+
+		td,
+		tr {
+			border: 1px solid #000000;
+		}
+	}
+
+	.partition-title-pdf {
+		text-align: center;
+		text-decoration: underline;
+		margin-bottom: 20px;
+
+		h3 {
+			font-weight: bold;
+		}
+	}
+
+	.partition-subtitle-pdf {
+		text-align: center;
+
+		h3 {
+			font-weight: bold;
+		}
+	}
+}

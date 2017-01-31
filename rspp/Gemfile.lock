@@ -100,6 +100,9 @@ GEM
       turbolinks
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    jspdf-rails (1.0.3)
+      jquery-rails
+      rails (>= 3.1.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -244,6 +247,7 @@ DEPENDENCIES
   jquery-slick-rails
   jquery-turbolinks
   jquery-ui-rails
+  jspdf-rails
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry
