@@ -10,4 +10,8 @@ class HomeController < ApplicationController
         @survey = Survey.all.where(closed: false).first
     end
 
+		def join_rspp
+
+		end
+
 end

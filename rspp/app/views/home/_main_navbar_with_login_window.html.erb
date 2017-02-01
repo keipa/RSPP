@@ -1,37 +1,41 @@
 <nav id="main-navbar" class="navbar navbar-default">
-    <img id="logo" src="logo.png">
-    <ul id="contacts">
-        <li class="contact">
-            <p class="contact-info">Республиканский союз <br> промышленников и предпринимателей</p>
-            <p class="contact-credits">
-                + 375 29 111 11 11,
-                <a class="contact-credits-email" href="">rspp@mail.ru</a>
-            </p>
-        </li>
-    </ul>
+	<img id="logo" src="logo.png">
+	<ul id="contacts">
+		<li class="contact">
+			<p class="contact-info">Республиканский союз
+				<br>
+				промышленников и предпринимателей</p>
+			<p class="contact-credits">
+				+ 375 29 111 11 11,
+				<a class="contact-credits-email" href="">rspp@mail.ru</a>
+			</p>
+		</li>
+	</ul>
 
-    <%- if user_signed_in? %>
-        <div class="user-info pull-right">
-            <p>
-                Здравствуйте,
-                <%= current_user.first_name %>!
-            </p>
-            <%= link_to "Кабинет", admin_news_posts_path %>
-            <br>
-            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+	<%- if user_signed_in? %>
+	<div class="user-info pull-right">
+		<p>
+			Здравствуйте,
+			<%= current_user.first_name %>!
+		</p>
+		<%= link_to "Кабинет", admin_news_posts_path %>
+		<br>
+		<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
 
-        </div>
-    <% else %>
+	</div>
+<% else %>
 
-        <div class="join-badge text-center">
-            <div class="text">
-                <p>Вступить в союз</p>
-            </div>
-        </div>
+	<div class="join-badge text-center">
+		<a href="<%=join_rspp_path%>">
+			<div class="text enter-rspp">
+				<p>Вступить в союз</p>
+			</div>
+		</a>
+	</div>
 
-        <%= render 'user_actions' %>
-        <%= render 'login' %>
-        <%= render 'signup' %>
+	<%= render 'user_actions' %>
+	<%= render 'login' %>
+	<%= render 'signup' %>
 
-    <% end %>
+	<% end %>
 </nav>
