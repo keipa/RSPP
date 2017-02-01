@@ -9,9 +9,7 @@ $(document).on('turbolinks:load', function() {
         upload_preset: 'fxk1eofn'
     }
   })()
-
-  var partnerPosition = "";
-
+  
     $(".add-partner-form-header .close").click(function(argument) {
         $(".add-partner-form").fadeOut(300);
     })

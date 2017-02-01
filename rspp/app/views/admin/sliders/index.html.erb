@@ -1,0 +1,71 @@
+<div class="add-news-post-btn-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
+    <%= link_to new_admin_slider_path do %>
+        <button class="btn btn-default add-slide-btn" style="font-size: 20px;">
+            Добавить слайдер
+        </button>
+    <% end %>
+</div>
+
+<table class="table table-striped text-center" style="font-size: 20px;">
+    <tr>
+        <td style="width: 5%;">
+            <b>
+                ID
+            </b>
+        </td>
+        <td style="width: 52%;">
+            <b>
+                Название
+            </b>
+        </td>
+        <td style="width: 15%;">
+            <b>
+                Количество слайдов
+            </b>
+        </td>
+        <td style="width: 15%;">
+            <b>
+                Время создания
+            </b>
+        </td>
+        <td style="width: 13%;">
+        </td>
+    </tr>
+
+    <% @sliders.each do |slider| %>
+        <tr>
+            <td>
+                <%= slider.id %>
+            </td>
+
+            <td>
+                <% if slider.name.chars[30] %>
+                    <%= slider.name.chars.first(30).join + "..." %>
+                <% else %>
+                    <%= slider.name %>
+                <% end %>
+            </td>
+
+            <td>
+                <%= slider.slides.count %>
+            </td>
+
+            <td>
+                <%= l slider.created_at, format: :long %>
+            </td>
+
+            <td class="text-right">
+                <%= link_to edit_admin_slider_path(slider) do %>
+                    <button class="btn btn-success">
+                        Редактировать
+                    </button>
+                <% end %>
+                <%= link_to admin_slider_path(slider), method: :delete do %>
+                    <button class="btn btn-danger"> 
+                        Удалить
+                    </button>
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
+</table>

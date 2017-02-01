@@ -1,39 +1,31 @@
 <div id="main-slider" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-        <li data-target="#main-slider" data-slide-to="1"></li>
-        <li data-target="#main-slider" data-slide-to="2"></li>
-        <li data-target="#main-slider" data-slide-to="3"></li>
+        <% @slider.slides[1..-1].each_with_index do |slide, index| %>
+            <li data-target="#main-slider" data-slide-to="<%= index + 1 %>"></li>
+        <% end %>
     </ol>
 
     <div class="carousel-inner" role="listbox">
+
         <div class="item active text-center">
             <div class="carousel-caption">
-                <h3>Важнейшая задача РСПП - защита законных прав и интересов частного бизнеса.</h3>
+                <h3><%= @slider.slides.first.text %></h3>
             </div>
-            <img class="slide-photo" src="img_chania.jpg">
+            <img class="slide-photo" src="<%= @slider.slides.first.image_url %>">
         </div>
 
-        <div class="item">
-            <div class="carousel-caption">
-                <h3>У нас бизнес</h3>
+        <% @slider.slides[1..-1].each do |slide| %>
+            <div class="item">
+                <div class="carousel-caption">
+                    <h3><%= slide.text %></h3>
+                </div>
+                <img class="slide-photo" src="<%= slide.image_url %>">
             </div>
-            <img class="slide-photo" src="img_chania2.jpg">
-        </div>
+        <% end %>
 
-        <div class="item">
-            <div class="carousel-caption">
-                <h3>Мы одна большая семья</h3>
-            </div>
-            <img class="slide-photo" src="img_chania3.jpg">
-        </div>
+        
 
-        <div class="item">
-            <div class="carousel-caption">
-                <!-- <h3>Стоковые фотки такие классные</h3> -->
-            </div>
-            <img class="slide-photo" src="img_chania4.jpg">
-        </div>
     </div>
 
     <!-- Left and right controls -->
