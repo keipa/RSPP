@@ -4,6 +4,7 @@ Rails.application.routes.draw do
         resources :news_posts, only: [:index, :new, :create, :edit, :update, :destroy]
         resources :partners, only: [:index, :create, :destroy, :edit, :update]
         resources :surveys
+        resources :users
 
 
         get 'news_posts/:post_type', to: 'news_posts#index'

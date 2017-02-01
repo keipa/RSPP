@@ -1,0 +1,20 @@
+.edit-user {
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow:0 0 8px 2px #000000;
+  width: 20%;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  display: none;
+  text-align: left;
+  padding: 15px;
+
+  input[type=text] {
+    width: 100%;
+  }
+
+  .roles {
+    margin-top: 10px;
+  }
+}

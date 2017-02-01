@@ -1,0 +1,12 @@
+<%= form_for [:admin, user], method: :put, html: {class: "edit-user"} do |f| %>
+  <%= f.text_field :first_name, autocomplete: "off", required: "true", placeholder: "Имя" %>
+  <%= f.text_field :last_name, autocomplete: "off", required: "true", placeholder: "Фамилия" %>
+  <p class="roles">
+    Роли: 
+    <% user.roles.each do |role| %>
+      <%= role.name %>
+    <% end %>
+  </p>
+
+  <%= f.submit "Сохранить", class: "btn btn-success" %>
+<% end %>
