@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129152857) do
+ActiveRecord::Schema.define(version: 20170201190138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,14 +91,31 @@ ActiveRecord::Schema.define(version: 20170129152857) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
+  create_table "sliders", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "slides_id"
+    t.index ["slides_id"], name: "index_sliders_on_slides_id", using: :btree
+  end
+
+  create_table "slides", force: :cascade do |t|
+    t.text     "text"
+    t.string   "image_url"
+    t.integer  "slider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slider_id"], name: "index_slides_on_slider_id", using: :btree
+  end
+
   create_table "surveys", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.boolean  "closed"
-    t.text     "users"
-    t.integer  "count_votes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",                       null: false
+    t.text     "content",                     null: false
+    t.boolean  "closed",      default: false
+    t.text     "users",       default: ""
+    t.integer  "count_votes", default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "topics", force: :cascade do |t|
@@ -156,6 +173,8 @@ ActiveRecord::Schema.define(version: 20170129152857) do
   add_foreign_key "albums", "galleries"
   add_foreign_key "complaints", "users"
   add_foreign_key "news_posts", "users"
+  add_foreign_key "sliders", "slides", column: "slides_id"
+  add_foreign_key "slides", "sliders"
   add_foreign_key "topics", "users"
   add_foreign_key "videos", "albums"
 end

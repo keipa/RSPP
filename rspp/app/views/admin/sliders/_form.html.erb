@@ -1,0 +1,27 @@
+<div class="container">
+  <%= render 'new_slide_form' %>
+
+  <%= form_for [:admin, @slider], html: {class: "add-slider-form"} do |f| %>
+      <p class="info">Введите название слайдера:</p>
+      <p><%= f.text_field :name, autocomplete: "off", placeholder: "Название", required: "true" %></p>
+
+      <a class="btn btn-success add-slide-btn">
+        <span class="glyphicon glyphicon-plus"></span>
+        Добавить слайд
+      </a>
+
+      <% @slider.slides.each_with_index do |slide, index| %>
+        <div class="slide">
+          <img class="slide-image" src="<%= slide.image_url %>">
+          <textarea class="slide-text"><%= slide.text %></textarea>
+        </div>
+      <% end %>
+
+      <p><%= f.submit "Сохранить слайдер", class: "btn btn-danger" %></p>
+      <p><%= link_to "Назад", admin_sliders_path %></p>
+    </div>
+
+
+  <% end %>
+</div>
+
