@@ -9,8 +9,23 @@ $background-form-page: #ffffff;
 		width: 80%;
 		margin: auto;
 
-		label {
-				vertical-align: middle !important;
+		td {
+			box-sizing: border-box;
+			padding: 5px;
+		}
+
+		.checkbox-cell {
+			width: 7%;
+			text-align: center;
+			line-height: 40px;
+
+			input {
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 70%;
+				height: 70%;
+			}
 		}
 
 		.pdf-page {
@@ -32,24 +47,41 @@ $background-form-page: #ffffff;
 			}
 		}
 
+		label {
+			display: inline-block;
+			font-size: 1.5rem;
+		}
+
+		.navigation-form {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
 		.table-pdf {
 			border: 1px solid #000000;
+			border-radius: 5px;
 
 			.table-title-pdf {
 				text-align: center;
-				font-size: 2rem;
+
+				td {
+					font-size: 2rem;
+					font-weight: bold;
+				}
 			}
 
 			td,
 			tr {
+				height: 40px;
 				border: 1px solid #000000;
+				font-size: 1.5rem;
 			}
 		}
 
 		.partition-title-pdf {
 			text-align: center;
 			text-decoration: underline;
-			margin-bottom: 20px;
+			margin-bottom: 30px;
 
 			h3 {
 				font-weight: bold;
@@ -58,6 +90,7 @@ $background-form-page: #ffffff;
 
 		.partition-subtitle-pdf {
 			text-align: center;
+			margin-bottom: 30px;
 
 			h3 {
 				font-weight: bold;

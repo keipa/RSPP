@@ -14,57 +14,84 @@
 	</h3>
 </div>
 <div class="pdf-page-field form-group row">
-	<label for="total-pdf" class="col-md-1">Всего</label>
+	<label for="total-pdf" class="col-md-1 text-info">Всего</label>
 	<div class="col-md-2">
 		<input id="total-pdf" class="pdf-page-input form-control" type="number">
 	</div>
-	<label for="legal-faces-pdf" class="col-md-2">Юридических лиц</label>
+	<label for="legal-faces-pdf" class="col-md-2 text-info">Юридических лиц</label>
 	<div class="col-md-2">
 		<input id="legal-faces-pdf" class="pdf-page-input form-control" type="number">
 	</div>
-	<label for="ip-businessman" class="col-md-3">Индивидуальных предпринимателей</label>
+	<label for="ip-businessman" class="col-md-3 text-info">Индивидуальных предпринимателей</label>
 	<div class="col-md-2">
 		<input id="ip-businessman" class="pdf-page-input form-control" type="number">
 	</div>
 </div>
-<div class="pdf-page-field">
-	<label for="2-1-2">
-		Среднесписочная численность персонала с учетом филиалов, представительств, дочерних предприятий/обществ (чел.) Указывается общая численность персонала в организациях – членах объединения
+
+<div class="pdf-page-field form-group row">
+	<label for="2-1-2" class="col-md-9 text-info">
+		Среднесписочная численность персонала с учетом филиалов, представительств, дочерних предприятий/обществ (чел.)
+		<p>
+			Указывается общая численность персонала в организациях – членах объединения
+		</p>
 	</label>
-	<input id="2-1-2" class="pdf-page-input form-control" type="text">
+	<div class="col-md-3">
+		<input id="2-1-2" class="pdf-page-input form-control" type="text">
+	</div>
 </div>
-<div class="pdf-page-field form-group">
-	<label for="2-1-3">
-		Объем реализованной продукции (товаров, услуг) членами объединения (тыс.руб.) Указывается объем реализованной продукции (товаров и услуг) всех членов объединения за последний отчетный год.
+<div class="pdf-page-field form-group row">
+	<label for="2-1-3" class="col-md-9 text-info">
+		Объем реализованной продукции (товаров, услуг) членами объединения (тыс.руб.)
+		<p>
+			Указывается объем реализованной продукции (товаров и услуг) всех членов объединения за последний отчетный год.
+		</p>
 	</label>
-	<input id="2-1-3" class="pdf-page-input form-control" type="text">
+	<div class="col-md-3">
+		<input id="2-1-3" class="pdf-page-input form-control" type="text">
+	</div>
 </div>
+
 <div class="partition-title-pdf">
 	<h3>
 		II (2) ОБЩИЕ СВЕДЕНИЯ О ДЕЯТЕЛЬНОСТИ КОММЕРЧЕСКОЙ (ИНОЙ) ОРГАНИЗАЦИИ
 	</h3>
 </div>
-<div class="pdf-page-field form-group">
-	<label for="2-2-1">
+
+<div class="pdf-page-field form-group row">
+	<label for="2-2-1" class="col-md-9 text-info">
 		Общее число удаленных подразделений (филиалов, представительств) и дочерних предприятий/обществ (указать количество)
 	</label>
-	<input id="2-2-1" class="pdf-page-input" type="number">
+	<div class="col-md-3">
+		<input id="2-2-1" class="pdf-page-input form-control" type="number">
+	</div>
 </div>
-<div class="pdf-page-field form-group">
-	<label for="2-2-2">
-		Среднесписочная численность персонала, включая филиалы, представительства и дочерние предприятия/общества (чел.) Указывается общая численность персонала в организациях
+
+<div class="pdf-page-field form-group row">
+	<label for="2-2-2" class="col-md-9 text-info">
+		Среднесписочная численность персонала, включая филиалы, представительства и дочерние предприятия/общества (чел.)
+		<p>
+			Указывается общая численность персонала в организациях
+		</p>
 	</label>
-	<input id="2-2-2" class="pdf-page-input" type="number">
+	<div class="col-md-3">
+		<input id="2-2-2" class="pdf-page-input form-control" type="number">
+	</div>
 </div>
-<div class="pdf-page-field form-group">
-	<label for="2-2-3">
-		Объем реализованной продукции (товаров, услуг) тыс.руб. Указывается объем реализованной продукции (товаров и услуг) всех коммерческой организации за последний отчетный год.
+
+<div class="pdf-page-field form-group row">
+	<label for="2-2-3" class="col-md-9 text-info">
+		Объем реализованной продукции (товаров, услуг) тыс.руб.
+		<p>
+			Указывается объем реализованной продукции (товаров и услуг) всех коммерческой организации за последний отчетный год.
+		</p>
 	</label>
-	<input id="2-2-3" class="pdf-page-input" type="number">
+	<div class="col-md-3">
+		<input id="2-2-3" class="pdf-page-input form-control" type="number">
+	</div>
 </div>
+
 <div class="partition-subtitle-pdf">
 	<h3>
-		Сведения об основных видах экономической деятельности организации – члене РСПП (ОКЭД) (отметить)
+		Сведения об основных видах экономической деятельности организации – члене РСПП (ОКЭД) (отметить)
 	</h3>
 </div>
-<%= render 'join-rspp/table_deals' %>
