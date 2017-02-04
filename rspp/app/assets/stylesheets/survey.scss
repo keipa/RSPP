@@ -9,9 +9,9 @@
     width: 250px;
     z-index: 999;
 
-		.panel-heading {
-			display: none;
-		}
+	.panel-heading {
+		display: none;
+	}
 
     &-body {
         box-shadow: 1px 1px 6px #000000;
@@ -24,7 +24,7 @@
 
     &-comments {
         display: none;
-        width: 99%;
+        width: 100%;
         padding: 0 !important;
 
         .comments-list {
@@ -292,12 +292,33 @@
     }
 }
 
+.tablets-surveys {
+    &-header {
+        display: none;
+    }
+}
+
 
 @media (min-width : 768px) and (max-width : 1200px) {
     .tablets-surveys {
         display: inline-block;
         width: 30%;
-        margin-top: 120px;
+        margin-top: 20px;
+
+
+        &-header {
+            display: block;
+            margin-bottom: 27px;
+
+            h2 {
+                margin-left: 15px;
+                font-weight: bold;
+            }
+
+            hr {
+                border-top: 1px solid #333333;
+            }
+        }
     }
 
     .survey {
@@ -306,6 +327,11 @@
         top: 0;
         width: auto;
 
+        &-title {
+            background: $main-color-first;
+            color: $responsive-title-color;
+        }
+
         &-hide {
             display: none;
         }
@@ -313,6 +339,20 @@
         &-body {
             width: auto;
             box-shadow: 0 0 2px 0 #000000;
+        }
+
+        &-content {
+            &-result-list {
+                .survey-result {
+                    .progress-bar {
+                        width: 75%;
+                    }
+
+                    .count-result {
+                        width: 70%;
+                    }
+                }
+            }
         }
     }
 }

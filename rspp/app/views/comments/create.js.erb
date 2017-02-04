@@ -1,7 +1,7 @@
 $("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + " ul.comments-list").html("<%= escape_javascript render (@commentable.comments) %>");
 $("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + " span.comment-size").text("<%= @commentable.comments.size  %>")
 $("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + ' .comments-body').show('slow');
-$("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + ' .panel-body').show('slow');
+$("div.comments-content-"+ "<%= @commentable.class.name%>-<%=@commentable.id%>" + ' .panel-body').slideDown('slow');;
 $(".new-comment textarea.form-control").val('')
 
 if(!$(".comments-content-" + "<%= @commentable.class.name%>-<%=@commentable.id%>" + " .show-comments").hasClass("active")) {
