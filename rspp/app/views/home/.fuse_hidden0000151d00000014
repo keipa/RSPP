@@ -1,5 +1,7 @@
 <%= render 'vertical_navbar' %>
 
+<%= render 'surveys/survey_block' %>
+
 <div class="main-page-container container">
 
     <%= render 'add_topic_form' %>
@@ -30,24 +32,22 @@
     <div class="line">
         <%= render 'video_block' %>
         <%= render 'rspp_news_block' %>
-        
-        <div class="tablets-surveys">
-            <%= render 'surveys/survey_block' %>
-        </div>
     </div>
 
     <div class="line">
         <%= render 'mass_media_news_block' %>
         <%= render 'business_news_block' %>
     </div>
-
 </div>
 
 <%= render 'partners_parallax', partners: @partners %>
 
 <div class="pre-footer-container container flex">
+    <!-- <div class="extras"> -->
         <%= render 'exchange_rates' %>
         <%= render 'social_networks' %>
+    <!-- </div> -->
+    <!-- Yandex Maps will use this div -->
     <div id="map"></div>
 </div>
 
