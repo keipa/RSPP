@@ -11,9 +11,9 @@ $(document).on('turbolinks:load', function() {
 		SURVEY_QUESTIONS = JSON.parse(SURVEY.content);
 		if (currentUserId) {
 			CURRENT_USER_ID = currentUserId;
-			checkVotedUser(SURVEY.users) >= 0 ? renderResluts() : renderQuestions();
+			checkVotedUser(SURVEY.users) >= 0 ? renderResults() : renderQuestions();
 		} else {
-			renderResluts()
+			renderResults()
 		}
 	}
 
@@ -45,6 +45,7 @@ $(document).on('turbolinks:load', function() {
 	}
 
 	function renderQuestions() {
+		clearList();
 		renderQuestionList();
 		renderQuestionBottom();
 	}
@@ -83,17 +84,22 @@ $(document).on('turbolinks:load', function() {
 		bottomContent.append(divVote);
 	}
 
-	function renderResluts() {
-		var container = $('.survey-content');
-		container.find('.survey-content-question-list').remove();
+	function renderResults() {
 		$('.survey-comments').show();
-		renderResultList();
+		clearList();
 		renderResultBottom();
+		renderResultList();
+	}
+
+	function clearList() {
+		var container = $('.survey-content');
+		$('.survey-content-question-list').remove();
+		$('.survey-content-result-list').remove();
 	}
 
 	function renderResultList() {
 		var container = $('.survey-content');
-		var resultList = $('<div/>').addClass('survey-content-result-list clearfix')
+		var resultList = $('<div/>').addClass('survey-content-result-list ')/*clearListfix*/
 		var totalCount = Number(SURVEY.count_votes);
 		for (var i = 0; i < SURVEY_QUESTIONS.length; i++) {
 			var percentCount = (SURVEY_QUESTIONS[i].count / totalCount) * 100;
@@ -135,7 +141,7 @@ $(document).on('turbolinks:load', function() {
 				count_votes: SURVEY.count_votes,
 			}
 		}, controller, 'PUT')
-		renderResluts();
+		renderResults();
 	}
 
 	function getCheckedQuestion() {
@@ -237,7 +243,7 @@ $(document).on('turbolinks:load', function() {
 		surveyTitle = $(event.target).attr("data-survey-title");
 		surveyOptions = JSON.parse($(event.target).attr("data-survey-options"));
 		controllerPUT = $(event.target).attr("data-controller");
-		
+
 		$(".survey-title-input").val(surveyTitle)
 
 		surveyOptions.forEach(function(option) {
