@@ -14,7 +14,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui
-//= require 'jspdf'
 //= require blueimp-gallery
 //= require jquery.blueimp-gallery
 //= require jquery.slick

@@ -3,11 +3,27 @@
 	<div id="pdf-page-form" class="form-container">
 		<div class="pdf-page-title form-group row">
 			<h2>Форма вступить в союз</h2>
+			<h4>Поля, помеченные
+				<strong class="required-field">*</strong>
+				- обязательны для заполнения!</h4>
 		</div>
 		<div class="pdf-page-content">
-			<%= render 'join-rspp/common_info_1' %>
-			<%= render 'join-rspp/common_info_2' %>
-			<%= render 'join-rspp/contact_faces_info' %>
+			<div class="form-part active">
+				<%= render 'join-rspp/common_info_1' %>
+				<%= render 'join-rspp/navigation' %>
+			</div>
+			<div class="form-part">
+				<%= render 'join-rspp/common_info_2' %>
+				<%= render 'join-rspp/navigation' %>
+			</div>
+			<div class="form-part">
+				<%= render 'join-rspp/table_deals' %>
+				<%= render 'join-rspp/navigation' %>
+			</div>
+			<div class="form-part">
+				<%= render 'join-rspp/contact_faces_info' %>
+				<%= render 'join-rspp/navigation' %>
+			</div>
 		</div>
 	</div>
 </div>
