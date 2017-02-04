@@ -11,13 +11,20 @@
       </div>
 
       <div class="topics">
-        <% @topics.each do |topic| %>
-          <a href="<%= topic.link %>">
-            <div class="topic">
-              <%= topic.text %>
+          <% @topics.each do |topic| %>
+            <div class="topic-body">
+              <a href="<%= topic.link %>">
+                <div class="topic">
+                  <%= topic.text %>
+                </div>
+              </a>
+              <% if topic.subtopics %>
+                <div class="arrow-for-subtopics">
+                   <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+              <% end %>
             </div>
-          </a>
-        <% end %>
+          <% end %>
       </div>
 
       <button class="signup-btn shadow-on">Регистрация</button>
