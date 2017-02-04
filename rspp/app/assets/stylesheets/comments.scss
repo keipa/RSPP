@@ -1,3 +1,4 @@
+comment css
 .widget {
     margin-bottom: 2px !important;
 
@@ -62,6 +63,10 @@
         height: 100%;
         cursor: pointer;
     }
+}
+
+.comment-destroy {
+	float: right;
 }
 
 .new_comment {
