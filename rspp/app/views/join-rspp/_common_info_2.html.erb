@@ -16,27 +16,28 @@
 <div class="pdf-page-field form-group row">
 	<label for="total-pdf" class="col-md-1 text-info">Всего</label>
 	<div class="col-md-2">
-		<input id="total-pdf" class="pdf-page-input form-control" type="number">
+		<input id="total-pdf" class="pdf-page-input form-control" type="number" min="0">
 	</div>
 	<label for="legal-faces-pdf" class="col-md-2 text-info">Юридических лиц</label>
 	<div class="col-md-2">
-		<input id="legal-faces-pdf" class="pdf-page-input form-control" type="number">
+		<input id="legal-faces-pdf" class="pdf-page-input form-control" type="number" min="0">
 	</div>
 	<label for="ip-businessman" class="col-md-3 text-info">Индивидуальных предпринимателей</label>
 	<div class="col-md-2">
-		<input id="ip-businessman" class="pdf-page-input form-control" type="number">
+		<input id="ip-businessman" class="pdf-page-input form-control" type="number" min="0">
 	</div>
 </div>
 
 <div class="pdf-page-field form-group row">
 	<label for="2-1-2" class="col-md-9 text-info">
+		<strong class="required-field">*</strong class="required-field">
 		Среднесписочная численность персонала с учетом филиалов, представительств, дочерних предприятий/обществ (чел.)
 		<p>
 			Указывается общая численность персонала в организациях – членах объединения
 		</p>
 	</label>
 	<div class="col-md-3">
-		<input id="2-1-2" class="pdf-page-input form-control" type="text">
+		<input id="2-1-2" class="pdf-page-input form-control" required type="text">
 	</div>
 </div>
 <div class="pdf-page-field form-group row">
@@ -62,7 +63,7 @@
 		Общее число удаленных подразделений (филиалов, представительств) и дочерних предприятий/обществ (указать количество)
 	</label>
 	<div class="col-md-3">
-		<input id="2-2-1" class="pdf-page-input form-control" type="number">
+		<input id="2-2-1" class="pdf-page-input form-control" type="number" min="0">
 	</div>
 </div>
 
@@ -74,7 +75,7 @@
 		</p>
 	</label>
 	<div class="col-md-3">
-		<input id="2-2-2" class="pdf-page-input form-control" type="number">
+		<input id="2-2-2" class="pdf-page-input form-control" type="number" min="0">
 	</div>
 </div>
 
@@ -86,6 +87,6 @@
 		</p>
 	</label>
 	<div class="col-md-3">
-		<input id="2-2-3" class="pdf-page-input form-control" type="number">
+		<input id="2-2-3" class="pdf-page-input form-control" type="number" min="0">
 	</div>
 </div>

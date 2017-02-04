@@ -55,4 +55,10 @@ $(document).on('turbolinks:load', function() {
 		$('.btn-prev-form').show();
 		$('.btn-next-form').show();
 	}
+
+	$('#1-1')
+
+
+
+
 })
