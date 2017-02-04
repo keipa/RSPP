@@ -1,0 +1,64 @@
+<table class="table table-striped text-center" style="font-size: 20px;">
+    <tr>
+        <td style="width: 5%;">
+            <b>
+                ID
+            </b>
+        </td>
+        <td style="width: 52%;">
+            <b>
+                Имя
+            </b>
+        </td>
+        <td style="width: 15%;">
+            <b>
+                Роль
+            </b>
+        </td>
+        <td style="width: 15%;">
+            <b>
+                Время регистрации
+            </b>
+        </td>
+        <td style="width: 13%;">
+        </td>
+    </tr>
+
+    <% @users.each do |user| %>
+        <tr>
+            <td>
+                <%= user.id %>
+            </td>
+
+            <td>
+                <%= user.first_name %> <%= user.last_name %>
+            </td>
+
+            <td>
+                <% user.roles.each do |role| %>
+                    <% if role.name == "admin" %>
+                        Администратор
+                    <% elsif role.name == "user" %>
+                        Пользователь
+                    <% end %>
+                <% end %>
+            </td>
+
+            <td>
+                <%= l user.created_at, format: :long %>
+            </td>
+
+            <td class="text-right">
+                <%= render 'form', user: user %>
+                <button class="btn btn-success edit-user-btn">
+                    Редактировать
+                </button>
+                <%= link_to admin_user_path(user), method: :delete do %>
+                    <button class="btn btn-danger"> 
+                        Удалить
+                    </button>
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
+</table>

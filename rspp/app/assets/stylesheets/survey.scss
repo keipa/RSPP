@@ -28,7 +28,7 @@
         padding: 0 !important;
 
         .comments-list {
-            max-height: 175px;
+            max-height: 165px;
             overflow-y: scroll;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -288,6 +288,31 @@
         .survey-content{
             background: #FFFFFF;
             border-radius: 10px;
+        }
+    }
+}
+
+
+@media (min-width : 768px) and (max-width : 1200px) {
+    .tablets-surveys {
+        display: inline-block;
+        width: 30%;
+        margin-top: 120px;
+    }
+
+    .survey {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: auto;
+
+        &-hide {
+            display: none;
+        }
+
+        &-body {
+            width: auto;
+            box-shadow: 0 0 2px 0 #000000;
         }
     }
 }

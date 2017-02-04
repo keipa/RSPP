@@ -288,10 +288,21 @@
 		}
 
 		#contacts {
+			margin-left: 0;
+			padding-left: 0;
 			width: 100%;
+
+			.contact {
+				margin-left: 0;
+
+				.contact-info, .contact-credits {
+					text-align: center;
+				}
+			}
 		}
 	}
 }
+
 @media (min-width : 768px) and (max-width : 1200px) {
 	#main-navbar {
 		#logo {
@@ -333,7 +344,17 @@
 		}
 
 		#contacts {
+			margin-left: 0;
+			padding-left: 0;
 			width: 100%;
+
+			.contact {
+				margin-left: 0;
+
+				.contact-info, .contact-credits {
+					text-align: center;
+				}
+			}
 		}
 	}
 }
