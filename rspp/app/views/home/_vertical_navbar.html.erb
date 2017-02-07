@@ -1,3 +1,7 @@
+<% @topics.each do |topic| %>
+  <%= render 'subtopics_popups_vertical_navbar', topic: topic %>
+<% end %>
+
 <div class="shadow"></div>
 <div class="vertical-navbar-wrapper">
   <div class="vertical-navbar text-center">
@@ -11,16 +15,16 @@
       </div>
 
       <div class="topics">
-          <% @topics.each do |topic| %>
+          <% @topics.each_with_index do |topic, position| %>
             <div class="topic-body">
               <a href="<%= topic.link %>">
                 <div class="topic">
                   <%= topic.text %>
                 </div>
               </a>
-              <% if topic.subtopics %>
-                <div class="arrow-for-subtopics">
-                   <span class="glyphicon glyphicon-chevron-right"></span>
+              <% if true %>
+                <div class="arrow-for-subtopics" data-topic-id="<%= topic.id %>" data-position="<%= position %>">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
                 </div>
               <% end %>
             </div>
