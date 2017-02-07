@@ -1,0 +1,7 @@
+<div class="subtopics-dropdown subtopics-dropdown-for-<%= topic.id %>">
+  <% topic.subtopics.each do |topic| %>
+    <div class="subtopic-dropdown-element">
+      <%= topic.text %>
+    </div>
+  <% end %>
+</div>

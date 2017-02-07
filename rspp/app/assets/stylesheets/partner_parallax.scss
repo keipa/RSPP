@@ -65,6 +65,7 @@ and (orientation : landscape) {
         background-position: 41%;
         background-size: cover;
         background-attachment: scroll;
+        z-index: -1;
     }
 
 }
@@ -77,6 +78,7 @@ and (orientation : landscape) {
         background-position: 50%;
         background-size: cover;
         background-attachment: scroll;
+        z-index: -1;
     }
 
 }
