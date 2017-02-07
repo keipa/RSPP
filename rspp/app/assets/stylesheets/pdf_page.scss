@@ -9,9 +9,27 @@ $background-form-page: #ffffff;
 	}
 }
 
+.form-part {
+	height: 100%;
+}
+
 .form-page {
 	background: $background-form-page;
 	padding: 0 !important;
+	min-height: 100%;
+
+	.form-control-warning {
+		border: 1px solid #d9534f !important;
+
+		&:focus,
+		&:hover {
+			box-shadow: none;
+		}
+	}
+
+	input {
+		font-size: 1.8rem;
+	}
 
 	.form-container {
 		font-size: 1.4rem;
