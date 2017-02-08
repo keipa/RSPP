@@ -1,0 +1,14 @@
+@media print {
+	.print-container {
+		background: #ffffff !important;
+		min-height: 100%;
+		width: auto;
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+
+	.print-line_items {
+		page-break-before: always;
+	}
+}

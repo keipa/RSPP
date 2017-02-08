@@ -56,9 +56,66 @@ $(document).on('turbolinks:load', function() {
 		$('.btn-next-form').show();
 	}
 
-	$('#1-1')
+	function hidePages() {
+		$('.form-part').removeClass('active').hide();
+	}
 
+	function showPage(positionPage) {
+		var pageToShow = $('.form-part')[positionPage];
+		$(pageToShow).addClass('active').show();
+	}
 
+	function redirectToFormPage(positionPage) {
+		hidePages();
+		showPage(positionPage);
+		checkNavigation();
+	}
 
+	function complecatedVerification(input) {
+		// complecated verify, bad words
+		// warning alerts
+		switch (true) {
+			default: if (!$.trim($(input).val())) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+	}
 
+	function addAlertMessages(elements) {
+		$(elements).each(function(i, element) {
+			alertMessage('warning', 'Некорректные данные', $(element).closest('div'), 5000)
+		})
+	}
+
+	function checkRequiredFields() {
+		$('.form-part :input[required]').each(function(i, input) {
+			if (!complecatedVerification($(input))) {
+				$(input).addClass('form-control-warning');
+			}
+		})
+		var incorrectInputs = $('.pdf-page-content .form-control-warning');
+		var firstIncorrectInput = incorrectInputs[0];
+		if (firstIncorrectInput) {
+			var positionPage = $(firstIncorrectInput).closest('.form-part').attr('data-position');
+			redirectToFormPage(Number(positionPage));
+			addAlertMessages(incorrectInputs);
+		} else {
+			return;
+		}
+	}
+
+	function clearIncorrectFields() {
+		$('.pdf-page-content .form-control-warning').removeClass('form-control-warning')
+	}
+
+	$('.btn-generate-form').click(function() {
+		clearIncorrectFields();
+		checkRequiredFields();
+	})
+
+	$('.btn-generate2-form').click(function() {
+
+	})
 })
