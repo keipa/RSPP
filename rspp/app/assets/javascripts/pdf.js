@@ -83,16 +83,24 @@ $(document).on('turbolinks:load', function() {
 		}
 	}
 
+	function addAlertMessages(elements) {
+		$(elements).each(function(i, element) {
+			alertMessage('warning', 'Некорректные данные', $(element).closest('div'), 5000)
+		})
+	}
+
 	function checkRequiredFields() {
 		$('.form-part :input[required]').each(function(i, input) {
 			if (!complecatedVerification($(input))) {
 				$(input).addClass('form-control-warning');
 			}
 		})
-		var firstIncorrectInput = $('.pdf-page-content .form-control-warning')[0];
+		var incorrectInputs = $('.pdf-page-content .form-control-warning');
+		var firstIncorrectInput = incorrectInputs[0];
 		if (firstIncorrectInput) {
 			var positionPage = $(firstIncorrectInput).closest('.form-part').attr('data-position');
 			redirectToFormPage(Number(positionPage));
+			addAlertMessages(incorrectInputs);
 		} else {
 			return;
 		}
@@ -105,5 +113,9 @@ $(document).on('turbolinks:load', function() {
 	$('.btn-generate-form').click(function() {
 		clearIncorrectFields();
 		checkRequiredFields();
+	})
+
+	$('.btn-generate2-form').click(function() {
+
 	})
 })

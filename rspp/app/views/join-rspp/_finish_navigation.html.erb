@@ -1,1 +1,5 @@
-<button class="btn btn-default btn-generate-form">Сгенерировать пдф</button>
+<button class="btn btn-default btn-generate-form">Проверить</button>
+<button class="btn btn-default btn-generate2-form" disabled>Сгенерировать</button>
+<%= link_to 'Посмотреть заявление', statement_path(:format => "pdf"), class: "btn btn-success", target: '_blank'%>
+<%= link_to 'Посмотреть регистрационную карту', registration_card_path(:format => "pdf"), class: "btn btn-success", target: '_blank'%>
+<%= link_to 'Посмотреть счет', bill_path(:format => "pdf") ,class: "btn btn-success", target: '_blank'%>

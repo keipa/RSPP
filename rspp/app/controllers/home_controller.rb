@@ -14,4 +14,14 @@ class HomeController < ApplicationController
 
 		end
 
+		####### goddam fucking shit ######
+		def registration_card
+		end
+
+		def bill
+		end
+
+		def statement
+		end
+		######### end #############
 end

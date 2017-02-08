@@ -40,6 +40,9 @@ Rails.application.routes.draw do
   end
 
 	get 'home/join_rspp', to: 'home#join_rspp', as: 'join_rspp'
+	get 'home/bill', to: 'home#bill', as: 'bill'
+	get 'home/statement', to: 'home#statement', as: 'statement'
+	get 'home/registration_card', to: 'home#registration_card', as: 'registration_card'
 
   resources :complaints
 end
