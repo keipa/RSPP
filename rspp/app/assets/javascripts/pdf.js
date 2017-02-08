@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
 			$('.btn-prev-form').hide();
 			$('.btn-next-form').show();
 			return;
-		} else if (indexActive == allForms.length - 1) {
+		} else if (indexActive == allForms.length - 2) {
 			$('.btn-prev-form').show();
 			$('.btn-next-form').hide();
 			return;
