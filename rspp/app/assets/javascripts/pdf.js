@@ -114,8 +114,4 @@ $(document).on('turbolinks:load', function() {
 		clearIncorrectFields();
 		checkRequiredFields();
 	})
-
-	$('.btn-generate2-form').click(function() {
-
-	})
 })
