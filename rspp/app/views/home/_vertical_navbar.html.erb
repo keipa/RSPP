@@ -17,15 +17,22 @@
       <div class="topics">
           <% @topics.each_with_index do |topic, position| %>
             <div class="topic-body">
-              <a href="<%= topic.link %>">
-                <div class="topic">
-                  <%= topic.text %>
-                </div>
-              </a>
               <% if topic.subtopics.any? %>
+
+                <a href="<%= topic.link %>">
+                  <div class="topic">
+                    <%= topic.text %>
+                  </div>
+                </a>
                 <div class="arrow-for-subtopics" data-topic-id="<%= topic.id %>" data-position="<%= position %>">
                   <span class="glyphicon glyphicon-chevron-right"></span>
                 </div>
+              <% else %>
+                <a href="<%= topic.link %>">
+                  <div class="topic" style="margin: 0 auto;">
+                    <%= topic.text %>
+                  </div>
+                </a>
               <% end %>
             </div>
           <% end %>
