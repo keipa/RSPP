@@ -22,14 +22,13 @@
         width: 21%;
         height: 100%;
         position: fixed;
-        // overflow: hidden;
+        overflow: hidden;
 
         .hidden-scroll {
             position: absolute;
             width: calc(100% + 10px);
             height: 100%;
             overflow-y: scroll;
-            overflow-x: visible;
         }
 
         .join-badge {
@@ -127,6 +126,7 @@
                     color: $main-color-first;
                     display: inline-block;
                     width: 85%;
+                    text-align: center;
 
                     .topic {
                         padding: 5px 0;
@@ -134,6 +134,10 @@
                         font-size: 20px;
                         box-sizing: border-box;
                     }
+                }
+
+                .usual-link {
+                    display: inline-block;
                 }
 
                 .arrow-for-subtopics {
@@ -155,7 +159,7 @@
                     }
 
                     &:hover {
-                        // vertical_navbar_popups.js
+                        // in vertical_navbar_popups.js
                     }
                 }
             }
@@ -164,18 +168,53 @@
 }
 
 .subtopics-dropdown {
-    width: 300px;
-    height: 100px;
-    border: 7px dotted red;
+    border: 1px solid #000000;
     position: fixed;
     left: 21%;
     font-size: 2.4rem;
+    background-color: #FFFFFF;
     top: 0;
     display: none;
     z-index: 40;
 
     &:hover {
         display: block;
+    }
+
+    .hover-line {
+        position: absolute;
+        height: 40px;
+        width: 140%;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .subtopic-dropdown-element {
+        transition: 0.2s;
+        padding: 10px 20px;
+        color: $main-color-first;
+        font-size: 19px;
+        cursor: pointer;
+        border-bottom: 1px solid #000000;
+        transition: 0.2s;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background-color: $main-color-first;
+            color: #FFFFFF;
+        }
+
+        &:hover > a {
+            color: #FFFFFF;
+        }
+
+        a {
+            color: $main-color-first
+        }
     }
 }
 

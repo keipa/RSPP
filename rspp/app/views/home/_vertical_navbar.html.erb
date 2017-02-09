@@ -22,7 +22,7 @@
                   <%= topic.text %>
                 </div>
               </a>
-              <% if true %>
+              <% if topic.subtopics.any? %>
                 <div class="arrow-for-subtopics" data-topic-id="<%= topic.id %>" data-position="<%= position %>">
                   <span class="glyphicon glyphicon-chevron-right"></span>
                 </div>

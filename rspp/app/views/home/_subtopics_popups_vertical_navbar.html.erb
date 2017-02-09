@@ -1,7 +1,10 @@
-<div class="subtopics-dropdown subtopics-dropdown-for-<%= topic.id %>">
+<div class="subtopics-dropdown subtopics-dropdown-for-<%= topic.id %>" data-topic-id="<%= topic.id %>">
+  <div class="hover-line"></div>
   <% topic.subtopics.each do |topic| %>
     <div class="subtopic-dropdown-element">
-      <%= topic.text %>
+      <a href="<%= topic.link %>">
+          <%= topic.text %>
+      </a>
     </div>
   <% end %>
 </div>
