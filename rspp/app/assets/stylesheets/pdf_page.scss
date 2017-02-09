@@ -9,10 +9,6 @@ $background-form-page: #ffffff;
 	}
 }
 
-.form-part {
-	height: 100%;
-}
-
 .form-page {
 	background: $background-form-page;
 	padding: 0 !important;
@@ -27,13 +23,77 @@ $background-form-page: #ffffff;
 		}
 	}
 
+	.form-part {
+		height: 100%;
+	}
+
+	.final-page-pdf {
+		text-align: center;
+
+		&-content {
+			margin-top: 30%;
+		}
+	}
+
+	.btn-next-form,
+	.btn-prev-form {
+		font-size: 2rem;
+	}
+
+	.btn-download {
+		display: inline-block;
+		text-shadow: 1px 1px #fff;
+		text-decoration: none !important;
+		font-size: 2.6rem;
+		width: 300px;
+		padding: 0.3em 1em;
+		border: 1px solid #aaa;
+		border-radius: 100px;
+		outline: none;
+		background: #d6dbbf no-repeat;
+		background-image: linear-gradient(to left, #aaa, #aaa), linear-gradient(to left, #feffe8, #feffe8), linear-gradient(#feffe8, #d6dbbf);
+		background-position: calc(100% - 2.7em) 0, calc(100% - 2.7em + 1px) 0, 0 0;
+		background-size: 1px 100%, 1px 100%, auto auto;
+		overflow: hidden;
+	}
+
+	.btn-download:after {
+		content: "\bb";
+		position: relative;
+		bottom: 0;
+		display: inline-block;
+		margin-left: 85px;
+		vertical-align: middle;
+		font-family: "Times","Times New Roman","serif","sans-serif","EmojiSymbols";
+		font-weight: 700;
+		font-size: 140%;
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+
+	.btn-download:hover {
+		background-color: #fdfd9f;
+		background-image: linear-gradient(to left, #aaa, #aaa), linear-gradient(to left, #feffe8, #feffe8), linear-gradient(#fffce7, #fdfd9f);
+	}
+
+	.btn-download:active:after {
+		bottom: -1.2em;
+		transition: 0.3s;
+	}
+
 	input {
 		font-size: 1.8rem;
+	}
+
+	.navigaton-content {
+		width: 100%;
+		margin-top: 50px;
 	}
 
 	.form-container {
 		font-size: 1.4rem;
 		width: 80%;
+		height: 100%;
 		margin: auto;
 
 		td {
@@ -65,7 +125,10 @@ $background-form-page: #ffffff;
 			}
 
 			&-content {
-				width: 60%;
+				width: 70%;
+				height: 100%;
+				box-sizing: border-box;
+				padding: 10px 50px;
 				margin: auto;
 			}
 

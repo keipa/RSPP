@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
 			$('.btn-prev-form').hide();
 			$('.btn-next-form').show();
 			return;
-		} else if (indexActive == allForms.length - 2) {
+		} else if (indexActive == allForms.length - 1) {
 			$('.btn-prev-form').show();
 			$('.btn-next-form').hide();
 			return;
@@ -89,16 +89,17 @@ $(document).on('turbolinks:load', function() {
 		})
 	}
 
-	function checkRequiredFields() {
-		$('.form-part :input[required]').each(function(i, input) {
+	function checkRequiredFields(e) {
+		var currentPage = $(e.target).closest('.form-part');
+		$(currentPage).find(':input[required]').each(function(i, input) {
 			if (!complecatedVerification($(input))) {
 				$(input).addClass('form-control-warning');
 			}
 		})
-		var incorrectInputs = $('.pdf-page-content .form-control-warning');
+		var incorrectInputs = $(currentPage).find('.form-control-warning');
 		var firstIncorrectInput = incorrectInputs[0];
 		if (firstIncorrectInput) {
-			var positionPage = $(firstIncorrectInput).closest('.form-part').attr('data-position');
+			var positionPage = currentPage.attr('data-position');
 			redirectToFormPage(Number(positionPage));
 			addAlertMessages(incorrectInputs);
 		} else {
@@ -110,8 +111,8 @@ $(document).on('turbolinks:load', function() {
 		$('.pdf-page-content .form-control-warning').removeClass('form-control-warning')
 	}
 
-	$('.btn-generate-form').click(function() {
+	$('.btn-next-form').click(function(e) {
 		clearIncorrectFields();
-		checkRequiredFields();
+		checkRequiredFields(e);
 	})
 })
