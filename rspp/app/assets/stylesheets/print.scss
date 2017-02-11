@@ -123,11 +123,11 @@
 				}
 			}
 
-			tr {
+			tr {}
+
+			td {
 				border: 1px solid #000000;
 			}
-
-			td {}
 
 			.column-name {
 				width: 40%;
@@ -164,20 +164,55 @@
 
 			.column-deals {
 				&-name {
+					min-height: 35px;
 					display: inline-block;
-					width: 93%;
+					width: 87%;
+					border-right: 1px solid #000000;
+					height: 100%;
+					font-size: 1.6rem;
+					box-sizing: border-box;
+					padding: 0 10px;
 				}
 
 				&-value {
 					display: inline-block;
-					width: 7%;
+					width: 13%;
 					height: 100%;
-					border-left: 1px solid #000000;
-					border-right: 1px solid #000000;
-				}
+					text-align: center;
+					position: relative;
+					float: right;
 
-				.registration-card-checkbox {
-					height: 100%;
+					label {
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						position: absolute;
+						cursor: pointer;
+
+						&:after {
+							opacity: 0;
+							content: '';
+							position: absolute;
+							width: 28%;
+							height: 50%;
+							background: transparent;
+							top: 5%;
+							left: 37%;
+							border: 3px solid #000000;
+							border-top: none;
+							border-right: none;
+							transform: rotate(-45deg);
+						}
+					}
+
+					input[type=checkbox] {
+						visibility: hidden;
+					}
+
+					input[type=checkbox]:checked + label:after {
+						opacity: 1;
+					}
 				}
 			}
 		}
