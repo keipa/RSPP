@@ -115,15 +115,12 @@
 
 			&-title {
 				font-weight: bold;
-				text-align: center;
 
 				td {
 					box-sizing: border-box;
 					padding: 5px 10px;
 				}
 			}
-
-			tr {}
 
 			td {
 				border: 1px solid #000000;
@@ -133,11 +130,26 @@
 				width: 40%;
 				box-sizing: border-box;
 				padding: 5px;
+
+				&-contacts {
+					box-sizing: border-box;
+					padding: 5px;
+					width: 25%;
+				}
 			}
 
 			.column-value {
 				width: 60%;
 				border: 1px solid #000000;
+
+				&-contacts {
+					width: 75%;
+					height: 100%;
+
+					.third-part-field:not(:last-child) {
+						border-right: 1px solid #000000;
+					}
+				}
 			}
 
 			.--wider {
@@ -150,6 +162,12 @@
 
 			.--equal {
 				width: 50%;
+			}
+
+			.third-part-field {
+				width: 33.1%;
+				height: 100%;
+				display: inline-block;
 			}
 
 			.registration-card-input {
@@ -215,6 +233,14 @@
 					}
 				}
 			}
+		}
+	}
+
+	&-footer {
+		p {
+			font-weight: bold;
+			font-size: 1.6rem;
+			margin: 20px;
 		}
 	}
 }
