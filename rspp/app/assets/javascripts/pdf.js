@@ -115,4 +115,22 @@ $(document).on('turbolinks:load', function() {
 		clearIncorrectFields();
 		checkRequiredFields(e);
 	})
+
+
+
+
+	//////// checkbox check //////
+	$('.checkbox-cell input').click(function(e) {
+		if ($(e.target).attr('checked')) {
+			$(e.target).removeAttr('checked');
+		} else {
+			$(e.target).attr('checked', true);
+		}
+	})
+
+
+
+
+
+
 })
