@@ -40,13 +40,23 @@ $(document).on('turbolinks:load', function() {
             $(".signup-window").fadeOut(250);
 
         } else {
-
+            $(".shadow").fadeOut(250);
             $(".signup-window").slideUp(250);
             $(".login-window").slideUp(250);
             setTimeout(function() {
                 $(".user-actions").slideDown(250);
             }, 150);
 
+        }
+    });
+
+    // Remove login window when switching to adaptive mode
+
+    $(window).on('resize', function(){
+        if ( ($(".vertical-navbar").is(":visible") ) &&
+            (($(".login-window").is(":visible")) || ($(".signup-window").is(":visible"))) ) {
+
+            $(".shadow").fadeIn(250)
         }
     });
 })
