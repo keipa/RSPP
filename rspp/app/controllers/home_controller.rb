@@ -17,13 +17,13 @@ class HomeController < ApplicationController
 
 		####### goddam fucking shit ######
 		def registration_card
-      # respond_to do |format|
-      #   format.html
-      #   format.pdf do
-      #     pdf = WickedPdf.new.pdf_from_url("#{request.base_url}#{registration_card_path}")
-      #     send_data pdf
-      #   end
-			# end
+      respond_to do |format|
+        format.html
+        format.pdf do
+          pdf = WickedPdf.new.pdf_from_url("#{request.base_url}#{registration_card_path}")
+          send_data pdf
+        end
+			end
 		end
 
 		def bill
