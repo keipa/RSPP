@@ -1,8 +1,7 @@
 .print-page {
 	min-height: 100%;
-	background: #ffffff !important;
+	background-color: #ffffff !important;
 	width: 100%;
-	overflow: hidden;
 }
 
 .print-container {
@@ -10,8 +9,7 @@
 	width: 80%;
 	margin: auto;
 	padding: 0;
-	background: #ffffff !important;
-	overflow: hidden;
+	background-color: #ffffff !important;
 }
 
 .print-line_items {
@@ -265,6 +263,129 @@
 				font-size: 9px;
 				margin: 15px 0 0;
 			}
+		}
+	}
+}
+
+.bill {
+	width: 100%;
+	font-family: Courier New;
+
+	p {
+		font-size: 1.3rem !important;
+	}
+
+	&-header {
+		width: 90%;
+
+		&-destination {
+			height: 100px;
+			border-bottom: 1px solid #000000;
+			margin-bottom: 20px;
+
+			&-item {
+				height: 100%;
+				box-sizing: border-box;
+				font-size: 10px;
+
+				p {
+					margin: 1px;
+				}
+			}
+
+			&-item:last-child {
+				padding: 0 10px;
+				border-left: 1px dashed #000000;
+			}
+		}
+
+		&-payer {
+			border-bottom: 1px solid #000000;
+			margin-bottom: 20px;
+
+			p {
+				margin: 1px;
+			}
+		}
+
+		&-note {
+			border-top: 1px solid #000000;
+			border-bottom: 1px solid #000000;
+
+			&-item {
+				box-sizing: border-box;
+				padding-top: 5px;
+				width: 33%;
+				float: left;
+				height: 70px;
+
+				p {
+					margin: 1px;
+				}
+			}
+
+			&-item:nth-child(even) {
+				border-right: 1px dashed #000000;
+				border-left: 1px dashed #000000;
+			}
+		}
+	}
+
+	&-addon {
+		width: 100%;
+		margin: 20px 0;
+
+		p {
+			margin: 1px;
+		}
+	}
+
+	&-content {
+		width: 100%;
+		margin-top: 10px;
+
+		&-table {
+			width: 100%;
+			border-collapse: collapse;
+
+			td {
+				border: 1px solid #000000;
+				font-size: 1.4rem;
+				box-sizing: border-box;
+				padding: 5px;
+			}
+
+			thead {
+				text-align: left;
+
+				td {
+					vertical-align: top;
+					height: 50px;
+				}
+			}
+
+			tbody {
+				td {
+					text-align: center;
+
+					p {
+						margin: 1px;
+					}
+				}
+			}
+		}
+
+		p {
+			margin: 30px 0;
+		}
+	}
+
+	&-footer {
+		width: 100%;
+		margin-top: 20px;
+
+		p {
+			margin-top: 50px;
 		}
 	}
 }
