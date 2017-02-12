@@ -147,6 +147,7 @@ $(document).on('turbolinks:load', function() {
 		$.ajax({
             type: "GET",
             url: "registration_card",
+            async: true
         	}).done(function(response) {
         		registrationForm = response;
 
@@ -165,9 +166,9 @@ $(document).on('turbolinks:load', function() {
 						}
 
 						$("#toPDF").val(registrationForm)
+						$("#send-PDF-form").submit()
 
         	})
-
 
 	})
 

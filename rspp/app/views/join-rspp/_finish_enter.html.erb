@@ -6,9 +6,11 @@
 	<div class="final-page-pdf-content">
 
 		<!-- Final button  -->
-    <%= form_tag get_pdf_path, method: :post do %>
+    <%= form_tag get_pdf_path, method: :post, id: "send-PDF-form" do %>
       <%= hidden_field_tag :toPDF, id: "toPDF" %>
-		  <%= button_tag 'Скачать файлы', class: "send-data-pdf btn-download", id: "get-pdf" %>
     <% end %>
+
+    <%= button_tag 'Скачать файлы', class: "send-data-pdf btn-download", id: "get-pdf" %>
+
 	</div>
 </div>
