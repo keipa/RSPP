@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+
     $(".login-btn").on("click", function(e) {
         e.stopPropagation();
         // Shadow is used only in adaptive mode

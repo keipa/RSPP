@@ -1,18 +1,22 @@
 <% @topics.each do |topic| %>
-  <%= render 'subtopics_popups_vertical_navbar', topic: topic %>
+  <%= render 'layouts/subtopics_popups_vertical_navbar', topic: topic %>
 <% end %>
 
 <div class="shadow"></div>
 <div class="vertical-navbar-wrapper">
   <div class="vertical-navbar text-center">
     <div class="hidden-scroll">
-      <img id="logo" src="logo.png">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", id: "logo" %>
+      <% end %>
 
-      <div class="join-badge text-center">
-          <div class="text">
-              <p>Вступить в союз</p>
-          </div>
-      </div>
+      <%= link_to join_rspp_path do %>
+        <div class="join-badge text-center">
+            <div class="text">
+                <p>Вступить в союз</p>
+            </div>
+        </div>
+      <% end %>
 
       <div class="topics">
           <% @topics.each_with_index do |topic, position| %>
