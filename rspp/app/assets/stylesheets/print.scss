@@ -1,20 +1,3 @@
-.print-page {
-	min-height: 100%;
-	background-color: #ffffff !important;
-	width: 100%;
-}
-
-.print-container {
-	min-height: 100%;
-	width: 80%;
-	margin: auto;
-	padding: 0;
-	background-color: #ffffff !important;
-}
-
-.print-line_items {
-	page-break-before: always;
-}
 
 .statement {
 	font-family: "Arial";
@@ -241,7 +224,7 @@
 					}
 
 					input[type=checkbox] {
-						visibility: hidden;
+						// visibility: hidden;
 					}
 
 					input[type=checkbox]:checked + label:after {

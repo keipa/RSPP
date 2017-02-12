@@ -16,13 +16,13 @@ class HomeController < ApplicationController
 
 		####### goddam fucking shit ######
 		def registration_card
-      respond_to do |format|
-        format.html
-        format.pdf do
-          pdf = WickedPdf.new.pdf_from_url("#{request.base_url}#{registration_card_path}")
-          send_data pdf
-        end
-			end
+   #    respond_to do |format|
+   #      format.html
+   #      format.pdf do
+   #        pdf = WickedPdf.new.pdf_from_url("#{request.base_url}#{registration_card_path}")
+   #        send_data pdf
+   #      end
+			# end
 		end
 
 		def bill
@@ -44,5 +44,13 @@ class HomeController < ApplicationController
         end
       end
 		end
+
+    def get_pdf
+      pdf = WickedPdf.new.pdf_from_string(params["toPDF"])
+      save_path = Rails.root.join('filename.pdf')
+      pdf_file = File.new("Регистрационная карта", "wb")
+      pdf_file << pdf
+      send_file pdf_file, type: "application/pdf", disposition: "attachment"
+    end
 		######### end #############
 end
