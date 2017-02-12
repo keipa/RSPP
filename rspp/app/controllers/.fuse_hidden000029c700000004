@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
     def index
         I18n.locale = :ru
+        @topics = Topic.all.where(subtopics: nil)
         @business_news = NewsPost.all.where(post_type: :business).reverse
         @rspp_news = NewsPost.all.where(post_type: :rspp).reverse
         @mass_media_news = NewsPost.all.where(post_type: :mass_media).reverse
@@ -16,7 +17,6 @@ class HomeController < ApplicationController
 
 		####### goddam fucking shit ######
 		def registration_card
-      render layout: false
    #    respond_to do |format|
    #      format.html
    #      format.pdf do
@@ -48,7 +48,8 @@ class HomeController < ApplicationController
 
     def get_pdf
       pdf = WickedPdf.new.pdf_from_string(params["toPDF"])
-      pdf_file = File.new("Регистрационная карта.pdf", "wb")
+      save_path = Rails.root.join('filename.pdf')
+      pdf_file = File.new("Регистрационная карта", "wb")
       pdf_file << pdf
       send_file pdf_file, type: "application/pdf", disposition: "attachment"
     end
