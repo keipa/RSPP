@@ -1,5 +1,7 @@
 <nav id="main-navbar" class="navbar navbar-default">
-	<img id="logo" src="logo.png">
+	<%= link_to root_path do %>
+        <%= image_tag "logo.png", id: "logo" %>
+      <% end %>
 	<ul id="contacts">
 		<li class="contact">
 			<p class="contact-info">Республиканский союз
@@ -33,9 +35,9 @@
 		</a>
 	</div>
 
-	<%= render 'user_actions' %>
-	<%= render 'login' %>
-	<%= render 'signup' %>
+	<%= render 'layouts/user_actions' %>
+	<%= render 'layouts/login' %>
+	<%= render 'layouts/signup' %>
 
 	<% end %>
 </nav>

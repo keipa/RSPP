@@ -10,6 +10,17 @@
 	</head>
 
 	<body>
+		<%= render 'layouts/vertical_navbar' %>
+
+		<div class="container">
+		  <%= render 'layouts/add_topic_form' %>
+		  <%= render 'layouts/add_subtopic_form' %>
+
+		  <%= render 'layouts/main_navbar_with_login_window' %>
+
+		  <%= render 'layouts/topics_navbar' %>
+		</div>
+
 		<%= yield %>
 	</body>
 </html>
