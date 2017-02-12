@@ -129,6 +129,49 @@ $(document).on('turbolinks:load', function() {
 	})
 
 
+	$("#get-pdf").click(function() {
+
+		var pdfData = {}
+
+		$("input").each(function() {
+			if (this.type == "checkbox") {
+				pdfData[this.id] = this.checked
+			} else {
+				pdfData[this.id] = this.value
+			}
+
+		})
+
+		var registrationForm;
+
+		$.ajax({
+            type: "GET",
+            url: "registration_card",
+        	}).done(function(response) {
+        		registrationForm = response;
+
+        		for (var valueID in pdfData) {
+					    if (pdfData.hasOwnProperty(valueID)) {
+					    	if (typeof(pdfData[valueID]) != "boolean")  {
+					    		registrationForm = registrationForm.replace("%INS-id-" + valueID + "%", pdfData[valueID])
+					    	}	else if (pdfData[valueID] == true) {
+				    			registrationForm = registrationForm
+				    				.replace(
+				    								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\">",
+				    								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\" checked>"
+				    								)
+					    	}
+					    }
+						}
+
+						$("#toPDF").val(registrationForm)
+
+        	})
+
+
+	})
+
+
 
 
 

@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 	get 'home/bill', to: 'home#bill', as: 'bill'
 	get 'home/statement', to: 'home#statement', as: 'statement'
 	get 'home/registration_card', to: 'home#registration_card', as: 'registration_card'
+  post 'home/get_pdf', to: 'home#get_pdf', as: 'get_pdf'
 
   resources :complaints
 end
