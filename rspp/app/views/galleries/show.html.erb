@@ -1,6 +1,23 @@
 <div class="container-fluid gallery-page">
-    <div class="gallery-page-content">
-        <nav class="navbar-big navbar navbar-default">
+	<!-- <div>
+		<a href="<%= galleries_path %>" class="btn btn-primary">Назад</a>
+		<% if can? :manage, @gallery %>
+		<a href="<%=new_gallery_album_path(@gallery)%>" class="btn btn-success">Создать альбом</a>
+		<%end %>
+	</div>
+	<div> -->
+	<div>
+		<a href="<%=galleries_path%>" class="upload">
+			<p class="big-text">Назад</p>
+		</a>
+		<% if can? :manage, @gallery %>
+		<a href="<%=new_gallery_album_path(@gallery)%>" class="upload">
+			<p class="big-text">Создать альбом</p>
+		</a>
+		<% end %>
+	</div>
+	<div class="gallery-page-content">
+		<!-- <nav class="navbar-big navbar navbar-default">
             <div class="container-fluid nav-content">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
@@ -35,17 +52,17 @@
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav> -->
 
-        <div class="gallery-page-items">
-            <div class="gallery-page-header">
-                <% if @gallery.albums.empty?%>
-                <h1>Нет альбомов</h1>
-            <% else %>
-                <h1>Альбомы</h1>
-            </div>
-            <%= render 'gallery_albums' %>
-            <% end %>
-        </div>
-    </div>
+		<div class="gallery-page-items">
+			<div class="gallery-page-header">
+				<% if @gallery.albums.empty?%>
+				<h1>Нет альбомов</h1>
+			<% else %>
+				<h1>Альбомы</h1>
+			</div>
+			<%= render 'gallery_albums' %>
+			<% end %>
+		</div>
+	</div>
 </div>

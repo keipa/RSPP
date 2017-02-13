@@ -1,6 +1,13 @@
 <div class="container-fluid gallery-page">
-    <div class="gallery-page-content">
-        <nav class="navbar-big navbar navbar-default">
+	<div>
+		<% if can? :manage, @gallery %>
+		<a href="<%= new_gallery_path %>" class="upload">
+			<p class="big-text">Создать галерею</p>
+		</a>
+		<% end %>
+	</div>
+	<div class="gallery-page-content">
+		<!-- <nav class="navbar-big navbar navbar-default">
             <div class="container-fluid nav-content">
                 <ul class=" nav navbar-nav navbar-left">
                     <li>
@@ -35,18 +42,18 @@
                     </li>
                 </ul>
             </div>
-        </nav>
-        <div class="gallery-page-items">
-            <div class="gallery-page-header">
-                <% if @galleries.empty? %>
-                <h1>Нет галерей</h1>
-            <% else %>
-                <a href="<%= galleries_path %>">
-                    <h1>Галереи</h1>
-                </a>
-            </div>
-            <%= render 'galleries' %>
-            <% end %>
-        </div>
-    </div>
+        </nav> -->
+		<div class="gallery-page-items">
+			<div class="gallery-page-header">
+				<% if @galleries.empty? %>
+				<h1>Нет галерей</h1>
+			<% else %>
+				<a href="<%= galleries_path %>">
+					<h1>Галереи</h1>
+				</a>
+			</div>
+			<%= render 'galleries' %>
+			<% end %>
+		</div>
+	</div>
 </div>
