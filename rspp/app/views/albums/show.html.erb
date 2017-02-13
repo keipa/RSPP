@@ -1,15 +1,13 @@
 <div class="container-fluid album-page">
-    <a href="<%=gallery_path(@gallery)%>">
-        <div class="arrow-back">
-            <span class="fa fa-angle-left" title="Назад"></span>
-        </div>
-        <div class="big-button">
-            <p class="big-text">Назад</p>
-        </div>
-    </a>
-    <% if @gallery.type_gallery == 'photo'%>
-    <%= render 'picture_block' %>
-    <%else %>
-    <%= render 'video_block' %>
-    <% end %>
+	<div>
+		<a href="<%=gallery_path(@gallery)%>" class="upload">
+			<p class="big-text">Назад</p>
+		</a>
+	</div>
+
+	<% if @gallery.type_gallery == 'photo'%>
+	<%= render 'picture_block' %>
+	<%else %>
+	<%= render 'video_block' %>
+	<% end %>
 </div>
