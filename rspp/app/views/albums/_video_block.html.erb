@@ -11,12 +11,12 @@
 	<div class="gallery-page-header">
 		<% if @album.videos.any? %>
 		<h1><%=@album.name%></h1>
-		<p class="gallery-description">
-			<%= @album.description %>
-		</p>
 	<% else %>
 		<h1>Нет видео</h1>
 		<% end %>
+		<p class="gallery-description">
+			<%= @album.description %>
+		</p>
 	</div>
 	<div class="gallery-video-block">
 		<%= render 'videos' %>

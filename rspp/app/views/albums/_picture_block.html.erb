@@ -9,12 +9,13 @@
 	<div class="gallery-page-header">
 		<% if @album.pictures.any? %>
 		<h1><%=@album.name%></h1>
+	<% else %>
+
+		<h1>Нет фотографий</h1>
+		<% end %>
 		<p class="gallery-description">
 			<%= @album.description %>
 		</p>
-	<% else %>
-		<h1>Нет фотографий</h1>
-		<% end %>
 	</div>
 
 	<div class="pictures-list">
