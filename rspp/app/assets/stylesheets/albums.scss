@@ -16,10 +16,10 @@
 	.album-item {
 		box-sizing: border-box;
 		padding: 1px;
-		height: 130px;
-		width: 22%;
+		height: 140px;
+		width: 23%;
 		display: inline-block;
-		margin: 10px;
+		margin: 11px;
 		border: 0;
 		overflow: hidden;
 		position: relative;
@@ -68,20 +68,20 @@
 		background: darken($main-color-second,10%);
 	}
 }
-@media (max-width: 1000px) {
-	.big-button {
-		display: block !important;
-		background: $main-color-second;
-
-		&:hover {
-			background: darken($main-color-second,10%);
-		}
-	}
-
-	.arrow-back {
-		display: none;
-	}
-}
+// @media (max-width: 1000px) {
+// 	.big-button {
+// 		display: block !important;
+// 		background: $main-color-second;
+//
+// 		&:hover {
+// 			background: darken($main-color-second,10%);
+// 		}
+// 	}
+//
+// 	.arrow-back {
+// 		display: none;
+// 	}
+// }
 
 .big-button {
 	display: none;
