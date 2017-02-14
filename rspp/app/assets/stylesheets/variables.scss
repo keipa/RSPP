@@ -1,17 +1,21 @@
-$main-color-first: #ED1B24;
+$main-color-first: #F43232;
 $main-color-second: #4DB748;
 //
 // $gallery-color-first: #6897bb;
 // $gallery-color-second: #4DB748;
 // $gallery-color-third: #222;
 
-$gallery-background: #f0f0f0;
+$gallery-background: #fdfdfd;
 
 $gallery-navbar-border-color:  #222;
 $gallery-navbar-hover-border-color: #222;
 $gallery-navbar-li-hover-color: #00ab6b;
 
 $gallery-title-color: #222;
+
+$hr-color: #f1493c;
+
+$site-background-color: darken(#FDFDFD, 5%);
 
 $gallery-item-border-color: #222;
 $gallery-item-hover-color: #00ab6b;
@@ -33,7 +37,7 @@ $back-arrow-color-hover: darken(#00ab6b,10%);
 $survey-show-comments-color: #d1dfea;
 $survey-show-comments-font-color: #222;
 
-$video-show-comments-color: #ED1B24;
+$video-show-comments-color: #f1493c;
 $video-show-comments-font-color: #ffffff;
 
 $survey-title-back: #d1dfea;

@@ -13,12 +13,14 @@
 		<%= render 'layouts/vertical_navbar' %>
 
 		<div class="container main-site-header">
-		  <%= render 'layouts/add_topic_form' %>
-		  <%= render 'layouts/add_subtopic_form' %>
+			<%= render 'layouts/add_topic_form' %>
+			<%= render 'layouts/add_subtopic_form' %>
 
-		  <%= render 'layouts/main_navbar_with_login_window' %>
+		</div>
+			<%= render 'layouts/main_navbar_with_login_window' %>
+		<div class="container main-site-header">
+			<%= render 'layouts/topics_navbar' %>
 
-		  <%= render 'layouts/topics_navbar' %>
 		</div>
 
 		<%= yield %>
