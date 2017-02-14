@@ -1,5 +1,5 @@
 @import "variables";
-$news-post-height: 400px;
+$news-post-height: 300px;
 
 .rspp-news {
 	display: inline-block;
@@ -20,7 +20,7 @@ $news-post-height: 400px;
 	&-container {
 		overflow: hidden;
 		padding-right: 20px;
-		max-height: $news-post-height * 3.2;
+		max-height: $news-post-height * 2.1;
 		padding: 7px 10px 7px 7px;
 
 		&:hover {
