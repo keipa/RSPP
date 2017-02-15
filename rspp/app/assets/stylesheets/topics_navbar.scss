@@ -8,13 +8,16 @@
 	border-radius: 0;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	// background: #FFFFFF;
-	background: $main-color-first;
+	background: #FFFFFF;
 	border-color: #CCCCCC;
 	box-shadow: 0 0 2px 0 #CCCCCC;
 
 	.navbar-brand {
 		font-size: 2.5rem;
+	}
+
+	.add-topic-sign, .add-subtopic-sign {
+		cursor: pointer;
 	}
 
 	.delete-cross {
@@ -53,10 +56,9 @@
 
 	.topic {
 		color: $main-color-first;
-		border-color: $main-color-first;
 		border-style: solid;
 		border-width: 0 0 2px 0;
-		// border-color: #FAFAFA;
+		border-color: #FAFAFA;
 		padding: 7px 0;
 		transition: border 0.2s;
 		margin-bottom: 0;
@@ -67,8 +69,7 @@
 		}
 
 		&:hover {
-			// border-color: $main-color-first;
-			border-color: #ffffff;
+			border-color: $main-color-first;
 
 			.dropdown-menu {
 				display: block;
@@ -86,7 +87,6 @@
 				font-size: 2rem;
 				transition-duration: 0.2s;
 				height: auto;
-				color: #000000;
 
 				&:hover {
 					color: #FFFFFF;
@@ -102,9 +102,7 @@
 		}
 
 		a {
-			// color: $main-color-first;
-			// color: #222;
-			color: #ffffff;
+			color: $main-color-first;
 		}
 	}
 }
