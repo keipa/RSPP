@@ -1,84 +1,94 @@
 @import "variables";
 
 .parallax {
-    height: 400px;
-    margin-top: 60px;
-    background-image: url("../parallax.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: 20px;
-    color: #FFFFFF;
-    font-size: 4.5rem;
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    position: relative;
+	height: 400px;
+	background-image: url("../parallax.jpg");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-bottom: 20px;
+	color: #FFFFFF;
+	font-size: 4.5rem;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: relative;
 
-    p {
-        font-family: 'PT Sans', sans-serif;
-        text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
-        text-transform: uppercase;
-        font-weight: 700;
-    }
+	h2 {
+		font-size: 4rem;
+		font-family: 'PT Sans', sans-serif;
+		text-shadow: 1px 2px 3px rgba(0, 0, 0, .6);
+		text-transform: uppercase;
+		font-weight: 700;
+	}
 
-    .add-partner-single {
-        font-size: 18px;
-        font-weight: bold;
-    }
+	.add-partner-single {
+		font-size: 18px;
+		font-weight: bold;
+	}
 
-    .partners {
-        margin-top: 50px;
+	.partners {
+		margin-top: 50px;
 
-        .partner-image {
-            max-height: 100%;
-            max-width: 100%;
-            border-radius: 5px;
-        }
-    }
-
+		.partner-image {
+			max-height: 100%;
+			max-width: 100%;
+			border-radius: 5px;
+		}
+	}
 }
 
+.general-partner {
+	height: 320px;
+	width: 100%;
+	text-align: center;
+
+	h2 {
+		font-family: 'PT Sans', sans-serif;
+		font-size: 4rem;
+		margin-bottom: 20px;
+		font-weight: bold;
+	}
+
+	img {
+		box-shadow: 0 0 0 1px #000000;
+		border-radius: 4px;
+		height: 160px;
+		width: 400px;
+		transition: all 0.1s;
+
+		&:hover {
+			box-shadow: 1px 1px 4px 1px #000000;
+		}
+	}
+}
 // Второй вариант для лого партнеров
 // .wide {
 //     width: 100%;
 //     height: auto;
 // }
-
 // .tall {
 //     height: 100%;
 //     width: auto;
 // }
-
-
-
-
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1200px)
-and (orientation : landscape) {
-
-    .parallax {
-        width: 79%;
-        float: right;
-        background-position: 41%;
-        background-size: cover;
-        background-attachment: scroll;
-        z-index: -1;
-    }
-
+@media only screen and (min-device-width : 768px) and (max-device-width : 1200px) and (orientation : landscape) {
+	.parallax {
+		width: 79%;
+		float: right;
+		background-position: 41%;
+		background-size: cover;
+		background-attachment: scroll;
+		z-index: -1;
+	}
 }
-
 @media (min-width : 768px) and (max-width : 1200px) {
-
-    .parallax {
-        width: 79%;
-        float: right;
-        background-position: 50%;
-        background-size: cover;
-        background-attachment: scroll;
-        z-index: -1;
-    }
-
+	.parallax {
+		width: 79%;
+		float: right;
+		background-position: 50%;
+		background-size: cover;
+		background-attachment: scroll;
+		z-index: -1;
+	}
 }
