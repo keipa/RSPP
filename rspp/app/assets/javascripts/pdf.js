@@ -149,7 +149,7 @@ $(document).on('turbolinks:load', function() {
             url: "registration_card",
             async: true
         	}).done(function(response) {
-        		registrationForm = response;
+        		registrationForm = response
 
         		for (var valueID in pdfData) {
 					    if (pdfData.hasOwnProperty(valueID)) {
@@ -165,9 +165,31 @@ $(document).on('turbolinks:load', function() {
 					    }
 						}
 
-						$("#toPDF").val(registrationForm)
-						$("#send-PDF-form").submit()
+						$("#registration_toPDF").val(registrationForm)
 
+
+						$.ajax({
+							type: "GET",
+							url: "statement",
+						}).done(function(response) {
+							statementForm = response
+
+							statementForm = statementForm.replace("%INS-id-name%", pdfData[13])
+
+							$("#statement_toPDF").val(statementForm)
+
+							$.ajax({
+								type: "GET",
+								url: "bill",
+							}).done(function(response) {
+								billForm = response
+
+								$("#bill_toPDF").val(billForm)
+
+
+								$("#send-PDF-form").submit()
+							})
+						})
         	})
 
 	})

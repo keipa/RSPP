@@ -17,40 +17,30 @@ class HomeController < ApplicationController
 		####### goddam fucking shit ######
 		def registration_card
       render layout: false
-   #    respond_to do |format|
-   #      format.html
-   #      format.pdf do
-   #        pdf = WickedPdf.new.pdf_from_url("#{request.base_url}#{registration_card_path}")
-   #        send_data pdf
-   #      end
-			# end
 		end
 
 		def bill
-      respond_to do |format|
-        format.html
-        format.pdf do
-          pdf = WickedPdf.new.pdf_from_url("#{request.base_url}#{bill_path}")
-          send_data pdf
-        end
-      end
+      render layout: false
 		end
 
 		def statement
-      respond_to do |format|
-        format.html
-        format.pdf do
-          pdf = WickedPdf.new.pdf_from_url("#{request.base_url}#{statement_path}")
-          send_data pdf
-        end
-      end
+      render layout: false
 		end
 
     def get_pdf
-      pdf = WickedPdf.new.pdf_from_string(params["toPDF"])
-      pdf_file = File.new("Регистрационная карта.pdf", "wb")
+      pdf1 = create_pdf_file("Регистрационная карта.pdf", params["registration_toPDF"])
+      pdf2 = create_pdf_file("Заявление.pdf", params["statement_toPDF"])
+      pdf3 = create_pdf_file("Счет.pdf", params["bill_toPDF"])
+      send_file pdf1, type: "application/pdf", disposition: "attachment"
+      send_file pdf2, type: "application/pdf", disposition: "attachment"
+      send_file pdf3, type: "application/pdf", disposition: "attachment"
+    end
+
+    def create_pdf_file(name, string)
+      pdf = WickedPdf.new.pdf_from_string(string)
+      pdf_file = File.new(name, "wb")
       pdf_file << pdf
-      send_file pdf_file, type: "application/pdf", disposition: "attachment"
+      pdf_file
     end
 		######### end #############
 end

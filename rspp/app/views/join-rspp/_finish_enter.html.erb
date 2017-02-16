@@ -7,7 +7,9 @@
 
 		<!-- Final button  -->
     <%= form_tag get_pdf_path, method: :post, id: "send-PDF-form" do %>
-      <%= hidden_field_tag :toPDF, id: "toPDF" %>
+      <%= hidden_field_tag :registration_toPDF, id: "registration_toPDF" %>
+      <%= hidden_field_tag :statement_toPDF, id: "statement_toPDF" %>
+      <%= hidden_field_tag :bill_toPDF, id: "bill_toPDF" %>
     <% end %>
 
     <%= button_tag 'Скачать файлы', class: "send-data-pdf btn-download", id: "get-pdf" %>
