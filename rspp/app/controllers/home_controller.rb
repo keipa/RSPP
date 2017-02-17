@@ -28,12 +28,24 @@ class HomeController < ApplicationController
 		end
 
     def get_pdf
+      require 'zip'
+      binding.pry
       pdf1 = create_pdf_file("Регистрационная карта.pdf", params["registration_toPDF"])
       pdf2 = create_pdf_file("Заявление.pdf", params["statement_toPDF"])
       pdf3 = create_pdf_file("Счет.pdf", params["bill_toPDF"])
-      send_file pdf1, type: "application/pdf", disposition: "attachment"
-      send_file pdf2, type: "application/pdf", disposition: "attachment"
-      send_file pdf3, type: "application/pdf", disposition: "attachment"
+
+      t = Tempfile.new('tmp-zip.zip')
+      Zip::File.open(t.path, Zip::File::CREATE) do |z|
+        z.add("Регистрационная карта.pdf", pdf1.path)
+        z.add("Заявление.pdf", pdf2.path)
+        z.add("Счет.pdf", pdf3.path)
+      end
+      send_file t.path, type: "application/zip", filename: "Документы.zip"
+
+      t.close
+      # send_file pdf1, type: "application/pdf", disposition: "attachment"
+      # send_file pdf2, type: "application/pdf", disposition: "attachment"
+      # send_file pdf3, type: "application/pdf", disposition: "attachment"
     end
 
     def create_pdf_file(name, string)
