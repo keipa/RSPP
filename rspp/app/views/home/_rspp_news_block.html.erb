@@ -2,6 +2,7 @@
 
     <h2>
         Новости РСПП
+				<%= link_to 'Все новости', news_posts_path(type: 'rspp') %>
     </h2>
 
     <hr>
@@ -9,7 +10,7 @@
     <div class="rspp-news-container">
 
         <% @rspp_news.each do |post| %>
-    
+
             <div class="rspp-news-post">
                 <div class="post-title">
                     <h2>

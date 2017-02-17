@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   patch 'topics/:id' => 'topics#update_content', as: 'update_content'
   resources :topics, only: [:index, :show, :new, :create, :edit, :update, :patch, :destroy]
 
-  resources :news_posts , only: [:show]
+  resources :news_posts , only: [:show, :index]
   resources :videos do
       resources :comments, module: :videos
   end
