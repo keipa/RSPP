@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans');
+@import "Roboto.scss";
+
+$header-color: #A2A2A2;
+$header-logo-text-color: #FFFFFF;
+$authentication-text-color: #FFFFFF;
+
+body {
+  font-size: 10px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: initial; // danger
+}
+
+.header {
+  background: $header-color;
+  height: 10rem;
+
+  .head {
+    line-height: 10rem; //for vertical-centering
+
+    .logo {
+      display: inline-block;
+      border: 1px solid red;
+      vertical-align: middle;
+
+      &-image {
+
+        height: 8.5rem;
+        width: 10.5rem;
+      }
+    }
+
+    .logo-text {
+      display: inline-block;
+      border: 1px solid red;
+      max-width: 42.5rem;
+      vertical-align: middle;
+
+      .text {
+        font-family: 'PT Sans Narrow', sans-serif;
+        color: $header-logo-text-color;
+        font-size: 3rem;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .authentication {
+      display: inline-block;
+      border: 1px solid red;
+      vertical-align: middle;
+
+      .sign-in-link {
+        text-decoration: none;
+        font-family: 'Roboto Thin', sans-serif;
+        font-size: 2.5rem;
+        color: $authentication-text-color;
+      }
+
+      .sign-up-link {
+        @extend .sign-in-link;
+        font-size: 2rem;
+      }
+    }
+  }
+}
