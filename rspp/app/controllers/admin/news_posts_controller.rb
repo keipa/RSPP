@@ -1,5 +1,4 @@
 class Admin::NewsPostsController < Admin::AdminController
-
   def index
     I18n.locale = :ru
     post_type = params[:post_type] || :rspp
@@ -34,7 +33,13 @@ class Admin::NewsPostsController < Admin::AdminController
   private
 
   def news_post_params
-    params.require(:news_post).permit(:title, :description, :text, :image_url, :post_type)
+    params.require(:news_post).permit(
+      :title,
+      :description,
+      :text,
+      :image_url,
+      :post_type
+    )
   end
 
 end

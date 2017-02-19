@@ -1,4 +1,5 @@
 class Gallery < ApplicationRecord
-    has_many :albums, dependent: :destroy
-    resourcify
+  has_many :albums, dependent: :destroy
+
+  resourcify
 end

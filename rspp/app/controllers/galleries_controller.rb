@@ -1,39 +1,39 @@
 class GalleriesController < ApplicationController
-    before_action :set_gallery, except: [:create, :new, :index]
-    def index
-        @galleries = Gallery.all
-    end
+  before_action :set_gallery, except: [:create, :new, :index]
 
-    def new
-        @gallery = Gallery.new
-    end
+  def index
+    @galleries = Gallery.all
+  end
 
-    def create
-        @gallery = Gallery.create(gallery_params)
-        @gallery.save
-        redirect_to galleries_path
-    end
+  def new
+    @gallery = Gallery.new
+  end
 
-    def show
-    end
+  def create
+    @gallery = Gallery.create(gallery_params)
+    redirect_to galleries_path
+  end
 
-    def update
-        @gallery.update_attributes(gallery_params)
-        redirect_to galleries_path
-    end
+  def show
+  end
 
-    def destroy
-        @gallery.destroy
-        redirect_to galleries_path
-    end
+  def update
+    @gallery.update(gallery_params)
+    redirect_to galleries_path
+  end
 
-    private
+  def destroy
+    @gallery.destroy
+    redirect_to galleries_path
+  end
 
-    def gallery_params
-        params.require(:gallery).permit(:name, :type_gallery)
-    end
+  private
 
-    def set_gallery
-        @gallery = Gallery.find(params[:id])
-    end
+  def gallery_params
+    params.require(:gallery).permit(:name, :type_gallery)
+  end
+
+  def set_gallery
+    @gallery = Gallery.find(params[:id])
+  end
 end

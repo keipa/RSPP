@@ -1,0 +1,49 @@
+<div class="header">
+
+  <div class="head container-fluid">
+    <div class="burger-menu"></div>
+    <div class="container clearfix">
+      <div class="logo">
+        <%= link_to root_path do %>
+        <%= image_tag ('logo.png'), class: 'logo-image' %>
+        <% end %>
+      </div>
+      <div class="logo-text">
+        <h1 class="text">
+          Республиканский союз промышленников и предпринимателей
+        </h1>
+      </div>
+      <div class="authentication">
+        <%= link_to new_user_session_path, class: 'sign-in-link' do %>
+        <p>Войти<span class="icon icon-lock"></span>
+        </p>
+        <% end %>
+        <%= link_to new_user_registration_path, class: 'sign-up-link' do %>
+        <p>Регистрация</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- navbar -->
+  <div class="navbar container">
+
+    <div class="topics">
+      <% @topics.each do |topic| %>
+        <div class="topic">
+          <%= link_to topic.text, topic_path(topic), class: "topic-text" %>
+          <div class="sliding-underscore"></div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to join_rspp_path do %>
+      <div class="join-us-btn">
+        Вступить в союз
+      </div>
+    <% end %>
+
+  </div>
+  <!-- -->
+
+</div>

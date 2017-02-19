@@ -14,7 +14,8 @@ class Admin::PartnersController < Admin::AdminController
   end
 
   def create
-    Partner.create(partner_params)
+    @partner = Partner.create(partner_params)
+    redirect_to admin_partners_path
   end
 
   private
