@@ -1,0 +1,26 @@
+.slider {
+
+  .item {
+    height: 40rem;
+    max-height: 40rem;
+    overflow: hidden;
+
+    .slide-photo {
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      width: 100%;
+    }
+
+    .carousel-caption {
+      color: #FFFFFF;
+      top: 1rem;
+      font-family: 'Roboto Medium', sans-serif;
+      text-transform: uppercase;
+
+      h3 {
+        font-size: 4.5rem;
+      }
+    }
+  }
+}

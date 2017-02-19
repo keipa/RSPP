@@ -11,7 +11,7 @@ class HomeController < ApplicationController
     #   .order(created_at: :desc).limit(4)
     # @partners = Partner.all
     # @survey = Survey.all.where(closed: false).first
-    # @slider = Slider.includes(:slides).last
+    @slider = Slider.includes(:slides).last
   end
 
   def join_rspp

@@ -16,6 +16,7 @@ $join-us-btn-background-color: #626262;
 		line-height: 10rem; //for vertical-centering
 		background: $header-color;
 		min-height: $head-min-height;
+		box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.7);
 
 		.burger-menu {
 			display: none;
@@ -106,12 +107,12 @@ $join-us-btn-background-color: #626262;
 					font-family: 'Roboto Light', sans-serif;
 					font-size: 2rem;
 
-					&:hover + .sliding-underscore-left {
+					&:hover + .sliding-underscore {
 						width: 100%;
 					}
 				}
 
-				.sliding-underscore-left {
+				.sliding-underscore {
 					width: 0;
 					margin: 0 auto;
 					border-bottom: 1px solid $topic-text-color;
