@@ -6,6 +6,7 @@
 $header-color: #A2A2A2;
 $header-logo-text-color: #FFFFFF;
 $authentication-text-color: #FFFFFF;
+$head-min-height: 10rem;
 
 body {
   font-size: 10px;
@@ -18,15 +19,14 @@ p {
 }
 
 .header {
-  background: $header-color;
-  height: 10rem;
 
   .head {
     line-height: 10rem; //for vertical-centering
+    background: $header-color;
+    min-height: $head-min-height;
 
     .logo {
       display: inline-block;
-      border: 1px solid red;
       vertical-align: middle;
 
       &-image {
@@ -38,9 +38,9 @@ p {
 
     .logo-text {
       display: inline-block;
-      border: 1px solid red;
-      max-width: 42.5rem;
+      max-width: 43.5rem;
       vertical-align: middle;
+      margin-left: 1rem;
 
       .text {
         font-family: 'PT Sans Narrow', sans-serif;
@@ -53,14 +53,30 @@ p {
 
     .authentication {
       display: inline-block;
-      border: 1px solid red;
-      vertical-align: middle;
+      float: right;
+      position: relative;
+      top: $head-min-height / 2;
+      transform: translateY(-50%);
 
       .sign-in-link {
         text-decoration: none;
-        font-family: 'Roboto Thin', sans-serif;
+        font-family: 'Roboto Light', sans-serif;
         font-size: 2.5rem;
         color: $authentication-text-color;
+
+        .icon {
+          display: inline-block;
+          position: relative;
+          top: 0.2rem;
+          width: 2.2rem;
+          height: 2.2rem;
+          background-repeat: no-repeat;
+          background-image: url('lock.png');
+
+          &-lock {
+            background-position: 0 0;
+          }
+        }
       }
 
       .sign-up-link {
@@ -70,3 +86,29 @@ p {
     }
   }
 }
+
+@media only screen
+and (max-device-width : 740px)
+and (orientation : landscape) {
+  .header {
+
+    .head {
+
+      .logo {
+        width: 100%;
+        text-align: center;
+
+        &-image {
+          width: 12rem;
+          height: 9.7rem;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width : 740px) {
+
+}
+
