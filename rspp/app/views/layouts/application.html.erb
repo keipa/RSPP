@@ -10,8 +10,9 @@
   </head>
 
   <div class="header">
-    <div class="container-fluid">
-      <div class="head container">
+
+    <div class="head container-fluid">
+      <div class="container clearfix">
         <div class="logo">
           <%= link_to root_path do %>
             <%= image_tag ('logo.png'), class: 'logo-image' %>
@@ -24,15 +25,15 @@
         </div>
         <div class="authentication">
           <%= link_to new_user_session_path, class: 'sign-in-link' do %>
-            <p>Войти<span class="glyphicon glyphicon-lock"></span></p>
+            <p>Войти<span class="icon icon-lock"></span></p>
           <% end %>
           <%= link_to new_user_registration_path, class: 'sign-up-link' do %>
             <p>Регистрация</p>
           <% end %>
         </div>
       </div>
-
     </div>
+
   </div>
 
   <body>
