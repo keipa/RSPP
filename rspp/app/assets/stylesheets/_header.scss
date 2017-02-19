@@ -4,7 +4,12 @@ $header-color: #A2A2A2;
 $header-logo-text-color: #FFFFFF;
 $authentication-text-color: #FFFFFF;
 $head-min-height: 10rem;
-$burger-menu-color: #ffffff;
+$burger-menu-color: #FFFFFF;
+$topic-text-color: #3D3D3D;
+$join-us-btn-text-color: #B8B8B8;
+$join-us-btn-text-color-hover: #FFFFFF;
+$join-us-btn-background-color: #626262;
+
 
 .header {
 	.head {
@@ -82,10 +87,87 @@ $burger-menu-color: #ffffff;
 			}
 		}
 	}
+
+	.navbar {
+		height: 10rem;
+
+		.topics {
+			display: flex;
+			justify-content: space-between;
+			width: 80%;
+			margin-top: 1rem;
+
+			.topic {
+				position: relative;
+
+				&-text {
+					text-decoration: none;
+					color: $topic-text-color;
+					font-family: 'Roboto Light', sans-serif;
+					font-size: 2rem;
+
+					&:hover + .sliding-underscore-left {
+						width: 100%;
+					}
+				}
+
+				.sliding-underscore-left {
+					width: 0;
+					margin: 0 auto;
+					border-bottom: 1px solid $topic-text-color;
+					transition: 0.4s;
+				}
+			}
+		}
+
+		.join-us-btn {
+			color: $join-us-btn-text-color;
+			font-size: 2.2rem;
+			font-family: 'Roboto Light', sans-serif;
+			display: inline-block;
+			background: $join-us-btn-background-color;
+			position: absolute;
+			top: -0.1rem; // crutch
+			right: -3.5rem;
+			padding: 1.2rem 3rem;
+			border-bottom-left-radius: 0.8rem;
+			border-bottom-right-radius: 0.8rem;
+			transition: background 0.3s, color 0.3s;
+
+			&:hover {
+				color: $join-us-btn-text-color-hover;
+				background: darken($join-us-btn-background-color, 5%);
+			}
+		}
+	}
 }
+
+@media (max-width: 1085px) {
+	.header {
+
+		.navbar {
+
+			.topics {
+				margin-top: 7rem;
+				width: 100%;
+			}
+
+			.join-us-btn {
+				text-align: center;
+				width: 30%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 1rem;
+			}
+		}
+	}
+}
+
 @media only screen and (max-device-width : 740px) and (orientation : landscape) {
 	.header {
+
 		.head {
+
 			.burger-menu {
 				width: 5rem;
 				height: 5rem;
@@ -109,9 +191,12 @@ $burger-menu-color: #ffffff;
 		}
 	}
 }
+
 @media only screen and (max-device-width : 740px) and (orientation : portrait) {
 	.header {
+
 		.head {
+
 			.burger-menu {
 				display: block;
 			}
