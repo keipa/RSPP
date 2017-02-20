@@ -290,23 +290,19 @@ $appeal-button-background-color: #519CFF;
 					}
 				}
 
-				.vote-btn-align {
+				.vote-btn {
 					position: relative;
+					top: 1rem;
+					font-family: 'Roboto Regular', sans-serif;
+					font-size: 1.6rem;
+					padding: 0.8rem 1.2rem;
+					color: #FFFFFF;
+					text-decoration: none;
+					background: linear-gradient(to bottom, #2481FB 0%, #519BFF 58%);
+					cursor: pointer;
 
-					.vote-btn {
-						position: relative;
-						top: 1rem;
-						font-family: 'Roboto Regular', sans-serif;
-						font-size: 1.6rem;
-						padding: 0.8rem 1.2rem;
-						color: #FFFFFF;
-						text-decoration: none;
-						background: linear-gradient(to bottom, #2481FB 0%, #519BFF 58%);
-						cursor: pointer;
-
-						&:hover {
-							background: linear-gradient(to bottom, lighten(#2481FB, 5%) 0%, lighten(#519BFF, 5%) 58%);
-						}
+					&:hover {
+						background: linear-gradient(to bottom, lighten(#2481FB, 5%) 0%, lighten(#519BFF, 5%) 58%);
 					}
 				}
 			}
@@ -354,7 +350,7 @@ $appeal-button-background-color: #519CFF;
 
 				&-content {
 
-					.vote-btn-align {
+					.vote-btn-align{
 						text-align: center;
 
 						.vote-btn {
