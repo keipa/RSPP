@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     # I18n.locale = :ru
-    # @business_news = NewsPost.all.where(post_type: :business)
-    #   .order(created_at: :desc)
+    @business_news = NewsPost.all.where(post_type: :business)
+      .order(created_at: :desc).limit(2)
     # @rspp_news = NewsPost.all.where(post_type: :rspp)
     #   .order(created_at: :desc)
     # @mass_media_news = NewsPost.all.where(post_type: :mass_media)
