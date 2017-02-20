@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     # @videos = Video.all.where(type_video: 'interview')
     #   .order(created_at: :desc).limit(4)
     # @partners = Partner.all
-    # @survey = Survey.all.where(closed: false).first
+    @survey = Survey.all.where(closed: false).first
     @slider = Slider.includes(:slides).last
   end
 

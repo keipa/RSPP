@@ -1,5 +1,6 @@
 class SurveysController < ApplicationController
   def vote
+    binding.pry
     @survey = Survey.find(params[:id])
     @survey.update(surveys_params)
   end

@@ -35,9 +35,9 @@ Rails.application.routes.draw do
   resources :surveys, only: [:create, :destroy, :update] do
     resources :comments, module: :surveys
     member do
-      put "vote" => "surveys#vote"
-      put "update" => "surveys#update"
-      delete "destroy" => "surveys#destroy"
+      patch :vote
+      put "update", to: "surveys#update"
+      delete "destroy", to: "surveys#destroy"
     end
   end
 
