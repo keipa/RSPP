@@ -6,7 +6,7 @@ $more-btn-text-color: #FFFFFF;
 .business-news-container {
   margin-top: 2rem;
   padding: 0;
-	overflow: hidden;
+	overflow: hidden; // Can be removed?
 
   h1 {
     font-family: 'Roboto Thin', sans-serif;
@@ -32,6 +32,15 @@ $more-btn-text-color: #FFFFFF;
 
   .post {
     margin-bottom: 4rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+
+    &:last-child {
+      padding-right: 0;
+    }
 
     .title {
       min-height: 8.5rem;
@@ -90,6 +99,23 @@ $more-btn-text-color: #FFFFFF;
         &:hover {
           background: linear-gradient(to bottom, lighten(#2481FB, 5%) 0%, lighten(#519BFF, 5%) 58%);
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .business-news-container {
+
+    .post {
+      padding: 0;
+
+      &:first-child {
+        padding: 0;
+      }
+
+      &:last-child {
+        padding: 0;
       }
     }
   }
