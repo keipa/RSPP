@@ -18,3 +18,5 @@
 // require jquery.blueimp-gallery
 // require jquery.slick
 //= require turbolinks
+
+//= require yandex_maps
