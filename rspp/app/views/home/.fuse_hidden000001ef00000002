@@ -1,0 +1,21 @@
+<div class="container">
+	<%= render 'home/redesign/slider' %>
+	<%= render 'home/redesign/block_1' %>
+	<%= render 'home/redesign/block_2' %>
+	<%= render 'home/redesign/block_3' %>
+	<%= render 'home/redesign/block_4' %>
+	<%= render 'home/redesign/partners' %>
+	<%= render 'home/redesign/prefooter' %>
+</div>
+<%= render 'home/redesign/footer' %>
+
+<!-- slider -->
+<!-- -->
+
+<!-- video -->
+
+<!-- -->
+
+<!-- navbar -->
+
+<!-- -->
