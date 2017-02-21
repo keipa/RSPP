@@ -1,0 +1,50 @@
+<% @topics.each do |topic| %>
+  <%= render 'layouts/subtopics_popups_vertical_navbar', topic: topic %>
+<% end %>
+
+<div class="shadow"></div>
+
+<div class="vertical-navbar-wrapper">
+  <div class="vertical-navbar text-center">
+    <div class="hidden-scroll">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", id: "logo" %>
+      <% end %>
+
+      <%= link_to join_rspp_path do %>
+        <div class="join-badge text-center">
+            <div class="text">
+                <p>Вступить в союз</p>
+            </div>
+        </div>
+      <% end %>
+
+      <div class="topics">
+          <% @topics.each_with_index do |topic, position| %>
+            <div class="topic-body">
+              <% if topic.subtopics.any? %>
+
+                <a href="<%= topic.link %>">
+                  <div class="topic">
+                    <%= topic.text %>
+                  </div>
+                </a>
+                <div class="arrow-for-subtopics" data-topic-id="<%= topic.id %>" data-position="<%= position %>">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+              <% else %>
+                <a href="<%= topic.link %>">
+                  <div class="topic" style="margin: 0 auto;">
+                    <%= topic.text %>
+                  </div>
+                </a>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+
+      <button class="signup-btn shadow-on">Регистрация</button>
+      <button class="login-btn shadow-on">Войти</button>
+    </div>
+  </div>
+</div>

@@ -115,4 +115,84 @@ $(document).on('turbolinks:load', function() {
 		clearIncorrectFields();
 		checkRequiredFields(e);
 	})
+
+
+
+
+	//////// checkbox check //////
+	$('.checkbox-cell input').click(function(e) {
+		if ($(e.target).attr('checked')) {
+			$(e.target).removeAttr('checked');
+		} else {
+			$(e.target).attr('checked', true);
+		}
+	})
+
+
+	$("#get-pdf").click(function() {
+
+		var pdfData = {}
+
+		$("input").each(function() {
+			if (this.type == "checkbox") {
+				pdfData[this.id] = this.checked
+			} else {
+				pdfData[this.id] = this.value
+			}
+
+		})
+
+		var registrationForm;
+
+		$.ajax({
+            type: "GET",
+            url: "registration_card",
+            async: true
+        	}).done(function(response) {
+        		registrationForm = response
+
+        		for (var valueID in pdfData) {
+					    if (pdfData.hasOwnProperty(valueID)) {
+					    	if (typeof(pdfData[valueID]) != "boolean")  {
+					    		registrationForm = registrationForm.replace("%INS-id-" + valueID + "%", pdfData[valueID])
+					    	}	else if (pdfData[valueID] == true) {
+				    			registrationForm = registrationForm
+				    				.replace(
+				    								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\">",
+				    								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\" checked>"
+				    								)
+					    	}
+					    }
+						}
+
+						$("#registration_toPDF").val(registrationForm)
+
+
+						$.ajax({
+							type: "GET",
+							url: "statement",
+						}).done(function(response) {
+							statementForm = response
+
+							statementForm = statementForm.replace("%INS-id-name%", pdfData[13])
+
+							$("#statement_toPDF").val(statementForm)
+
+							$.ajax({
+								type: "GET",
+								url: "bill",
+							}).done(function(response) {
+								billForm = response
+
+								$("#bill_toPDF").val(billForm)
+
+
+								$("#send-PDF-form").submit()
+							})
+						})
+        	})
+
+
+	})
+
 })

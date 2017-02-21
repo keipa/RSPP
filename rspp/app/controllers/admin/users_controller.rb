@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::AdminController
-
   def index
     I18n.locale = :ru
     @users = User.all
@@ -18,6 +17,7 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   private
@@ -25,5 +25,4 @@ class Admin::UsersController < Admin::AdminController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :role)
   end
-
 end

@@ -3,13 +3,13 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'font-awesome-sass'
 gem 'pry'
+gem 'rubyzip'
 
 gem 'cloudinary'
 
 gem 'cancancan'
-gem "rolify"
+gem "rolify" # will be removed
 gem 'Bootstrap-Image-Gallery-rails'
 
 gem 'acts_as_commentable'

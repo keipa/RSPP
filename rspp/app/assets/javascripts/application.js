@@ -13,9 +13,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require jquery-ui
-//= require blueimp-gallery
-//= require jquery.blueimp-gallery
-//= require jquery.slick
+// require jquery-ui
+// require blueimp-gallery
+// require jquery.blueimp-gallery
+// require jquery.slick
 //= require turbolinks
-//= require_tree .
+
+//= require yandex_maps

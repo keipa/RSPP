@@ -1,11 +1,18 @@
 <div class="final-page-pdf">
 	<!-- <button class="btn btn-default btn-generate-form">Проверить</button> -->
 	<%= link_to 'Скачать заявление', statement_path(:format => "pdf"), class: "btn btn-success send-data-pdf" %>
-	<!-- <%= link_to 'Посмотреть регистрационную карту', registration_card_path(:format => "pdf"), class: "btn btn-success send-data-pdf" %>
-	<%= link_to 'Посмотреть счет', bill_path(:format => "pdf") ,class: "btn btn-success send-data-pdf" %> -->
+	<%= link_to 'Скачать регистрационную карту', registration_card_path(:format => "pdf"), class: "btn btn-success send-data-pdf" %>
+	<%= link_to 'Скачать счет', bill_path(:format => "pdf") ,class: "btn btn-success send-data-pdf" %>
 	<div class="final-page-pdf-content">
 
 		<!-- Final button  -->
-		<%= link_to 'Скачать файлы', '' , class: "send-data-pdf btn-download" %>
+    <%= form_tag get_pdf_path, method: :post, id: "send-PDF-form" do %>
+      <%= hidden_field_tag :registration_toPDF, id: "registration_toPDF" %>
+      <%= hidden_field_tag :statement_toPDF, id: "statement_toPDF" %>
+      <%= hidden_field_tag :bill_toPDF, id: "bill_toPDF" %>
+    <% end %>
+
+    <%= button_tag 'Скачать файлы', class: "send-data-pdf btn-download", id: "get-pdf" %>
+
 	</div>
 </div>

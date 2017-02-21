@@ -33,16 +33,19 @@ $template-footer-height: 60px;
 
 	&-wrapper {
 		min-height: 100%;
-		width: 70%;
+		padding: 0px !important;
+		box-sizing: border-box;
+		// width: 70%;
 		margin: auto;
 		overflow: hidden;
 		background: $template-page-color;
-		box-shadow: 0 0 4px #000000;
+		box-shadow: 0 0 4px #CCCCCC;
 		position: relative;
 	}
 
 	&-container {
 		height: 100%;
+		padding: 0 0 !important;
 		padding-bottom: $template-footer-height;
 
 		.template-body {

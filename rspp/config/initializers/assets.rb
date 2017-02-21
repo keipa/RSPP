@@ -10,12 +10,5 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile += %w( main_page.css )
-
-Rails.application.config.assets.precompile += %w( main_page_login_window.js )
-Rails.application.config.assets.precompile += %w( exchange_rates.js )
-Rails.application.config.assets.precompile += %w( yandex_maps.js )
-Rails.application.config.assets.precompile += %w( add_topics.js )
-Rails.application.config.assets.precompile += %w( add_subtopics.js )
-Rails.application.config.assets.precompile += %w( quill.js )
-Rails.application.config.assets.precompile += %w( add_partner.js )
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/

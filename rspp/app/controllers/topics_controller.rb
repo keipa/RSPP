@@ -26,11 +26,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find_by('smart_id' => params[:id])
-		if(@topic.topic_id)
-			@parent_topic = Topic.find(@topic.topic_id)
-		else
-			@parent_topic = @topic
-		end
+		@parent_topic = @topic.topic_id ? Topic.find(@topic.topic_id) : @topic
   end
 
   def edit
@@ -66,6 +62,14 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:smart_id, :text, :description, :link, subtopics: [[:text, :link, :smart_id]])
+    params.require(:topic).permit(
+      :smart_id,
+      :text,
+      :description,
+      :link,
+      subtopics: [
+        [:text, :link, :smart_id]
+      ]
+    )
   end
 end

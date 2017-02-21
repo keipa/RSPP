@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
   if ($(".exchange-rates")[0]) {
     var currentDate = new Date();
     var previousDate = new Date();
-    previousDate.setDate(currentDate.getDate() - 1); 
+    previousDate.setDate(currentDate.getDate() - 1);
 
     // Add 1 to month because January is 0!
     var currentDateString = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate();
