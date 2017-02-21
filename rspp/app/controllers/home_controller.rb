@@ -5,8 +5,8 @@ class HomeController < ApplicationController
       .order(created_at: :desc).limit(2)
     # @rspp_news = NewsPost.all.where(post_type: :rspp)
     #   .order(created_at: :desc)
-    # @mass_media_news = NewsPost.all.where(post_type: :mass_media)
-    #   .order(created_at: :desc)
+    @mass_media_news = NewsPost.all.where(post_type: :mass_media)
+      .order(created_at: :desc).limit(4)
     # @videos = Video.all.where(type_video: 'interview')
     #   .order(created_at: :desc).limit(4)
     # @partners = Partner.all

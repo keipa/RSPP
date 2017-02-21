@@ -1,3 +1,6 @@
+//business-news-container applying to mass-media too
+//feel free to change if needed
+
 $business-news-title-background-color: #519CFF;
 $business-news-title-text-color: #FFFFFF;
 $business-news-title-tr-color: #3668A9;
@@ -104,7 +107,7 @@ $more-btn-text-color: #FFFFFF;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   .business-news-container {
 
     .post {
