@@ -1,4 +1,5 @@
-$background-form-page: #ffffff;
+@import "variables";
+$background-form-page: $site-background-color;
 @media (max-width: 970px) {
 	.form-container {
 		width: 100% !important;

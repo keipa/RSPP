@@ -1,5 +1,5 @@
 @import "variables";
-$news-post-height: 400px;
+$news-post-height: 300px;
 
 .rspp-news {
 	display: inline-block;
@@ -9,19 +9,22 @@ $news-post-height: 400px;
 	word-wrap: break-word;
 
 	h2 {
-		margin-left: 15px;
 		font-weight: bold;
 	}
 
 	hr {
-		border-top: 1px solid #333333;
+		border-top: 2px solid #000;
 	}
 
 	&-container {
 		overflow: hidden;
 		padding-right: 20px;
-		max-height: $news-post-height * 3.2;
+		max-height: $news-post-height * 2.67;
 		padding: 7px 10px 7px 7px;
+
+		hr {
+			border-top: 1px solid #333333;
+		}
 
 		&:hover {
 			overflow-y: scroll;
@@ -95,5 +98,4 @@ $news-post-height: 400px;
 		width: 70%;
 		margin-top: 0;
 	}
-
 }

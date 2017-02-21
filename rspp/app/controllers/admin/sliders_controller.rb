@@ -31,7 +31,6 @@ class Admin::SlidersController < Admin::AdminController
   def update
     @slider = Slider.find(params[:id])
     @slider.update(name: slider_params[:name])
-    binding.pry
     slider_params[:slides].each_with_index do |slide, index|
       if @slider.slides[index]
         @slider.slides[index].update(
@@ -45,7 +44,6 @@ class Admin::SlidersController < Admin::AdminController
         )
       end
     end
-
     redirect_to admin_sliders_path
   end
 
@@ -60,5 +58,4 @@ class Admin::SlidersController < Admin::AdminController
   def slider_params
     params.require(:slider).permit(:name, slides: [:text, :image_url])
   end
-
 end

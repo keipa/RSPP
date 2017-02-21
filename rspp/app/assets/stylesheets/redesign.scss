@@ -1,0 +1,159 @@
+@import url( 'https://fonts.googleapis.com/css?family=Roboto');
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans');
+@import "Roboto.scss";
+$header-color: #A2A2A2;
+$header-logo-text-color: #FFFFFF;
+$authentication-text-color: #FFFFFF;
+$head-min-height: 10rem;
+$burger-menu-color: #ffffff;
+
+body {
+	font-size: 10px;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	line-height: initial; // danger
+}
+
+.header {
+	.head {
+		line-height: 10rem; //for vertical-centering
+		background: $header-color;
+		min-height: $head-min-height;
+
+		.burger-menu {
+			display: none;
+			position: absolute;
+			left: 1.5rem;
+			top: 1.5rem;
+			width: 8rem;
+			height: 8rem;
+			background-image: url('burger-menu.png');
+			background-size: cover;
+		}
+
+		.logo {
+			display: inline-block;
+			vertical-align: middle;
+
+			&-image {
+				height: 8.5rem;
+				width: 10.5rem;
+			}
+		}
+
+		.logo-text {
+			display: inline-block;
+			max-width: 43.5rem;
+			vertical-align: middle;
+			margin-left: 1rem;
+
+			.text {
+				font-family: 'PT Sans Narrow', sans-serif;
+				color: $header-logo-text-color;
+				font-size: 3rem;
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		.authentication {
+			display: inline-block;
+			float: right;
+			position: relative;
+			top: $head-min-height / 2;
+			transform: translateY(-50%);
+
+			.sign-in-link {
+				text-decoration: none;
+				font-family: 'Roboto Light', sans-serif;
+				font-size: 2.5rem;
+				color: $authentication-text-color;
+
+				.icon {
+					display: inline-block;
+					position: relative;
+					top: 0.2rem;
+					width: 2.2rem;
+					height: 2.2rem;
+					background-repeat: no-repeat;
+					background-image: url('lock.png');
+
+					&-lock {
+						background-position: 0 0;
+					}
+				}
+			}
+
+			.sign-up-link {
+				@extend .sign-in-link;
+				font-size: 2rem;
+			}
+		}
+	}
+}
+@media only screen and (max-device-width : 740px) and (orientation : landscape) {
+	.header {
+		.head {
+			.burger-menu {
+				width: 5rem;
+				height: 5rem;
+				top: $head-min-height / 2;
+				transform: translateY(-50%);
+				display: block;
+			}
+
+			.logo {
+				text-align: center;
+
+				&-image {
+					width: 12rem;
+					height: 9.7rem;
+				}
+			}
+
+			.authentication {
+				display: none;
+			}
+		}
+	}
+}
+@media only screen and (max-device-width : 740px) and (orientation : portrait) {
+	.header {
+		.head {
+			.burger-menu {
+				display: block;
+			}
+
+			.logo {
+				margin-top: 2.3rem;
+				width: 100%;
+				text-align: center;
+
+				&-image {
+					width: 15rem;
+					height: 12.7rem;
+				}
+			}
+
+			.logo-text {
+				width: 100%;
+				max-width: 100%;
+				text-align: center;
+				margin: 2.5rem 0;
+
+				.text {
+					width: 100%;
+					font-size: 5rem;
+				}
+			}
+
+			.authentication {
+				display: none;
+			}
+		}
+	}
+}
