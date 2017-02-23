@@ -16,6 +16,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-config/database.yml
-Gemfile
-Gemfile.lock
+!/config/secrets.yml
+!/config/database.yml

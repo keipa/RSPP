@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Gallery.create(name: 'Фотогалерея', type_gallery: 'photo', smart_id: 'photos', link: '/galleries/photos')
 Gallery.create(name: 'Видеогалерея', type_gallery: 'video', smart_id: 'videos', link: '/galleries/videos')
 User.create(first_name: 'Admin', last_name: 'Admin', email: 'admin@rspp.by', password: '123456789')
