@@ -14,12 +14,12 @@ class VideosController < ApplicationController
 
   def update
     @video.update(video_params)
-    redirect_to gallery_album_path(@gallery,@album)
+		redirect_to "#{@gallery.link}/albums/#{@album.id}"
   end
 
   def destroy
     @video.destroy
-    redirect_to gallery_album_path(@gallery,@album)
+    redirect_to "#{@gallery.link}/albums/#{@album.id}"
   end
 
   private
@@ -37,7 +37,7 @@ class VideosController < ApplicationController
   end
 
   def set_album_and_gallery
-    @gallery = Gallery.find(params[:gallery_id])
+    @gallery = Gallery.find_by('smart_id' => params[:gallery_id])
     @album = @gallery.albums.find(params[:album_id])
   end
 

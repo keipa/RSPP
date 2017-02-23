@@ -7,6 +7,7 @@ class PicturesController < ApplicationController
 
   def create
     @picture = @album.pictures.create(picture_params)
+		redirect_to "#{@gallery.link}/albums/#{@album.id}"
   end
 
   def destroy
@@ -20,8 +21,9 @@ class PicturesController < ApplicationController
   end
 
   def set_album_and_gallery
-    @gallery = Gallery.find(params[:gallery_id])
+    @gallery = Gallery.find_by('smart_id' => params[:gallery_id])
     @album = @gallery.albums.find(params[:album_id])
+		puts @gallery
   end
 
   def set_picture

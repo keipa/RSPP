@@ -1,0 +1,24 @@
+<% if can? :manage, @gallery %>
+<div id="upload-video">
+	<a href="<%= @gallery.link %>/albums/<%=@album.id %>/videos/new" class="gallery-navigation-create" title="Добавить видео">
+		<span class="glyphicon glyphicon-plus"></span>
+	</a>
+</div>
+<% end %>
+
+<div class="video-container">
+	<div class="album-header">
+		<% if @album.videos.any? %>
+		<h1 class="album-header-title"><%=@album.name%></h1>
+	<% else %>
+		<h1 class="album-header-title">Нет видео</h1>
+		<% end %>
+		<p class="album-description">
+			<%= @album.description %>
+		</p>
+	</div>
+	<div class="album-videos">
+		<%= render 'videos' %>
+	</div>
+
+</div>

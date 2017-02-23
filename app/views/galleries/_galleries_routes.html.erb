@@ -1,0 +1,10 @@
+<div class="gallery-routes">
+	<a href="<%=@gallery.link%>">
+		<% if @gallery.type_gallery == 'photo' %>
+			Фотогалерея
+		<% elsif @gallery.type_gallery == 'video' %>
+			Видеогалерея
+		<%end%>
+	</a>
+	<a href="<%=@gallery.link%>">Альбомы</a>
+</div>

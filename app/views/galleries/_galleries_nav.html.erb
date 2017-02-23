@@ -1,0 +1,19 @@
+<div class="gallery-navigation">
+	<% @galleries.all.each do |gallery| %>
+	<% if (type == gallery.type_gallery) %>
+	<a href="<%= gallery.link %>" class="gallery-navigation-item active">
+		<%= gallery.name %>
+	</a>
+<% else %>
+	<a href="<%= gallery.link %>" class="gallery-navigation-item">
+		<%= gallery.name %>
+	</a>
+	<% end %>
+	<% end %>
+
+	<% if can? :manage, @gallery %>
+	<a href="<%= @gallery.link %>/albums/new" class="gallery-navigation-create" title="Создать альбом">
+		<span class="glyphicon glyphicon-plus"></span>
+	</a>
+	<% end %>
+</div>

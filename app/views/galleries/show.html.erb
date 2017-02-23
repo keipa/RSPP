@@ -1,24 +1,10 @@
-<div class="container-fluid gallery-page">
-	<div>
-		<a href="<%=galleries_path%>" class="upload">
-			<p class="big-text">Назад</p>
-		</a>
-		<% if can? :manage, @gallery %>
-		<a href="<%=new_gallery_album_path(@gallery)%>" class="upload">
-			<p class="big-text">Создать альбом</p>
-		</a>
-		<% end %>
-	</div>
-	<div class="gallery-page-content">
-		<div class="gallery-page-items">
-			<div class="gallery-page-header">
-				<% if @gallery.albums.empty?%>
-				<h1>Нет альбомов</h1>
-			<% else %>
-				<h1>Альбомы</h1>
-			</div>
-			<%= render 'gallery_albums' %>
-			<% end %>
-		</div>
+<div class="container gallery">
+
+	<%= render 'galleries_routes' %>
+	<%= render 'galleries_nav', type: @gallery.type_gallery %>
+
+
+	<div class="gallery-body">
+		<%= render 'albums' %>
 	</div>
 </div>
