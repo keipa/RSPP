@@ -1,0 +1,9 @@
+<div class="gallery-navigaton">
+	<% @galleries.all.each do |gallery| %>
+		<% if (type == gallery.type_gallery) %>
+			<a href="<%= gallery.link %>" class="active"><%= gallery.name %></a>
+		<% else %>
+			<a href="<%= gallery.link %>"><%= gallery.name %></a>
+		<% end %>
+	<% end %>
+</div>

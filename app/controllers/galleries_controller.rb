@@ -3,6 +3,7 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.all
+		redirect_to @galleries[0].link
   end
 
   def new
@@ -15,6 +16,8 @@ class GalleriesController < ApplicationController
   end
 
   def show
+		@galleries = Gallery.all
+		@albums = @gallery.albums.includes(:albums)
   end
 
   def update
@@ -30,10 +33,10 @@ class GalleriesController < ApplicationController
   private
 
   def gallery_params
-    params.require(:gallery).permit(:name, :type_gallery)
+    params.require(:gallery).permit(:name, :type_gallery, :smart_id, :link)
   end
 
   def set_gallery
-    @gallery = Gallery.find(params[:id])
+    @gallery = Gallery.find_by(smart_id: params[:id])
   end
 end

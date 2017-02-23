@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20170201190138) do
   create_table "galleries", force: :cascade do |t|
     t.string   "name"
     t.string   "type_gallery"
+    t.string   "smart_id"
+    t.string   "link"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
