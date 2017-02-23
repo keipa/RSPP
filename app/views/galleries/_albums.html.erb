@@ -1,0 +1,19 @@
+<% if can? :manage, @gallery %>
+<a href="<%= @gallery.link %>/albums/new">Создать альбом</a>
+<% end %>
+
+<% @gallery.albums.all.each do |album| %>
+<div class="gallery-item">
+	<div class="caption">
+		<a class="gallery-link" href="<%= @gallery.link %>/albums/<%=album.id%>">
+			<h3 ><%=album.name%></h3>
+		</a>
+		<% if can? :manage, album %>
+		<p>
+			<a href="<%= @gallery.link %>/albums/<%=album.id%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a>
+			<a href="<%= @gallery.link %>/albums/<%=album.id%>/edit" class="btn btn-default" role="button">Редактировать</a>
+		</p>
+		<% end %>
+	</div>
+</div>
+<% end %>

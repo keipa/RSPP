@@ -1,13 +1,122 @@
 @import "variables";
 $gallery-header-height: 5rem;
-$gallery-header-color: rgba(81, 156, 255, 1);
-$gallery-header-triangle-color: #3668a9;
+$gallery-navigation-background-color-active: rgba(81, 156, 255, 1);
+$gallery-navigation-background-color: #ffffff;
+$gallery-navigation-text-color: rgba(81, 156, 255, 1);
+$gallery-navigation-text-color-active: #ffffff;
+$gallery-navigation-border: rgba(81, 156, 255, 1);
 $gallery-item-description-color: lighten(rgba(84, 86, 88, 1), 10%);
-$gallery-header-text-color: #FFFFFF;
+$shape-width: 4rem;
+$shape-border: 0.4rem;
+$shape-height: 4rem;
+
+
+textarea {
+	resize: none;
+}
 
 .gallery {
-	&-header {
+	&-header {}
 
+	&-navigation {
+		// &-shape {
+		// 	background: black;
+		// 	width: 0;
+		// 	height: 0;
+		// 	border-bottom: 140px black;
+		// 	border-left: 70px solid transparent;
+		// 	border-right: 70px solid transparent;
+		// }
+		// &-shape:nth-child(even) {
+		// 	width: 0;
+		// 	height: 0;
+		// 	border-bottom: 140px black;
+		// 	border-left: 70px solid transparent;
+		// 	border-right: 70px solid transparent;
+		// }
+		&-item {
+			display: inline-block;
+			background: $gallery-navigation-background-color;
+			width: 12rem;
+			position: relative;
+			height: $shape-height;
+			line-height: $shape-height - .5rem;
+			font-size: 1.6rem;
+			text-align: center;
+			border: $shape-border solid $gallery-navigation-border;
+			color: $gallery-navigation-text-color;
+		}
+
+		&-item:nth-child(odd) {
+			&:before {
+				content: "";
+				position: absolute;
+				top: -$shape-border;
+				right: -$shape-width - $shape-border;
+				width: 0;
+				height: 0;
+				border-top: $shape-height solid $gallery-navigation-border;
+				border-right: $shape-width solid transparent;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: -$shape-border;
+				right: -$shape-width - $shape-border;
+				width: 0;
+				height: 0;
+				border-top: $shape-height solid $gallery-navigation-border;
+				border-right: $shape-width solid transparent;
+			}
+		}
+
+		&-item:nth-child(even) {
+			margin-left: 5rem;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: -$shape-border;
+				left: -$shape-width - $shape-border;
+				width: 0;
+				height: 0;
+				border-bottom: $shape-height solid $gallery-navigation-border;
+				border-left: $shape-height solid transparent;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: -$shape-border;
+				left: -$shape-width - $shape-border;
+				width: 0;
+				height: 0;
+				border-bottom: $shape-height solid $gallery-navigation-border;
+				border-left: $shape-height solid transparent;
+			}
+		}
+
+		.active {
+			background: $gallery-navigation-background-color-active;
+			color: $gallery-navigation-text-color-active;
+			// &:before {
+			// 	content: "";
+			// 	position: absolute;
+			// 	top: -$shape-border;
+			// 	right: -$shape-width - $shape-border;
+			// 	width: 0;
+			// 	height: 0;
+			// 	border-top: $shape-height - 1rem solid $gallery-navigation-background-color;
+			// 	border-right: $shape-width - 1rem solid transparent;
+			// }
+			&:after {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+			}
+		}
 	}
 
 	&-body {

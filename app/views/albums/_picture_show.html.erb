@@ -25,13 +25,13 @@
 
 <div class="picture-container" id="links">
 	<% if can? :manage, Gallery %>
-	<div id="upload-picture-gallery" class="upload" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
+	<div id="upload-picture-gallery" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
 		<p class="big-text">
 			Загрузить фото
 		</p>
 	</div>
 	<% end %>
-	<div class="gallery-page-header">
+	<div class="">
 		<% if @album.pictures.any? %>
 		<h1><%=@album.name%></h1>
 	<% else %>
@@ -70,7 +70,6 @@
 						Вперед
 						<i class="glyphicon glyphicon-chevron-right"></i>
 					</button>
-					<!-- <a href="<%=gallery_album_path(@gallery,@album)%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a> -->
 				</div>
 			</div>
 		</div>

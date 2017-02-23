@@ -1,3 +1,10 @@
-<%= render 'galleries_nav', type: @gallery.type_gallery %>
+<div class="container gallery">
 
-<%= render 'albums', type: @gallery.type_gallery %>
+	<%= render 'galleries_nav', type: @gallery.type_gallery %>
+
+	<%= render 'galleries_routes' %>
+
+	<div class="gallery-body">
+		<%= render 'albums' %>
+	</div>
+</div>

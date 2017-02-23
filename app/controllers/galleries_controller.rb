@@ -6,18 +6,8 @@ class GalleriesController < ApplicationController
 		redirect_to @galleries[0].link
   end
 
-  def new
-    @gallery = Gallery.new
-  end
-
-  def create
-    @gallery = Gallery.create(gallery_params)
-    redirect_to galleries_path
-  end
-
   def show
 		@galleries = Gallery.all
-		@albums = @gallery.albums.includes(:albums)
   end
 
   def update

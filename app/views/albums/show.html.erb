@@ -1,13 +1,7 @@
-<div class="container-fluid album-page">
-	<div>
-		<a href="<%=gallery_path(@gallery)%>" class="upload">
-			<p class="big-text">Назад</p>
-		</a>
-	</div>
+<%= render 'albums_routes' %>
 
-	<% if @gallery.type_gallery == 'photo'%>
-	<%= render 'picture_show' %>
-	<%else %>
-	<%= render 'video_show' %>
-	<% end %>
-</div>
+<% if @gallery.type_gallery == 'photo'%>
+<%= render 'picture_show' %>
+<%else %>
+<%= render 'video_show' %>
+<% end %>
