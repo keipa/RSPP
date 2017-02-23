@@ -1,0 +1,17 @@
+default: &default
+  adapter: mysql2
+  username: root
+  password: <%= ENV["ROOT_PASSWORD"] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+production:
+  <<: *default
+  database: rspp_production
+
+development:
+  <<: *default
+  database: rspp_development
+
+test:
+  <<: *default
+  database: rspp_test
