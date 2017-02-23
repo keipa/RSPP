@@ -1,7 +1,8 @@
-<%= render 'albums_routes' %>
-
-<% if @gallery.type_gallery == 'photo'%>
-<%= render 'picture_show' %>
-<%else %>
-<%= render 'video_show' %>
-<% end %>
+<div class="container album">
+	<%= render 'albums_routes' %>
+	<% if @gallery.type_gallery == 'photo'%>
+	<%= render 'picture_show' %>
+	<%else %>
+	<%= render 'video_show' %>
+	<% end %>
+</div>

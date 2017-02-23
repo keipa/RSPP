@@ -1,24 +1,22 @@
+<% if can? :manage, @gallery %>
+<a id="upload-picture-gallery" data-redirect="<%=@gallery.link%>/albums/<%=@album.id%>" data-controller="<%=@gallery.link%>/albums/<%=@album.id%>/pictures" class="gallery-navigation-create" title="Добавить изображения">
+	<span class="glyphicon glyphicon-plus"></span>
+</a>
+<% end %>
 <div class="picture-container" id="links">
-	<% if can? :manage, Gallery %>
-	<div id="upload-picture-gallery" data-redirect="<%=@gallery.link%>/albums/<%=@album.id%>" data-controller="<%=@gallery.link%>/albums/<%=@album.id%>/pictures">
-		<p>
-			Загрузить фото
-		</p>
-	</div>
-	<% end %>
-	<div class="">
-		<% if @album.pictures.any? %>
-		<h1><%=@album.name%></h1>
-	<% else %>
 
-		<h1>Нет фотографий</h1>
+	<div class="album-header">
+		<% if @album.pictures.any? %>
+		<h1 class="album-header-title"><%=@album.name%></h1>
+	<% else %>
+		<h1 class="album-header-title">Нет фотографий</h1>
 		<% end %>
-		<p class="gallery-description">
+		<p class="album-description">
 			<%= @album.description %>
 		</p>
 	</div>
 
-	<div class="pictures-list" id="links">
+	<div class="album-pictures">
 		<%= render 'pictures', album: @album %>
 	</div>
 </div>

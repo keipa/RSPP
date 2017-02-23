@@ -1,5 +1,5 @@
 <% album.pictures.all.each do |picture| %>
-	<div class="album-item">
+	<div class="col-md-2 album-pictures-item">
 	    <% if can? :destroy, Picture %>
 		    <%= link_to "#{@gallery.link}/albums/#{album.id}/pictures/#{picture.id}",
 		   :method => :delete,

@@ -10,4 +10,10 @@
 	</a>
 	<% end %>
 	<% end %>
+
+	<% if can? :manage, @gallery %>
+	<a href="<%= @gallery.link %>/albums/new" class="gallery-navigation-create" title="Создать альбом">
+		<span class="glyphicon glyphicon-plus"></span>
+	</a>
+	<% end %>
 </div>

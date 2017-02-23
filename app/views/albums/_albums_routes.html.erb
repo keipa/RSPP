@@ -1,5 +1,4 @@
 <div class="gallery-routes">
-	<a href="/galleries">Галереи</a>
 	<a href="<%= @gallery.link %>">
 		<% if @gallery.type_gallery == 'photo' %>
 		Фотогалерея
@@ -9,4 +8,5 @@
 	</a>
 	<a href="<%= @gallery.link %>">Альбомы</a>
 	<a href="<%= @gallery.link%>/albums/<%= @album.id %>"><%= @album.name %></a>
+
 </div>

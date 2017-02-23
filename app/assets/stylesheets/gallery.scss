@@ -3,13 +3,13 @@ $gallery-header-height: 5rem;
 $gallery-navigation-background-color-active: rgba(81, 156, 255, 1);
 $gallery-navigation-background-color: #ffffff;
 $gallery-navigation-text-color: rgba(81, 156, 255, 1);
+$gallery-navigation-create-color: rgba(81, 156, 255, 1);
 $gallery-navigation-text-color-active: #ffffff;
 $gallery-navigation-border: rgba(81, 156, 255, 1);
 $gallery-item-description-color: lighten(rgba(84, 86, 88, 1), 10%);
 $shape-width: 4rem;
-$shape-border: 0.4rem;
+$shape-border: 0.1rem;
 $shape-height: 4rem;
-
 
 textarea {
 	resize: none;
@@ -19,102 +19,73 @@ textarea {
 	&-header {}
 
 	&-navigation {
-		// &-shape {
-		// 	background: black;
-		// 	width: 0;
-		// 	height: 0;
-		// 	border-bottom: 140px black;
-		// 	border-left: 70px solid transparent;
-		// 	border-right: 70px solid transparent;
-		// }
-		// &-shape:nth-child(even) {
-		// 	width: 0;
-		// 	height: 0;
-		// 	border-bottom: 140px black;
-		// 	border-left: 70px solid transparent;
-		// 	border-right: 70px solid transparent;
-		// }
+		margin-left: 7rem;
+
 		&-item {
 			display: inline-block;
 			background: $gallery-navigation-background-color;
 			width: 12rem;
+			vertical-align: middle;
 			position: relative;
 			height: $shape-height;
-			line-height: $shape-height - .5rem;
+			line-height: $shape-height;
 			font-size: 1.6rem;
 			text-align: center;
 			border: $shape-border solid $gallery-navigation-border;
 			color: $gallery-navigation-text-color;
-		}
+			cursor: pointer;
+			text-decoration: none;
 
-		&-item:nth-child(odd) {
-			&:before {
-				content: "";
-				position: absolute;
-				top: -$shape-border;
-				right: -$shape-width - $shape-border;
-				width: 0;
-				height: 0;
-				border-top: $shape-height solid $gallery-navigation-border;
-				border-right: $shape-width solid transparent;
-			}
-
-			&:after {
-				content: "";
-				position: absolute;
-				top: -$shape-border;
-				right: -$shape-width - $shape-border;
-				width: 0;
-				height: 0;
-				border-top: $shape-height solid $gallery-navigation-border;
-				border-right: $shape-width solid transparent;
+			&:hover {
+				text-decoration: none;
 			}
 		}
+
+		&-create {
+			display: inline-block;
+			border-radius: 0.5rem;
+			border: 1px solid $gallery-navigation-create-color;
+			float: right;
+			right: 5rem;
+			height: $shape-height;
+			width: 4rem;
+			vertical-align: middle;
+			position: relative;
+			cursor: pointer;
+
+			span {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				font-size: 2.5rem;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&-item:nth-child(odd) {}
 
 		&-item:nth-child(even) {
-			margin-left: 5rem;
-
-			&:before {
-				content: "";
-				position: absolute;
-				top: -$shape-border;
-				left: -$shape-width - $shape-border;
-				width: 0;
-				height: 0;
-				border-bottom: $shape-height solid $gallery-navigation-border;
-				border-left: $shape-height solid transparent;
-			}
-
-			&:after {
-				content: "";
-				position: absolute;
-				top: -$shape-border;
-				left: -$shape-width - $shape-border;
-				width: 0;
-				height: 0;
-				border-bottom: $shape-height solid $gallery-navigation-border;
-				border-left: $shape-height solid transparent;
-			}
+			margin-left: 2rem;
 		}
 
 		.active {
 			background: $gallery-navigation-background-color-active;
 			color: $gallery-navigation-text-color-active;
-			// &:before {
-			// 	content: "";
-			// 	position: absolute;
-			// 	top: -$shape-border;
-			// 	right: -$shape-width - $shape-border;
-			// 	width: 0;
-			// 	height: 0;
-			// 	border-top: $shape-height - 1rem solid $gallery-navigation-background-color;
-			// 	border-right: $shape-width - 1rem solid transparent;
-			// }
+		}
+	}
+
+	&-routes {
+		margin-bottom: 2rem;
+
+		a {}
+
+		a:not(:last-child) {
 			&:after {
-				content: "";
-				position: absolute;
-				width: 0;
-				height: 0;
+				display: inline-block;
+				content: "/";
+				margin: 0 2rem;
+				text-transform: none;
+				text-decoration: none;
 			}
 		}
 	}
@@ -158,7 +129,7 @@ textarea {
 				height: 70%;
 				width: 100%;
 				box-sizing: border-box;
-				padding: 10% 25%;
+				padding: 5% 30%;
 			}
 
 			.gallery-default-image {
