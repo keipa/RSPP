@@ -49,23 +49,25 @@
 					<h4>Как повлияет правление Трампа на экономику Беларуси?</h4>
 				</div>
 				<div class="options-list">
-					<%= form_for @survey, url: vote_survey_path(@survey) do |f| %>
+					<%= if @survey %>
+						<%= form_for @survey, url: vote_survey_path(@survey) do |f| %>
 
-						<% 4.times do |option| %>
-							<div class="option">
-								<%= f.radio_button :closed, option + 1, id: option + 1 %>
-								<label for="<%= option + 1 %>">Положительно</label>
-								<!-- For checkbox styling -->
-								<div class="check"><div class="inside"></div></div>
+							<% 4.times do |option| %>
+								<div class="option">
+									<%= f.radio_button :closed, option + 1, id: option + 1 %>
+									<label for="<%= option + 1 %>">Положительно</label>
+									<!-- For checkbox styling -->
+									<div class="check"><div class="inside"></div></div>
+								</div>
+							<% end %>
+
+							<div class="text-right vote-btn-align">
+								<a onclick="$(this).closest('form').submit()" class="vote-btn">
+									Проголосовать
+								</a>
 							</div>
+
 						<% end %>
-
-						<div class="text-right vote-btn-align">
-							<a onclick="$(this).closest('form').submit()" class="vote-btn">
-								Проголосовать
-							</a>
-						</div>
-
 					<% end %>
 				</div>
 			</div>
