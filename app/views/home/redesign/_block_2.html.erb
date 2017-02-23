@@ -49,7 +49,7 @@
 					<h4>Как повлияет правление Трампа на экономику Беларуси?</h4>
 				</div>
 				<div class="options-list">
-					<%= if @survey %>
+					<% if @survey %>
 						<%= form_for @survey, url: vote_survey_path(@survey) do |f| %>
 
 							<% 4.times do |option| %>
