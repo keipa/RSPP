@@ -1,11 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :set_gallery
-  before_action :set_album, except: [:create, :new, :index, :show]
+  before_action :set_album, except: [:create, :new, :show]
   skip_before_action :verify_authenticity_token, only: [:create, :update, :edit]
-
-  def index
-    @albums = @gallery.albums.all.reverse.to_a
-  end
 
   def create
     @album = @gallery.albums.create(album_params)

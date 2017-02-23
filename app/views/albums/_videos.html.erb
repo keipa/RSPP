@@ -4,8 +4,8 @@
     <div class="video-tools">
 
         <% if can? :manage, Gallery %>
-        <a href="<%=gallery_album_video_path(@gallery, @album,video)%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a>
-        <a href="<%=edit_gallery_album_video_path(@gallery, @album, video)%>" class="btn btn-default" role="button">Редактировать</a>
+        <a href="<%=@gallery.link%>/albums/<%=@album.id%>/videos/<%=video.id%>" data-confirm="Вы уверены?" data-method="delete" class="btn btn-danger" role="button">Удалить</a>
+        <a href="<%=@gallery.link%>/albums/<%=@album.id%>/videos/<%=video.id%>/edit" class="btn btn-default" role="button">Редактировать</a>
         <% end %>
     </div>
 

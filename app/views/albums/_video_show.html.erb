@@ -1,6 +1,6 @@
 <% if can? :manage, Gallery %>
 <div id="upload-video">
-	<a href="<%= new_gallery_album_video_path(@gallery,@album)%>">
+	<a href="<%= @gallery.link %>/albums/<%=@album.id %>/videos/new">
 		<p>
 			Добавить видео
 		</p>

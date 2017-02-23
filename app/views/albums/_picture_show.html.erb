@@ -1,32 +1,7 @@
-<!-- <% @galleries.all.each do |gallery| %>
-<div class="col-md-6 gallery-body-container">
-	<div class="gallery-body-item">
-		<div class="gallery-image-container">
-			<a href="<%=gallery.link%>">
-				<% if gallery.type_gallery.to_s == 'photo' %>
-				<img src="../photo-icon.png" alt="<%=gallery.name%>" class="gallery-default-image">
-			<% else %>
-				<img src="../video-icon.png" alt="<%=gallery.name%>" class="gallery-default-image">
-				<% end %>
-			</a>
-		</div>
-		<div class="gallery-body-item-description">
-			<a class="gallery-link" href="<%= gallery.link %>">
-				<h3><%=gallery.name%></h3>
-			</a>
-		</div>
-	</div>
-</div>
-<% end %> -->
-
-
-
-
-
 <div class="picture-container" id="links">
 	<% if can? :manage, Gallery %>
-	<div id="upload-picture-gallery" data-redirect="<%=gallery_album_path(@gallery,@album) %>" data-controller="<%= gallery_album_pictures_path(@gallery,@album) %>">
-		<p class="big-text">
+	<div id="upload-picture-gallery" data-redirect="<%=@gallery.link%>/albums/<%=@album.id%>" data-controller="<%=@gallery.link%>/albums/<%=@album.id%>/pictures">
+		<p>
 			Загрузить фото
 		</p>
 	</div>
@@ -43,10 +18,11 @@
 		</p>
 	</div>
 
-	<div class="pictures-list">
+	<div class="pictures-list" id="links">
 		<%= render 'pictures', album: @album %>
 	</div>
 </div>
+
 <div id="blueimp-gallery" class="blueimp-gallery">
 	<div class="slides"></div>
 	<h3 class="title"></h3>

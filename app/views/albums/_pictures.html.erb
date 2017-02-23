@@ -1,14 +1,14 @@
 <% album.pictures.all.each do |picture| %>
-<div class="thumbnail album-item">
-    <% if can? :destroy, Picture %>
-    <%= link_to gallery_album_picture_path(@gallery, album, picture),
-   :method => :delete,
-   :remote => true, class: "btn btn-default delete-picture" do %>
-    <span class="glyphicon glyphicon-trash"></span>
-    <% end %>
-    <% end %>
-    <a href="<%= picture.image_url%>" data-gallery>
-        <img src="<%=picture.image_url%>" class="img-responsive">
-    </a>
-</div>
+	<div class="album-item">
+	    <% if can? :destroy, Picture %>
+		    <%= link_to "#{@gallery.link}/albums/#{album.id}/pictures/#{picture.id}",
+		   :method => :delete,
+		   :remote => true, class: "btn btn-default delete-picture" do %>
+		    	<span class="glyphicon glyphicon-trash"></span>
+		    <% end %>
+	    <% end %>
+	    <a href="<%= picture.image_url%>" data-gallery>
+	        <img src="<%=picture.image_url%>" class="img-responsive">
+	    </a>
+	</div>
 <% end %>

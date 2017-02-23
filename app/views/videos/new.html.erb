@@ -13,8 +13,8 @@
 						<input
 							id="video-field"
 							class="form-control"
-							data-redirect="<%=gallery_album_path(@gallery,@album)%>"
-							data-controller="<%=gallery_album_videos_path(@gallery,@album)%>"
+							data-redirect="<%=@gallery.link%>/albums/<%=@album.id %>"
+							data-controller="<%=@gallery.link%>/albums/<%=@album.id %>/videos/"
 							type="text"
 							name="video[link]"
 							placeholder="https://www.youtube.com/watch?v=abcdefghjkl">
@@ -34,7 +34,7 @@
 			</div>
 			<div class="btn-group col-md-4 col-md-offset-4">
 				<button type="submit" id="video-add-button" class="btn btn-success">Добавить</button>
-				<%= link_to 'Назад',gallery_album_path(@gallery,@album), class: "btn btn-info" %>
+				<%= link_to 'Назад', :back , class: "btn btn-info" %>
 			</div>
 		</div>
 	</div>
