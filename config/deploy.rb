@@ -1,4 +1,5 @@
-# Change these
+lock "3.7.2"
+
 server '178.172.172.108', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:keipa/RSPP.git'
@@ -7,7 +8,7 @@ set :user,            'deployer'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
-# Don't change these unless you know what you're doing
+set :rvm_ruby_version, 'ruby-2.4.0'
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
