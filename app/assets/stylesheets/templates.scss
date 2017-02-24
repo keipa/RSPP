@@ -11,6 +11,30 @@ $template-footer-height: 60px;
 	display: block;
 }
 
+#template-form {
+	min-height: 60rem;
+}
+
+#cke_1_bottom {
+	display: none;
+}
+
+.editor {
+	min-height: 60rem;
+
+	.cke_inner {
+		height: 60rem;
+
+		#cke_1_top {
+			height: 20%;
+		}
+
+		#cke_1_contents {
+			height: 80% !important;
+		}
+	}
+}
+
 .template {
 	&-header {
 		width: 100%;
@@ -33,9 +57,10 @@ $template-footer-height: 60px;
 
 	&-wrapper {
 		min-height: 100%;
-		padding: 0px !important;
+		padding: 0 !important;
 		box-sizing: border-box;
 		// width: 70%;
+		font-family: Roboto Light;
 		margin: auto;
 		overflow: hidden;
 		background: $template-page-color;
@@ -45,8 +70,7 @@ $template-footer-height: 60px;
 
 	&-container {
 		height: 100%;
-		padding: 0 0 !important;
-		padding-bottom: $template-footer-height;
+		padding: 0 0 $template-footer-height !important;
 
 		.template-body {
 			box-sizing: border-box;
@@ -70,6 +94,7 @@ $template-footer-height: 60px;
 				font-size: 1.6rem;
 
 				&-body {
+					height: 100%;
 					margin-top: 40px;
 				}
 			}

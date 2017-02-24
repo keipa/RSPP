@@ -3,7 +3,6 @@ $(document).on('turbolinks:load', function() {
 		var message = $('<div/>').addClass('alert-message alert-message-' + type)
 		message.text(text);
 		element.append(message);
-		element.css('position', 'relative')
 		element.css('outline', 'none')
 		$(message).show()
 		if (!time) {
