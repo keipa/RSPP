@@ -1,0 +1,11 @@
+<div class="col-md-3 album-pictures-item">
+	<div class="photo-container">
+  	<img src="<%=picture.image_url%>">
+  </div>
+  <% if can? :destroy, Picture %>
+    <%= link_to gallery_album_picture_path(@gallery.smart_id, album, picture),
+   		method: :delete, class: "delete-picture-btn" do %>
+    	Удалить
+    <% end %>
+  <% end %>
+</div>
