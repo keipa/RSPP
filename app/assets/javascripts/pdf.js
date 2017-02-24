@@ -128,8 +128,38 @@ $(document).on('turbolinks:load', function() {
 		}
 	})
 
+	function startSpinner() {
+		$('.spinner').spin({
+			lines: 13, // The number of lines to draw
+			length: 28, // The length of each line
+			width: 14, // The line thickness
+			radius: 42, // The radius of the inner circle
+			scale: 1, // Scales overall size of the spinner
+			corners: 1, // Corner roundness (0..1)
+			color: '#000', // #rgb or #rrggbb or array of colors
+			opacity: 0.25, // Opacity of the lines
+			rotate: 0, // The rotation offset
+			direction: 1, // 1: clockwise, -1: counterclockwise
+			speed: 1, // Rounds per second
+			trail: 60, // Afterglow percentage
+			fps: 20, // Frames per second when using setTimeout() as a fallback for CSS
+			zIndex: 2e9, // The z-index (defaults to 2000000000)
+			className: 'spinner', // The CSS class to assign to the spinner
+			top: '50%', // Top position relative to parent
+			left: '50%', // Left position relative to parent
+			shadow: false, // Whether to render a shadow
+			hwaccel: false, // Whether to use hardware acceleration
+			position: 'absolute' // Element positioning
+		})
+	}
+
+	function stopSpinner() {
+		$('.spinner').hide();
+	}
 
 	$("#get-pdf").click(function() {
+		startSpinner();
+		setTimeout(stopSpinner, 4000);
 
 		var pdfData = {}
 
@@ -145,52 +175,52 @@ $(document).on('turbolinks:load', function() {
 		var registrationForm;
 
 		$.ajax({
-            type: "GET",
-            url: "registration_card",
-            async: true
-        	}).done(function(response) {
-        		registrationForm = response
+			type: "GET",
+			url: "registration_card",
+			async: true
+		}).done(function(response) {
+			registrationForm = response
 
-        		for (var valueID in pdfData) {
-					    if (pdfData.hasOwnProperty(valueID)) {
-					    	if (typeof(pdfData[valueID]) != "boolean")  {
-					    		registrationForm = registrationForm.replace("%INS-id-" + valueID + "%", pdfData[valueID])
-					    	}	else if (pdfData[valueID] == true) {
-				    			registrationForm = registrationForm
-				    				.replace(
-				    								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\">",
-				    								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\" checked>"
-				    								)
-					    	}
-					    }
-						}
+			for (var valueID in pdfData) {
+				if (pdfData.hasOwnProperty(valueID)) {
+					if (typeof(pdfData[valueID]) != "boolean") {
+						registrationForm = registrationForm.replace("%INS-id-" + valueID + "%", pdfData[valueID])
+					} else if (pdfData[valueID] == true) {
+						registrationForm = registrationForm
+							.replace(
+								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\">",
+								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\" checked>"
+							)
+					}
+				}
+			}
 
-						$("#registration_toPDF").val(registrationForm)
-
-
-						$.ajax({
-							type: "GET",
-							url: "statement",
-						}).done(function(response) {
-							statementForm = response
-
-							statementForm = statementForm.replace("%INS-id-name%", pdfData[13])
-
-							$("#statement_toPDF").val(statementForm)
-
-							$.ajax({
-								type: "GET",
-								url: "bill",
-							}).done(function(response) {
-								billForm = response
-
-								$("#bill_toPDF").val(billForm)
+			$("#registration_toPDF").val(registrationForm)
 
 
-								$("#send-PDF-form").submit()
-							})
-						})
-        	})
+			$.ajax({
+				type: "GET",
+				url: "statement",
+			}).done(function(response) {
+				statementForm = response
+
+				statementForm = statementForm.replace("%INS-id-name%", pdfData[13])
+
+				$("#statement_toPDF").val(statementForm)
+
+				$.ajax({
+					type: "GET",
+					url: "bill",
+				}).done(function(response) {
+					billForm = response
+
+					$("#bill_toPDF").val(billForm)
+
+
+					$("#send-PDF-form").submit()
+				})
+			})
+		})
 
 
 	})

@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui
+//= require spin
+//= require jquery.spin
 //= require blueimp-gallery
 //= require jquery.blueimp-gallery
 //= require jquery.slick
