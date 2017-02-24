@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     root 'news_posts#index'
     resources :news_posts, only: [:index, :new, :create, :edit, :update, :destroy]

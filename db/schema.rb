@@ -10,27 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201190138) do
+ActiveRecord::Schema.define(version: 20170224122528) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "albums", force: :cascade do |t|
+  create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description", limit: 65535
     t.integer  "gallery_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["gallery_id"], name: "index_albums_on_gallery_id", using: :btree
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string   "title",            limit: 50, default: ""
-    t.text     "comment"
+  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",            limit: 50,    default: ""
+    t.text     "comment",          limit: 65535
     t.string   "commentable_type"
     t.integer  "commentable_id"
     t.integer  "user_id"
-    t.string   "role",                        default: "comments"
+    t.string   "role",                           default: "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_name"
@@ -39,16 +49,16 @@ ActiveRecord::Schema.define(version: 20170201190138) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "complaints", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "body",       null: false
+  create_table "complaints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                    null: false
+    t.text     "body",       limit: 65535, null: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
   end
 
-  create_table "galleries", force: :cascade do |t|
+  create_table "galleries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "type_gallery"
     t.string   "smart_id"
@@ -57,24 +67,24 @@ ActiveRecord::Schema.define(version: 20170201190138) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "news_posts", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.text     "description"
-    t.text     "text",        null: false
+  create_table "news_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                     null: false
+    t.text     "description", limit: 65535
+    t.text     "text",        limit: 65535, null: false
     t.string   "image_url"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "post_type",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "post_type",                 null: false
     t.index ["user_id"], name: "index_news_posts_on_user_id", using: :btree
   end
 
-  create_table "partners", force: :cascade do |t|
+  create_table "partners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image_url", null: false
     t.string "link",      null: false
   end
 
-  create_table "pictures", force: :cascade do |t|
+  create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "image_url"
     t.string   "name"
     t.integer  "album_id"
@@ -83,7 +93,7 @@ ActiveRecord::Schema.define(version: 20170201190138) do
     t.index ["album_id"], name: "index_pictures_on_album_id", using: :btree
   end
 
-  create_table "roles", force: :cascade do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "resource_type"
     t.integer  "resource_id"
@@ -93,7 +103,7 @@ ActiveRecord::Schema.define(version: 20170201190138) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
-  create_table "sliders", force: :cascade do |t|
+  create_table "sliders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,39 +111,39 @@ ActiveRecord::Schema.define(version: 20170201190138) do
     t.index ["slides_id"], name: "index_sliders_on_slides_id", using: :btree
   end
 
-  create_table "slides", force: :cascade do |t|
-    t.text     "text"
+  create_table "slides", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",       limit: 65535
     t.string   "image_url"
     t.integer  "slider_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["slider_id"], name: "index_slides_on_slider_id", using: :btree
   end
 
-  create_table "surveys", force: :cascade do |t|
+  create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "content"
+    t.text     "content",     limit: 65535
     t.boolean  "closed"
-    t.text     "users"
+    t.text     "users",       limit: 65535
     t.integer  "count_votes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  create_table "topics", force: :cascade do |t|
-    t.string   "text",                     null: false
+  create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "text",                      null: false
     t.string   "smart_id"
-    t.text     "description", default: "", null: false
+    t.text     "description", limit: 65535
     t.integer  "topic_id"
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "link"
     t.index ["topic_id"], name: "index_topics_on_topic_id", using: :btree
     t.index ["user_id"], name: "index_topics_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -142,8 +152,8 @@ ActiveRecord::Schema.define(version: 20170201190138) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
     t.datetime "created_at",                          null: false
@@ -152,13 +162,13 @@ ActiveRecord::Schema.define(version: 20170201190138) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "users_roles", id: false, force: :cascade do |t|
+  create_table "users_roles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.integer "role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
   end
 
-  create_table "videos", force: :cascade do |t|
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "youtube_link"
     t.string   "iframe_link"
     t.string   "video_id"

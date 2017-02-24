@@ -17,12 +17,14 @@
 				</div>
 
 				<div class="description-body active-template">
-					<div id="description-content" class="no-border"></div>
+					<%= raw @topic.description %>
 				</div>
 
+				<% if can? :manage, Topic %>
 				<div class="description-body hidden-template">
 					<%= render 'templates/template_form', template: @topic %>
 				</div>
+				<% end %>
 
 			</div>
 			<div class="template-aside">
@@ -36,34 +38,4 @@
 
 	</div>
 
-	<%= render 'templates/template_footer' %>
-
 </div>
-
-<script>
-
-	var quillShow = new Quill('#description-content', {
-		modules: {
-			toolbar: false
-		},
-		theme: 'snow',
-		readOnly: true
-	});
-
-	var obj = "<%= @topic.description.inspect %>".replace(/&quot;/g, '"')
-
-	if (obj == '""') {
-		obj = {
-			"ops": [
-				{
-					"insert": "\n"
-				}
-			]
-		}
-		content = obj;
-	} else {
-		content = JSON.parse(obj.slice(1, -1));
-	}
-
-	quillShow.setContents(content.ops);
-</script>
