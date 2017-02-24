@@ -7,31 +7,31 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <label>Имя</label><br>
-        <%= f.text_field :first_name, autofocus: true, class: "form-group col-lg-12" %>
+        <h2>Имя</h2>
+        <%= f.text_field :first_name, autofocus: true, class: "form-input col-lg-12" %>
       </div>
 
       <div class="field">
-        <label>Фамилия</label><br>
-        <%= f.text_field :last_name, class: "form-group col-lg-12" %>
+        <h2>Фамилия</h2>
+        <%= f.text_field :last_name, class: "form-input col-lg-12" %>
       </div>
 
       <div class="field">
-        <label>Email</label><br>
-        <%= f.email_field :email, autocomplete: "off", class: "form-group col-lg-12" %>
+        <h2>Email</h2>
+        <%= f.email_field :email, autocomplete: "off", class: "form-input col-lg-12" %>
       </div>
 
       <div class="field">
-        <label>Пароль</label><br>
+        <h2>Пароль</h2>
         <% if @minimum_password_length %>
           <em>(Минимум <%= @minimum_password_length %> символов)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", class: "form-group col-lg-12" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-input col-lg-12" %>
       </div>
 
       <div class="field">
-        <label>Подтверждение пароля</label><br>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-group col-lg-12" %>
+        <h2>Подтверждение пароля</h2>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-input col-lg-12" %>
       </div>
 
       <div class="actions">

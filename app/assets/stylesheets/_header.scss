@@ -64,9 +64,10 @@ $join-us-btn-background-color: #626262;
 
 			.sign-in-link {
 				text-decoration: none;
-				font-family: 'Roboto Light', sans-serif;
+				font-family: 'Roboto Light', Helvetica;
 				font-size: 2.5rem;
 				color: $authentication-text-color;
+				transition: 0.2s;
 
 				.icon {
 					display: inline-block;
@@ -76,16 +77,47 @@ $join-us-btn-background-color: #626262;
 					height: 2.2rem;
 					background-repeat: no-repeat;
 					background-image: url('lock.png');
+					margin-right: 2.5rem;
+					left: 1.5rem;
 
 					&-lock {
 						background-position: 0 0;
 					}
+				}
+
+				&:hover {
+					color: #DDDDDD;
 				}
 			}
 
 			.sign-up-link {
 				@extend .sign-in-link;
 				font-size: 2rem;
+			}
+		}
+
+		.user-info {
+			display: inline-block;
+			line-height: initial;
+			float: right;
+			top: $head-min-height / 2;
+			transform: translateY(-50%);
+			position: relative;
+			font-size: 1.7rem;
+			font-family: 'Roboto Light', Helvetica;
+
+			.user-name {
+				text-align: center;
+			}
+
+			a {
+				width: 100%;
+				text-align: center;
+				display: inline-block;
+
+				&:first-child {
+					margin-top: 0.6rem;
+				}
 			}
 		}
 	}

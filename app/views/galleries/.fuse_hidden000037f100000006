@@ -1,0 +1,29 @@
+<div class="col-md-4 single-album-container">
+	<div class="single-album">
+		<div class="gallery-image-container">
+			<%= link_to gallery_album_path(album.gallery.smart_id, album.id) do %>
+				<%= image_tag "album-icon.png", class: "gallery-default-image" %>
+			<% end %>
+		</div>
+		<div class="single-album-description">
+			<%= link_to gallery_album_path(album.gallery.smart_id, album.id),
+				class: "gallery-link" do %>
+				<h3 ><%=album.name%></h3>
+			<% end %>
+			<% if can? :manage, album %>
+				<div class="admin-actions">
+					<div class="col-lg-4 col-lg-offset-1 remove-album-button ">
+						<%= link_to "Удалить", gallery_album_path(album.gallery.smart_id, album.id), method: :delete, class: "btn btn-danger" %>
+					</div>
+					<div class="col-lg-5 edit-album-button ">
+						<%= link_to "Редактировать", edit_gallery_album_path(album.gallery.smart_id, album.id), class: "btn btn-primary" %>
+					</div>
+				</div>
+			<% else %>
+				<div class="description-text">
+					<%= album.description %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
