@@ -13,15 +13,29 @@
           Республиканский союз промышленников и предпринимателей
         </h1>
       </div>
-      <div class="authentication">
-        <%= link_to new_user_session_path, class: 'sign-in-link' do %>
-        <p>Войти<span class="icon icon-lock"></span>
-        </p>
-        <% end %>
-        <%= link_to new_user_registration_path, class: 'sign-up-link' do %>
-        <p>Регистрация</p>
-        <% end %>
-      </div>
+
+      <% if user_signed_in? %>
+        <div class="user-info">
+          <div class="user-name">
+            <%= current_user.name %>
+          </div>
+          <div class="user-actions">
+            <%= link_to "Кабинет", admin_path(:rspp_news) if current_user.has_role? "admin" %>
+            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+      <% else %>
+        <div class="authentication">
+          <%= link_to new_user_session_path, class: 'sign-in-link' do %>
+            <p>
+              <span class="icon icon-lock"></span>Войти
+            </p>
+          <% end %>
+          <%= link_to new_user_registration_path, class: 'sign-up-link' do %>
+            <p>Регистрация</p>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
