@@ -1,8 +1,17 @@
 <div class="container album">
-	<%= render 'albums_routes' %>
-	<% if @gallery.type_gallery == 'photo'%>
-	<%= render 'picture_show' %>
+  <%= render 'galleries/galleries_nav', type: @gallery.gallery_type %>
+  <% if can? :manage, @album %>
+    <div class="col-lg-12 new-photo-button">
+      <%= link_to new_gallery_album_picture_path(@gallery.smart_id, @album.id),
+        title: "Добавить фотографию" do %>
+        Добавить фотографию
+      <% end %>
+    </div>
+  <% end %>
+
+	<% if @gallery.gallery_type == 'photo'%>
+	  <%= render 'photo_collection' %>
 	<%else %>
-	<%= render 'video_show' %>
+	  <%= render 'video_collection' %>
 	<% end %>
 </div>

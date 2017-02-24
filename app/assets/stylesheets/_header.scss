@@ -12,6 +12,7 @@ $join-us-btn-background-color: #626262;
 
 
 .header {
+
 	.head {
 		line-height: 10rem; //for vertical-centering
 		background: $header-color;
@@ -91,6 +92,7 @@ $join-us-btn-background-color: #626262;
 
 	.navbar {
 		height: 10rem;
+		margin-bottom: 1rem;
 
 		.topics {
 			display: flex;

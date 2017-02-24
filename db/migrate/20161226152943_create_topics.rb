@@ -3,7 +3,7 @@ class CreateTopics < ActiveRecord::Migration[5.0]
     create_table :topics do |t|
       t.string :text, null: false
       t.string :smart_id
-      t.text :description, null: false
+      t.text :description
       t.references :topic
       t.references :user, foreign_key: true
 

@@ -1,3 +1,5 @@
+@import "Roboto";
+@import "PT_Sans";
 @import "_header";
 @import "_block1";
 @import "_block2";
@@ -5,11 +7,8 @@
 @import "_prefooter";
 @import "_slider";
 @import "_footer";
-@import "Roboto";
-@import "PT_Sans";
-
-@import "gallery";
-@import "albums";
+@import "_gallery";
+@import "_albums";
 
 body {
 	font-size: 10px;

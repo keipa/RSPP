@@ -1,13 +1,9 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, except: [:create, :new, :index]
 
-  def index
-    @galleries = Gallery.all
-		redirect_to @galleries[0].link
-  end
-
   def show
-		@galleries = Gallery.all
+    @galleries = Gallery.all
+		@gallery = Gallery.find_by(gallery_type: params[:gallery_type])
   end
 
   def update

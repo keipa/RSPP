@@ -1,0 +1,153 @@
+.new-album {
+	margin-top: 7rem;
+
+	&-header {
+		text-align: center;
+		padding-bottom: 4rem;
+		position: relative;
+
+		h1 {
+			font-size: 3rem;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 70%;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 15%;
+			border-bottom: 1px solid #333333;
+		}
+	}
+
+	form {
+
+		h2 {
+			font-size: 2rem;
+		}
+
+		.form-input {
+			padding: 8px;
+			outline: none;
+			border: 1px solid #B0CFE0;
+			font-size: 1.8rem;
+			width: 100%;
+		}
+
+		.actions {
+			margin-top: 2rem;
+
+			.create-btn {
+				padding: 1rem 1.5rem;
+				background: #519cff;
+				color: #FFFFFF;
+				border: none;
+				font-size: 1.5rem;
+				transition: 0.2s;
+
+				&:hover {
+					background: darken(#519cff, 10%);
+				}
+			}
+
+			.back-btn {
+				padding: 1rem 1.5rem;
+				border: 1px solid #519cff;
+				color: #519cff;
+				font-size: 1.5rem;
+				transition: 0.2s;
+				text-decoration: none;
+				transition: 0.2s;
+
+				&:hover {
+					border-color: darken(#519cff, 10%);
+					color: darken(#519cff, 10%);
+				}
+			}
+		}
+	}
+}
+
+.album {
+
+	.new-photo-button {
+		text-align: center;
+		position: relative;
+		top: 5rem;
+
+		a {
+			border: 1px solid #519cff;
+			color: #519cff;
+			padding: 0.5rem 1rem;
+			display: inline-block;
+			font-size: 1.6rem;
+			text-decoration: none;
+			transition: 0.2s;
+
+			&:hover {
+				border-color: darken(#519cff, 10%);
+				color: darken(#519cff, 10%);
+			}
+		}
+	}
+
+	&-header {
+		width: 100%;
+		height: 4rem;
+		text-align: center;
+		margin-bottom: 2rem;
+
+		&-title {
+			font-family: Roboto Medium;
+			font-size: 3rem;
+		}
+	}
+
+	.picture-container {
+		margin-top: 5rem;
+	}
+
+	&-pictures {
+
+		.album-description {
+			padding-right: 0;
+			padding-left: 2.5rem;
+			font-size: 1.8rem;
+			font-family: 'PT Sans', Helvetica;
+		}
+
+		&-item {
+			height: 14rem;
+			overflow: hidden;
+			margin-bottom: 1rem;
+			text-align: center;
+
+			.photo-container {
+				height: 80%;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+					top: 50%;
+					transform: translateY(-50%);
+					position: relative;
+					height: auto;
+					cursor: pointer;
+				}
+			}
+
+			.delete-picture-btn {
+				color: #E70D1A;
+				font-size: 1.5rem;
+				font-family: 'Roboto Light', Helvetica;
+				margin-top: 0.5rem;
+				display: inline-block;
+
+				&:hover {
+					color: darken(#E70D1A, 7%);
+				}
+			}
+		}
+	}
+}
