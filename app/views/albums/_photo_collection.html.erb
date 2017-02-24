@@ -1,0 +1,26 @@
+<% if can? :manage, @gallery %>
+	<a id="upload-picture-gallery" data-redirect="<%=@gallery.link%>/albums/<%=@album.id%>" data-controller="<%=@gallery.link%>/albums/<%=@album.id%>/pictures" class="gallery-navigation-create" title="Добавить изображения">
+		Добавить
+	</a>
+<% end %>
+
+<div class="picture-container" id="links">
+	<div class="album-header">
+		<% if @album.pictures.any? %>
+			<h1 class="album-header-title"><%=@album.name%></h1>
+		<% else %>
+			<h1 class="album-header-title">В этом альбоме пока нет фотографий</h1>
+		<% end %>
+	</div>
+
+	<div class="album-pictures">
+		<div class="col-lg-9">
+			<% @album.pictures.all.each do |picture| %>
+				<%= render 'photo', album: @album, picture: picture %>
+			<% end %>
+		</div>
+		<div class="col-lg-3 album-description">
+			<%= @album.description %>
+		</div>
+	</div>
+</div>

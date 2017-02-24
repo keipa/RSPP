@@ -1,10 +1,19 @@
 <div class="container gallery">
 
-	<%= render 'galleries_routes' %>
-	<%= render 'galleries_nav', type: @gallery.type_gallery %>
+  <%= render 'galleries_nav', type: @gallery.gallery_type %>
+  <% if can? :manage, @gallery %>
+    <div class="col-lg-12 new-album-button">
+      <%= link_to new_gallery_album_path(@gallery.smart_id),
+        title: "Создать альбом" do %>
+        Добавить альбом
+      <% end %>
+    </div>
+  <% end %>
 
 
 	<div class="gallery-body">
-		<%= render 'albums' %>
+    <% @gallery.albums.each do |album| %>
+		  <%= render 'album', album: album %>
+    <% end %>
 	</div>
 </div>

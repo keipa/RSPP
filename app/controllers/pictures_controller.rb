@@ -12,6 +12,7 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture.destroy
+    redirect_to gallery_album_path(params[:gallery_id], params[:album_id])
   end
 
   private
