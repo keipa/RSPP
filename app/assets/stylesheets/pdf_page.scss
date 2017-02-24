@@ -1,5 +1,8 @@
 @import "variables";
-$background-form-page: $site-background-color;
+$background-form-page: #ffffff;
+$btn-border-color: rgba(84, 86, 88, 1);
+$btn-text-color: #FFFFFF;
+$btn-background-color: rgba(81, 156, 255, 1);
 @media (max-width: 970px) {
 	.form-container {
 		width: 100% !important;
@@ -31,8 +34,18 @@ $background-form-page: $site-background-color;
 	.final-page-pdf {
 		text-align: center;
 
+		&-header {
+			h2 {
+				font-family: Roboto Regular;
+			}
+
+			h3 {
+				font-family: Roboto Light;
+			}
+		}
+
 		&-content {
-			margin-top: 30%;
+			margin-top: 10%;
 		}
 	}
 
@@ -43,43 +56,22 @@ $background-form-page: $site-background-color;
 
 	.btn-download {
 		display: inline-block;
-		text-shadow: 1px 1px #fff;
 		text-decoration: none !important;
 		font-size: 2.6rem;
-		width: 300px;
+		min-width: 30rem;
 		padding: 0.3em 1em;
 		border: 1px solid #aaa;
 		border-radius: 100px;
+		color: $btn-text-color;
+		font-family: Roboto Regular;
 		outline: none;
-		background: #d6dbbf no-repeat;
-		background-image: linear-gradient(to left, #aaa, #aaa), linear-gradient(to left, #feffe8, #feffe8), linear-gradient(#feffe8, #d6dbbf);
+		background: $btn-background-color;
 		background-position: calc(100% - 2.7em) 0, calc(100% - 2.7em + 1px) 0, 0 0;
-		background-size: 1px 100%, 1px 100%, auto auto;
 		overflow: hidden;
 	}
 
-	.btn-download:after {
-		content: "\bb";
-		position: relative;
-		bottom: 0;
-		display: inline-block;
-		margin-left: 85px;
-		vertical-align: middle;
-		font-family: "Times","Times New Roman","serif","sans-serif","EmojiSymbols";
-		font-weight: 700;
-		font-size: 140%;
-		-webkit-transform: rotate(90deg);
-		transform: rotate(90deg);
-	}
-
 	.btn-download:hover {
-		background-color: #fdfd9f;
-		background-image: linear-gradient(to left, #aaa, #aaa), linear-gradient(to left, #feffe8, #feffe8), linear-gradient(#fffce7, #fdfd9f);
-	}
-
-	.btn-download:active:after {
-		bottom: -1.2em;
-		transition: 0.3s;
+		background-color: lighten($btn-background-color, 2%);
 	}
 
 	input {
