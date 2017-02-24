@@ -17,7 +17,7 @@
 				</div>
 
 				<div class="description-body active-template">
-					<%= raw @topic.description %>
+					<%= @topic.description.html_safe %>
 				</div>
 
 				<% if can? :manage, Topic %>

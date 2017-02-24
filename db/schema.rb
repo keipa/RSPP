@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170224122528) do
 
   create_table "galleries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "type_gallery"
+    t.string   "gallery_type"
     t.string   "smart_id"
     t.string   "link"
     t.datetime "created_at",   null: false
