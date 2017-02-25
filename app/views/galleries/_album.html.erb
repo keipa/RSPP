@@ -21,7 +21,7 @@
 				</div>
 			<% else %>
 				<div class="description-text">
-					<%= album.description %>
+					<%= album.description.chars.first(70).join %><%= '...' if album.description.chars.length > 70 %>
 				</div>
 			<% end %>
 		</div>

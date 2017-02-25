@@ -3,7 +3,7 @@ $business-news-title-text-color: #FFFFFF;
 $business-news-title-tr-color: #3668A9;
 $more-btn-text-color: #FFFFFF;
 
-.business-news-container {
+.business-news-container, .mass-media-news-container {
   margin-top: 2rem;
   padding: 0;
 	overflow: hidden; // Can be removed?
