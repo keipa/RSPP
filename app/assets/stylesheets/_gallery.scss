@@ -1,5 +1,3 @@
-@import "variables";
-
 $gallery-navigation-background-color-active: #519CFF;
 $gallery-navigation-background-color: #ffffff;
 $gallery-navigation-text-color: #519CFF;
@@ -139,6 +137,7 @@ textarea {
 					.description-text {
 						color: #FFFFFF;
 						font-size: 1.3rem;
+						line-height: 1.5rem;
 					}
 				}
 

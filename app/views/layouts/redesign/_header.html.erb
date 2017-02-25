@@ -20,7 +20,7 @@
             <%= current_user.name %>
           </div>
           <div class="user-actions">
-            <%= link_to "Кабинет", admin_path(:rspp_news) if current_user.has_role? "admin" %>
+            <%= link_to "Кабинет", admin_path(:rspp_news) if current_user.admin? %>
             <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
           </div>
         </div>

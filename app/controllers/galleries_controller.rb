@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery, except: [:create, :new, :index]
+  before_action :set_gallery, except: [:create, :new, :show]
 
   def show
     @galleries = Gallery.all

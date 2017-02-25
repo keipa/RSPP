@@ -1,40 +1,48 @@
-<div class="container-fluid gallery-page">
-	<div class="new-gallery">
-		<div class="gallery-page-header">
-			<h1>Редактирование видео</h1>
+<div class="container">
+	<%= render 'galleries/galleries_nav', type: @gallery.gallery_type %>
+	<div class="edit-video">
+		<div class="edit-video-header">
+			<h1>Редактировать видео</h1>
 		</div>
-		<%= form_for(:video, url: "#{@gallery.link}/albums/#{@album.id}/videos/#{@video.id}", method: :patch) do |f| %>
-		<div class="container form-content">
+		<%= form_for @video,
+			url: gallery_album_video_path(@gallery.smart_id, @album.id, @video) do |f| %>
 			<div class="col-md-8 col-md-offset-2">
 				<div class="name-field">
 					<h2>
-						Заголовок видео:
+						Вставьте ссылку на видео с YouTube:
 					</h2>
-					<%= f.text_field :title, autocomplete: "off", placeholder: "Заголовок видео...", value: @video.title %>
+					<%= f.text_field :youtube_link,
+						placeholder: "https://www.youtube.com/watch?v=abcdefghjkl",
+						class: "form-input" %>
 				</div>
-				<div class="name-field">
+				<div class="description-field">
 					<h2>
-						Описание видео:
+						Описание к видео:
 					</h2>
-					<%= f.text_field :description, autocomplete: "off", placeholder: "Описание видео...", value: @video.description %>
+					<%= f.text_area :description,
+						autocomplete: "off",
+						placeholder: "Описание видео...",
+						class: "form-input" %>
 				</div>
-				<div class="choose-field">
-					<h2>
-						Выберите тип видео:
-					</h2>
-					<div class="radio">
-						<label><%= f.radio_button :type_video, 'interview', :checked => true %>Интервью</label>
+				<div class="options-list">
+					<div class="option">
+						<%= f.radio_button :video_type, "meeting", id: "meeting" %>
+						<label for="meeting">Мероприятие</label>
+						<!-- For checkbox styling -->
+						<div class="check"><div class="inside"></div></div>
 					</div>
-					<div class="radio">
-						<label><%= f.radio_button :type_video, 'meeting'%>Мероприятие</label>
+					<div class="option">
+						<%= f.radio_button :video_type, "interview", id: "interview" %>
+						<label for="interview">Интервью</label>
+						<!-- For checkbox styling -->
+						<div class="check"><div class="inside"></div></div>
 					</div>
 				</div>
 			</div>
-			<div class="btn-group col-md-4 col-md-offset-4">
-				<button type="submit" class="btn btn-success">Сохаранить</button>
-				<%= link_to 'Назад',:back, class: "btn btn-info" %>
+			<div class="actions col-lg-4 col-lg-offset-4 text-center">
+				<%= f.submit "Сохранить", class: "create-btn" %>
+				<%= link_to 'Назад', gallery_album_path(@gallery.smart_id, @album.id), class: "back-btn" %>
 			</div>
-		</div>
 		<% end %>
 	</div>
 </div>

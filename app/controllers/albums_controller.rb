@@ -1,13 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :set_gallery
-  before_action :set_album, except: [:create, :new, :show]
+  before_action :set_album, except: [:create, :new]
   skip_before_action :verify_authenticity_token, only: [:create, :update, :edit]
-
-  def show
-    @album = @gallery.albums.find(params[:id])
-    @videos =  @album.videos.includes(:comments)
-      .paginate(page: params[:page], per_page: 7).order(created_at: :desc)
-  end
 
   def new
     @album = Album.new
@@ -28,18 +22,18 @@ class AlbumsController < ApplicationController
 
   def destroy
     @album.destroy
-    redirect_to @gallery.link
+    redirect_to gallery_path(@gallery.smart_id)
   end
 
   private
 
   def set_gallery
-    @gallery = Gallery.find_by(smart_id: params[:gallery_id])
-    @galleries = Gallery.all
+    @gallery = Gallery.includes(:albums).find_by(smart_id: params[:gallery_id])
+    @galleries = Gallery.includes(:albums).all
   end
 
   def set_album
-    @album = @gallery.albums.find(params[:id])
+    @album = @gallery.albums.includes(videos: [:comments]).find(params[:id])
   end
 
   def album_params

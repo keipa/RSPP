@@ -10,7 +10,6 @@ gem 'cloudinary'
 
 gem 'cancancan'
 gem "rolify" # will be removed
-gem 'Bootstrap-Image-Gallery-rails'
 
 gem 'acts_as_commentable'
 

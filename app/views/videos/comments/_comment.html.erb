@@ -1,27 +1,12 @@
-<li class="list-group-item">
-    <div class="row">
-        <div class="col-xs-10 col-md-11">
-            <div>
-                <div class="mic-info">
-                    Автор:
-                    <span class="comment-author"><%= comment.user_name %></span>
-                    <span class="comment-date"><%= comment.created_at.strftime("%d-%m-%Y") %></span>
-										<% if can? :destroy, comment %>
-				            <div class="comment-destroy">
-				              <%= link_to [@commentable, comment],
-				               :method => :delete,
-				               :remote => true, class: "btn btn-default btn-xs" do %>
-				                <span class="glyphicon glyphicon-trash"></span>
-				               <% end %>
-				            </div>
-				            <% end %>
-                </div>
-
-            </div>
-            <div class="comment-text">
-                <%= comment.comment %>
-            </div>
-
-        </div>
-    </div>
+<li class="list-group-item single-comment">
+  <div>
+    <span class="comment-author"><%= comment.user_name %></span>
+    <span class="pull-right">
+      <%= link_to "Удалить", video_comment_path(comment.commentable, comment), method: :delete, remote: true %>
+    </span>
+  </div>
+  <div class="comment-text">
+      <%= comment.comment %>
+  </div>
+  <span class="comment-date"><%= comment.created_at.strftime("%d-%m-%Y") %></span>
 </li>

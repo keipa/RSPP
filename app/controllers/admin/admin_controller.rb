@@ -7,7 +7,7 @@ class Admin::AdminController < ApplicationController
 
   def only_admin_user
     user = current_user || User.new
-    unless user.has_role? :admin
+    unless user.admin?
       redirect_to root_path
     end
   end

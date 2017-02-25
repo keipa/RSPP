@@ -1,0 +1,30 @@
+<div class="video-item">
+  <div class="actions">
+    <% if can? :manage, Video %>
+      <div class="edit-video-link">
+        <%= link_to "Редактировать",
+          edit_gallery_album_video_path(@gallery.smart_id, @album, video) %>
+      </div>
+      <div class="delete-video-link">
+        <%= link_to "Удалить",
+          gallery_album_video_path(@gallery.smart_id, @album, video),
+          method: :delete %>
+      </div>
+    <% end %>
+  </div>
+
+  <iframe src="<%=video.iframe_link%>" frameborder="0" width="100%" height="400" allowfullscreen></iframe>
+
+  <% if video.video_type %>
+    <div class="type-video">
+      <%= 'Интервью' if video.video_type == 'interview' %>
+      <%= 'Мероприятие' if video.video_type == 'meeting' %>
+    </div>
+  <% end %>
+
+  <% if video.description.present? %>
+    <div class="video-description-block">
+      <%= video.description %>
+    </div>
+  <% end %>
+</div>

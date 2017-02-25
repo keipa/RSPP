@@ -1,0 +1,62 @@
+.new-video, .edit-video {
+  margin-top: 7rem;
+
+  &-header {
+    text-align: center;
+    padding-bottom: 4rem;
+    position: relative;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15%;
+      border-bottom: 1px solid #333333;
+    }
+  }
+
+  form {
+
+    .options-list {
+      font-size: 1.4rem;
+    }
+
+    .actions {
+      margin-top: 2rem;
+
+      .create-btn {
+        padding: 1rem 1.5rem;
+        background: #519cff;
+        color: #FFFFFF;
+        border: none;
+        font-size: 1.5rem;
+        transition: 0.2s;
+
+        &:hover {
+          background: darken(#519cff, 10%);
+        }
+      }
+
+      .back-btn {
+        padding: 1rem 1.5rem;
+        border: 1px solid #519cff;
+        color: #519cff;
+        font-size: 1.5rem;
+        transition: 0.2s;
+        text-decoration: none;
+        transition: 0.2s;
+
+        &:hover {
+          border-color: darken(#519cff, 10%);
+          color: darken(#519cff, 10%);
+        }
+      }
+    }
+  }
+}

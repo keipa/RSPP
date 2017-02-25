@@ -5,9 +5,9 @@ class CreateVideos < ActiveRecord::Migration[5.0]
       t.string :iframe_link
       t.string :video_id
       t.string :title
-      t.string :description
+      t.text :description
       t.string :published_at
-      t.string :type_video
+      t.string :video_type
       t.references :album, foreign_key: true
 
       t.timestamps

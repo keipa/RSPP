@@ -7,14 +7,19 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new video_params
-    @video.album_id = @album.id
-    @video.save
+    iframe_link =
+      "https://www.youtube.com/embed/#{video_params[:youtube_link].split('=').last}"
+    @album.videos.create(video_params.merge(iframe_link: iframe_link))
+    redirect_to gallery_album_path(@gallery.smart_id, @album)
+  end
+
+  def edit
+    @video = Video.find(params[:id])
   end
 
   def update
     @video.update(video_params)
-		redirect_to "#{@gallery.link}/albums/#{@album.id}"
+		redirect_to gallery_album_path(@gallery.smart_id, @album)
   end
 
   def destroy
@@ -32,12 +37,13 @@ class VideosController < ApplicationController
       :description,
       :video_id,
       :published_at,
-      :type_video
+      :video_type
     )
   end
 
   def set_album_and_gallery
     @gallery = Gallery.find_by('smart_id' => params[:gallery_id])
+    @galleries = Gallery.all
     @album = @gallery.albums.find(params[:album_id])
   end
 

@@ -16,9 +16,7 @@
 //= require jquery-ui
 //= require spin
 //= require jquery.spin
-//= require blueimp-gallery
-//= require jquery.blueimp-gallery
 //= require jquery.slick
 //= require turbolinks
 //= require ckeditor/init
-//= require_tree .
+//require_tree .

@@ -23,18 +23,6 @@
 
 	form {
 
-		h2 {
-			font-size: 2rem;
-		}
-
-		.form-input {
-			padding: 8px;
-			outline: none;
-			border: 1px solid #B0CFE0;
-			font-size: 1.8rem;
-			width: 100%;
-		}
-
 		.actions {
 			margin-top: 2rem;
 
@@ -71,7 +59,7 @@
 
 .album {
 
-	.new-photo-button {
+	.new-item-button {
 		text-align: center;
 		position: relative;
 		top: 5rem;
@@ -104,17 +92,131 @@
 		}
 	}
 
-	.picture-container {
-		margin-top: 5rem;
+	.picture-container, .video-container {
+		margin-top: 11rem;
 	}
 
-	&-pictures {
+	.video-container {
+
+		.video-block, .comments-block {
+			padding: 0;
+			margin-bottom: 5rem;
+
+			.video-item {
+
+				.type-video {
+					border: 1px solid black;
+					display: inline-block;
+					background-color: #333333;
+					color: #FFFFFF;
+					font-size: 1.5rem;
+					font-family: 'Roboto Light', Helvetica;
+					padding: 0.5rem 1rem;
+					margin-bottom: 0.5rem;
+					margin-top: 0.1rem;
+				}
+
+				.actions {
+					height: 2.45rem;
+					float: right;
+
+					.delete-video-link {
+						display: inline-block;
+
+						a {
+							color: #FFFFFF;
+							background: #D91720;
+							font-size: 1.5rem;
+							padding: 0.4rem 1rem 0.4rem 1rem;
+						}
+					}
+
+					.edit-video-link {
+						display: inline-block;
+
+						a {
+							color: #FFFFFF;
+							background: #519cff;
+							font-size: 1.5rem;
+							padding: 0.4rem 1rem 0.4rem 1rem;
+						}
+					}
+				}
+
+				.video-description-block {
+					font-size: 1.3rem;
+					padding: 1rem;
+					border: 1px solid #333333;
+				}
+			}
+		}
+
+		.comments-block {
+			padding-top: 1.5rem;
+
+			.comments-content {
+				max-height: 33.5rem;
+				padding-left: 1rem;
+				overflow-y: auto;
+
+				.single-comment {
+					margin-bottom: 1rem;
+					border: none;
+
+					.comment-author {
+						font-size: 1.5rem;
+						font-family: Helvetica;
+						font-weight: bold;
+					}
+
+					.comment-text {
+						padding: 0.5rem;
+					}
+				}
+			}
+
+			form {
+				padding-left: 2rem;
+
+				.form-input {
+					font-size: 1.3rem;
+				}
+
+				.actions {
+					margin-top: 0.5rem;
+
+					.create-btn {
+		        padding: 0.5rem 1rem;
+		        background: #519cff;
+		        color: #FFFFFF;
+		        border: none;
+		        font-size: 1.3rem;
+		        transition: 0.2s;
+		        float: right;
+
+		        &:hover {
+		          background: darken(#519cff, 10%);
+		        }
+		      }
+				}
+			}
+		}
+	}
+
+	&-content {
 
 		.album-description {
 			padding-right: 0;
 			padding-left: 2.5rem;
 			font-size: 1.8rem;
 			font-family: 'PT Sans', Helvetica;
+			margin-bottom: 5rem;
+
+			// if we centering text than our block is full-width, so remove
+			// some paddings
+			&.text-center {
+				padding: 0;
+			}
 		}
 
 		&-item {
