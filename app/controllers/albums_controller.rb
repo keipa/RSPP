@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_gallery
-  before_action :set_album, except: [:create, :new]
+	before_action :set_album, except: [:create, :new]
   skip_before_action :verify_authenticity_token, only: [:create, :update, :edit]
 
   def new
@@ -29,7 +29,7 @@ class AlbumsController < ApplicationController
 
   def set_gallery
     @gallery = Gallery.includes(:albums).find_by(smart_id: params[:gallery_id])
-    @galleries = Gallery.includes(:albums).all
+		@galleries = Gallery.all
   end
 
   def set_album

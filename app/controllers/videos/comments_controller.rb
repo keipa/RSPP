@@ -4,7 +4,7 @@ class Videos::CommentsController < CommentsController
   private
 
   def set_commentable
-    @commentable = Video.find(params[:video_id])
+    @commentable = Video.includes(:comments).find(params[:video_id])
   end
 
 end

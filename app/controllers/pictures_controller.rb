@@ -30,7 +30,7 @@ class PicturesController < ApplicationController
   end
 
   def set_album_and_gallery
-    @gallery = Gallery.find_by(smart_id: params[:gallery_id])
+    @gallery = Gallery.includes(:albums).find_by(smart_id: params[:gallery_id])
     @galleries = Gallery.all
     @album = @gallery.albums.find(params[:album_id])
   end

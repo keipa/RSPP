@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
 
   def show
     @galleries = Gallery.all
-		@gallery = Gallery.find_by(gallery_type: params[:gallery_type])
+		@gallery = Gallery.includes(:albums).find_by(gallery_type: params[:gallery_type])
   end
 
   def update
@@ -23,6 +23,6 @@ class GalleriesController < ApplicationController
   end
 
   def set_gallery
-    @gallery = Gallery.find_by(smart_id: params[:id])
+    @gallery = Gallery.includes(:albums).find_by(smart_id: params[:id])
   end
 end

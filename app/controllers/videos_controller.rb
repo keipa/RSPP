@@ -14,7 +14,7 @@ class VideosController < ApplicationController
   end
 
   def edit
-    @video = Video.find(params[:id])
+    @video = Video.includes(:comments).find(params[:id])
   end
 
   def update
@@ -42,8 +42,8 @@ class VideosController < ApplicationController
   end
 
   def set_album_and_gallery
-    @gallery = Gallery.find_by('smart_id' => params[:gallery_id])
     @galleries = Gallery.all
+		@gallery = @galleries.find_by('smart_id' => params[:gallery_id])
     @album = @gallery.albums.find(params[:album_id])
   end
 
