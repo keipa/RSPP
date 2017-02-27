@@ -26,3 +26,4 @@
 //= require yandex_maps
 //= require survey
 // require_tree .
+

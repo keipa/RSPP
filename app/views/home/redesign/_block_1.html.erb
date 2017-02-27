@@ -1,7 +1,9 @@
 <div class="block-1">
-	<div class="col-md-6 main-video-container">
-		<div class="main-video">
-			<iframe src="<%= @videos.first&.iframe_link %>" height="100%" width="100%" frameborder="0" allowfullscreen></iframe>
+	<div class="video-block">
+		<div class="col-md-6 main-video-container">
+			<div class="main-video">
+				<iframe src="<%= @videos.first&.iframe_link %>" height="100%" width="100%" class="main-video-iframe" frameborder="0" allowfullscreen></iframe>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-2 video-previews">
