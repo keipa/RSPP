@@ -19,5 +19,10 @@
 //= require jquery.slick
 //= require turbolinks
 //= require ckeditor/init
+
+// project js
+//= require home_page
 //= require yandex_maps
+
+
 //require_tree .

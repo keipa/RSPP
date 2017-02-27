@@ -9,20 +9,35 @@
 		<% @rspp_news.each do |post| %>
 
 			<div class="news-rspp-body-item">
-				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 img-container">
-					<img src="img_chania.jpg" alt="">
-				</div>
-				<div class="item-description col-lg-9 col-md-8 col-sm-8 col-xs-8">
-					<div class="item-title">
-						<%= post.title %>
+				<% if post.image.present? %>
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 img-container">
+						<%= image_tag post.image&.url %>
 					</div>
-					<div class="item-text">
-						<%= post.description %>
+
+					<div class="item-description col-lg-9 col-md-8 col-sm-8 col-xs-8">
+						<div class="item-title">
+							<%= post.title %>
+						</div>
+						<div class="item-text">
+							<%= post.description %>
+						</div>
+						<div class="more-btn">
+							<%= link_to "Читать далее", news_post_path(post), class: "link-more" %>
+						</div>
 					</div>
-					<div class="more-btn">
-						<%= link_to "Читать далее", news_post_path(post), class: "link-more" %>
+				<% else %>
+					<div class="item-description col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="item-title">
+							<%= post.title %>
+						</div>
+						<div class="item-text">
+							<%= post.description %>
+						</div>
+						<div class="more-btn">
+							<%= link_to "Читать далее", news_post_path(post), class: "link-more" %>
+						</div>
 					</div>
-				</div>
+				<% end %>
 			</div>
 		<% end %>
 

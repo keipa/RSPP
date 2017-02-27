@@ -1,5 +1,6 @@
 @import "Roboto";
 @import "PT_Sans";
+@import "EB_Garamond";
 @import "devise";
 @import "_header";
 @import "_block1";
@@ -11,6 +12,12 @@
 @import "_gallery";
 @import "_albums";
 @import "_videos";
+@import "_partners";
+@import "_kaminari";
+@import "_admin_news_posts";
+
+// libraries
+@import "slick";
 
 
 body {

@@ -1,0 +1,17 @@
+.pagination {
+  font-size: 1.7rem;
+
+  .next, .prev {
+    font-size: 1.3rem;
+  }
+
+  .page {
+    display: inline-block;
+    padding: 0.4rem 1rem 0.4rem 0.9rem;
+  }
+
+  .current {
+    background: #519cff;
+    color: #FFFFFF;
+  }
+}

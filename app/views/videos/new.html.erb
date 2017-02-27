@@ -13,7 +13,9 @@
 					</h2>
 					<%= f.text_field :youtube_link,
 						placeholder: "https://www.youtube.com/watch?v=abcdefghjkl",
-						class: "form-input" %>
+						class: "form-input",
+						required: true,
+						pattern: "(https?)://(www.)?youtube.com/watch[?]v=(.{8,14})" %>
 				</div>
 				<div class="description-field">
 					<h2>
@@ -26,7 +28,7 @@
 				</div>
 				<div class="options-list">
 					<div class="option">
-						<%= f.radio_button :video_type, "meeting", id: "meeting" %>
+						<%= f.radio_button :video_type, "meeting", id: "meeting", checked: true %>
 						<label for="meeting">Мероприятие</label>
 						<!-- For checkbox styling -->
 						<div class="check"><div class="inside"></div></div>
