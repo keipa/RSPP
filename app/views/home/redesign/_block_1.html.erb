@@ -2,16 +2,18 @@
 	<div class="video-block">
 		<div class="col-md-6 main-video-container">
 			<div class="main-video">
-				 <iframe src="https://www.youtube.com/embed/Tp0GTdXwxMw" class="main-video-iframe" allowfullscreen frameborder="0" width="100%" height="100%"></iframe>
+				<iframe src="<%= @videos.first&.iframe_link %>" height="100%" width="100%" class="main-video-iframe" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 		<div class="col-md-2 video-previews">
 			<div class="col-md-12">
+				<% if @videos.any? %>
+				<% @videos[1..3].each do |video| %>
 				<div class="video-previews-item col-md-12 col-sm-4">
-					 <iframe src="https://www.youtube.com/embed/X_F0_OO_JIw" class="video-iframe" allowfullscreen frameborder="0" width="100%" height="100%"></iframe>
-					  <iframe src="https://www.youtube.com/embed/Tp0GTdXwxMw" class="video-iframe" allowfullscreen frameborder="0" width="100%" height="100%"></iframe>
-						 <iframe src="https://www.youtube.com/embed/Tp0GTdXwxMw" class="video-iframe" allowfullscreen frameborder="0" width="100%" height="100%"></iframe>
+					<iframe src="<%= video&.iframe_link %>" height="100%" width="100%" class="video-iframe" frameborder="0" allowfullscreen></iframe>
 				</div>
+				<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>
