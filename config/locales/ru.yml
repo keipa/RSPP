@@ -9,7 +9,7 @@ ru:
     abbr_day_names: [Вск, Пн, Вт, Ср, Чт, Пт, Сб]
 
     month_names: [~, Января, Февраля, Марта, Апреля, Мая, Июня, Июля, Августа, Сентября, Октября, Ноября, Декабря]
-    
+
     # Used in date_select and datetime_select.
     order:
       - day
@@ -96,3 +96,11 @@ ru:
               blank: "Необходимо ввести имя"
             last_name:
               blank: "Необходимо ввести фамилию"
+
+  views:
+    pagination:
+      first: "Первая"
+      last: "Последняя"
+      previous: "Предыдущая"
+      next: "Следующая"
+      truncate: "&hellip;"

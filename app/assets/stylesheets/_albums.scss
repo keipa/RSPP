@@ -147,6 +147,7 @@
 					font-size: 1.3rem;
 					padding: 1rem;
 					border: 1px solid #333333;
+					word-wrap: break-word;
 				}
 			}
 		}
@@ -169,10 +170,21 @@
 						font-weight: bold;
 					}
 
+					.delete-comment-link {
+						font-size: 1.4rem;
+					}
+
 					.comment-text {
 						padding: 0.5rem;
+						font-size: 1.5rem;
+						word-wrap: break-word;
 					}
 				}
+			}
+
+			.no-create-field {
+				max-height: 40rem;
+				margin-top: -1.5rem;
 			}
 
 			form {

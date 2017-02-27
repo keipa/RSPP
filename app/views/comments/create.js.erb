@@ -1,3 +1,4 @@
 $(".for-" + "<%= @commentable.class.to_s.downcase %>" + "-" + "<%= @commentable.id %>")
-  .html("<%= escape_javascript render (@commentable.comments.order(created_at: :desc)) %>");
+  .html("<%= escape_javascript render (@commentable.comments) %>")
+$(".form-input").val("")
 console.log("comment added")

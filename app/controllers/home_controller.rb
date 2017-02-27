@@ -1,13 +1,12 @@
 class HomeController < ApplicationController
   def index
-    # I18n.locale = :ru
     @rspp_news = NewsPost.all.where(post_type: :rspp)
       .order(created_at: :desc).limit(2)
     @business_news = NewsPost.all.where(post_type: :business)
       .order(created_at: :desc).limit(2)
     @mass_media_news = NewsPost.all.where(post_type: :mass_media)
       .order(created_at: :desc).limit(3)
-    @videos = Video.all.where(video_type: 'interview')
+    @videos = Video.all.where(video_type: 'meeting')
       .order(created_at: :desc).limit(4)
     # @partners = Partner.all
     @survey = Survey.all.where(closed: false).first
