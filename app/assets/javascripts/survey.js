@@ -165,6 +165,7 @@ $(document).on('turbolinks:load', function() {
 	////////// CREATE SURVEY BUTTON IN ADMIN /////////
 
 	$('#btn-create-survey').click(function() {
+		console.log("BUTTON CLICKED")
 		var valFromOptions = getOptionsVals();
 		var titleSurvey = $('#survey-title-input').val().trim();
 		if (valFromOptions.length == 0) {
@@ -175,6 +176,7 @@ $(document).on('turbolinks:load', function() {
 			alertMessage('warning', 'Некорректное название опроса', $('#btn-create-survey'))
 			return;
 		}
+		console.log("EVERYTHING IS OK")
 		var json = {
 			survey: {
 				title: titleSurvey,
@@ -186,6 +188,7 @@ $(document).on('turbolinks:load', function() {
 		}
 		var controllerPOST = $('#btn-create-survey').attr('data-controller');
 		throughAJAX(json, controllerPOST, "POST", function() {
+			console.log("AJAX SENT")
 			window.location.reload()
 		})
 	})
