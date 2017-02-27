@@ -4,6 +4,12 @@ $news-navigation-list-item-text: #519cff;
 .news-container {
 	margin-bottom: 4rem;
 
+
+	&-body {
+
+	}
+
+
 	.news-navigation {
 		text-align: center;
 		margin-bottom: 4rem;
@@ -29,6 +35,7 @@ $news-navigation-list-item-text: #519cff;
 				cursor: pointer;
 				text-align: center;
 				display: inline-block;
+				margin-top: 2rem;
 
 				a {
 					font-family: Roboto Regular;

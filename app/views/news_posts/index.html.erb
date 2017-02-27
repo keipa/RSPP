@@ -1,9 +1,13 @@
 <div class="news-container container">
 
-	<%= render 'news_navigation', active: @active_news %>
+	<!-- news_post do |news_post| -->
 
-	 <!-- news_post do |news_post| -->
-	 <% 10.times do |news_post| %>
-	 <%= render 'news', post: news_post %>
-	<% end %>
+	<div class="news-container-body col-md-9">
+		<% 10.times do |news_post| %>
+		<%= render 'news', post: news_post %>
+		<% end %>
+	</div>
+	<div class="col-md-3">
+		<%= render 'news_navigation', active: @active_news %>
+	</div>
 </div>
