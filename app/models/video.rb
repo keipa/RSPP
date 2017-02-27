@@ -15,7 +15,7 @@ class Video < ApplicationRecord
   acts_as_commentable
 
   def create_iframe_link
-    video_hash = youtube_link.match(YOUTUBE_VIDEO_REGEX)[2]
+    video_hash = youtube_link.match(YOUTUBE_VIDEO_REGEX)[3]
     self.iframe_link = "https://www.youtube.com/embed/#{video_hash}"
   end
 end

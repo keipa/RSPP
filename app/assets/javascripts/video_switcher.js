@@ -15,10 +15,12 @@ $(document).on('turbolinks:load', function() {
 	$(window).focusout(function() {
 		if (iframeMouseOver) {
 			swapVideoSrc();
+			$(window).focus();
 		}
 	});
 
-	$('.video-iframe').on('mouseover', function(e) {
+	$('.video-iframe').mouseover(function(e) {
+		$(window).focus();
 		iframeMouseOver = true;
 		target = $(e.target);
 	});

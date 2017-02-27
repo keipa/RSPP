@@ -1,6 +1,6 @@
 <div class="picture-container">
 	<div class="album-header">
-		<% if @pictures.any? %>
+		<% if @pictures %>
 			<h1 class="album-header-title"><%= @album.name %></h1>
 		<% else %>
 			<h1 class="album-header-title">В этом альбоме пока нет фотографий</h1>
@@ -9,7 +9,7 @@
 
 	<div class="album-content">
 		<div class="col-lg-9">
-			<% @pictures.each do |picture| %>
+			<% @pictures&.each do |picture| %>
 				<%= render 'photo', album: @album, picture: picture %>
 			<% end %>
 		</div>

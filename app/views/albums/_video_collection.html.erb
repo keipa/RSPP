@@ -1,6 +1,6 @@
 <div class="video-container">
 	<div class="album-header">
-		<% if @videos.any? %>
+		<% if @videos %>
 			<h1 class="album-header-title"><%= @album.name %></h1>
 		<% else %>
 			<h1 class="album-header-title">В этом альбоме пока нет видео</h1>
@@ -12,7 +12,7 @@
 			<%= @album.description %>
 		</div>
 
-		<% @videos.each do |video| %>
+		<% @videos&.each do |video| %>
 			<div class="col-lg-9 video-block">
 				<%= render 'video', album: @album, video: video %>
 			</div>
@@ -30,6 +30,6 @@
 		<% end %>
 	</div>
 	<div class="col-lg-9 text-center">
-		<%= paginate @videos %>
+		<%= paginate @videos if @videos %>
 	</div>
 </div>

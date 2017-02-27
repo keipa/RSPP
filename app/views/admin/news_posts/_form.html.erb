@@ -18,7 +18,7 @@
     <%= f.file_field :image %>
 
     <h2>Введите содержание новости:</h2>
-    <%= f.cktext_area :text, value: "О чем эта новость?" %>
+    <%= f.cktext_area :text %>
 
     <h2>Выберите раздел, в который следует поместить новость:</h2>
     <%= f.select(:post_type, options_for_select([
