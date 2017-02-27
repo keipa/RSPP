@@ -6,7 +6,7 @@
 	</div>
 	<div class="col-md-2 video-previews">
 		<div class="col-md-12">
-			<% @videos[1..3]&.each do |video| %>
+			<% @videos[1..3].each do |video| %>
 				<div class="video-previews-item col-md-12 col-sm-4">
 					<iframe src="<%= video&.iframe_link %>" height="100%" width="100%" frameborder="0" allowfullscreen></iframe>
 				</div>

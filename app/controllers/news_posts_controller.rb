@@ -1,12 +1,7 @@
 class NewsPostsController < ApplicationController
   def index
-			@active_news = params[:type]
-			if @active_news
-				@news_posts = NewsPost.all.where(post_type: params[:type])
-			else
-				@active_news = 'rspp'
-				@news_posts = NewsPost.all.where(post_type: :rspp)
-			end
+			@post_type = params[:type] || 'rspp'
+			@news_posts = NewsPost.all.where(post_type: @post_type)
   end
 
   def show

@@ -6,8 +6,6 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'pry'
 gem 'rubyzip'
 
-gem 'cloudinary'
-
 gem 'cancancan'
 gem "rolify" # will be removed
 
