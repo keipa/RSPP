@@ -37,21 +37,6 @@ $(document).on('turbolinks:load', function() {
 		container.find($('.result-list')).remove();
 	}
 
-	// function renderCommonBottom() {
-	// 	var container = $('.survey-content');
-	// 	$('.survey-content .survey-content-bottom').remove();
-	// 	var contentBottom = $('<div/>').addClass('survey-content-bottom')
-	// 	container.append(contentBottom);
-	// }
-	//
-	// function renderSurveyTotal() {
-	// 	var contentBottom = $('.survey-content-bottom')
-	// 	contentBottom.append($('<div/>').addClass('survey-total')
-	// 		.append('<div/>')
-	// 		.addClass('survey-total-count')
-	// 		.html('Проголосовали: <b>' + SURVEY.count_votes + '</b>'))
-	// }
-
 	////////QUESTIONS, WHEN USER NOT VOTE//////////////
 
 	function renderQuestions() {
@@ -113,7 +98,11 @@ $(document).on('turbolinks:load', function() {
 		var resultList = $('<div/>').addClass('result-list') /*clearContentfix*/
 		var totalCount = Number(SURVEY.count_votes);
 		for (var i = 0; i < SURVEY_QUESTIONS.length; i++) {
-			var percentCount = (SURVEY_QUESTIONS[i].count / totalCount) * 100;
+			if (totalCount == 0) {
+				var percentCount = 0;
+			} else {
+				var percentCount = (SURVEY_QUESTIONS[i].count / totalCount) * 100;
+			}
 			resultList
 				.append($('<div/>').addClass('survey-result')
 					.append($('<div/>').addClass('result-text')

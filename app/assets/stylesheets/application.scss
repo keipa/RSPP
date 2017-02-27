@@ -15,12 +15,10 @@
  * require blueimp-gallery-indicator
  * require blueimp-gallery-video
  *= require jquery-ui
- *= require_tree .
+ * require_tree .
  *= require_self
-
-
-
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "slick";
