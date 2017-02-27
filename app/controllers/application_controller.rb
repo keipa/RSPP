@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_topics
+  before_action :set_locale
 
   protected
 
@@ -14,5 +15,9 @@ class ApplicationController < ActionController::Base
 
   def set_topics
     @topics = Topic.all.where(subtopics: nil)
+  end
+
+  def set_locale
+    I18n.locale = :ru
   end
 end

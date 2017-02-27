@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function() {
 
-    $.getScript("https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU",function() {
+  $.getScript("https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU",
+    function() {
         var map;
         ymaps.ready(function(){
             map = new ymaps.Map("map", {
@@ -19,6 +20,6 @@ $(document).on('turbolinks:load', function() {
             // Добавление объекта на карту
             map.geoObjects.add(myPlacemark);
         });
-    });
+  });
 
 })

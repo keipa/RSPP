@@ -1,5 +1,5 @@
 <div class="container news-post-container">
-    <h1><%= @post.title %></h1>
+  <h1><%= @post.title %></h1>
 
     <hr>
 
@@ -14,33 +14,13 @@
     <% end %>
 
     <div class="news-post-content">
-        <% if @post.image_url.present? %>
-          <img id="loadedImage" src="<%= @post.image_url%>" class="news-post-image-container">
-        <% end %>
-        <div id="content" class="no-border"></div>
-
-        <p style="font-size: 16px;">
-            Опубликовал:
-            <%= @post.user.first_name %>
-            <%= @post.user.last_name %>
-        </p>
+      <%= @post.text.html_safe %>
     </div>
+
+     <p style="font-size: 16px;">
+          Опубликовал:
+          <%= @post.user.first_name %>
+          <%= @post.user.last_name %>
+      </p>
 </div>
 
-
-<script>
-  var quill = new Quill('#content', {
-    modules: {
-      toolbar: false
-    },
-    theme: 'snow',
-    readOnly: true
-  });
-  obj = "<%= @post.text.inspect %>".replace(/&quot;/g, '"')
-  if (obj.slice(0,1) == '"') {
-    content = JSON.parse(obj.slice(1,-1));
-  } else {
-    content = JSON.parse(obj);
-  }
-  quill.setContents(content.ops);
-</script>

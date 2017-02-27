@@ -17,7 +17,12 @@ class AlbumsController < ApplicationController
 		redirect_to @gallery.link
   end
 
-  def edit
+  def show
+    if @album.videos.any?
+      @videos = @album.videos.page(params[:page])
+    elsif @album.pictures.any?
+      @pictures = @album.pictures
+    end
   end
 
   def destroy

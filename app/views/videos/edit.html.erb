@@ -13,7 +13,9 @@
 					</h2>
 					<%= f.text_field :youtube_link,
 						placeholder: "https://www.youtube.com/watch?v=abcdefghjkl",
-						class: "form-input" %>
+						class: "form-input",
+						required: true,
+						pattern: "(https?)://(www.)?youtube.com/watch[?]v=(.{8,14})" %>
 				</div>
 				<div class="description-field">
 					<h2>

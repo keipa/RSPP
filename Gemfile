@@ -7,24 +7,23 @@ gem 'pry'
 gem 'rubyzip'
 
 gem 'cancancan'
-gem "rolify" # will be removed
 
 gem 'acts_as_commentable'
 
 gem 'jquery-ui-rails'
 
-gem 'jquery-slick-rails'
-gem 'jquery-turbolinks'
-gem 'will_paginate-bootstrap'
-
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+gem 'jquery-slick-rails'
 
 
 gem 'spinjs-rails'
 
 gem 'ckeditor'
 gem 'paperclip'
+
+gem 'kaminari'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
