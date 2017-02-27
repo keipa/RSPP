@@ -2,12 +2,10 @@ $news-header-height: 5rem;
 $news-header-color: rgba(84, 86, 88, 1);
 $news-header-text-color: #FFFFFF;
 $news-header-triangle-color: #2a2b2c;
-
 $survey-header-height: 5rem;
 $survey-header-color: rgba(81, 156, 255, 1);
 $survey-header-triangle-color: #3668a9;
 $survey-header-text-color: #FFFFFF;
-
 $appeal-back-color: rgba(84, 86, 88, 1);
 $appeal-button-background-color: #519CFF;
 
@@ -15,8 +13,7 @@ $appeal-button-background-color: #519CFF;
 	margin-top: 4rem;
 
 	.news-rspp {
-		padding: 0;
-		padding-right: 3rem;
+		padding: 0 3rem 0 0;
 
 		&-header {
 			height: $news-header-height;
@@ -174,80 +171,9 @@ $appeal-button-background-color: #519CFF;
 				}
 			}
 		}
-	.survey {
-			margin-top: 2rem;
-			position: relative;
-
-			&-header {
-				height: $survey-header-height;
-				background: $survey-header-color;
-				color: $survey-header-text-color;
-				width: 100%;
-				position: relative;
-
-				&:before {
-					content: "";
-					top: $survey-header-height;
-					position: absolute;
-					width: 0;
-					height: 0;
-					border-left: 1rem solid transparent;
-					border-bottom: 0.5rem solid transparent;
-					border-right: 0.8rem solid $survey-header-triangle-color;
-					border-top: 0.6rem solid $survey-header-triangle-color;
-				}
-
-				&:after {
-					content: "";
-					top: $survey-header-height;
-					right: 0;
-					position: absolute;
-					width: 0;
-					height: 0;
-					border-right: 1rem solid transparent;
-					border-bottom: 0.5rem solid transparent;
-					border-left: 0.8rem solid $survey-header-triangle-color;
-					border-top: 0.6rem solid $survey-header-triangle-color;
-				}
-
-				h2 {
-					position: relative;
-					padding-left: 2.5rem;
-					top: 50%;
-					transform: translateY(-50%);
-					margin: 0;
-					font-family: 'Roboto Light';
-				}
-			}
-
-			&-content {
-				padding: 0.5rem 2rem 1rem 2rem;
-				font-family: 'Roboto Light';
-				font-size: 1.4rem;
-
-				.question {
-					padding-left: 0.5rem;
-				}
-
-				.vote-btn {
-					position: relative;
-					top: 1rem;
-					font-family: 'Roboto Regular', sans-serif;
-					font-size: 1.6rem;
-					padding: 0.8rem 1.2rem;
-					color: #FFFFFF;
-					text-decoration: none;
-					background: linear-gradient(to bottom, #2481FB 0%, #519BFF 58%);
-					cursor: pointer;
-
-					&:hover {
-						background: linear-gradient(to bottom, lighten(#2481FB, 5%) 0%, lighten(#519BFF, 5%) 58%);
-					}
-				}
-			}
-		}
 	}
 }
+
 
 @media (max-width: 1199px) {
 	.block-2 {
@@ -257,7 +183,6 @@ $appeal-button-background-color: #519CFF;
 			&-body {
 
 				&-item {
-
 					.item-description {
 						padding-left: 2rem;
 					}
@@ -266,7 +191,6 @@ $appeal-button-background-color: #519CFF;
 		}
 	}
 }
-
 @media (max-width: 991px) {
 	.block-2 {
 
@@ -289,7 +213,7 @@ $appeal-button-background-color: #519CFF;
 
 				&-content {
 
-					.vote-btn-align{
+					.vote-btn-align {
 						text-align: center;
 
 						.vote-btn {
@@ -302,7 +226,6 @@ $appeal-button-background-color: #519CFF;
 		}
 	}
 }
-
 @media (max-width: 675px) {
 	.block-2 {
 
