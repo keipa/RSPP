@@ -132,7 +132,14 @@ $(document).on('turbolinks:load', function() {
 	}
 
 	function renderResultBottom() {
-
+		var resultList = $('.survey-content .result-list');
+		var bottom = $('<div/>').addClass('text-right')
+		var linkToDiscuss = $('<a/>')
+			.attr('href', '/surveys/' + SURVEY.id)
+			.addClass('link-discuss')
+			.text('Перейти к обсуждению')
+		bottom.append(linkToDiscuss);
+		resultList.append(bottom);
 	}
 
 
@@ -199,7 +206,7 @@ $(document).on('turbolinks:load', function() {
 	////////// FIELD FOR OPTION /////////
 
 	$('.survey-content-add-field').click(function() {
-		$('.survey-content').prepend(createOptionField());
+		$('.survey-content .survey-content-add-field').before(createOptionField());
 	})
 
 	$('.survey-content').click(function(e) {
