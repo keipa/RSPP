@@ -2,12 +2,10 @@ $news-header-height: 5rem;
 $news-header-color: rgba(84, 86, 88, 1);
 $news-header-text-color: #FFFFFF;
 $news-header-triangle-color: #2a2b2c;
-
 $survey-header-height: 5rem;
 $survey-header-color: rgba(81, 156, 255, 1);
 $survey-header-triangle-color: #3668a9;
 $survey-header-text-color: #FFFFFF;
-
 $appeal-back-color: rgba(84, 86, 88, 1);
 $appeal-button-background-color: #519CFF;
 
@@ -15,8 +13,7 @@ $appeal-button-background-color: #519CFF;
 	margin-top: 4rem;
 
 	.news-rspp {
-		padding: 0;
-		padding-right: 3rem;
+		padding: 0 3rem 0 0;
 
 		&-header {
 			height: $news-header-height;
@@ -170,9 +167,12 @@ $appeal-button-background-color: #519CFF;
 				}
 			}
 		}
-	.survey {
+
+		.survey {
 			margin-top: 2rem;
 			position: relative;
+
+			&-body {}
 
 			&-header {
 				height: $survey-header-height;
@@ -217,7 +217,7 @@ $appeal-button-background-color: #519CFF;
 			}
 
 			&-content {
-				padding: 0.5rem 2rem 1rem 2rem;
+				padding: 0.5rem 2rem 1rem;
 				font-family: 'Roboto Light';
 				font-size: 1.4rem;
 
@@ -244,16 +244,11 @@ $appeal-button-background-color: #519CFF;
 		}
 	}
 }
-
 @media (max-width: 1199px) {
 	.block-2 {
-
 		.news-rspp {
-
 			&-body {
-
 				&-item {
-
 					.item-description {
 						padding-left: 2rem;
 					}
@@ -262,10 +257,8 @@ $appeal-button-background-color: #519CFF;
 		}
 	}
 }
-
 @media (max-width: 991px) {
 	.block-2 {
-
 		.news-rspp {
 			padding-right: 0;
 
@@ -282,10 +275,8 @@ $appeal-button-background-color: #519CFF;
 			margin-top: 4rem;
 
 			.survey {
-
 				&-content {
-
-					.vote-btn-align{
+					.vote-btn-align {
 						text-align: center;
 
 						.vote-btn {
@@ -298,14 +289,10 @@ $appeal-button-background-color: #519CFF;
 		}
 	}
 }
-
 @media (max-width: 675px) {
 	.block-2 {
-
 		.news-rspp {
-
 			&-body {
-
 				&-item {
 					margin-bottom: 3.5rem;
 

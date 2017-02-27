@@ -85,7 +85,7 @@ $(document).on('turbolinks:load', function() {
 	}
 
 	function renderResults() {
-		$('.survey-comments').show();
+		// $('.survey-comments').show();
 		clearList();
 		renderResultBottom();
 		renderResultList();
@@ -140,7 +140,7 @@ $(document).on('turbolinks:load', function() {
 				users: SURVEY.users,
 				count_votes: SURVEY.count_votes,
 			}
-		}, controller, 'PUT')
+		}, controller, 'PATCH')
 		renderResults();
 	}
 

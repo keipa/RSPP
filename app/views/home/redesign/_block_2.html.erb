@@ -6,7 +6,7 @@
 
 		<div class="news-rspp-body">
 
-		<% @rspp_news.each do |post| %>
+			<% @rspp_news.each do |post| %>
 
 			<div class="news-rspp-body-item">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 img-container">
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 			</div>
-		<% end %>
+			<% end %>
 
 		</div>
 	</div>
@@ -41,36 +41,21 @@
 		</div>
 
 		<% if @survey %>
-	 		<div class="survey">
-				<div class="survey-header">
-					<h2>Опрос</h2>
+		<div class="survey">
+			<div class="survey-body">
+
+				<div class="survey-title">
+					<%= @survey.title %>
 				</div>
-				<div class="survey-content">
-					<div class="question">
-						<h4>Как повлияет правление Трампа на экономику Беларуси?</h4>
-					</div>
-					<div class="options-list">
-						<%= form_for @survey, url: vote_survey_path(@survey) do |f| %>
 
-							<% 4.times do |option| %>
-								<div class="option">
-									<%= f.radio_button :closed, option + 1, id: option + 1 %>
-									<label for="<%= option + 1 %>">Положительно</label>
-									<!-- For checkbox styling -->
-									<div class="check"><div class="inside"></div></div>
-								</div>
-							<% end %>
+				<% if user_signed_in? %>
+				<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="'<%= current_user.id %>"></div>
+			<% else %>
+				<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id=""></div>
+				<% end %>
 
-							<div class="text-right vote-btn-align">
-								<a onclick="$(this).closest('form').submit()" class="vote-btn">
-									Проголосовать
-								</a>
-							</div>
-
-						<% end %>
-					</div>
-				</div>
 			</div>
+		</div>
 		<% end %>
 	</div>
 </div>

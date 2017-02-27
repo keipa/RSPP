@@ -20,4 +20,4 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require yandex_maps
-//require_tree .
+//= require_tree .
