@@ -1,0 +1,35 @@
+<div class="video-container">
+	<div class="album-header">
+		<% if @videos.any? %>
+			<h1 class="album-header-title"><%= @album.name %></h1>
+		<% else %>
+			<h1 class="album-header-title">В этом альбоме пока нет видео</h1>
+		<% end %>
+	</div>
+
+	<div class="album-content">
+		<div class="col-lg-12 album-description text-center">
+			<%= @album.description %>
+		</div>
+
+		<% @videos.each do |video| %>
+			<div class="col-lg-9 video-block">
+				<%= render 'video', album: @album, video: video %>
+			</div>
+			<div class="col-lg-3 comments-block">
+				<% style = 'no-create-field' unless can? :create , Comment %>
+				<ul class="comments-content for-video-<%= video.id %> <%= style %>">
+			    <% video.comments.each do |comment| %>
+	    			<%= render 'videos/comments/comment', comment: comment %>
+	  			<% end %>
+  			</ul>
+  			<% if can? :create , Comment %>
+		    	<%= render 'comments/new_comment', commentable: video %>
+		    <% end %>
+			 </div>
+		<% end %>
+	</div>
+	<div class="col-lg-9 text-center">
+		<%= paginate @videos %>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+<%= form_for [:admin, @post], html: {class: "news-post-form"} do |f| %>
+  <div class="container news-post-container">
+    <h2>Введите заголовок:</h2>
+    <%= f.text_field :title,
+      autocomplete: "off",
+      placeholder: "Заголовок",
+      required: "true",
+      class: "form-input" %>
+
+    <h2>Введите краткое описание(не обязательно):</h2>
+      <%= f.text_area :description,
+        autocomplete: "off",
+        placeholder: "Краткое описание",
+        class: "form-input" %>
+
+    <h2>Основная картинка новости:</h2>
+    <%= image_tag @post.image.url %>
+    <%= f.file_field :image %>
+
+    <h2>Введите содержание новости:</h2>
+    <%= f.cktext_area :text, value: "О чем эта новость?" %>
+
+    <h2>Выберите раздел, в который следует поместить новость:</h2>
+    <%= f.select(:post_type, options_for_select([
+      ["Новости РСПП", :rspp],
+      ["Деловые новости", :business],
+      ["СМИ о нас", :mass_media]
+    ])) %>
+
+    <div class="actions text-center">
+      <%= f.submit "Добавить", class: "create-btn" %>
+      <%= link_to "Назад", admin_news_posts_path, class: "back-btn" %>
+    </div>
+  </div>
+
+
+<% end %>
