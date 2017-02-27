@@ -1,416 +1,352 @@
 @import "variables";
-
-
+$survey-header-height: 5rem;
+$survey-header-color: rgba(81, 156, 255, 1);
+$survey-header-triangle-color: #3668a9;
+$survey-header-text-color: #FFFFFF;
 
 .survey {
-    position: fixed;
-    top: 20%;
-    left: 30px;
-    width: 250px;
-    z-index: 999;
+	margin-top: 2rem;
+	position: relative;
 
-  .panel-heading {
-    display: none;
-  }
+	&-title {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		background: $survey-header-color;
+		color: #000000;
+		min-height: 40px;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 5px;
+		font-size: 1.7rem;
+		font-weight: bold;
+		word-wrap: break-word;
+		border-bottom: 1px dashed #000000;
+		text-align: center;
 
-    &-body {
-        box-shadow: 1px 1px 6px #000000;
-        border-radius: 10px;
-        background: $survey-content-back;
-        width: 250px;
-        height: auto;
-        overflow: hidden;
-    }
+		input {
+			box-sizing: border-box;
+			padding: 2px 5px;
+			height: 40px;
+			font-size: 2rem;
+			width: 90%;
+			border-radius: 5px;
+		}
+	}
 
-    &-comments {
-        display: none;
-        width: 100%;
-        padding: 0 !important;
+	&-header {
+		height: $survey-header-height;
+		background: $survey-header-color;
+		color: $survey-header-text-color;
+		width: 100%;
+		position: relative;
 
-        .comments-list {
-            max-height: 165px;
-            overflow-y: scroll;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
+		&:before {
+			content: "";
+			top: $survey-header-height;
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-left: 1rem solid transparent;
+			border-bottom: 0.5rem solid transparent;
+			border-right: 0.8rem solid $survey-header-triangle-color;
+			border-top: 0.6rem solid $survey-header-triangle-color;
+		}
 
-        .send-comment {
-            position: relative;
-            left: 50%;
-            transform: translate(-50%);
-        }
+		&:after {
+			content: "";
+			top: $survey-header-height;
+			right: 0;
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-right: 1rem solid transparent;
+			border-bottom: 0.5rem solid transparent;
+			border-left: 0.8rem solid $survey-header-triangle-color;
+			border-top: 0.6rem solid $survey-header-triangle-color;
+		}
 
-        .new-comment {
-            margin-top: 5px;
+		h2 {
+			position: relative;
+			padding-left: 2.5rem;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
+			font-family: 'Roboto Light';
+		}
+	}
 
-            textarea {
-                width: 100%;
-            }
-        }
+	&-content {
+		padding: 0.5rem 2rem 1rem;
+		font-family: 'Roboto Light';
+		font-size: 1.4rem;
 
-        .show-comments {
-            background: $survey-show-comments-color !important;
-            color: $survey-show-comments-font-color;
+		.question {
+			padding-left: 0.5rem;
+		}
 
-            &:hover {
-                background: darken($survey-show-comments-color,10%) !important;
-                color: $survey-show-comments-font-color;
-            }
-        }
-    }
+		.vote-btn {
+			position: relative;
+			top: 1rem;
+			font-family: 'Roboto Regular', sans-serif;
+			font-size: 1.6rem;
+			padding: 0.8rem 1.2rem;
+			color: #FFFFFF;
+			text-decoration: none;
+			background: linear-gradient(to bottom, #2481FB 0%, #519BFF 58%);
+			cursor: pointer;
 
-    &-hide {
-        width: 25px;
-        height: 40px;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-        background: $survey-hide-button;
-        position: absolute;
-        left: -30px;
-        color: #ffffff;
-        transition: background 0.2s;
-        cursor: pointer;
+			&:hover {
+				background: linear-gradient(to bottom, lighten(#2481FB, 5%) 0%, lighten(#519BFF, 5%) 58%);
+			}
+		}
 
-        span {
-            position: absolute;
-            top: 50%;
-            left: 40%;
-            transform: translate(-50%,-50%);
-            font-size: 3rem;
-            font-weight: bold;
-        }
+		.result-list {
+			.survey-result {
+				width: 100%;
+				margin-bottom: 5px;
+				display: inline-block;
 
-        &:hover {
-            background: darken($survey-hide-button,13%);
-        }
-    }
+				.result-text {
+					font-size: 1.4rem;
+					font-weight: bold;
+					width: 85%;
+				}
 
-    &-vote {
-        margin-top: 10px;
-    }
+				.progress-bar {
+					float: left;
+					overflow: hidden;
+					border-radius: 2px;
+					border: 1px solid #dae1e8;
+					width: 85%;
+					position: relative;
+					background-color: #f2f4f7;
+					height: 30px;
 
-    &-close {
-        position: absolute;
-        border-radius: 50%;
-        width: 25px;
-        height: 25px;
-        background: rgba(34, 34, 34, 0.7);
-        z-index: 999;
-        right: -10px;
-        top: -15px;
-        text-align: center;
-        cursor: pointer;
+					&-filled {
+						position: absolute;
+						width: 0;
+						height: 100%;
+						background-color: #dae1e8;
+					}
+				}
 
-        i {
-            color: #Ffffff;
-            font-size: 2rem;
-            line-height: 25px;
-        }
+				.count-result {
+					position: absolute;
+					height: 100%;
+					width: 85%;
+					line-height: 30px;
+					text-align: center;
+					color: #000000;
+					font-size: 1.5rem;
+				}
 
-        &:hover {
-            background: rgba(34, 34, 34, 1);
-        }
-    }
+				.percent-result {
+					float: right;
+					line-height: 30px;
+					font-size: 1.5rem;
 
-    &-title {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        background: $survey-title-back;
-        color: #000000;
-        min-height: 40px;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 5px;
-        font-size: 1.7rem;
-        font-weight: bold;
-        word-wrap: break-word;
-        border-bottom: 1px dashed #000000;
-        text-align: center;
-
-        input {
-            box-sizing: border-box;
-            padding: 2px 5px;
-            height: 40px;
-            font-size: 2rem;
-            width: 90%;
-            border-radius: 5px;
-        }
-    }
-
-    &-content {
-        box-sizing: border-box;
-        padding: 10px;
-        min-height: 40px;
-
-        .options-content {
-            margin-bottom: 10px;
-
-            .remove-option {
-                color: rgba(34, 34, 34, .7);
-                font-size: 2rem;
-                line-height: 35px;
-                cursor: pointer;
-
-                &:hover {
-                    color: rgba(34, 34, 34, 1);
-                }
-
-                &:before {
-                    margin-left: 3px;
-                }
-            }
-        }
-
-        .input-option {
-            width: 90%;
-            box-sizing: border-box;
-            padding: 2px 5px;
-            height: 35px;
-            border-radius: 2px;
-            font-size: 1.8rem;
-        }
-
-        &-question-list {
-            .survey-question {
-                width: 100%;
-                overflow: hidden;
-                word-wrap: break-word;
-                margin-bottom: 10px;
-
-                .question-text {
-                    max-width: 80%;
-                    display: inline-block;
-                    font-size: 1.7rem;
-                    vertical-align: middle;
-                }
-
-                input[name="answer-survey"] {
-                    margin-right: 5px;
-                    vertical-align: middle;
-                }
-            }
-        }
-
-        &-result-list {
-            .survey-result {
-                width: 100%;
-                margin-bottom: 5px;
-                display: inline-block;
-
-                .result-text {
-                    font-size: 1.4rem;
-                    font-weight: bold;
-                    width: 85%;
-                }
-
-                .progress-bar {
-                    float: left;
-                    overflow: hidden;
-                    border-radius: 2px;
-                    border: 1px solid #dae1e8;
-                    width: 85%;
-                    position: relative;
-                    background-color: #f2f4f7;
-                    height: 30px;
-
-                    &-filled {
-                        position: absolute;
-                        width: 0;
-                        height: 100%;
-                        background-color: #dae1e8;
-                    }
-                }
-
-                .count-result {
-                    position: absolute;
-                    height: 100%;
-                    width: 85%;
-                    line-height: 30px;
-                    text-align: center;
-                    color: #000000;
-                    font-size: 1.5rem;
-                }
-
-                .percent-result {
-                    float: right;
-                    line-height: 30px;
-                    font-size: 1.5rem;
-
-                    &:after {
-                        content: '%';
-                        font-size: 1.2rem;
-                    }
-                }
-            }
-        }
-
-        &-add-field {
-            width: 70%;
-            height: 30px;
-            border: 1px solid lighten(#000000,40%);
-            background: #ededed;
-            cursor: pointer;
-            margin: auto;
-            font-size: 2rem;
-            text-align: center;
-
-            &:hover {
-                background: darken(#ededed, 10%);
-            }
-        }
-
-        &-bottom {
-            margin-top: 10px;
-            width: 100%;
-            text-align: center;
-
-            .survey-total {
-                &-count {
-                    font-size: 1.6rem;
-                }
-            }
-        }
-    }
+					&:after {
+						content: '%';
+						font-size: 1.2rem;
+					}
+				}
+			}
+		}
+	}
 }
 
-.survey-admin, .survey-admin-edit {
-    display: none;
-    width: 300px;
-    position: fixed;
-    box-shadow: 0 1px 6px 3px #333333;
-    top: 35%;
-    left: 50%;
-    border-radius: 10px;
-    transform: translate(-50%, -50%);
+.survey {
+	&-content {
+		.options-content {
+			margin-bottom: 10px;
 
-    .survey-add {
+			.remove-option {
+				color: rgba(34, 34, 34, .7);
+				font-size: 2rem;
+				line-height: 35px;
+				cursor: pointer;
 
-        .survey-content{
-            background: #FFFFFF;
-            border-radius: 10px;
-        }
-    }
+				&:hover {
+					color: rgba(34, 34, 34, 1);
+				}
+
+				&:before {
+					margin-left: 3px;
+				}
+			}
+		}
+
+		.input-option {
+			width: 90%;
+			box-sizing: border-box;
+			padding: 2px 5px;
+			height: 35px;
+			border-radius: 2px;
+			font-size: 1.8rem;
+		}
+
+		&-add-field {
+			width: 70%;
+			height: 30px;
+			border: 1px solid lighten(#000000,40%);
+			background: #ededed;
+			cursor: pointer;
+			margin: auto;
+			font-size: 2rem;
+			text-align: center;
+
+			&:hover {
+				background: darken(#ededed, 10%);
+			}
+		}
+
+		&-bottom {
+			margin-top: 10px;
+			width: 100%;
+			text-align: center;
+
+			.survey-total {
+				&-count {
+					font-size: 1.6rem;
+				}
+			}
+		}
+	}
+}
+
+.survey-admin,
+.survey-admin-edit {
+	display: none;
+	width: 300px;
+	position: fixed;
+	box-shadow: 0 1px 6px 3px #333333;
+	top: 35%;
+	left: 50%;
+	border-radius: 10px;
+	transform: translate(-50%, -50%);
+
+	.survey-add {
+		.survey-content {
+			background: #FFFFFF;
+			border-radius: 10px;
+		}
+	}
 }
 
 .tablets-surveys {
-    &-header {
-        display: none;
-    }
+	&-header {
+		display: none;
+	}
 }
-
-
 @media (min-width : 768px) and (max-width : 1200px) {
-    .tablets-surveys {
-        display: inline-block;
-        width: 30%;
-        margin-top: 20px;
+	.tablets-surveys {
+		display: inline-block;
+		width: 30%;
+		margin-top: 20px;
 
+		&-header {
+			display: block;
+			margin-bottom: 27px;
 
-        &-header {
-            display: block;
-            margin-bottom: 27px;
+			h2 {
+				margin-left: 15px;
+				font-weight: bold;
+			}
 
-            h2 {
-                margin-left: 15px;
-                font-weight: bold;
-            }
+			hr {
+				border-top: 1px solid #333333;
+			}
+		}
+	}
 
-            hr {
-                border-top: 1px solid #333333;
-            }
-        }
-    }
+	.survey {
+		position: relative;
+		left: 0;
+		top: 0;
+		width: auto;
 
-    .survey {
-        position: relative;
-        left: 0;
-        top: 0;
-        width: auto;
+		&-title {
+			background: $main-color-first;
+			color: $responsive-title-color;
+		}
 
-        &-title {
-            background: $main-color-first;
-            color: $responsive-title-color;
-        }
+		&-hide {
+			display: none;
+		}
 
-        &-hide {
-            display: none;
-        }
+		&-body {
+			width: auto;
+			box-shadow: 0 0 2px 0 #000000;
+		}
 
-        &-body {
-            width: auto;
-            box-shadow: 0 0 2px 0 #000000;
-        }
+		&-content {
+			&-result-list {
+				.survey-result {
+					.progress-bar {
+						width: 75%;
+					}
 
-        &-content {
-            &-result-list {
-                .survey-result {
-                    .progress-bar {
-                        width: 75%;
-                    }
-
-                    .count-result {
-                        width: 70%;
-                    }
-                }
-            }
-        }
-    }
+					.count-result {
+						width: 70%;
+					}
+				}
+			}
+		}
+	}
 }
-
 @media only screen and (min-device-width : 768px) and (max-device-width : 1200px) and (orientation : landscape) {
-    .tablets-surveys {
-        display: inline-block;
-        width: 30%;
-        margin-top: 20px;
+	.tablets-surveys {
+		display: inline-block;
+		width: 30%;
+		margin-top: 20px;
 
+		&-header {
+			display: block;
+			margin-bottom: 27px;
 
-        &-header {
-            display: block;
-            margin-bottom: 27px;
+			h2 {
+				margin-left: 15px;
+				font-weight: bold;
+			}
 
-            h2 {
-                margin-left: 15px;
-                font-weight: bold;
-            }
+			hr {
+				border-top: 1px solid #333333;
+			}
+		}
+	}
 
-            hr {
-                border-top: 1px solid #333333;
-            }
-        }
-    }
+	.survey {
+		position: relative;
+		left: 0;
+		top: 0;
+		width: auto;
 
-    .survey {
-        position: relative;
-        left: 0;
-        top: 0;
-        width: auto;
+		&-title {
+			background: $main-color-first;
+			color: $responsive-title-color;
+		}
 
-        &-title {
-            background: $main-color-first;
-            color: $responsive-title-color;
-        }
+		&-hide {
+			display: none;
+		}
 
-        &-hide {
-            display: none;
-        }
+		&-body {
+			width: auto;
+			box-shadow: 0 0 2px 0 #000000;
+		}
 
-        &-body {
-            width: auto;
-            box-shadow: 0 0 2px 0 #000000;
-        }
+		&-content {
+			&-result-list {
+				.survey-result {
+					.progress-bar {
+						width: 75%;
+					}
 
-        &-content {
-            &-result-list {
-                .survey-result {
-                    .progress-bar {
-                        width: 75%;
-                    }
-
-                    .count-result {
-                        width: 70%;
-                    }
-                }
-            }
-        }
-    }
+					.count-result {
+						width: 70%;
+					}
+				}
+			}
+		}
+	}
 }

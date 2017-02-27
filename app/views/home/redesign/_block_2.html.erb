@@ -42,19 +42,16 @@
 
 		<% if @survey %>
 		<div class="survey">
-			<div class="survey-body">
-
-				<div class="survey-title">
-					<%= @survey.title %>
-				</div>
-
-				<% if user_signed_in? %>
-				<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="'<%= current_user.id %>"></div>
-			<% else %>
-				<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id=""></div>
-				<% end %>
-
+			<div class="survey-header">
+				<h2>Опрос</h2>
 			</div>
+			<% if user_signed_in? %>
+				<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="'<%= current_user.id %>">
+				</div>
+			<% else %>
+				<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="">
+				</div>
+			<% end %>
 		</div>
 		<% end %>
 	</div>

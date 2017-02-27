@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
 			CURRENT_USER_ID = currentUserId;
 			checkVotedUser(SURVEY.users) >= 0 ? renderResults() : renderQuestions();
 		} else {
-			renderResults()
+			renderResults();
 		}
 	}
 
@@ -29,77 +29,88 @@ $(document).on('turbolinks:load', function() {
 		})
 	}
 
-	function renderCommonBottom() {
+
+	function clearContent() {
 		var container = $('.survey-content');
-		$('.survey-content .survey-content-bottom').remove();
-		var contentBottom = $('<div/>').addClass('survey-content-bottom')
-		container.append(contentBottom);
+		container.find($('.question')).remove();
+		container.find($('.options-list')).remove();
+		container.find($('.result-list')).remove();
 	}
 
-	function renderSurveyTotal() {
-		var contentBottom = $('.survey-content-bottom')
-		contentBottom.append($('<div/>').addClass('survey-total')
-			.append('<div/>')
-			.addClass('survey-total-count')
-			.html('Проголосовали: <b>' + SURVEY.count_votes + '</b>'))
-	}
+	// function renderCommonBottom() {
+	// 	var container = $('.survey-content');
+	// 	$('.survey-content .survey-content-bottom').remove();
+	// 	var contentBottom = $('<div/>').addClass('survey-content-bottom')
+	// 	container.append(contentBottom);
+	// }
+	//
+	// function renderSurveyTotal() {
+	// 	var contentBottom = $('.survey-content-bottom')
+	// 	contentBottom.append($('<div/>').addClass('survey-total')
+	// 		.append('<div/>')
+	// 		.addClass('survey-total-count')
+	// 		.html('Проголосовали: <b>' + SURVEY.count_votes + '</b>'))
+	// }
+
+	////////QUESTIONS, WHEN USER NOT VOTE//////////////
 
 	function renderQuestions() {
-		clearList();
+		clearContent();
+		renderSurveyQuestion();
 		renderQuestionList();
 		renderQuestionBottom();
 	}
 
+	function renderSurveyQuestion() {
+		var container = $('.survey-content');
+		var title = $('<div/>').addClass('question').append('<h4>' + SURVEY.title + '</h4>');
+		container.prepend(title);
+	}
+
 	function renderQuestionList() {
 		var container = $('.survey-content');
-		var questionList = $('<div/>').addClass('survey-content-question-list')
+		var questionList = $('<div/>').addClass('options-list')
 		for (var i = 0; i < SURVEY_QUESTIONS.length; i++) {
 			questionList
-				.append($('<div/>').addClass('survey-question')
+				.append($('<div/>').addClass('option')
 					.append($('<input/>')
 						.attr('type', 'radio')
-						.attr('question-id', i)
+						.attr('id', i)
+						.attr('name', 'answer-survey')
 						.attr('name', 'answer-survey'))
-					.append($('<div/>').addClass('question-text')
-						.append(SURVEY_QUESTIONS[i].body)))
-
+					.append($('<label/>').attr('for', i).text(SURVEY_QUESTIONS[i].body))
+					.append($('<div/>').addClass('check')
+						.append($('<div/>').addClass('inside'))))
 		}
-		container.prepend(questionList);
+		container.append(questionList);
 		addToggleToRadios();
 	}
 
 	function renderQuestionBottom() {
-		renderCommonBottom();
-		renderSurveyTotal();
-		var bottomContent = $('.survey-content-bottom');
-		var divVote = $('<div/>').addClass('survey-vote')
-		var btnVote = $('<button/>')
-			.addClass('btn btn-primary btn-xs')
-			.attr('id', 'btn-vote-survey')
-			.attr('type', 'button')
-			.attr('name', 'button')
+		var optionsList = $('.survey-content .options-list');
+		var divVote = $('<div/>').addClass('text-right vote-btn-align')
+		var btnVote = $('<a/>')
+			.addClass('vote-btn')
 			.text('Проголосовать')
 			.on('click', sendResult)
 		divVote.append(btnVote);
-		bottomContent.append(divVote);
+		optionsList.append(divVote);
 	}
+
+
+	////////// RESULTS, WHEN USER VOTE /////////////
 
 	function renderResults() {
-		// $('.survey-comments').show();
-		clearList();
-		renderResultBottom();
+		clearContent();
+		renderSurveyQuestion();
 		renderResultList();
+		renderResultBottom();
 	}
 
-	function clearList() {
-		var container = $('.survey-content');
-		$('.survey-content-question-list').remove();
-		$('.survey-content-result-list').remove();
-	}
 
 	function renderResultList() {
 		var container = $('.survey-content');
-		var resultList = $('<div/>').addClass('survey-content-result-list ')/*clearListfix*/
+		var resultList = $('<div/>').addClass('result-list') /*clearContentfix*/
 		var totalCount = Number(SURVEY.count_votes);
 		for (var i = 0; i < SURVEY_QUESTIONS.length; i++) {
 			var percentCount = (SURVEY_QUESTIONS[i].count / totalCount) * 100;
@@ -117,14 +128,15 @@ $(document).on('turbolinks:load', function() {
 						.text(Math.floor(percentCount))))
 
 		}
-		container.prepend(resultList);
+		container.append(resultList);
 	}
 
 	function renderResultBottom() {
-		renderCommonBottom();
-		renderSurveyTotal();
+
 	}
 
+
+	///////// SEND RESULT WHEN USER VOTE ///////////
 
 	function sendResult() {
 		var obj = getCheckedQuestion();
@@ -147,13 +159,17 @@ $(document).on('turbolinks:load', function() {
 	function getCheckedQuestion() {
 		var radio = $("input[name='answer-survey']:checked")
 		return {
-			qId: radio.attr('question-id'),
+			qId: radio.attr('id'),
 			iVal: radio.next().text()
 		}
 	}
 
+
+
+	////////// CREATE SURVEY BUTTON IN ADMIN /////////
+
 	$('#btn-create-survey').click(function() {
-		var valFromOptions = getQuestionVals();
+		var valFromOptions = getOptionsVals();
 		var titleSurvey = $('#survey-title-input').val().trim();
 		if (valFromOptions.length == 0) {
 			alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-create-survey'))
@@ -178,6 +194,10 @@ $(document).on('turbolinks:load', function() {
 		})
 	})
 
+
+
+	////////// FIELD FOR OPTION /////////
+
 	$('.survey-content-add-field').click(function() {
 		$('.survey-content').prepend(createOptionField());
 	})
@@ -196,7 +216,7 @@ $(document).on('turbolinks:load', function() {
 			.append($('<span/>').addClass('glyphicon glyphicon-remove remove-option'))
 	}
 
-	function getQuestionVals() {
+	function getOptionsVals() {
 		var vals = $('.input-option');
 		var arr = [];
 		$.each(vals, function(i, v) {
@@ -209,24 +229,6 @@ $(document).on('turbolinks:load', function() {
 		})
 		return arr;
 	}
-
-	$('.survey-hide').click(function(e) {
-		if ($('.survey-hide').attr('state') == 'opened') {
-			$('.survey-hide').attr('state', 'closed');
-			$('.survey-hide').attr('title', 'Показать опрос')
-			$('.survey-hide').html('<span class="fa fa-angle-right"></span>')
-			$('.survey-body').hide('slide', {
-				direction: 'left'
-			}, 100)
-		} else {
-			$('.survey-hide').attr('state', 'opened');
-			$('.survey-hide').html('<span class="fa fa-angle-left"></span>')
-			$('.survey-hide').attr('title', 'Спрятать опрос')
-			$('.survey-body').show('slide', {
-				direction: 'left'
-			}, 100);
-		}
-	})
 
 	/////////////////////////////////////////////////
 
@@ -254,13 +256,12 @@ $(document).on('turbolinks:load', function() {
 
 		});
 
-
 		$(".survey-admin-edit").fadeToggle(250);
 	})
 
 
 	$('#btn-edit-survey').click(function() {
-		var valFromOptions = getQuestionVals();
+		var valFromOptions = getOptionsVals();
 		var titleSurvey = $('.survey-title-input').val().trim();
 		if (valFromOptions.length == 0) {
 			alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-edit-survey'))
@@ -283,22 +284,4 @@ $(document).on('turbolinks:load', function() {
 			window.location.reload()
 		})
 	})
-
-
-	/////////////////////////////////////////////////
-
-	$('.survey-close').click(function(e) {
-		closeSurvey();
-	})
-
-	function closeSurvey() {
-		var controller = '/surveys/' + SURVEY.id + '/update';
-		throughAJAX({
-			survey: {
-				closed: true
-			}
-		}, controller, 'PUT', function() {
-			window.location.reload();
-		})
-	}
 });
