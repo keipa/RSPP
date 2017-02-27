@@ -21,6 +21,9 @@
 //= require ckeditor/init
 
 // project js
+//= require ajax_methods
 //= require home_page
 //= require yandex_maps
-//= require_tree .
+//= require survey
+// require_tree .
+
