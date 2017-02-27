@@ -27,4 +27,3 @@
 //= require survey
 //= require video_switcher
 // require_tree .
-
