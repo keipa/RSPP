@@ -1,9 +1,9 @@
-<ul>
-	<li class="tab"><a href="<%= news_posts_path(:rspp) %>">Новости РСПП</a></li>
-	<li class="tab"><a href="<%= news_posts_path(:business) %>">Деловые новости</a></li>
-	<li class="tab"><a href="<%= news_posts_path(:mass_media) %>">СМИ о нас</a></li>
-</ul>
+<div class="news-container container">
 
-<% @news_posts.each do |news_post| %>
-	<%= news_post.title %>
-<% end %>
+	<%= render 'news_navigation', active: @active_news %>
+
+	 <!-- news_post do |news_post| -->
+	 <% 10.times do |news_post| %>
+	 <%= render 'news', post: news_post %>
+	<% end %>
+</div>

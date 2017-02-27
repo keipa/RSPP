@@ -1,0 +1,35 @@
+<div class="news-navigation">
+	<ul class="news-navigation-list">
+		<% if active == 'rspp' %>
+		<li class="news-navigation-list-item active">
+			<a href="<%= news_posts_path(type: :rspp) %>">Новости РСПП</a>
+		</li>
+		<li class="news-navigation-list-item">
+			<a href="<%= news_posts_path(type: :business) %>">Деловые новости</a>
+		</li>
+		<li class="news-navigation-list-item">
+			<a href="<%= news_posts_path(type: :mass_media) %>">СМИ о нас</a>
+		</li>
+		<% elsif active == 'business' %>
+		<li class="news-navigation-list-item">
+			<a href="<%= news_posts_path(type: :rspp) %>">Новости РСПП</a>
+		</li>
+		<li class="news-navigation-list-item active">
+			<a href="<%= news_posts_path(type: :business) %>">Деловые новости</a>
+		</li>
+		<li class="news-navigation-list-item">
+			<a href="<%= news_posts_path(type: :mass_media) %>">СМИ о нас</a>
+		</li>
+		<% elsif active == 'mass_media' %>
+		<li class="news-navigation-list-item">
+			<a href="<%= news_posts_path(type: :rspp) %>">Новости РСПП</a>
+		</li>
+		<li class="news-navigation-list-item">
+			<a href="<%= news_posts_path(type: :business) %>">Деловые новости</a>
+		</li>
+		<li class="news-navigation-list-item active">
+			<a href="<%= news_posts_path(type: :mass_media) %>">СМИ о нас</a>
+		</li>
+		<% end %>
+	</ul>
+</div>
