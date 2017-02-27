@@ -28,6 +28,4 @@
 //= require pdf
 //= require template
 //= require video_switcher
-//= require alert_messages
-//= require popUp
 // require_tree .
