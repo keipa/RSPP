@@ -25,5 +25,7 @@
 //= require home_page
 //= require yandex_maps
 //= require survey
+//= require pdf
+//= require template
 //= require video_switcher
 // require_tree .
