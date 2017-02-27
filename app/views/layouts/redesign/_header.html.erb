@@ -4,7 +4,8 @@
     <div class="burger-menu"></div>
     <div class="container clearfix">
       <div class="logo">
-        <%= link_to root_path do %>
+        <!-- off turbolinks because of yandex maps -->
+        <%= link_to root_path, "data-turbolinks": false do %>
         <%= image_tag ('logo.png'), class: 'logo-image' %>
         <% end %>
       </div>

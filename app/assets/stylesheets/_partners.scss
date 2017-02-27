@@ -1,0 +1,46 @@
+.partners-container {
+  padding-right: 0;
+  margin-bottom: 3rem;
+
+  .partners-content {
+    border-bottom: 1px solid #333333;
+    padding-right: 1.5rem;
+    padding-bottom: 3rem;
+
+    .partners-title {
+      font-family: 'EB Garamond', serif;
+      text-align: center;
+      margin-bottom: 4rem;
+
+      h2 {
+
+        &:before, &:after {
+          content: "";
+          border-bottom: 1px solid #333333;
+          width: 38%;
+          top: 15%;
+          display: inherit;
+          position: absolute;
+        }
+
+        &:after {
+          right: 0;
+          width: 39%;
+        }
+      }
+    }
+
+    .single-partner {
+      display: inline-block;
+
+      img {
+        border-radius: 0.5rem;
+        height: 10rem;
+        width: auto;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

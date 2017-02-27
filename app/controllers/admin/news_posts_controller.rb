@@ -37,7 +37,7 @@ class Admin::NewsPostsController < Admin::AdminController
       :title,
       :description,
       :text,
-      :image_url,
+      :image,
       :post_type
     )
   end
