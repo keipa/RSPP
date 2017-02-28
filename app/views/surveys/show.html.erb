@@ -1,0 +1,24 @@
+<div class="container">
+	<% if @survey %>
+	<div class="survey">
+		<div class="survey-header">
+			<h2>Опрос</h2>
+		</div>
+		<% if user_signed_in? %>
+		<div class="survey-content   survey-show" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="'<%= current_user.id %>"></div>
+	<% else %>
+		<div class="survey-content   survey-show" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id=""></div>
+		<% end %>
+	</div>
+	<div class="comments-block">
+		<ul class="comments-content for-survey-<%= @survey.id %>">
+			<% @survey.comments.each do |comment| %>
+			<%= render 'surveys/comments/comment', comment: comment %>
+			<% end %>
+		</ul>
+		<% if can? :create , Comment %>
+		<%= render 'comments/new_comment', commentable: @survey %>
+		<% end %>
+	</div>
+	<% end %>
+</div>

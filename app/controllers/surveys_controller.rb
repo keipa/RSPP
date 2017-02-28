@@ -4,6 +4,10 @@ class SurveysController < ApplicationController
     @survey.update(surveys_params)
   end
 
+	def show
+		@survey = Survey.find(params[:id])
+	end
+
   private
 
   def surveys_params

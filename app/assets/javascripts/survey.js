@@ -121,6 +121,10 @@ $(document).on('turbolinks:load', function() {
 	}
 
 	function renderResultBottom() {
+		// for show
+		if($('.survey-content').hasClass('survey-show')) {
+			return;
+		}
 		var resultList = $('.survey-content .result-list');
 		var bottom = $('<div/>').addClass('text-right')
 		var linkToDiscuss = $('<a/>')
