@@ -28,7 +28,6 @@
 //= require pdf
 //= require template
 //= require video_switcher
+//= require swipe_comments
 //= require survey_form
-//= require alert_messages
-//= require popUp
 // require_tree .
