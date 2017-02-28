@@ -1,7 +1,7 @@
 default: &default
   adapter: mysql2
   username: root
-  password: Gracias1
+  password: 1111
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 production:

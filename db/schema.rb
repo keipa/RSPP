@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170226215407) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title",            limit: 50,    default: ""
     t.text     "comment",          limit: 65535
     t.string   "commentable_type"
     t.integer  "commentable_id"
