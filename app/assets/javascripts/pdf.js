@@ -129,6 +129,7 @@ $(document).on('turbolinks:load', function() {
 	})
 
 	function startSpinner() {
+		$('.spinner').show()
 		$('.spinner').spin({
 			lines: 13, // The number of lines to draw
 			length: 28, // The length of each line
