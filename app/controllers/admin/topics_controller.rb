@@ -1,4 +1,6 @@
 class Admin::TopicsController < Admin::AdminController
+	before_action :set_topic, except: [:index, :new, :create]
+
 	def index
 		@topics = Topic.all
 	end
