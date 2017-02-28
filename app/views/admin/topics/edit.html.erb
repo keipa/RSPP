@@ -1,6 +1,8 @@
+<% if @topic %>
 <% @topic.subtopics.each do |subtopic| %>
   <%= subtopic.text %>
   <br>
+<% end %>
 <% end %>
 
 <%= form_for(Topic.new, url: topic_path, html: {style: "font-size: 70px;"}, method: :put) do |f| %>

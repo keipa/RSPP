@@ -1,0 +1,82 @@
+<div class="add-news-post-btn-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
+	<%= link_to new_admin_topic_path do %>
+	<button class="btn btn-default add-news-post-btn" style="font-size: 20px;">
+		Добавить раздел
+	</button>
+	<% end %>
+</div>
+
+<table class="table table-striped text-center" style="font-size: 20px;">
+	<tr>
+		<td style="width: 5%;">
+			<b>
+				ID
+			</b>
+		</td>
+		<td style="width: 32%;">
+			<b>
+				Название
+			</b>
+		</td>
+		<td style="width: 35%;">
+			<b>
+				Подразделы
+			</b>
+		</td>
+		<td style="width: 15%;">
+			<b>
+				Время создания
+			</b>
+		</td>
+		<td style="width: 13%;"></td>
+	</tr>
+
+	<% @topics.each do |topic| %>
+	<% if !topic.topic_id %>
+	<tr>
+		<td>
+			<%= topic.id %>
+		</td>
+
+		<td>
+			<% if topic.text.chars[30] %>
+			<%= topic.text.chars.first(30).join + "..." %>
+		<% else %>
+			<%= topic.text %>
+			<% end %>
+		</td>
+
+		<td>
+			<% topic&.subtopics.each do |subtopic| %>
+			<div class="admin-subtopic-item">
+				<%= subtopic.text %>
+				<%= link_to edit_admin_topic_path(subtopic) do %>
+				<button class="btn btn-success">
+					Редактировать
+				</button>
+				<% end %>
+			</div>
+			<% end %>
+
+		</td>
+
+		<td>
+			<%= l topic.created_at, format: :long %>
+		</td>
+
+		<td class="text-right">
+			<%= link_to edit_admin_topic_path(topic) do %>
+			<button class="btn btn-success">
+				Редактировать
+			</button>
+			<% end %>
+			<%= link_to admin_topic_path(topic), method: :delete do %>
+			<button class="btn btn-danger">
+				Удалить
+			</button>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+	<% end %>
+</table>

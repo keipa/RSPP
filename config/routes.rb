@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     root 'news_posts#index'
     resources :news_posts, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :partners, only: [:index, :create, :destroy, :edit, :update]
+    resources :topics, only: [:index, :new, :create, :destroy, :edit, :update]
     resources :surveys
     resources :users
     resources :sliders
