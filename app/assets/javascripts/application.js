@@ -28,4 +28,5 @@
 //= require pdf
 //= require template
 //= require video_switcher
+//= require survey_form
 // require_tree .

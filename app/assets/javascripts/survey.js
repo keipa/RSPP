@@ -161,40 +161,6 @@ $(document).on('turbolinks:load', function() {
 	}
 
 
-
-	////////// CREATE SURVEY BUTTON IN ADMIN /////////
-
-	$('#btn-create-survey').click(function() {
-		console.log("BUTTON CLICKED")
-		var valFromOptions = getOptionsVals();
-		var titleSurvey = $('#survey-title-input').val().trim();
-		if (valFromOptions.length == 0) {
-			alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-create-survey'))
-			return;
-		}
-		if (titleSurvey == '' || !titleSurvey) {
-			alertMessage('warning', 'Некорректное название опроса', $('#btn-create-survey'))
-			return;
-		}
-		console.log("EVERYTHING IS OK")
-		var json = {
-			survey: {
-				title: titleSurvey,
-				content: JSON.stringify(valFromOptions),
-				count_votes: 0,
-				closed: false,
-				users: ''
-			}
-		}
-		var controllerPOST = $('#btn-create-survey').attr('data-controller');
-		throughAJAX(json, controllerPOST, "POST", function() {
-			console.log("AJAX SENT")
-			window.location.reload()
-		})
-	})
-
-
-
 	////////// FIELD FOR OPTION /////////
 
 	$('.survey-content-add-field').click(function() {
@@ -229,58 +195,4 @@ $(document).on('turbolinks:load', function() {
 		return arr;
 	}
 
-	/////////////////////////////////////////////////
-
-	$(".add-survey").click(function() {
-		$("input").val("");
-		$(".options-content").remove();
-		$(".survey-admin").fadeToggle(250);
-	})
-
-	var controllerPUT;
-
-	$(".edit-survey").click(function(event) {
-		$(".options-content").remove();
-		surveyTitle = $(event.target).attr("data-survey-title");
-		surveyOptions = JSON.parse($(event.target).attr("data-survey-options"));
-		controllerPUT = $(event.target).attr("data-controller");
-
-		$(".survey-title-input").val(surveyTitle)
-
-		surveyOptions.forEach(function(option) {
-
-			$(".survey-content").prepend(
-				createOptionField(option.body)
-			);
-
-		});
-
-		$(".survey-admin-edit").fadeToggle(250);
-	})
-
-
-	$('#btn-edit-survey').click(function() {
-		var valFromOptions = getOptionsVals();
-		var titleSurvey = $('.survey-title-input').val().trim();
-		if (valFromOptions.length == 0) {
-			alertMessage('warning', 'Отсутствуют поля выбора', $('#btn-edit-survey'))
-			return;
-		}
-		if (titleSurvey == '' || !titleSurvey) {
-			alertMessage('warning', 'Некорректное название опроса', $('#btn-edit-survey'))
-			return;
-		}
-		var json = {
-			survey: {
-				title: titleSurvey,
-				content: JSON.stringify(valFromOptions),
-				count_votes: 0,
-				closed: false,
-				users: ''
-			}
-		}
-		throughAJAX(json, controllerPUT, "PUT", function() {
-			window.location.reload()
-		})
-	})
 });

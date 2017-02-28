@@ -10,7 +10,7 @@ class SurveysController < ApplicationController
     params.require(:survey).permit(
       :content,
       :title,
-      :closed,
+      :active,
       :count_votes,
       :users
     )

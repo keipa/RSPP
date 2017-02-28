@@ -3,9 +3,9 @@ class CreateSurveys < ActiveRecord::Migration[5.0]
     create_table :surveys do |t|
       t.string :title
       t.text :content
-      t.boolean :closed
+      t.boolean :active
       t.text :users
-      t.integer :count_votes
+      t.integer :count_votes, default: 0
 
       t.timestamps
     end

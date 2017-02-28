@@ -119,11 +119,11 @@ ActiveRecord::Schema.define(version: 20170226215407) do
   create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.text     "content",     limit: 65535
-    t.boolean  "closed"
+    t.boolean  "active"
     t.text     "users",       limit: 65535
-    t.integer  "count_votes"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "count_votes",               default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

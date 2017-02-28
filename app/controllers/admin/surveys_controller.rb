@@ -4,9 +4,20 @@ class Admin::SurveysController < Admin::AdminController
     @surveys = Survey.all
   end
 
+  def new
+    @survey = Survey.new
+  end
+
   def create
-    @survey = Survey.create(surveys_params)
+    users = surveys_params[:users] || ''
+    content = JSON.parse surveys_params[:content]
+    @survey = Survey.create!(surveys_params.merge(users: users, content: content))
+    binding.pry
     redirect_to admin_surveys_path
+  end
+
+  def edit
+    @survey = Survey.find(params[:id])
   end
 
   def update
@@ -27,7 +38,7 @@ class Admin::SurveysController < Admin::AdminController
       params.require(:survey).permit(
         :content,
         :title,
-        :closed,
+        :active,
         :count_votes,
         :users
       )
