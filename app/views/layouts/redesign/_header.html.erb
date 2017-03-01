@@ -49,6 +49,14 @@
 				<%= link_to topic.text, topic_path(topic.smart_id), class: "topic-text" %>
 				<div class="sliding-underscore"></div>
 			</div>
+			<div class="subtopics-nav">
+				<% topic&.subtopics.each do |subtopic| %>
+				<div class="subtopic">
+					<%= link_to subtopic.text, topic_path(subtopic.smart_id), class: "topic-text" %>
+					<div class="sliding-underscore"></div>
+				</div>
+				<% end %>
+			</div>
 			<% end %>
 			<div class="topic">
 				<%= link_to "Галерея", gallery_path(:photo), class: "topic-text" %>

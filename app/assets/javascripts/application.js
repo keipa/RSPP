@@ -30,5 +30,6 @@
 //= require video_switcher
 //= require survey_form
 //= require alert_messages
+//= require topics
 //= require popUp
 // require_tree .
