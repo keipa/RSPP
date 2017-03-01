@@ -4,7 +4,6 @@ class CreateGalleries < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :gallery_type
 			t.string :smart_id
-			t.string :link
       t.timestamps
     end
   end

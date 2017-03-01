@@ -1,0 +1,29 @@
+<div class="container">
+	<% if @survey %>
+		<div class="col-md-8">
+			<div class="survey">
+				<div class="survey-header">
+					<h2>Опрос</h2>
+				</div>
+				<div class="survey-content survey-show"
+					data-controller="<%= survey_path(@survey) %>"
+					data-survey-content="<%= @survey.to_json %>"
+					data-user-id="<%= current_user.id if user_signed_in?%>">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<h2 class="comments-title">Комментарии:</h2>
+			<div class="comments-block">
+				<ul class="comments-content for-survey-<%= @survey.id %>">
+					<% @survey.comments.each do |comment| %>
+						<%= render 'surveys/comments/comment', comment: comment %>
+					<% end %>
+				</ul>
+				<% if can? :create , Comment %>
+					<%= render 'comments/new_comment', commentable: @survey %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

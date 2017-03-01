@@ -3,8 +3,6 @@ class CreateVideos < ActiveRecord::Migration[5.0]
     create_table :videos do |t|
       t.string :youtube_link
       t.string :iframe_link
-      t.string :video_id
-      t.string :title
       t.text :description
       t.string :published_at
       t.string :video_type

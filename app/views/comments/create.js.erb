@@ -1,4 +1,6 @@
 $(".for-" + "<%= @commentable.class.to_s.downcase %>" + "-" + "<%= @commentable.id %>")
   .html("<%= escape_javascript render (@commentable.comments) %>")
 $(".form-input").val("")
-console.log("comment added")
+var contentList = $(".for-" + "<%= @commentable.class.to_s.downcase %>" + "-" + "<%= @commentable.id %>");
+var numberOfComments = $(contentList).find('.single-comment').length;
+$(contentList).animate({scrollTop: numberOfComments * 120 }, 0);

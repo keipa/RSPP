@@ -20,7 +20,9 @@
 @import "join_rspp_form";
 @import "pdf_page";
 @import "help-info";
-@import "_topics";
+@import "templates";
+
+
 
 // libraries
 @import "slick";
@@ -148,3 +150,4 @@ form {
     }
   }
 }
+
