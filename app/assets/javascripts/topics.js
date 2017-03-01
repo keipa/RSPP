@@ -1,11 +1,13 @@
 $(document).on('turbolinks:load', function() {
-	var subtopics;
 	$('.topic .topic-text').hover(function(e) {
 		$('.subtopics-nav').hide();
-		subtopics = $(e.target).parent().next();
+		var subtopics = $(e.target).parent().next();
 		if (subtopics) {
-			$(subtopics).css('display', 'flex');
+			$(subtopics).css({
+				'display': 'flex'
+			});
 		}
+		return;
 	})
 
 	$('.navbar').mouseleave(function(e) {
