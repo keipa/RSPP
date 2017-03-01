@@ -1,0 +1,37 @@
+<div class="container new-topic">
+	<%= form_for [:admin, @topic] do |f| %>
+	<div class="new-topic-container">
+		<div class="form-group new-topic-container-header">
+			<div class="col-md-7">
+				<p>
+					<% if @parent_topic %>
+					<%= f.label "Название подраздела", class: "new-topic-container-topic-name" %>
+				<% else %>
+					<%= f.label "Название раздела", class: "new-topic-container-topic-name" %>
+					<% end %>
+					<%= f.text_field :text, autocomplete: "off", class:"form-control", placeholder: "Новости" %>
+				</p>
+			</div>
+			<div class="col-md-5">
+				<p>
+					<% if @parent_topic %>
+					<%= f.label "Ссылка на подраздел (на английском)", class: "new-topic-container-topic-url" %>
+					<%= f.hidden_field :topic_id, value: @parent_topic.id %>
+				<% else %>
+					<%= f.label "Ссылка на раздел (на английском)", class: "new-topic-container-topic-url" %>
+					<%= f.hidden_field :topic_id, value: nil %>
+					<% end %>
+					<%= f.text_field :smart_id, autocomplete: "off", class:"form-control", placeholder: "news" %>
+				</p>
+			</div>
+		</div>
+		<div>
+			<%= f.cktext_area :description, class: "new-topic-container-description" %>
+		</div>
+		<p class="new-topic-footer">
+			<%= f.submit "Добавить", class:"btn btn-success btn-add-topic"%>
+			<%= button_to "Назад",:back, class:"btn btn-default btn-back-topic"%>
+		</p>
+	</div>
+	<% end %>
+</div>

@@ -1,11 +1,1 @@
-  <% @topic&.subtopics.each do |subtopic| %>
-    <%= subtopic.text %>
-    <br>
-<% end %>
-
-<%= form_for(Topic.new, url: topic_path, html: {style: "font-size: 70px;"}, method: :put) do |f| %>
-  <p><%= f.text_field :text, autocomplete: "off", placeholder: "Текст" %></p>
-  <p><%= f.submit "Добавить" %></p>
-<% end %>
-
-<%= link_to "К сайту", root_path %>
+<%= render 'form' %>

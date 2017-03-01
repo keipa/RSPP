@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     root 'news_posts#index'
     resources :news_posts, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :partners, only: [:index, :create, :destroy, :edit, :update]
-    resources :topics, only: [:index, :new, :create, :destroy, :edit, :update]
+		resources :topics, only: [:index, :new, :create, :destroy, :edit, :update]
     resources :surveys
     resources :users
     resources :sliders
@@ -31,9 +31,9 @@ Rails.application.routes.draw do
     get '/users', to: 'devise/registrations#new'
   end
 
-  patch 'topics/:id' => 'topics#update_content', as: 'update_content'
 
-  resources :topics, only: [:show, :new, :create, :edit, :update, :patch, :destroy]
+  resources :topics, only: [:show]
+
 
   resources :news_posts , only: [:show, :index]
   resources :videos do

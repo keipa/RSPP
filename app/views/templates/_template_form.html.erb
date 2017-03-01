@@ -1,7 +1,6 @@
-<%= form_for(template, url: update_content_path(template), method: :patch, html: {id: "template-form"}) do |f| %>
+<%= form_for(template) do |f| %>
 <div class="editor">
 
-	<%= f.cktext_area :description%>
 </div>
 
 <p><%= f.submit "Добавить", class: "add-topic-changes" %></p>

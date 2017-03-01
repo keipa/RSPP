@@ -1,66 +1,68 @@
 <div class="header">
 
-  <div class="head container-fluid">
-    <div class="burger-menu"></div>
-    <div class="container clearfix">
-      <div class="logo">
-        <!-- off turbolinks because of yandex maps -->
-        <%= link_to root_path, "data-turbolinks": false do %>
-        <%= image_tag ('logo.png'), class: 'logo-image' %>
-        <% end %>
-      </div>
-      <div class="logo-text">
-        <h1 class="text">
-          Республиканский союз промышленников и предпринимателей
-        </h1>
-      </div>
+	<div class="head container-fluid">
+		<div class="burger-menu"></div>
+		<div class="container clearfix">
+			<div class="logo">
+				<!-- off turbolinks because of yandex maps -->
+				<%= link_to root_path, "data-turbolinks": false do %>
+				<%= image_tag ('logo.png'), class: 'logo-image' %>
+				<% end %>
+			</div>
+			<div class="logo-text">
+				<h1 class="text">
+					Республиканский союз промышленников и предпринимателей
+				</h1>
+			</div>
 
-      <% if user_signed_in? %>
-        <div class="user-info">
-          <div class="user-name">
-            <%= current_user.name %>
-          </div>
-          <div class="user-actions">
-            <%= link_to "Кабинет", admin_path(:rspp_news) if current_user.admin? %>
-            <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-          </div>
-        </div>
-      <% else %>
-        <div class="authentication">
-          <%= link_to new_user_session_path, class: 'sign-in-link' do %>
-            <p>
-              <span class="icon icon-lock"></span>Войти
-            </p>
-          <% end %>
-          <%= link_to new_user_registration_path, class: 'sign-up-link' do %>
-            <p>Регистрация</p>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+			<% if user_signed_in? %>
+			<div class="user-info">
+				<div class="user-name">
+					<%= current_user.name %>
+				</div>
+				<div class="user-actions">
+					<%= link_to "Кабинет", admin_path(:rspp_news) if current_user.admin? %>
+					<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+				</div>
+			</div>
+		<% else %>
+			<div class="authentication">
+				<%= link_to new_user_session_path, class: 'sign-in-link' do %>
+				<p>
+					<span class="icon icon-lock"></span>Войти
+				</p>
+				<% end %>
+				<%= link_to new_user_registration_path, class: 'sign-up-link' do %>
+				<p>Регистрация</p>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+	</div>
 
-  <!-- navbar -->
-  <div class="navbar container">
+	<!-- navbar -->
+	<div class="navbar container">
 
-    <div class="topics">
-      <% @topics.each do |topic| %>
-        <div class="topic">
-          <%= link_to topic.text, topic.link, class: "topic-text" %>
-          <div class="sliding-underscore"></div>
-        </div>
-      <% end %>
-    </div>
+		<div class="topics">
+			<% @topics.each do |topic| %>
+			<div class="topic">
+				<%= link_to topic.text, topic_path(topic.smart_id), class: "topic-text" %>
+				<div class="sliding-underscore"></div>
+			</div>
+			<% end %>
+			<div class="topic">
+				<%= link_to "Галерея", gallery_path(:photo), class: "topic-text" %>
+				<div class="sliding-underscore"></div>
+			</div>
+		</div>
 
-    <%= link_to join_rspp_path do %>
-      <div class="join-us-btn">
-        Вступить в союз
-      </div>
-    <% end %>
+		<%= link_to join_rspp_path do %>
+		<div class="join-us-btn">
+			Вступить в союз
+		</div>
+		<% end %>
 
-  </div>
-  <!-- -->
-
-
+	</div>
+	<!-- -->
 
 </div>

@@ -1,5 +1,5 @@
 <div class="partitions-list list-group">
 	<% @parent_topic.subtopics.all.each do |subtopic| %>
-	<a href="<%= subtopic.link %>" class="list-group-item"><%= subtopic.text %></a>
+	<a href="<%= topic_path(subtopic.smart_id) %>" class="list-group-item"><%= subtopic.text %></a>
 	<% end %>
 </div>

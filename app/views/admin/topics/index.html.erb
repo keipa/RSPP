@@ -8,12 +8,7 @@
 
 <table class="table table-striped text-center" style="font-size: 20px;">
 	<tr>
-		<td style="width: 5%;">
-			<b>
-				ID
-			</b>
-		</td>
-		<td style="width: 32%;">
+		<td style="width: 25%;">
 			<b>
 				Название
 			</b>
@@ -23,21 +18,17 @@
 				Подразделы
 			</b>
 		</td>
-		<td style="width: 15%;">
+		<td style="width: 25%;">
 			<b>
 				Время создания
 			</b>
 		</td>
-		<td style="width: 13%;"></td>
+		<td style="width: 15%;"></td>
 	</tr>
 
 	<% @topics.each do |topic| %>
 	<% if !topic.topic_id %>
 	<tr>
-		<td>
-			<%= topic.id %>
-		</td>
-
 		<td>
 			<% if topic.text.chars[30] %>
 			<%= topic.text.chars.first(30).join + "..." %>
@@ -50,14 +41,17 @@
 			<% topic&.subtopics.each do |subtopic| %>
 			<div class="admin-subtopic-item">
 				<%= subtopic.text %>
-				<%= link_to edit_admin_topic_path(subtopic) do %>
-				<button class="btn btn-success">
-					Редактировать
-				</button>
+				<%= link_to edit_admin_topic_path(subtopic, parent_topic_id: topic.id), class: "btn btn-success" do %>
+				Редактировать
+				<% end %>
+				<%= link_to admin_topic_path(subtopic), method: :delete, class: "btn btn-danger" do %>
+				Удалить
 				<% end %>
 			</div>
 			<% end %>
-
+			<%= link_to new_admin_topic_path(parent_topic_id: topic.id), class: "btn btn-default", title: "Добавить подраздел"  do %>
+				+
+			<% end %>
 		</td>
 
 		<td>
@@ -65,15 +59,11 @@
 		</td>
 
 		<td class="text-right">
-			<%= link_to edit_admin_topic_path(topic) do %>
-			<button class="btn btn-success">
+			<%= link_to edit_admin_topic_path(topic),class:"btn btn-success" do %>
 				Редактировать
-			</button>
 			<% end %>
-			<%= link_to admin_topic_path(topic), method: :delete do %>
-			<button class="btn btn-danger">
+			<%= link_to admin_topic_path(topic), method: :delete, class:"btn btn-danger" do %>
 				Удалить
-			</button>
 			<% end %>
 		</td>
 	</tr>

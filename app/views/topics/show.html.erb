@@ -8,11 +8,6 @@
 				<div class="template-title">
 					<h2>
 						<%= @topic.text %>
-						<% if can? :manage, Topic %>
-						<a class="update-description-topic">
-							<span class="glyphicon glyphicon-pencil"></span>
-						</a>
-						<% end %>
 					</h2>
 				</div>
 
@@ -20,15 +15,9 @@
 					<%= @topic.description&.html_safe %>
 				</div>
 
-				<% if can? :manage, Topic %>
-				<div class="description-body hidden-template">
-					<%= render 'templates/template_form', template: @topic %>
-				</div>
-				<% end %>
-
 			</div>
 			<div class="template-aside">
-				<a href="<%=@parent_topic.link%>" class="template-root">
+				<a href="<%= topic_path(@parent_topic.smart_id)%>" class="template-root">
 					<h4 class="template-title"><%= @parent_topic.text %></h4>
 				</a>
 				<%= render 'subtopics' %>

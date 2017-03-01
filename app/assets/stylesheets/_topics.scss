@@ -1,3 +1,49 @@
+#cke_1_bottom {
+	display: none;
+}
+
 .admin-subtopic-item {
 	margin-bottom: 1rem;
+
+	a {
+		margin: 0 0.1rem;
+		font-size: 1.5rem;
+	}
+}
+
+.new-topic {
+	margin-top: 2rem;
+
+	&-container {
+		&-header {
+			margin-bottom: 2rem;
+			height: 10rem;
+		}
+
+		&-description {
+			margin-top: 2rem;
+		}
+
+		&-topic-name {
+			font-size: 2rem;
+			font-family: Roboto Regular;
+		}
+
+		&-topic-url {
+			font-size: 2rem;
+			font-family: Roboto Regular;
+		}
+
+		.new-topic-footer {
+			text-align: center;
+
+			.btn-add-topic {
+				margin-top: 2rem;
+			}
+
+			.btn-back-topic {
+				margin-top: 2rem;
+			}
+		}
+	}
 }
