@@ -1,41 +1,29 @@
-<div class="template-wrapper  container">
-
-	<div class="template-container container clearfix">
-
-		<div class="template-body">
-			<div class="description">
-
-				<div class="template-title">
-					<h2>
-						<%= @topic.text %>
-						<% if can? :manage, Topic %>
-						<a class="update-description-topic">
-							<span class="glyphicon glyphicon-pencil"></span>
-						</a>
-						<% end %>
-					</h2>
-				</div>
-
-				<div class="description-body active-template">
-					<%= @topic.description&.html_safe %>
-				</div>
-
-				<% if can? :manage, Topic %>
-				<div class="description-body hidden-template">
-					<%= render 'templates/template_form', template: @topic %>
-				</div>
-				<% end %>
-
-			</div>
-			<div class="template-aside">
-				<a href="<%=@parent_topic.link%>" class="template-root">
-					<h4 class="template-title"><%= @parent_topic.text %></h4>
-				</a>
-				<%= render 'subtopics' %>
-			</div>
-
+<div class="container topic-container">
+	<div class="topic-title col-lg-12">
+		<h1>
+			<%= @topic.text %>
+			<% if can? :manage, Topic %>
+				<small>
+					<a class="edit-topic">
+						Редактировать
+					</a>
+				</small>
+			<% end %>
+		</h1>
+	</div>
+	<div class="col-lg-9 topic-body">
+		<div class="topic-content">
+			<%= @topic.description&.html_safe %>
 		</div>
-
+		<div class="edit-topic-content">
+			<%= render 'templates/template_form', template: @topic %>
+		</div>
 	</div>
 
+	<div class="col-lg-3 other-topics-bookmark-style">
+		<div class="other-topics-nav">
+			<%= link_to @parent_topic.text, topic_path(@parent_topic.smart_id), class: "parent-topic" %>
+			<%= render 'subtopics' %>
+		</div>
+	</div>
 </div>

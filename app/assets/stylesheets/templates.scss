@@ -64,7 +64,7 @@ $template-footer-height: 60px;
 		margin: auto;
 		overflow: hidden;
 		background: $template-page-color;
-		box-shadow: 0 0 4px #CCCCCC;
+		//box-shadow: 0 0 4px #CCCCCC;
 		position: relative;
 	}
 
@@ -94,9 +94,17 @@ $template-footer-height: 60px;
 				font-size: 1.6rem;
 
 				&-body {
-					height: 100%;
-					margin-top: 40px;
-					font-family: none;
+					// defaults from ckeditor
+					font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+					line-height: 1.6;
+
+					p {
+						margin: 13px 0;
+					}
+
+					h1 {
+						margin: 17.4167px 0;
+					}
 				}
 			}
 
@@ -142,6 +150,7 @@ $template-footer-height: 60px;
 		}
 	}
 }
+
 @media (max-width: 1040px) {
 	.template-wrapper {
 		width: 100%;

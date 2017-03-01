@@ -1,6 +1,6 @@
 <li class="list-group-item single-comment">
   <div>
-    <span class="comment-author"><%= comment.user_name %></span>
+    <span class="comment-author"><%= comment.user.name %></span>
     <span class="delete-comment-link pull-right">
       <%= link_to "Удалить", video_comment_path(comment.commentable, comment), method: :delete, remote: true %>
     </span>

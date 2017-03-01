@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Gallery.create(name: 'Фотогалерея', gallery_type: 'photo', smart_id: 'photo', link: '/galleries/photo')
-Gallery.create(name: 'Видеогалерея', gallery_type: 'video', smart_id: 'video', link: '/galleries/video')
+Gallery.create(name: 'Фотогалерея', gallery_type: 'photo', smart_id: 'photo')
+Gallery.create(name: 'Видеогалерея', gallery_type: 'video', smart_id: 'video')
 User.create(first_name: 'Admin', last_name: 'Admin', email: 'admin@rspp.by', password: '123456789', role: "admin")
 Topic.create([{ text: 'О РСПП', user_id: 1, smart_id: "orspp", link: "/topics/orspp" },
 	{ text: 'Сотрудничество', user_id: 1, smart_id: "sotrudnichestvo", link: "/topics/sotrudnichestvo" },

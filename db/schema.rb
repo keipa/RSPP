@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226215407) do
+ActiveRecord::Schema.define(version: 20170228234530) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name",                      null: false
     t.text     "description", limit: 65535
     t.integer  "gallery_id"
     t.datetime "created_at",                null: false
@@ -42,15 +42,14 @@ ActiveRecord::Schema.define(version: 20170226215407) do
     t.string   "role",                           default: "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_name"
     t.index ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
     t.index ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "complaints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title",                    null: false
-    t.text     "body",       limit: 65535, null: false
+    t.string   "title"
+    t.text     "body",       limit: 65535
     t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 20170226215407) do
     t.string   "name"
     t.string   "gallery_type"
     t.string   "smart_id"
-    t.string   "link"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -70,7 +68,6 @@ ActiveRecord::Schema.define(version: 20170226215407) do
     t.string   "title",                            null: false
     t.text     "description",        limit: 65535
     t.text     "text",               limit: 65535, null: false
-    t.string   "image_url"
     t.integer  "user_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
@@ -83,13 +80,11 @@ ActiveRecord::Schema.define(version: 20170226215407) do
   end
 
   create_table "partners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "image_url", null: false
-    t.string "link",      null: false
+    t.string "image_url"
+    t.string "link"
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image_url"
-    t.string   "name"
     t.integer  "album_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -109,16 +104,19 @@ ActiveRecord::Schema.define(version: 20170226215407) do
   end
 
   create_table "slides", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "text",       limit: 65535
-    t.string   "image_url"
+    t.text     "text",               limit: 65535
     t.integer  "slider_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["slider_id"], name: "index_slides_on_slider_id", using: :btree
   end
 
   create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title"
+    t.string   "title",                                 null: false
     t.text     "content",     limit: 65535
     t.boolean  "active"
     t.text     "users",       limit: 65535
@@ -163,8 +161,6 @@ ActiveRecord::Schema.define(version: 20170226215407) do
   create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "youtube_link"
     t.string   "iframe_link"
-    t.string   "video_id"
-    t.string   "title"
     t.text     "description",  limit: 65535
     t.string   "published_at"
     t.string   "video_type"

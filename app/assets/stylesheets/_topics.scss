@@ -1,0 +1,107 @@
+$topic-title-background-color: #519CFF;
+$topic-title-text-color: #FFFFFF;
+$business-news-title-tr-color: #3668A9;
+
+.topic-container {
+
+  .topic-title {
+      margin-bottom: 3rem;
+      height: 6.5rem;
+      background: $topic-title-background-color;
+      color: $topic-title-text-color;
+      width: 100%;
+      position: relative;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      font-family: 'Roboto Light', Helvetica;
+
+      h1 {
+        margin-top: 0.5rem;
+      }
+
+      &:before {
+        content: "";
+        bottom: -1.1rem;
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 1rem solid transparent;
+        border-bottom: 0.5rem solid transparent;
+        border-right: 0.8rem solid $business-news-title-tr-color;
+        border-top: 0.6rem solid $business-news-title-tr-color;
+      }
+
+      &:after {
+        content: "";
+        bottom: -1.1rem;
+        right: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-right: 1rem solid transparent;
+        border-bottom: 0.5rem solid transparent;
+        border-left: 0.8rem solid $business-news-title-tr-color;
+        border-top: 0.6rem solid $business-news-title-tr-color;
+      }
+    }
+
+  .topic-body {
+    padding-right: 2rem;
+    padding-left: 2rem;
+
+    .edit-topic-content {
+      display: none;
+    }
+
+    .topic-content {
+      // defaults from ckeditor
+      font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+      line-height: 1.6;
+      font-size: 13px;
+
+      p {
+        margin: 13px 0;
+        line-height: 1.6;
+      }
+
+      h1 {
+        margin: 17.4167px 0;
+        line-height: 1.2;
+      }
+
+      blockquote {
+        padding: 2px 0;
+        padding-left: 20px;
+        padding-right: 8px;
+        font-style: italic;
+        font-family: Georgia, Times, "Times New Roman", serif;
+        font-size: 13px;
+        border-style: solid;
+        border-color: #ccc;
+        border-width: 0;
+        border-left-width: 5px;
+        margin: 13px 40px;
+      }
+    }
+  }
+
+  .other-topics-bookmark-style {
+    padding-right: 2rem;
+
+    .other-topics-nav {
+      padding: 1.5rem;
+      border: 1px solid #EDEDED;
+
+      .parent-topic {
+        font-size: 2.6rem;
+      }
+
+      .subtopic {
+        font-size: 2rem;
+        padding-left: 3rem;
+      }
+    }
+  }
+
+}
