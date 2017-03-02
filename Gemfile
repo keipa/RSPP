@@ -20,7 +20,7 @@ gem 'jquery-slick-rails'
 
 gem 'spinjs-rails'
 
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
 
 gem 'kaminari'
