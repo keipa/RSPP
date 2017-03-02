@@ -2,21 +2,11 @@
 	<div class="topic-title col-lg-12">
 		<h1>
 			<%= @topic.text %>
-			<% if can? :manage, Topic %>
-				<small>
-					<a class="edit-topic">
-						Редактировать
-					</a>
-				</small>
-			<% end %>
 		</h1>
 	</div>
 	<div class="col-lg-9 topic-body">
 		<div class="topic-content">
 			<%= @topic.description&.html_safe %>
-		</div>
-		<div class="edit-topic-content">
-			<%= render 'templates/template_form', template: @topic %>
 		</div>
 	</div>
 

@@ -30,5 +30,4 @@
 //= require video_switcher
 //= require swipe_comments
 //= require survey_form
-//= require ckeditor/config.js
 // require_tree .

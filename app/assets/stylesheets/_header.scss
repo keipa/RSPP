@@ -10,9 +10,7 @@ $join-us-btn-text-color: #B8B8B8;
 $join-us-btn-text-color-hover: #FFFFFF;
 $join-us-btn-background-color: #626262;
 
-
 .header {
-
 	.head {
 		line-height: 10rem; //for vertical-centering
 		background: $header-color;
@@ -140,18 +138,67 @@ $join-us-btn-background-color: #626262;
 					color: $topic-text-color;
 					font-family: 'Roboto Light', sans-serif;
 					font-size: 2rem;
+					white-space: nowrap;
 
 					&:hover + .sliding-underscore {
 						width: 100%;
 					}
 				}
 
-				.sliding-underscore {
-					width: 0;
-					margin: 0 auto;
-					border-bottom: 1px solid $topic-text-color;
-					transition: 0.4s;
+				.subtopics-nav {
+					display: none;
+					top: 3rem;
+					left: 0;
+					padding-top: 1.2rem;
+					position: absolute;
+
+					a {
+						font-size: 1.8rem;
+						font-family: 'Roboto Regular', Helvetica;
+					}
+
+					&:hover {
+						display: flex;
+					}
+
+					.subtopic {
+
+						&:not(:last-child) {
+							margin-right: 2rem;
+						}
+
+						&:hover + .sliding-underscore {
+							width: 100%;
+						}
+					}
 				}
+
+				&:hover > .subtopics-nav {
+					display: flex;
+				}
+
+				&:first-child {
+
+					.subtopics-nav {
+						left: 0;
+					}
+				}
+
+				&:last-child {
+
+					.subtopics-nav {
+						right: 0;
+						left: initial;
+					}
+				}
+
+			}
+
+			.sliding-underscore {
+				width: 0;
+				margin: 0 auto;
+				border-bottom: 1px solid $topic-text-color;
+				transition: 0.4s;
 			}
 		}
 
@@ -176,12 +223,9 @@ $join-us-btn-background-color: #626262;
 		}
 	}
 }
-
 @media (max-width: 1085px) {
 	.header {
-
 		.navbar {
-
 			.topics {
 				margin-top: 7rem;
 				width: 100%;
@@ -197,12 +241,9 @@ $join-us-btn-background-color: #626262;
 		}
 	}
 }
-
 @media only screen and (max-device-width : 740px) and (orientation : landscape) {
 	.header {
-
 		.head {
-
 			.burger-menu {
 				width: 5rem;
 				height: 5rem;
@@ -226,12 +267,9 @@ $join-us-btn-background-color: #626262;
 		}
 	}
 }
-
 @media only screen and (max-device-width : 740px) and (orientation : portrait) {
 	.header {
-
 		.head {
-
 			.burger-menu {
 				display: block;
 			}

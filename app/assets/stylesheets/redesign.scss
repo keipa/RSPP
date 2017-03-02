@@ -22,7 +22,6 @@
 @import "help-info";
 @import "_topics";
 
-
 // libraries
 @import "slick";
 
@@ -55,7 +54,7 @@ form {
     margin-top: 2rem;
 
     .create-btn {
-      padding: 1rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       background: #519cff;
       color: #FFFFFF;
       border: none;
@@ -70,6 +69,7 @@ form {
     .back-btn {
       padding: 1rem 1.5rem;
       border: 1px solid #519cff;
+      background: #FFFFFF;
       color: #519cff;
       font-size: 1.5rem;
       transition: 0.2s;
