@@ -3,13 +3,39 @@ $background-form-page: #ffffff;
 $btn-border-color: rgba(84, 86, 88, 1);
 $btn-text-color: #FFFFFF;
 $btn-background-color: rgba(81, 156, 255, 1);
-@media (max-width: 970px) {
-	.form-container {
-		width: 100% !important;
+
+.col-centered {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.pdf-page-field {
+	position: relative;
+	margin-bottom: 3rem;
+
+	label {
+		font-size: 1.6rem;
 	}
 
-	.pdf-page-content {
-		width: 80% !important;
+	.required {
+		border-left: 3px solid $main-color-first;
+		padding-left: 15px;
+	}
+	// .big-input {
+	//   position: absolute;
+	//   top: 50%;
+	//   left: 42%;
+	//   transform: translateY(-50%);
+	// }
+	//
+	// .small-input {
+	//   @extend .big-input;
+	//   left: 70%;
+	// }
+	.subheader {
+		font-size: 18px !important;
+		color: #000000;
 	}
 }
 
@@ -186,3 +212,96 @@ $btn-background-color: rgba(81, 156, 255, 1);
 		}
 	}
 }
+@media (max-width: 1199px) {
+	.form-container {
+		width: 100% !important;
+	}
+
+	.pdf-page-content {
+		width: 100% !important;
+
+		.table-pdf {
+			.checkbox-cell {
+				position: relative;
+
+				input {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%,-50%);
+				}
+			}
+		}
+
+		.navigaton-content {
+			margin-top: 50px;
+
+			.navigation-form {
+				button {
+					font-size: 4rem;
+				}
+			}
+		}
+
+		.pdf-page-title {
+			h2 {
+				font-size: 5rem;
+			}
+		}
+
+		.partition-subtitle-pdf {
+			h3 {
+				font-size: 3.5rem;
+			}
+		}
+
+		.partition-title-pdf {
+			h3 {
+				font-size: 4.5rem;
+			}
+		}
+
+		.form-part {
+			label {
+				font-size: 3rem;
+			}
+
+			.pdf-page-input {
+				height: 5.5rem;
+				font-size: 4.5rem;
+			}
+		}
+	}
+}
+// @media (max-width: 970px) {
+// 	.form-container {
+// 		width: 100% !important;
+// 	}
+//
+// 	.pdf-page-content {
+// 		width: 100% !important;
+//
+// 		.pdf-page-title {
+// 			h2 {
+// 				font-size: 4rem;
+// 			}
+// 		}
+//
+// 		.partition-title-pdf {
+// 			h3 {
+// 				font-size: 3.5rem;
+// 			}
+// 		}
+//
+// 		.form-part {
+// 			label {
+// 				font-size: 2rem;
+// 			}
+//
+// 			.pdf-page-input {
+// 				height: 3.5rem;
+// 				font-size: 2.5rem;
+// 			}
+// 		}
+// 	}
+// }

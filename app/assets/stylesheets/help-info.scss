@@ -37,8 +37,35 @@
 }
 
 .btn-info-rspp {
-  padding-bottom: 0 !important;
-  padding-left: 11px !important;
-  padding-right: 11px !important;
+	padding-bottom: 0 !important;
+	padding-left: 11px;
+	padding-right: 11px !important;
 }
+@media (max-width: 1199px) {
+	#info-modal-pdf {
+		.modal-dialog {
+			width: 90% !important;
 
+			h2 {
+				font-size: 4rem;
+			}
+
+			h3 {
+				font-size: 3.5rem;
+			}
+
+			button {
+				font-size: 3rem;
+			}
+		}
+
+		h5 {
+			font-size: 4rem;
+			margin: 1rem 0;
+		}
+
+		p {
+			font-size: 3rem;
+		}
+	}
+}
