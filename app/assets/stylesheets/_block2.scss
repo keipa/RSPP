@@ -22,6 +22,11 @@ $appeal-button-background-color: #519CFF;
 			width: 100%;
 			position: relative;
 
+			a {
+				text-decoration: none;
+				color: $news-header-text-color;
+			}
+
 			&:before {
 				content: "";
 				top: $news-header-height;

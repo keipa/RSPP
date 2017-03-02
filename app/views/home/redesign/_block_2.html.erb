@@ -1,7 +1,9 @@
 <div class="block-2">
 	<div class="news-rspp col-lg-8 col-md-8">
 		<div class="news-rspp-header">
-			<h2>Новости РСПП</h2>
+			<%= link_to news_posts_path(type: :rspp) do %>
+				<h2>Новости РСПП</h2>
+			<% end %>
 		</div>
 
 		<div class="news-rspp-body">

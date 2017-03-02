@@ -147,9 +147,12 @@ $join-us-btn-background-color: #626262;
 
 				.subtopics-nav {
 					display: none;
-					top: 3rem;
-					left: 0;
-					padding-top: 1.2rem;
+					top: 2.2rem;
+					padding-right: 5rem;
+					padding-left: 5rem;
+					left: -5rem;
+					padding-top: 2rem;
+					padding-bottom: 4rem;
 					position: absolute;
 
 					a {
@@ -180,14 +183,15 @@ $join-us-btn-background-color: #626262;
 				&:first-child {
 
 					.subtopics-nav {
-						left: 0;
+						left: -5rem;
 					}
 				}
 
 				&:last-child {
 
 					.subtopics-nav {
-						right: 0;
+						padding-right: 5rem;
+						right: -5rem;
 						left: initial;
 					}
 				}
