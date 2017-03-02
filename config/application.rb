@@ -8,5 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Rspp
   class Application < Rails::Application
+    config.assets.precompile += Ckeditor.assets
   end
 end

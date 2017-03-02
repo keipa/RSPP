@@ -1,36 +1,32 @@
 <div class="container new-topic">
 	<%= form_for [:admin, @topic] do |f| %>
-	<div class="new-topic-container">
-		<div class="form-group new-topic-container-header">
-			<div class="col-md-7">
-				<p>
-					<% if @parent_topic %>
-					<%= f.label "Название подраздела", class: "new-topic-container-topic-name" %>
-				<% else %>
-					<%= f.label "Название раздела", class: "new-topic-container-topic-name" %>
-					<% end %>
-					<%= f.text_field :text, autocomplete: "off", class:"form-input", placeholder: "Новости" %>
-				</p>
-			</div>
-			<div class="col-md-5">
-				<p>
-					<% if @parent_topic %>
-					<%= f.label "Ссылка на подраздел (на английском)", class: "new-topic-container-topic-url" %>
-					<%= f.hidden_field :topic_id, value: @parent_topic.id %>
-				<% else %>
-					<%= f.label "Ссылка на раздел (на английском)", class: "new-topic-container-topic-url" %>
-					<%= f.hidden_field :topic_id, value: nil %>
-					<% end %>
-					<%= f.text_field :smart_id, autocomplete: "off", class:"form-input", placeholder: "news" %>
-				</p>
-			</div>
+		<div class="col-lg-7">
+			<% title = @parent_topic ? "Название подраздела" : "Название раздела" %>
+			<h2><%= title %></h2>
+			<%= f.text_field :text, autocomplete: "off", class:"form-input",
+				placeholder: "Новости" %>
 		</div>
-		<div>
-			<%= f.cktext_area :description, class: "new-topic-container-description" %>
+		<div class="col-lg-5">
+			<% if @parent_topic %>
+				<h2>Ссылка на подраздел (на английском)</h2>
+				<%= f.hidden_field :topic_id, value: @parent_topic.id %>
+			<% else %>
+				<h2>Ссылка на раздел (на английском)</h2>
+				<%= f.hidden_field :topic_id, value: nil %>
+			<% end %>
+			<%= f.text_field :smart_id, autocomplete: "off", class:"form-input",
+				placeholder: "news" %>
 		</div>
-		<div class="actions new-topic-footer">
-			<%= f.submit "Добавить", class:"btn-add-topic create-btn"%>
-			<%= button_to "Назад",:back, class:"btn-back-topic back-btn"%>
+
+		<div class="col-lg-12">
+			<h2>Содержание</h2>
+		</div>
+		<div class="col-lg-12 topic-content-editor">
+			<%= f.cktext_area :description %>
+		</div>
+		<div class="actions text-center">
+			<%= f.submit "Добавить", class:"create-btn"%>
+			<%= button_to "Назад", :back, class:"back-btn"%>
 		</div>
 	</div>
 	<% end %>

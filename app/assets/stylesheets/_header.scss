@@ -130,20 +130,6 @@ $join-us-btn-background-color: #626262;
 			width: 80%;
 			margin-top: 1rem;
 
-			.subtopics-nav {
-				position: absolute;
-				display: none;
-				width: 60%;
-				justify-content: space-around;
-				top: 6rem;
-
-				.subtopic {
-					&:hover + .sliding-underscore {
-						width: 100%;
-					}
-				}
-			}
-
 			.topic {
 				position: relative;
 
@@ -152,11 +138,60 @@ $join-us-btn-background-color: #626262;
 					color: $topic-text-color;
 					font-family: 'Roboto Light', sans-serif;
 					font-size: 2rem;
+					white-space: nowrap;
 
 					&:hover + .sliding-underscore {
 						width: 100%;
 					}
 				}
+
+				.subtopics-nav {
+					display: none;
+					top: 3rem;
+					left: 0;
+					padding-top: 1.2rem;
+					position: absolute;
+
+					a {
+						font-size: 1.8rem;
+						font-family: 'Roboto Regular', Helvetica;
+					}
+
+					&:hover {
+						display: flex;
+					}
+
+					.subtopic {
+
+						&:not(:last-child) {
+							margin-right: 2rem;
+						}
+
+						&:hover + .sliding-underscore {
+							width: 100%;
+						}
+					}
+				}
+
+				&:hover > .subtopics-nav {
+					display: flex;
+				}
+
+				&:first-child {
+
+					.subtopics-nav {
+						left: 0;
+					}
+				}
+
+				&:last-child {
+
+					.subtopics-nav {
+						right: 0;
+						left: initial;
+					}
+				}
+
 			}
 
 			.sliding-underscore {
