@@ -63,7 +63,7 @@
 					<h2>Опрос</h2>
 				</div>
 				<% if user_signed_in? %>
-					<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="'<%= current_user.id %>">
+					<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="<%= current_user.id %>">
 					</div>
 				<% else %>
 					<div class="survey-content" data-controller="<%= survey_path(@survey) %>" data-survey-content="<%= @survey.to_json %>" data-user-id="">

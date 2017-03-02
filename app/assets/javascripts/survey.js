@@ -3,11 +3,15 @@ $(document).on('turbolinks:load', function() {
 	var SURVEY_QUESTIONS;
 	var CURRENT_USER_ID;
 	surveyContent = $(".survey-content").attr("data-survey-content")
-	currentUserId = $(".survey-content").attr("data-user-id")
+
 
 	if (surveyContent) {
-		SURVEY = surveyContent.replace(/&quot;/g, '"')
+		currentUserId = $(".survey-content").attr("data-user-id")
+		SURVEY = surveyContent.replace(/\\"body\\"=\\u003e/g, '\\"body\\":')
+		SURVEY = SURVEY.replace(/\\"count\\"=\\u003e/g, '\\"count\\":')
+		SURVEY = SURVEY.replace(/\'/g, '')
 		SURVEY = JSON.parse(SURVEY)
+
 		SURVEY_QUESTIONS = JSON.parse(SURVEY.content);
 		if (currentUserId) {
 			CURRENT_USER_ID = currentUserId;
@@ -26,6 +30,7 @@ $(document).on('turbolinks:load', function() {
 			$("input[name='answer-survey']").attr('checked', false);
 			$(e.target).prop('checked', 'checked');
 			$(e.target).attr('checked', 'checked');
+			$('.vote-btn').removeAttr('disabled')
 		})
 	}
 
@@ -74,8 +79,10 @@ $(document).on('turbolinks:load', function() {
 	function renderQuestionBottom() {
 		var optionsList = $('.survey-content .options-list');
 		var divVote = $('<div/>').addClass('text-right vote-btn-align')
-		var btnVote = $('<a/>')
+		var btnVote = $('<button/>')
 			.addClass('vote-btn')
+			.css('border', 'none')
+			.attr('disabled', 'true')
 			.text('Проголосовать')
 			.on('click', sendResult)
 		divVote.append(btnVote);
@@ -122,7 +129,7 @@ $(document).on('turbolinks:load', function() {
 
 	function renderResultBottom() {
 		// for show
-		if($('.survey-content').hasClass('survey-show')) {
+		if ($('.survey-content').hasClass('survey-show')) {
 			return;
 		}
 		var resultList = $('.survey-content .result-list');

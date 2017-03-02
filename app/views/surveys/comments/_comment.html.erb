@@ -2,7 +2,9 @@
   <div>
     <span class="comment-author"><%= comment.user.name %></span>
     <span class="pull-right">
+			<% if can? :destroy, Comment %>
       <%= link_to "Удалить", survey_comment_path(comment.commentable, comment), method: :delete, remote: true %>
+			<% end %>
     </span>
   </div>
   <div class="comment-text">

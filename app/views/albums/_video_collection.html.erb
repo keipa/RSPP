@@ -17,6 +17,7 @@
 				<%= render 'video', album: @album, video: video %>
 			</div>
 			<div class="col-lg-3 comments-block">
+				<h2 class="video-comments-title">Комментарии:</h2>
 				<% style = 'no-create-field' unless can? :create , Comment %>
 				<ul class="comments-content for-video-<%= video.id %> <%= style %>">
 			    <% video.comments.each do |comment| %>

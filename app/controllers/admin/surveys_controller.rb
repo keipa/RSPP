@@ -12,7 +12,6 @@ class Admin::SurveysController < Admin::AdminController
     users = surveys_params[:users] || ''
     content = JSON.parse surveys_params[:content]
     @survey = Survey.create!(surveys_params.merge(users: users, content: content))
-    binding.pry
     redirect_to admin_surveys_path
   end
 
