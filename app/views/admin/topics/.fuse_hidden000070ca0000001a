@@ -1,0 +1,33 @@
+<div class="container new-topic">
+	<%= form_for [:admin, @topic] do |f| %>
+		<div class="col-lg-7">
+			<% title = @parent_topic ? "Название подраздела" : "Название раздела" %>
+			<h2><%= title %></h2>
+			<%= f.text_field :text, autocomplete: "off", class:"form-input",
+				placeholder: "Новости" %>
+		</div>
+		<div class="col-lg-5">
+			<% if @parent_topic %>
+				<h2>Ссылка на подраздел (на английском)</h2>
+				<%= f.hidden_field :topic_id, value: @parent_topic.id %>
+			<% else %>
+				<h2>Ссылка на раздел (на английском)</h2>
+				<%= f.hidden_field :topic_id, value: nil %>
+			<% end %>
+			<%= f.text_field :smart_id, autocomplete: "off", class:"form-input",
+				placeholder: "news" %>
+		</div>
+
+		<div class="col-lg-12">
+			<h2>Содержание</h2>
+		</div>
+		<div class="col-lg-12 topic-content-editor">
+			<%= f.cktext_area :description %>
+		</div>
+		<div class="actions text-center">
+			<%= f.submit "Добавить", class:"create-btn"%>
+			<%= button_to "Назад", :back, class:"back-btn"%>
+		</div>
+	</div>
+	<% end %>
+</div>
