@@ -80,11 +80,11 @@ $contacts-block-background-color: rgba(84, 86, 88, 1);
 
 				&-facebook {
 					height: 2.2rem;
-					background-image: url('facebook.png');
+					background-image: asset_url('facebook.png');
 				}
 
 				&-youtube {
-					background-image: url('youtube-icon.png');
+					background-image: asset_url('youtube-icon.png');
 				}
 			}
 		}

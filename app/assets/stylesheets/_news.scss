@@ -106,11 +106,20 @@ $news-navigation-list-item-text: #519cff;
 }
 
 .news-post-container {
+  h1 {
+    font-family: 'Roboto Medium', Helvetica;
+  }
 
+  h3 {
+    font-size: 20px;
+    font-family: 'Roboto Regular', Helvetica;
+  }
+
+  // defaults from ckeditor
 	.news-post-content {
-		font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+		font-family: 'Roboto Light', Helvetica;
     line-height: 1.6;
-    font-size: 13px;
+    font-size: 18px;
 
     p {
       margin: 13px 0;
@@ -135,5 +144,33 @@ $news-navigation-list-item-text: #519cff;
       border-left-width: 5px;
       margin: 13px 40px;
     }
+
+    img[style*="left"]  {
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+    img[style*="right"] {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
 	}
+}
+
+.news-post-form {
+
+  .styled-select {
+    background: asset_url("select-arrow.jpg") no-repeat right center;
+    height: 34px;
+    width: 240px;
+    overflow: hidden;
+
+    select {
+      border: 1px solid #CCCCCC;
+      height: 34px;
+      width: 268px;
+      padding: 5px;
+      background: transparent;
+      font-size: 1.8rem;
+    }
+  }
 }

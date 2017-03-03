@@ -52,9 +52,9 @@ $business-news-title-tr-color: #3668A9;
 
     .topic-content {
       // defaults from ckeditor
-      font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+      font-family: 'Roboto Light', Helvetica;
       line-height: 1.6;
-      font-size: 13px;
+      font-size: 18px;
 
       p {
         margin: 13px 0;
@@ -78,6 +78,15 @@ $business-news-title-tr-color: #3668A9;
         border-width: 0;
         border-left-width: 5px;
         margin: 13px 40px;
+      }
+
+      img[style*="left"]  {
+        margin-right: 20px;
+        margin-bottom: 10px;
+      }
+      img[style*="right"] {
+        margin-left: 20px;
+        margin-bottom: 10px;
       }
     }
   }

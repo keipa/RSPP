@@ -1,4 +1,3 @@
-@import url( 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 @import "Roboto.scss";
 $header-color: #A2A2A2;
 $header-logo-text-color: #FFFFFF;
@@ -24,7 +23,7 @@ $join-us-btn-background-color: #626262;
 			top: 1.5rem;
 			width: 8rem;
 			height: 8rem;
-			background-image: url('burger-menu.png');
+			background-image: asset_url('burger-menu.png');
 			background-size: cover;
 		}
 
@@ -74,7 +73,6 @@ $join-us-btn-background-color: #626262;
 					width: 2.2rem;
 					height: 2.2rem;
 					background-repeat: no-repeat;
-					background-image: url('lock.png');
 					margin-right: 2.5rem;
 					left: 1.5rem;
 
