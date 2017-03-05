@@ -1,7 +1,14 @@
 class SurveysController < ApplicationController
   def vote
     @survey = Survey.find(params[:id])
-    @survey.update(surveys_params)
+    @answer = Answer.find(surveys_params[:answer])
+    voted_users = @answer.users
+    voted_users << current_user unless voted_users.include? current_user
+    @answer.update(users: voted_users)
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
 	def show
@@ -12,11 +19,9 @@ class SurveysController < ApplicationController
 
   def surveys_params
     params.require(:survey).permit(
-      :content,
-      :title,
+      :question,
       :active,
-      :count_votes,
-      :users
+      :answer
     )
   end
 end

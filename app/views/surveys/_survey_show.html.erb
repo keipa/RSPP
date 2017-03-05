@@ -1,0 +1,51 @@
+<div class="survey-header">
+  <h2>Опрос</h2>
+</div>
+<div class="survey-content">
+  <div class="question">
+    <h4><%= survey.question %></h4>
+  </div>
+  <% if user_signed_in? && current_user.voted?(survey) %>
+    <div class="result-list">
+      <% survey.answers.each do |answer| %>
+        <div class="survey-result">
+          <div class="result-text">
+            <%= answer.text %>
+          </div>
+          <div class="percent-progress-bar col-lg-10 col-md-9 col-sm-10 col-xs-9">
+            <div class="percent-progress-bar-filled"
+              style="width: <%= answer.in_percents + "%" %>">
+            </div>
+          </div>
+          <div class="count-result col-lg-10 col-md-9 col-sm-10 col-xs-9">
+            <%= answer.users_voted %>
+          </div>
+          <div class="percent-result text-right col-lg-2 col-md-3 col-sm-2 col-xs-3">
+            <%= answer.in_percents %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="options-list">
+
+      <%= form_for survey, url: vote_survey_path(survey), method: :post,
+        remote: true do |f| %>
+        <% survey.answers.each do |answer| %>
+          <div class="option">
+            <input type="radio" name="survey[answer]"
+              value="<%= answer.id %>" id="<%= answer.id %>">
+            <label for="<%= answer.id %>">
+              <%= answer.text %>
+            </label>
+            <div class="check"></div><div class="inside"></div>
+          </div>
+        <% end %>
+
+        <div class="text-right vote-btn-align">
+          <%= f.submit "Проголосовать", class: "vote-btn" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228234530) do
+ActiveRecord::Schema.define(version: 20170303233018) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                      null: false
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 20170228234530) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["gallery_id"], name: "index_albums_on_gallery_id", using: :btree
+  end
+
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "survey_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["survey_id"], name: "index_answers_on_survey_id", using: :btree
+  end
+
+  create_table "answers_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "answer_id"
+    t.integer "user_id"
+    t.index ["answer_id"], name: "index_answers_users_on_answer_id", using: :btree
+    t.index ["user_id"], name: "index_answers_users_on_user_id", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -116,13 +131,10 @@ ActiveRecord::Schema.define(version: 20170228234530) do
   end
 
   create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title",                                 null: false
-    t.text     "content",     limit: 65535
+    t.string   "question",   null: false
     t.boolean  "active"
-    t.text     "users",       limit: 65535
-    t.integer  "count_votes",               default: 0
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -170,6 +182,8 @@ ActiveRecord::Schema.define(version: 20170228234530) do
   end
 
   add_foreign_key "albums", "galleries"
+  add_foreign_key "answers_users", "answers"
+  add_foreign_key "answers_users", "users"
   add_foreign_key "complaints", "users"
   add_foreign_key "news_posts", "users"
   add_foreign_key "sliders", "slides", column: "slides_id"

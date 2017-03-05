@@ -9,10 +9,7 @@ class Admin::SurveysController < Admin::AdminController
   end
 
   def create
-    users = surveys_params[:users] || ''
-    content = JSON.parse surveys_params[:content]
-    @survey = Survey.create!(surveys_params.merge(users: users, content: content))
-    binding.pry
+    @survey = Survey.create!(surveys_params)
     redirect_to admin_surveys_path
   end
 
@@ -36,11 +33,10 @@ class Admin::SurveysController < Admin::AdminController
 
   def surveys_params
       params.require(:survey).permit(
-        :content,
-        :title,
+        :question,
         :active,
-        :count_votes,
-        :users
+        :answer,
+        answers_attributes: [:text],
       )
   end
 end

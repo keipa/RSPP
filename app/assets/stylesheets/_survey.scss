@@ -92,11 +92,16 @@ $survey-header-text-color: #FFFFFF;
       padding: 0.8rem 1.2rem;
       color: #FFFFFF;
       text-decoration: none;
+      border: none;
       background: linear-gradient(to bottom, #2481FB 0%, #519BFF 58%);
       cursor: pointer;
 
       &:hover {
         background: linear-gradient(to bottom, lighten(#2481FB, 5%) 0%, lighten(#519BFF, 5%) 58%);
+      }
+
+      &:active {
+        border: none;
       }
     }
 
@@ -115,25 +120,26 @@ $survey-header-text-color: #FFFFFF;
       .survey-result {
         width: 100%;
         margin-left: .5rem;
-        margin-bottom: 5px;
+        margin-bottom: .5rem;
         overflow: hidden;
         display: inline-block;
 
         .result-text {
           font-size: 1.4rem;
           font-weight: bold;
-          width: 85%;
+          width: 80%;
+          margin-bottom: 0.5rem;
         }
 
-        .progress-bar {
+        .percent-progress-bar {
           float: left;
           overflow: hidden;
           border-radius: 2px;
           border: 1px solid #dae1e8;
-          width: 85%;
-          position: relative;
+          position: absolute;
           background-color: #f2f4f7;
-          height: 30px;
+          height: 3rem;
+          padding: 0;
 
           &-filled {
             position: absolute;
@@ -145,8 +151,7 @@ $survey-header-text-color: #FFFFFF;
 
         .count-result {
           position: absolute;
-          width: 85%;
-          line-height: 30px;
+          line-height: 3rem;
           text-align: center;
           color: #000000;
           font-size: 1.5rem;
@@ -154,7 +159,7 @@ $survey-header-text-color: #FFFFFF;
 
         .percent-result {
           float: right;
-          line-height: 30px;
+          line-height: 3rem;
           font-size: 1.5rem;
 
           &:after {
@@ -199,7 +204,7 @@ $survey-header-text-color: #FFFFFF;
 
     &-add-field {
       width: 70%;
-      height: 30px;
+      height: 3rem;
       border: 1px solid lighten(#000000,40%);
       background: #ededed;
       cursor: pointer;

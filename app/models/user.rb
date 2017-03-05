@@ -17,4 +17,12 @@ class User < ApplicationRecord
   def admin?
     role == "admin"
   end
+
+  def voted?(survey)
+    voted = false
+    survey.answers.each do |answer|
+      voted = true if answer.user_voted? self
+    end
+    voted
+  end
 end

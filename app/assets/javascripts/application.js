@@ -29,5 +29,4 @@
 //= require template
 //= require video_switcher
 //= require swipe_comments
-//= require survey_form
 // require_tree .

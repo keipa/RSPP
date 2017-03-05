@@ -2,14 +2,7 @@
 	<% if @survey %>
 		<div class="col-md-8">
 			<div class="survey">
-				<div class="survey-header">
-					<h2>Опрос</h2>
-				</div>
-				<div class="survey-content survey-show"
-					data-controller="<%= survey_path(@survey) %>"
-					data-survey-content="<%= @survey.to_json %>"
-					data-user-id="<%= current_user.id if user_signed_in?%>">
-				</div>
+				<%= render 'survey_show', survey: @survey %>
 			</div>
 		</div>
 		<div class="col-md-4">

@@ -44,10 +44,10 @@
             </td>
 
             <td>
-                <% if survey.title.chars[30] %>
-                    <%= survey.title.chars.first(30).join + "..." %>
+                <% if survey.question.chars[30] %>
+                    <%= survey.question.chars.first(30).join + "..." %>
                 <% else %>
-                    <%= survey.title %>
+                    <%= survey.question %>
                 <% end %>
             </td>
 
