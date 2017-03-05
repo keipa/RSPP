@@ -1,84 +1,71 @@
-<div class="add-news-post-btn-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
-    <%= link_to new_admin_news_post_path do %>
-        <button class="btn btn-default add-news-post-btn" style="font-size: 20px;">
-            Добавить новость
-        </button>
+<div class="admin-news-posts">
+  <div class="add-news-post-btn-wrapper text-center">
+    <%= link_to new_admin_news_post_path, class: "btn btn-default add-news-post-btn" do %>
+      Добавить новость
     <% end %>
-</div>
+  </div>
 
-<table class="table table-striped text-center" style="font-size: 20px;">
+  <table class="table table-striped text-center">
     <tr>
-        <td style="width: 5%;">
-            <b>
-                ID
-            </b>
-        </td>
-        <td style="width: 26%;">
-            <b>
-                Заголовок
-            </b>
-        </td>
-        <td style="width: 26%;">
-            <b>
-                Описание
-            </b>
-        </td>
-        <td style="width: 15%;">
-            <b>
-                Автор
-            </b>
-        </td>
-        <td style="width: 15%;">
-            <b>
-                Время публикации
-            </b>
-        </td>
-        <td style="width: 13%;">
-        </td>
+      <td style="width: 30%;">
+        <b>
+          Заголовок
+        </b>
+      </td>
+      <td style="width: 26%;">
+        <b>
+          Описание
+        </b>
+      </td>
+      <td style="width: 15%;">
+        <b>
+          Автор
+        </b>
+      </td>
+      <td style="width: 15%;">
+        <b>
+          Время публикации
+        </b>
+      </td>
+      <td style="width: 8%;">
+      </td>
     </tr>
 
     <% @news_posts.each do |news_post| %>
-        <tr>
-            <td>
-                <%= news_post.id %>
-            </td>
+      <tr>
+        <td class="news-post-info">
+          <% if news_post.title.chars[30] %>
+              <%= news_post.title.chars.first(30).join + "..." %>
+          <% else %>
+              <%= news_post.title %>
+          <% end %>
+        </td>
 
-            <td>
-                <% if news_post.title.chars[30] %>
-                    <%= news_post.title.chars.first(30).join + "..." %>
-                <% else %>
-                    <%= news_post.title %>
-                <% end %>
-            </td>
+        <td class="news-post-info">
+          <% if news_post.description.chars[30] %>
+              <%= news_post.description.chars.first(30).join + "..." %>
+          <% else %>
+              <%= news_post.description %>
+          <% end %>
+        </td>
 
-            <td>
-                <% if news_post.description.chars[30] %>
-                    <%= news_post.description.chars.first(30).join + "..." %>
-                <% else %>
-                    <%= news_post.description %>
-                <% end %>
-            </td>
+        <td class="news-post-info">
+          <%= news_post.author %>
+        </td>
 
-            <td>
-                <%= news_post.author %>
-            </td>
+        <td class="news-post-info">
+          <%= l news_post.created_at, format: :long %>
+        </td>
 
-            <td>
-                <%= l news_post.created_at, format: :long %>
-            </td>
-
-            <td class="text-right">
-                <%= link_to edit_admin_news_post_path(news_post) do %>
-                    <button class="btn btn-success">
-                        Редактировать
-                    </button>
-                <% end %>
-                <%= link_to admin_news_post_path(news_post), method: :delete do %>
-                    <button class="btn btn-danger"> 
-                        Удалить
-                    </button>
-                <% end %>
-            </td>
-        </tr>
+        <td class="text-right">
+          <%= link_to edit_admin_news_post_path(news_post), class: "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to admin_news_post_path(news_post), method: :delete, class: "btn btn-danger" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-</table>
+  </table>
+</div>

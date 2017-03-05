@@ -1,0 +1,56 @@
+.admin-navigation-panel {
+  border-bottom: 1px solid #333333;
+  width: 15%;
+  height: 100vh;
+  position: fixed;
+  background: #2f323a;
+  padding-top: 4rem;
+  overflow: hidden;
+
+  .hidden-scroll {
+    overflow-y: scroll;
+    height: inherit;
+    width: calc(100% + 20px);
+  }
+
+  .back-btn-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    a {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  .admin-navigation-tabs {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 4rem;
+    line-height: 4rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    .tab {
+      font-size: 1.7rem;
+      border: 1px solid #333333;
+      border-bottom: none;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      cursor: pointer;
+      color: #FFFFFF;
+      font-family: 'Roboto Light';
+
+      &:hover {
+        background: darken(#2f323a, 6%);
+      }
+    }
+  }
+}
