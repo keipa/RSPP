@@ -1,0 +1,38 @@
+<div class="burger-menu"></div>
+<div class="burger-list">
+	<div class="burger-list-item burger-list-item--active">
+		<%= link_to "Вступить в союз", join_rspp_path  %>
+	</div>
+	<% if user_signed_in? %>
+	<% if current_user.admin?  %>
+	<div class="burger-list-item">
+		<%= link_to "Кабинет", admin_path(:rspp) %>
+	</div>
+	<%end %>
+<% else %>
+	<div class="burger-list-item">
+		<%= link_to "Регистрация", new_user_registration_path %>
+	</div>
+	<% end %>
+	<% @topics.each do |topic| %>
+	<div class="burger-list-item">
+		<%= link_to topic.text, topic_path(topic.smart_id)%>
+	</div>
+	<% if topic.subtopics.any? %>
+	<div class="burger-list-item-toggle"></div>
+	<div class="burger-list-item-sublist">
+		<% topic.subtopics.each do |subtopic| %>
+		<div class="burger-list-item">
+			<%= link_to subtopic.text, topic_path(subtopic.smart_id) %>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+	<% end %>
+	<div class="burger-list-item"></div>
+	<div class="burger-list-item burger-list-item--active">
+		<% if user_signed_in? %>
+		<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+		<% end %>
+	</div>
+</div>

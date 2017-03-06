@@ -1,24 +1,7 @@
 <div class="header">
 
 	<div class="head container-fluid">
-		<div class="burger-menu"></div>
-		<div class="burger-list">
-			<% @topics.each do |topic| %>
-				<div class="burger-list-item">
-					<%= link_to topic.text, topic_path(topic.smart_id)%>
-				</div>
-				<% if topic.subtopics.any? %>
-					<div class="burger-list-item-toggle"></div>
-					<div class="burger-list-item-sublist">
-						<% topic.subtopics.each do |subtopic| %>
-						<div class="burger-list-item">
-							<%= link_to subtopic.text, topic_path(subtopic.smart_id) %>
-						</div>
-						<% end %>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
+		<%= render 'layouts/redesign/burger_menu' %>
 		<div class="container clearfix">
 			<div class="logo">
 				<!-- off turbolinks because of yandex maps -->
