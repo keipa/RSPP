@@ -4,35 +4,42 @@
 		<%= link_to "Вступить в союз", join_rspp_path  %>
 	</div>
 	<% if user_signed_in? %>
-	<% if current_user.admin?  %>
-	<div class="burger-list-item">
-		<%= link_to "Кабинет", admin_path(:rspp) %>
-	</div>
-	<%end %>
-<% else %>
-	<div class="burger-list-item">
-		<%= link_to "Регистрация", new_user_registration_path %>
-	</div>
+		<% if current_user.admin?  %>
+		<div class="burger-list-item">
+			<%= link_to "Кабинет", admin_path(:rspp) %>
+		</div>
+		<%end %>
 	<% end %>
+
 	<% @topics.each do |topic| %>
 	<div class="burger-list-item">
 		<%= link_to topic.text, topic_path(topic.smart_id)%>
 	</div>
 	<% if topic.subtopics.any? %>
-	<div class="burger-list-item-toggle"></div>
-	<div class="burger-list-item-sublist">
-		<% topic.subtopics.each do |subtopic| %>
-		<div class="burger-list-item">
-			<%= link_to subtopic.text, topic_path(subtopic.smart_id) %>
+		<div class="burger-list-item-sublist">
+			<% topic.subtopics.each do |subtopic| %>
+			<div class="burger-list-item">
+				<%= link_to subtopic.text, topic_path(subtopic.smart_id) %>
+			</div>
+			<% end %>
 		</div>
 		<% end %>
-	</div>
 	<% end %>
-	<% end %>
+	<div class="burger-list-item"><%= link_to "Галерея", gallery_path(:photo) %></div>
 	<div class="burger-list-item"></div>
+
+	<% if user_signed_in? %>
 	<div class="burger-list-item burger-list-item--active">
-		<% if user_signed_in? %>
-		<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-		<% end %>
+			<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
 	</div>
+	<% else %>
+		<div class="burger-list-auth">
+			<div class="burger-list-auth-item">
+				<%= link_to "Войти", new_user_session_path %>
+				</div>
+			<div class="burger-list-auth-item">
+				<%= link_to "Регистрация", new_user_registration_path %>
+			</div>
+		</div>
+	<% end %>
 </div>
