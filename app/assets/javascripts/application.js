@@ -29,4 +29,6 @@
 //= require template
 //= require video_switcher
 //= require swipe_comments
+//= require admin_partners
+//= require shadow
 // require_tree .

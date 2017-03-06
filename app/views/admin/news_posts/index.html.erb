@@ -1,6 +1,6 @@
-<div class="admin-news-posts">
-  <div class="add-news-post-btn-wrapper text-center">
-    <%= link_to new_admin_news_post_path, class: "btn btn-default add-news-post-btn" do %>
+<div class="admin-content">
+  <div class="add-new-item-btn-wrapper text-center">
+    <%= link_to new_admin_news_post_path, class: "btn btn-default" do %>
       Добавить новость
     <% end %>
   </div>
@@ -12,7 +12,7 @@
           Заголовок
         </b>
       </td>
-      <td style="width: 26%;">
+      <td style="width: 30%;">
         <b>
           Описание
         </b>
@@ -22,7 +22,7 @@
           Автор
         </b>
       </td>
-      <td style="width: 15%;">
+      <td style="width: 17%;">
         <b>
           Время публикации
         </b>
@@ -33,27 +33,27 @@
 
     <% @news_posts.each do |news_post| %>
       <tr>
-        <td class="news-post-info">
-          <% if news_post.title.chars[30] %>
-              <%= news_post.title.chars.first(30).join + "..." %>
+        <td class="info-cell">
+          <% if news_post.title.chars[40] %>
+              <%= news_post.title.chars.first(40).join + "..." %>
           <% else %>
               <%= news_post.title %>
           <% end %>
         </td>
 
-        <td class="news-post-info">
-          <% if news_post.description.chars[30] %>
-              <%= news_post.description.chars.first(30).join + "..." %>
+        <td class="info-cell">
+          <% if news_post.description.chars[40] %>
+              <%= news_post.description.chars.first(40).join + "..." %>
           <% else %>
               <%= news_post.description %>
           <% end %>
         </td>
 
-        <td class="news-post-info">
+        <td class="info-cell">
           <%= news_post.author %>
         </td>
 
-        <td class="news-post-info">
+        <td class="info-cell">
           <%= l news_post.created_at, format: :long %>
         </td>
 

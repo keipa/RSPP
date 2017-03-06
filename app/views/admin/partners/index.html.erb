@@ -1,56 +1,49 @@
-<%= render 'add_partner_form' %>
-
-<div class="add-partner-single-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
-    <button class="btn btn-default add-partner-single" style="font-size: 20px;">
-        Добавить партнера
-    </button>
+<div class="partner-form-wrapper">
+  <%= render 'partner_form' %>
 </div>
+<div class="shadow"></div>
 
-<table class="table table-striped text-center" style="font-size: 20px;">
+<div class="admin-content">
+  <div class="add-new-item-btn-wrapper text-center">
+    <button id="add_partner_btn" class="btn btn-default">
+      Добавить партнера
+    </button>
+  </div>
+
+<table class="table table-striped text-center">
+  <tr>
+    <td class="text-center" style="width: 40%;">
+      <b>
+          Логотип
+      </b>
+    </td>
+    <td style="width: 50%;">
+      <b>
+          Ссылка
+      </b>
+    </td>
+    <td style="width: 10%;">
+    </td>
+  </tr>
+
+  <% @partners.each do |partner| %>
     <tr>
-        <td style="width: 5%;">
-            <b>
-                ID
-            </b>
-        </td>
-        <td style="width: 40%; text-align: center;">
-            <b>
-                Логотип
-            </b>
-        </td>
-        <td style="width: 20%;">
-            <b>
-                Ссылка
-            </b>
-        </td>
-        <td style="width: 13%;">
-        </td>
+      <td class="info-cell">
+        <img src="<%= partner.image&.url %>">
+      </td>
+
+      <td class="info-cell vertical-align-text-middle">
+        <%= partner.link %>
+      </td>
+
+      <td class="text-center vertical-align-text-middle">
+        <%= link_to edit_admin_partner_path(partner), remote: true, class: "btn btn-primary" do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to admin_partner_path(partner), method: :delete, class: "btn btn-danger" do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </td>
     </tr>
-
-    <% @partners.each do |partner| %>
-        <tr>
-            <td>
-                <%= partner.id %>
-            </td>
-
-            <td>
-                <img src="<%= partner.image_url %>" style="max-width: 100%;">
-            </td>
-
-            <td>
-                <%= partner.link %>
-            </td>            
-
-            <td class="text-right">
-                <button class="btn btn-success update-partner-single" data-link="<%= partner.link %>" data-imageUrl="<%= partner.image_url %>" data-id="<%= partner.id %>">
-                    Редактировать
-                </button>
-                <%= link_to admin_partner_path(partner), method: :delete do %>
-                    <button class="btn btn-danger"> 
-                        Удалить
-                    </button>
-                <% end %>
-            </td>
-        </tr>
-    <% end %>
+  <% end %>
 </table>

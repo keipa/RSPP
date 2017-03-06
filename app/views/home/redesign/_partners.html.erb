@@ -6,10 +6,12 @@
       </h2>
     </div>
     <div class="partners-carousel">
-      <% 5.times do |i| %>
-        <div class="single-partner">
-          <%= image_tag "partner#{i + 1}.png" %>
-        </div>
+      <% @partners&.each do |partner| %>
+        <%= link_to partner.link, target: "_blank" do %>
+          <div class="single-partner">
+            <%= image_tag partner.image.url %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

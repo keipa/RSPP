@@ -1,38 +1,3 @@
-.admin-news-posts {
-
-  .add-news-post-btn-wrapper {
-    position: fixed;
-    width: 85%;
-    top: 0;
-
-    a {
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-      border-top: none;
-      padding: 1rem 2rem;
-      font-size: 1.7rem;
-      color: darken(#519CFF, 20%);
-      border-color: darken(#519CFF, 20%);
-    }
-  }
-
-  table {
-    margin-top: 6rem;
-    font-size: 1.6rem;
-
-    .news-post-info {
-      line-height: 3rem;
-    }
-
-    td {
-      .btn {
-        border-radius: 0;
-        padding: .4rem .8rem;
-      }
-    }
-  }
-}
-
 .news-post-form {
   margin-bottom: 10rem;
 

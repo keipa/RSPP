@@ -1,6 +1,7 @@
 class Admin::PartnersController < Admin::AdminController
   def index
     @partners = Partner.all
+    @partner = Partner.new
   end
 
   def destroy
@@ -8,9 +9,17 @@ class Admin::PartnersController < Admin::AdminController
     @partner.destroy
   end
 
+  def edit
+    @partner = Partner.find(params[:id])
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
   def update
     @partner = Partner.find(params[:id])
     @partner.update(partner_params)
+    redirect_to admin_partners_path
   end
 
   def create
@@ -21,6 +30,6 @@ class Admin::PartnersController < Admin::AdminController
   private
 
   def partner_params
-    params.require(:partner).permit(:image_url, :link)
+    params.require(:partner).permit(:image, :link)
   end
 end

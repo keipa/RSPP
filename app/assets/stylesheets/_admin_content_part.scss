@@ -1,0 +1,74 @@
+.add-new-item-btn-wrapper {
+  position: fixed;
+  width: 85%;
+  top: 0;
+
+  a, button {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top: none;
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    color: darken(#519CFF, 20%);
+    border-color: darken(#519CFF, 20%);
+
+    &:hover, &:focus {
+      color: darken(#519CFF, 20%);
+      border-color: darken(#519CFF, 20%);
+      background: rgba(#519CFF, 0.1);
+    }
+
+    &:active {
+      color: darken(#519CFF, 25%);
+      border-color: darken(#519CFF, 25%);
+      background: rgba(#519CFF, 0.3);
+
+      &:hover, &:focus {
+        color: darken(#519CFF, 25%);
+        border-color: darken(#519CFF, 25%);
+        background: rgba(#519CFF, 0.3);
+      }
+    }
+  }
+}
+
+.admin-content {
+  table {
+    margin-top: 6rem;
+    font-size: 1.6rem;
+
+    .info-cell {
+      line-height: 3rem;
+
+      img {
+        max-width: 100%;
+        max-height: 25rem;
+      }
+    }
+
+    .vertical-align-text-middle {
+      transform: translateY(40%);
+    }
+
+    td {
+      .btn {
+        border-radius: 0;
+        padding: .4rem .8rem;
+      }
+
+      .simple-remove {
+        color: #d9534f;
+        margin-left: 0.5rem;
+        top: 0.2rem;
+      }
+
+      .add-subtopic-btn {
+
+        &:not(:first-child) {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
+

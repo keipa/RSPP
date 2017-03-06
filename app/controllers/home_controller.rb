@@ -8,7 +8,7 @@ class HomeController < ApplicationController
       .order(created_at: :desc).limit(3)
     @videos = Video.all.where(video_type: 'interview')
       .order(created_at: :desc).limit(4)
-    # @partners = Partner.all
+    @partners = Partner.all
     @survey =
       Survey.all.where(active: true).user_not_voted(current_user).sample ||
       Survey.all.where(active: true).sample

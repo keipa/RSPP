@@ -19,8 +19,20 @@
     width: 100%;
 
     a {
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
+      background: #14679e;
+      width: 100%;
+      padding: 1.2rem;
+      color: #FFFFFF;
+      border-radius: 0;
+      border: none;
+
+      &:hover {
+        background: darken(#14679e, 3%);
+      }
+
+      &:active {
+        background: darken(#14679e, 6%);
+      }
     }
   }
 
@@ -33,6 +45,7 @@
     flex-direction: column;
     height: 4rem;
     line-height: 4rem;
+    margin-top: 3rem;
 
     a {
       text-decoration: none;

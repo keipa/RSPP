@@ -1,72 +1,76 @@
-<div class="add-news-post-btn-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
-	<%= link_to new_admin_topic_path do %>
-	<button class="btn btn-default add-news-post-btn" style="font-size: 20px;">
-		Добавить раздел
-	</button>
-	<% end %>
+<div class="admin-content">
+  <div class="add-new-item-btn-wrapper text-center">
+    <%= link_to new_admin_topic_path, class: "btn btn-default" do %>
+      Добавить раздел
+    <% end %>
+  </div>
+
+	<table class="table table-striped text-center">
+		<tr>
+			<td style="width: 25%;">
+				<b>
+					Название
+				</b>
+			</td>
+			<td style="width: 35%;">
+				<b>
+					Подразделы
+				</b>
+			</td>
+			<td style="width: 25%;">
+				<b>
+					Время создания
+				</b>
+			</td>
+			<td style="width: 15%;"></td>
+		</tr>
+
+		<% @topics.each do |topic| %>
+			<% if !topic.topic_id %>
+			<tr>
+				<td class="info-cell">
+					<% if topic.text.chars[30] %>
+					<%= topic.text.chars.first(30).join + "..." %>
+				<% else %>
+					<%= topic.text %>
+					<% end %>
+				</td>
+
+				<td class="info-cell">
+					<% topic&.subtopics.each do |subtopic| %>
+						<div class="admin-subtopic-item">
+						<%= link_to subtopic.text,
+							edit_admin_topic_path(subtopic, parent_topic_id: topic.id) %>
+
+							<%= link_to admin_topic_path(subtopic), method: :delete do %>
+								<span class="glyphicon glyphicon-remove simple-remove"></span>
+							<% end %>
+
+						</div>
+					<% end %>
+
+					<div class="add-subtopic-btn">
+						<%= link_to new_admin_topic_path(parent_topic_id: topic.id),
+							title: "Добавить подраздел" do %>
+								Добавить
+						<% end %>
+					</div>
+				</td>
+
+				<td class="info-cell">
+					<%= l topic.created_at, format: :long %>
+				</td>
+
+				<td class="text-right">
+          <%= link_to edit_admin_topic_path(topic), class: "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to admin_topic_path(topic), method: :delete, class: "btn btn-danger" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+			</tr>
+			<% end %>
+		<% end %>
+	</table>
 </div>
-
-<table class="table table-striped text-center" style="font-size: 20px;">
-	<tr>
-		<td style="width: 25%;">
-			<b>
-				Название
-			</b>
-		</td>
-		<td style="width: 35%;">
-			<b>
-				Подразделы
-			</b>
-		</td>
-		<td style="width: 25%;">
-			<b>
-				Время создания
-			</b>
-		</td>
-		<td style="width: 15%;"></td>
-	</tr>
-
-	<% @topics.each do |topic| %>
-	<% if !topic.topic_id %>
-	<tr>
-		<td>
-			<% if topic.text.chars[30] %>
-			<%= topic.text.chars.first(30).join + "..." %>
-		<% else %>
-			<%= topic.text %>
-			<% end %>
-		</td>
-
-		<td>
-			<% topic&.subtopics.each do |subtopic| %>
-			<div class="admin-subtopic-item">
-				<%= subtopic.text %>
-				<%= link_to edit_admin_topic_path(subtopic, parent_topic_id: topic.id), class: "btn btn-success" do %>
-				Редактировать
-				<% end %>
-				<%= link_to admin_topic_path(subtopic), method: :delete, class: "btn btn-danger" do %>
-				Удалить
-				<% end %>
-			</div>
-			<% end %>
-			<%= link_to new_admin_topic_path(parent_topic_id: topic.id), class: "btn btn-default", title: "Добавить подраздел"  do %>
-				+
-			<% end %>
-		</td>
-
-		<td>
-			<%= l topic.created_at, format: :long %>
-		</td>
-
-		<td class="text-right">
-			<%= link_to edit_admin_topic_path(topic),class:"btn btn-success" do %>
-				Редактировать
-			<% end %>
-			<%= link_to admin_topic_path(topic), method: :delete, class:"btn btn-danger" do %>
-				Удалить
-			<% end %>
-		</td>
-	</tr>
-	<% end %>
-	<% end %>
-</table>

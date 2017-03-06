@@ -15,7 +15,6 @@
 @import "_videos";
 @import "_partners";
 @import "_kaminari";
-@import "_admin_news_posts";
 @import "_news";
 @import "_survey";
 @import "_pdf_page";
@@ -23,6 +22,9 @@
 @import "_topics";
 @import "_ckeditor_config";
 @import "_admin_panel";
+@import "_admin_news_posts";
+@import "_admin_content_part";
+@import "_partner_form";
 
 // libraries
 @import "slick";
@@ -54,6 +56,7 @@ form {
 
   .actions {
     margin-top: 2rem;
+    margin-bottom: 2rem;
 
     .create-btn {
       padding: 1.1rem 1.5rem;
@@ -84,6 +87,15 @@ form {
       }
     }
   }
+}
+
+.shadow {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(#000000, 0.3);
+  z-index: 100;
+  display: none;
 }
 
 // radio-buttons lists styles

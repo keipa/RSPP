@@ -1,0 +1,10 @@
+$(".partner-form-wrapper")
+  .html("<%= escape_javascript(render partial: 'partner_form') %>")
+
+$(".partner-form").fadeIn(300);
+$(".shadow").fadeIn(300);
+
+$(".partner-form-header .close").click(function() {
+  $(".partner-form").fadeOut(300);
+  $(".shadow").fadeOut(300);
+})
