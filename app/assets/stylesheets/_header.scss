@@ -163,7 +163,6 @@ $join-us-btn-background-color: #626262;
 					}
 
 					.subtopic {
-
 						&:not(:last-child) {
 							margin-right: 2rem;
 						}
@@ -179,21 +178,18 @@ $join-us-btn-background-color: #626262;
 				}
 
 				&:first-child {
-
 					.subtopics-nav {
 						left: -5rem;
 					}
 				}
 
 				&:last-child {
-
 					.subtopics-nav {
 						padding-right: 5rem;
 						right: -5rem;
 						left: initial;
 					}
 				}
-
 			}
 
 			.sliding-underscore {

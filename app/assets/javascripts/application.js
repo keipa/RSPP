@@ -31,4 +31,5 @@
 //= require swipe_comments
 //= require admin_partners
 //= require shadow
+//= require header
 // require_tree .
