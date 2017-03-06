@@ -10,40 +10,41 @@
     </button>
   </div>
 
-<table class="table table-striped text-center">
-  <tr>
-    <td class="text-center" style="width: 40%;">
-      <b>
-          Логотип
-      </b>
-    </td>
-    <td style="width: 50%;">
-      <b>
-          Ссылка
-      </b>
-    </td>
-    <td style="width: 10%;">
-    </td>
-  </tr>
-
-  <% @partners.each do |partner| %>
+  <table class="table table-striped text-center">
     <tr>
-      <td class="info-cell">
-        <img src="<%= partner.image&.url %>">
+      <td class="text-center" style="width: 40%;">
+        <b>
+            Логотип
+        </b>
       </td>
-
-      <td class="info-cell vertical-align-text-middle">
-        <%= partner.link %>
+      <td style="width: 50%;">
+        <b>
+            Ссылка
+        </b>
       </td>
-
-      <td class="text-center vertical-align-text-middle">
-        <%= link_to edit_admin_partner_path(partner), remote: true, class: "btn btn-primary" do %>
-          <span class="glyphicon glyphicon-edit"></span>
-        <% end %>
-        <%= link_to admin_partner_path(partner), method: :delete, class: "btn btn-danger" do %>
-          <span class="glyphicon glyphicon-remove"></span>
-        <% end %>
+      <td style="width: 10%;">
       </td>
     </tr>
-  <% end %>
-</table>
+
+    <% @partners.each do |partner| %>
+      <tr>
+        <td class="info-cell">
+          <img src="<%= partner.image&.url %>">
+        </td>
+
+        <td class="info-cell vertical-align-text-middle">
+          <%= partner.link %>
+        </td>
+
+        <td class="text-center vertical-align-text-middle">
+          <%= link_to edit_admin_partner_path(partner), remote: true, class: "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to admin_partner_path(partner), method: :delete, class: "btn btn-danger" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,64 +1,52 @@
-<table class="table table-striped text-center" style="font-size: 20px;">
+<div class="admin-content">
+  <table class="table table-striped text-center">
     <tr>
-        <td style="width: 5%;">
-            <b>
-                ID
-            </b>
-        </td>
-        <td style="width: 52%;">
-            <b>
-                Имя
-            </b>
-        </td>
-        <td style="width: 15%;">
-            <b>
-                Роль
-            </b>
-        </td>
-        <td style="width: 15%;">
-            <b>
-                Время регистрации
-            </b>
-        </td>
-        <td style="width: 13%;">
-        </td>
+      <td style="width: 54%;">
+        <b>
+          Имя
+        </b>
+      </td>
+      <td style="width: 16%;">
+        <b>
+          Роль
+        </b>
+      </td>
+      <td style="width: 17%;">
+        <b>
+          Время регистрации
+        </b>
+      </td>
+      <td style="width: 13%;">
+      </td>
     </tr>
 
     <% @users.each do |user| %>
-        <tr>
-            <td>
-                <%= user.id %>
-            </td>
+      <tr>
+        <td>
+          <%= user.first_name %> <%= user.last_name %>
+        </td>
 
-            <td>
-                <%= user.first_name %> <%= user.last_name %>
-            </td>
+        <td>
+          <% if user.role== "admin" %>
+              Администратор
+          <% elsif user.role== "user" %>
+              Пользователь
+          <% end %>
+        </td>
 
-            <td>
-                <% user.roles.each do |role| %>
-                    <% if role.name == "admin" %>
-                        Администратор
-                    <% elsif role.name == "user" %>
-                        Пользователь
-                    <% end %>
-                <% end %>
-            </td>
+        <td>
+          <%= l user.created_at, format: :long %>
+        </td>
 
-            <td>
-                <%= l user.created_at, format: :long %>
-            </td>
-
-            <td class="text-right">
-                <%= render 'form', user: user %>
-                <button class="btn btn-success edit-user-btn">
-                    Редактировать
-                </button>
-                <%= link_to admin_user_path(user), method: :delete do %>
-                    <button class="btn btn-danger"> 
-                        Удалить
-                    </button>
-                <% end %>
-            </td>
-        </tr>
+        <td class="text-center">
+            <%= link_to "", class: "btn btn-primary" do %>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            <%= link_to admin_user_path(user), method: :delete, class: "btn btn-danger" do %>
+              <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+      </tr>
     <% end %>
-</table>
+  </table>
+</div>
