@@ -6,7 +6,7 @@ class Survey < ApplicationRecord
   validates_presence_of :question
 
   scope :user_not_voted, lambda { |user|
-    return if user.nil?
+    return [] if user.nil?
     surveys = []
     all.each do |survey|
       unless user.voted? survey
