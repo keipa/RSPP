@@ -107,12 +107,20 @@ $appeal-button-background-color: #519CFF;
 						font-family: 'Roboto Light';
 						font-size: 1.4rem;
 						padding-left: 0.5rem;
+
+						&.no-padding {
+							padding: 0;
+						}
 					}
 
 					.more-btn {
 						position: absolute;
 						bottom: -3.5rem;
 						left: 2rem;
+
+						&.no-img {
+							left: 1rem;
+						}
 
 						.link-more {
 							font-size: 1.5rem;
