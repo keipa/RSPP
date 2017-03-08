@@ -8,6 +8,8 @@ $topic-text-color: #3D3D3D;
 $join-us-btn-text-color: #B8B8B8;
 $join-us-btn-text-color-hover: #FFFFFF;
 $join-us-btn-background-color: #626262;
+$burger-background-color: #2f323a;
+
 
 .header {
 	.head {
@@ -25,6 +27,7 @@ $join-us-btn-background-color: #626262;
 			height: 8rem;
 			background-image: asset_url('burger-menu.png');
 			background-size: cover;
+			z-index: 20;
 		}
 
 		.logo {
@@ -220,7 +223,6 @@ $join-us-btn-background-color: #626262;
 			}
 		}
 	}
-	$burger-background-color: #2f323a;
 
 	.burger-list {
 		display: none;
@@ -228,12 +230,10 @@ $join-us-btn-background-color: #626262;
 		padding: 0;
 		z-index: 999;
 		background: $burger-background-color;
-		width: 90%;
+		width: 60% !important;
 		height: 100%;
 		position: absolute;
 		overflow-y: auto;
-		box-shadow: 0.3rem 0 50rem #2f323a;
-		transition: width 0s;
 
 		.burger-list-auth {
 			width: 100%;
@@ -247,7 +247,7 @@ $join-us-btn-background-color: #626262;
 				height: 100%;
 				overflow: hidden;
 				background: darken(#14679e, 3%);
-				line-height: 15rem;
+				line-height: 6rem;
 				text-align: center;
 
 				&:hover {
@@ -265,18 +265,14 @@ $join-us-btn-background-color: #626262;
 					}
 				}
 			}
-
-			&-item:first-child {
-				// border-right: 0.1rem solid #ffffff;
-			}
 		}
 
 		&-item {
 			width: 100%;
-			height: 20rem;
-			line-height: 20rem;
+			height: 10rem;
+			line-height: 10rem;
 			text-align: center;
-			font-size: 5.5rem;
+			font-size: 3.5rem;
 			overflow: hidden;
 			border-top: 0.2rem solid rgba(255,255,255,0.1);
 
@@ -290,6 +286,10 @@ $join-us-btn-background-color: #626262;
 
 			&:hover {
 				background: #000000;
+			}
+
+			&.no-hover {
+				background: rgb(47, 50, 58);
 			}
 
 			a {
@@ -323,18 +323,21 @@ $join-us-btn-background-color: #626262;
 		}
 	}
 }
-@media only screen and (max-device-width : 740px) and (orientation : landscape) {
+@media (max-width: 991px) {
+	.container {
+		&.clearfix {
+			margin-left: 5rem;
+    	width: 95%;
+		}
+	}
 	.header {
 		.navbar {
-			display: none;
+			.topics {
+				display: none;
+			}
 		}
 
 		.head {
-			margin-bottom: 2rem;
-
-			.user-info {
-				display: none;
-			}
 
 			.burger-menu {
 				width: 5rem;
@@ -343,65 +346,61 @@ $join-us-btn-background-color: #626262;
 				transform: translateY(-50%);
 				display: block;
 			}
-
-			.logo {
-				text-align: center;
-
-				&-image {
-					width: 12rem;
-					height: 9.7rem;
-				}
-			}
-
-			.authentication {
-				display: none;
-			}
 		}
 	}
 }
-@media only screen and (max-device-width : 740px) and (orientation : portrait) {
+
+@media (max-width: 771px) {
 	.header {
-		.navbar {
-			display: none;
-		}
 
 		.head {
-			margin-bottom: 2rem;
 
 			.user-info {
 				display: none;
 			}
+		}
 
-			.burger-menu {
-				display: block;
+	}
+}
+
+@media (max-width: 660px) {
+	.header {
+
+		.head {
+
+			.logo-text {
+				display: none;
 			}
 
 			.logo {
-				margin-top: 2.3rem;
-				width: 100%;
 				text-align: center;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				overflow: hidden;
+				height: 10rem;
+				min-width: 38.5rem;
 
-				&-image {
-					width: 15rem;
-					height: 12.7rem;
+				.logo-image {
+					width: 22rem;
+					height: auto;
+					position: relative;
+					transform: translateY(-23%);
 				}
 			}
+		}
+	}
+}
 
-			.logo-text {
-				width: 100%;
-				max-width: 100%;
-				text-align: center;
-				margin: 2.5rem 0;
+@media (max-width: 625px) {
+	.header {
 
-				.text {
-					width: 100%;
-					font-size: 5rem;
-				}
-			}
+		.navbar {
 
-			.authentication {
+			.join-us-btn {
 				display: none;
 			}
 		}
 	}
 }
+

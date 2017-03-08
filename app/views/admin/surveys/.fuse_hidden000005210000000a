@@ -1,0 +1,66 @@
+<div class="admin-content">
+  <div class="add-new-item-btn-wrapper text-center">
+    <%= link_to new_admin_survey_path, class: "btn btn-default" do %>
+      Добавить опрос
+    <% end %>
+  </div>
+
+<table class="table table-striped text-center">
+  <tr>
+    <td style="width: 50%;">
+      <b>
+        Тема опроса
+      </b>
+    </td>
+    <td style="width: 5%:">
+      <b>
+        Проголосовали
+      </b>
+    </td>
+    <td style="width: 15%;">
+      <b>
+        Состояние
+      </b>
+    </td>
+    <td style="width: 20%;">
+      <b>
+        Время публикации
+      </b>
+    </td>
+    <td style="width: 15%;">
+    </td>
+  </tr>
+
+  <% @surveys.each do |survey| %>
+    <tr>
+      <td>
+        <% if survey.question.chars[40] %>
+          <%= survey.question.chars.first(40).join + "..." %>
+        <% else %>
+          <%= survey.question %>
+        <% end %>
+      </td>
+
+      <td>
+        <%= survey.users_voted %> чел.
+      </td>
+
+      <td>
+        <%= survey.active ? 'Активен' : 'Закрыт' %>
+      </td>
+
+      <td>
+        <%= l survey.created_at, format: :long %>
+      </td>
+
+      <td class="text-right">
+        <%= link_to edit_admin_survey_path(survey), class: "btn btn-primary" do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to admin_survey_path(survey), method: :delete, class: "btn btn-danger" do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

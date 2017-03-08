@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<style>
+  a {
+    outline: none;
+  }
+</style>
+
+<html>
+  <head>
+    <title>РСПП - Республиканский союз промышленников и предпринимателей</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  </head>
+
+  <body style="overflow-y: scroll;">
+
+    <div class="admin-navigation-panel">
+      <div class="hidden-scroll">
+        <div class="back-btn-container text-center">
+          <%= link_to root_path, class: "btn btn-primary", "data-turbolinks": false  do %>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            К сайту
+          <% end %>
+        </div>
+        <ul class="admin-navigation-tabs">
+          <a href="<%= admin_news_post_path(:rspp) %>"><li class="tab">Новости РСПП</li></a>
+          <a href="<%= admin_news_post_path(:business) %>"><li class="tab">Деловые новости</li></a>
+          <a href="<%= admin_news_post_path(:mass_media) %>"><li class="tab">СМИ о нас</li></a>
+          <a href="<%= admin_sliders_path %>"><li class="tab">Слайдеры</li></a>
+          <a href="<%= admin_topics_path %>"><li class="tab">Разделы</li></a>
+          <a href="<%= admin_partners_path %>"><li class="tab">Партнеры</li></a>
+          <a href="<%= admin_surveys_path %>"><li class="tab">Опросы</li></a>
+          <a href="<%= admin_users_path %>"><li class="tab">Пользователи</li></a>
+        </ul>
+      </div>
+    </div>
+
+    <div style="width: 85%; float: right;">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<div class="block-2">
+	<div class="news-rspp col-lg-8 col-md-8">
+		<div class="news-rspp-header">
+			<%= link_to news_posts_path(type: :rspp) do %>
+				<h2>Новости РСПП</h2>
+			<% end %>
+		</div>
+
+		<div class="news-rspp-body">
+
+			<% @rspp_news.each do |post| %>
+
+				<div class="news-rspp-body-item">
+					<% if post.image.present? %>
+
+						<div class="item-description col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 img-container">
+								<%= image_tag post.image&.url %>
+							</div>
+							<div class="item-title">
+								<%= post.title %>
+							</div>
+							<div class="item-text">
+								<%= post.description %>
+							</div>
+							<div class="more-btn">
+								<%= link_to "Читать далее", news_post_path(post), class: "link-more" %>
+							</div>
+						</div>
+					<% else %>
+						<div class="item-description col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="item-title">
+								<%= post.title %>
+							</div>
+							<div class="item-text no-padding">
+								<%= post.description %>
+							</div>
+							<div class="more-btn no-img">
+								<%= link_to "Читать далее", news_post_path(post), class: "link-more" %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+		</div>
+	</div>
+
+	<div class="appeal-survey col-lg-4 col-md-4 col-sm-12">
+		<div class="appeal">
+			<div class="appeal-header">
+				<h2>Обратиться</h2>
+			</div>
+			<div class="appeal-content">
+				<input type="email" placeholder="Email" id="email-appeal">
+				<button type="button" class="appeal-button">Написать обращение</button>
+			</div>
+		</div>
+
+		<% if @survey %>
+			<div class="survey">
+				<%= render 'surveys/home_page_survey', survey: @survey %>
+			</div>
+		<% end %>
+	</div>
+</div>
