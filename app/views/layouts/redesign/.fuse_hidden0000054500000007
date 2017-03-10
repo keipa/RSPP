@@ -1,13 +1,12 @@
-<div class="shadow"></div>
 <div class="header">
 
 	<div class="head container-fluid">
-		<%= render 'layouts/redesign/burger_menu' %>
+		<div class="burger-menu"></div>
 		<div class="container clearfix">
 			<div class="logo">
 				<!-- off turbolinks because of yandex maps -->
 				<%= link_to root_path, "data-turbolinks": false do %>
-				<%= image_tag ('logo.png'), class: 'logo-image' %>
+					<%= image_tag ('logo.png'), class: 'logo-image' %>
 				<% end %>
 			</div>
 			<div class="logo-text">
@@ -17,27 +16,27 @@
 			</div>
 
 			<% if user_signed_in? %>
-			<div class="user-info">
-				<div class="user-name">
-					<%= current_user.name %>
+				<div class="user-info">
+					<div class="user-name">
+						<%= current_user.name %>
+					</div>
+					<div class="user-actions">
+						<%= link_to "Кабинет", admin_path(:rspp) if current_user.admin? %>
+						<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+					</div>
 				</div>
-				<div class="user-actions">
-					<%= link_to "Кабинет", admin_path(:rspp) if current_user.admin? %>
-					<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+			<% else %>
+				<div class="authentication">
+					<%= link_to new_user_session_path, class: 'sign-in-link' do %>
+						<p>
+							<span class="icon icon-lock"></span>
+							Войти
+						</p>
+					<% end %>
+					<%= link_to new_user_registration_path, class: 'sign-up-link' do %>
+						<p class="pull-right">Регистрация</p>
+					<% end %>
 				</div>
-			</div>
-		<% else %>
-			<div class="authentication">
-				<%= link_to new_user_session_path, class: 'sign-in-link' do %>
-				<p>
-					<span class="icon icon-lock"></span>
-					Войти
-				</p>
-				<% end %>
-				<%= link_to new_user_registration_path, class: 'sign-up-link' do %>
-				<p class="pull-right">Регистрация</p>
-				<% end %>
-			</div>
 			<% end %>
 		</div>
 	</div>
@@ -47,20 +46,20 @@
 
 		<div class="topics">
 			<% @topics.each do |topic| %>
-			<div class="topic">
-				<%= link_to topic.text, topic_path(topic.smart_id), class: "topic-text" %>
-				<div class="sliding-underscore"></div>
+				<div class="topic">
+					<%= link_to topic.text, topic_path(topic.smart_id), class: "topic-text" %>
+					<div class="sliding-underscore"></div>
 
-				<div class="subtopics-nav">
-					<% topic&.subtopics.each do |subtopic| %>
-					<div class="subtopic">
-						<%= link_to subtopic.text, topic_path(subtopic.smart_id),
+					<div class="subtopics-nav">
+						<% topic&.subtopics.each do |subtopic| %>
+							<div class="subtopic">
+								<%= link_to subtopic.text, topic_path(subtopic.smart_id),
 									class: "topic-text" %>
-						<div class="sliding-underscore"></div>
+								<div class="sliding-underscore"></div>
+							</div>
+						<% end %>
 					</div>
-					<% end %>
 				</div>
-			</div>
 			<% end %>
 			<div class="topic">
 				<%= link_to "Галерея", gallery_path(:photo), class: "topic-text" %>
@@ -82,9 +81,9 @@
 		</div>
 
 		<%= link_to join_rspp_path do %>
-		<div class="join-us-btn">
-			Вступить в союз
-		</div>
+			<div class="join-us-btn">
+				Вступить в союз
+			</div>
 		<% end %>
 
 	</div>

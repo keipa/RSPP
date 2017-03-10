@@ -29,6 +29,9 @@
 // libraries
 @import "slick";
 
+html {
+  overflow-y: auto;
+}
 
 body {
 	font-size: 10px;
