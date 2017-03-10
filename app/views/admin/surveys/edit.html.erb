@@ -3,19 +3,12 @@
     <div class="col-lg-8 col-lg-offset-2">
 
       <h2>Вопрос опроса:</h2>
-      <%= f.text_field :title, class: "form-input" %>
+      <%= f.text_field :question, class: "form-input" %>
 
       <div class="survey-content">
-        <% JSON.parse(@survey.content).each do |option| %>
-          <div class="options-content">
-            <input type="text" value="<%= option['body'] %>" class="input-option">
-            <span class="glyphicon glyphicon-remove remove-option"></span>
-          </div>
+        <% @survey.answers.each do |answer| %>
+          <!-- here will be logic of editing survey -->
         <% end %>
-      </div>
-
-      <h4>Добавить варианты ответов:</h4>
-      <div class="survey-content">
         <div class="survey-content-add-field" title="Добавить вариант ответа">
           <i class="glyphicon glyphicon-plus"></i>
         </div>

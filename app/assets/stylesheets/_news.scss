@@ -65,7 +65,7 @@ $news-navigation-list-item-text: #519cff;
 					left: 50%;
 					transform: translateX(-50%);
 					width: auto;
-					height: 17rem;
+					height: 15rem;
 					display: inline-block;
 				}
 			}
@@ -86,7 +86,7 @@ $news-navigation-list-item-text: #519cff;
 
 				.item-text {
 					padding-left: 1rem;
-					font-family: 'Roboto Regular';
+					font-family: 'Roboto Light';
 					font-size: 1.2rem;
 				}
 
@@ -106,6 +106,8 @@ $news-navigation-list-item-text: #519cff;
 }
 
 .news-post-container {
+  width: 122.5rem;
+
   h1 {
     font-family: 'Roboto Medium', Helvetica;
   }
@@ -114,46 +116,6 @@ $news-navigation-list-item-text: #519cff;
     font-size: 20px;
     font-family: 'Roboto Regular', Helvetica;
   }
-
-  // defaults from ckeditor
-	.news-post-content {
-		font-family: 'Roboto Light', Helvetica;
-    line-height: 1.6;
-    font-size: 18px;
-
-    p {
-      margin: 13px 0;
-      line-height: 1.6;
-    }
-
-    h1 {
-      margin: 17.4167px 0;
-      line-height: 1.2;
-    }
-
-    blockquote {
-      padding: 2px 0;
-      padding-left: 20px;
-      padding-right: 8px;
-      font-style: italic;
-      font-family: Georgia, Times, "Times New Roman", serif;
-      font-size: 13px;
-      border-style: solid;
-      border-color: #ccc;
-      border-width: 0;
-      border-left-width: 5px;
-      margin: 13px 40px;
-    }
-
-    img[style*="left"]  {
-      margin-right: 20px;
-      margin-bottom: 10px;
-    }
-    img[style*="right"] {
-      margin-left: 20px;
-      margin-bottom: 10px;
-    }
-	}
 }
 
 .news-post-form {

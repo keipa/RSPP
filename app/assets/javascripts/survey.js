@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
 				.attr("name","survey[answers_attributes][][text]")
 				.attr('type', 'text')
 				.attr('placeholder', 'Вариант ответа')
-				.addClass('input-option'))
+				.addClass('input-option form-input'))
 			.append($('<span/>').addClass('glyphicon glyphicon-remove remove-option'))
 	}
 

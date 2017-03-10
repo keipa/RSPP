@@ -10,8 +10,8 @@ class HomeController < ApplicationController
       .order(created_at: :desc).limit(4)
     @partners = Partner.all
     @survey =
-      Survey.all.where(active: true).user_not_voted(current_user).sample ||
-      Survey.all.where(active: true).sample
+      Survey.all.where(active: true)&.user_not_voted(current_user)&.sample ||
+      Survey.all.where(active: true)&.sample
     @slider = Slider.includes(:slides).last
   end
 

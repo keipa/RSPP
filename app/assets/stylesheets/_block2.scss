@@ -53,7 +53,7 @@ $appeal-button-background-color: #519CFF;
 			}
 
 			h2 {
-				position: relative;
+				position: absolute;
 				padding-left: 4rem;
 				top: 50%;
 				transform: translateY(-50%);
@@ -71,22 +71,6 @@ $appeal-button-background-color: #519CFF;
 				margin-bottom: 4rem;
 				display: inline-block;
 
-				.img-container {
-					padding-left: 0;
-					padding-right: 0;
-					overflow: hidden;
-					border: 3px solid #EBEAEA;
-
-					img {
-						position: relative;
-						left: 50%;
-						transform: translateX(-50%);
-						width: auto;
-						height: 17rem;
-						display: inline-block;
-					}
-				}
-
 				.item-description {
 					position: relative;
 					height: 100%;
@@ -94,6 +78,24 @@ $appeal-button-background-color: #519CFF;
 					display: inline-block;
 					font-family: 'Roboto Regular';
 					padding-right: 0;
+					padding-left: 1rem;
+
+				  .img-container {
+						padding-left: 0;
+						padding-right: 0;
+						margin-right: 1.5rem;
+						overflow: hidden;
+						border: 3px solid #EBEAEA;
+
+						img {
+							position: relative;
+							left: 50%;
+							transform: translateX(-50%);
+							width: auto;
+							height: 15rem;
+							display: inline-block;
+						}
+					}
 
 					.item-title {
 						font-family: 'Roboto Bold';
@@ -102,12 +104,12 @@ $appeal-button-background-color: #519CFF;
 					}
 
 					.item-text {
-						padding-left: 1rem;
-						font-family: 'Roboto Regular';
-						font-size: 1.2rem;
+						font-family: 'Roboto Light';
+						font-size: 1.4rem;
+						padding-left: 0.5rem;
 
 						&.no-padding {
-						  padding: 0;
+							padding: 0;
 						}
 					}
 
@@ -115,6 +117,10 @@ $appeal-button-background-color: #519CFF;
 						position: absolute;
 						bottom: -3.5rem;
 						left: 2rem;
+
+						&.no-img {
+							left: 1rem;
+						}
 
 						.link-more {
 							font-size: 1.5rem;
@@ -193,7 +199,23 @@ $appeal-button-background-color: #519CFF;
 
 				&-item {
 					.item-description {
-						padding-left: 2rem;
+						padding-left: 1rem;
+
+						.img-container {
+
+							img {
+								height: 22rem;
+							}
+						}
+
+						.item-text {
+							margin-top: 2rem;
+						}
+
+						.more-btn {
+							bottom: -3rem;
+							left: 1.5rem;
+						}
 					}
 				}
 			}
@@ -207,11 +229,22 @@ $appeal-button-background-color: #519CFF;
 			padding-right: 0;
 
 			.item-description {
-				width: 71%;
-			}
 
-			.img-container {
-				width: 27%; //overriding bootstrap col-sm-3
+				.img-container {
+					margin-bottom: 0.5rem;
+
+					img {
+						height: 18rem;
+					}
+
+					.item-text {
+						margin-top: 1.6rem;
+					}
+
+					.more-btn {
+						left: 1.5rem;
+					}
+				}
 			}
 		}
 
@@ -245,23 +278,26 @@ $appeal-button-background-color: #519CFF;
 				&-item {
 					margin-bottom: 3.5rem;
 
-					.img-container {
-						width: 100%;
-						height: 17rem;
-						overflow: hidden;
-						margin-bottom: 2rem;
-						border: none;
-
-						img {
-							width: 100%;
-							height: auto;
-						}
-					}
-
 					.item-description {
 						padding-left: 1rem;
 						padding-right: 1rem;
 						width: 100%;
+
+						.img-container {
+							width: 100%;
+							height: 17rem;
+							overflow: hidden;
+							margin-bottom: 2rem;
+							border: none;
+
+							img {
+								width: 100%;
+								height: auto;
+								top: 50%;
+								left: 0;
+								transform: translateY(-50%);
+							}
+						}
 					}
 				}
 			}

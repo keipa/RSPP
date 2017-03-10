@@ -6,16 +6,17 @@ class Survey < ApplicationRecord
   validates_presence_of :question
 
   scope :user_not_voted, lambda { |user|
-    return if user.nil?
     surveys = []
-    all.each do |survey|
-      unless user.voted? survey
-        surveys << survey
-        return
+    unless user.nil?
+      all.each do |survey|
+        unless user.voted? survey
+          surveys << survey
+        end
       end
     end
     surveys
   }
+
 
   acts_as_commentable
 

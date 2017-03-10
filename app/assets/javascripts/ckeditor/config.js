@@ -54,5 +54,92 @@ CKEDITOR.editorConfig = function(config) {
     { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] }
   ];
-
 }
+
+
+CKEDITOR.on('dialogDefinition', function( ev ) {
+    // Take the dialog name and its definition from the event data.
+    var dialogName = ev.data.name;
+    var dialogDefinition = ev.data.definition;
+    var dialog = ev.data.definition.dialog;
+
+    if ( dialogName == 'image' ) {
+      dialogDefinition.removeContents('advanced');
+      dialogDefinition.removeContents('Link');
+
+      infoTab = dialogDefinition.getContents('info');
+      infoTab.remove('txtUrl');
+      infoTab.remove('browse');
+      infoTab.remove('htmlPreview');
+    }
+
+    if ( dialogName == 'link' ) {
+      dialogDefinition.removeContents('advanced');
+      dialogDefinition.removeContents('upload');
+
+      infoTab = dialogDefinition.getContents('info');
+      infoTab.remove('browse');
+      infoTab.remove('linkType');
+    }
+
+    dialog.on('show', function() {
+      if ( dialogName == 'image' ) {
+
+        $("input").each(function() {
+          field = $('label[for="' + this.id + '"]').html()
+          var fields = [
+            "Ширина",
+            "Высота",
+            "Граница",
+            "Вертик. отступ",
+            "Гориз. отступ",
+            "Выравнивание"
+          ]
+          if (fields.indexOf(field) != -1) {
+            console.log($(this))
+            $(this).css({
+              "position": "relative",
+              "transform": "translateX(50%)",
+              "width": "24rem",
+            })
+            $('label[for="' + this.id + '"]').css({
+              "position": "relative",
+              "left": "12rem",
+            })
+          }
+        })
+
+
+        $("a").each(function() {
+          field = this.title
+          var fields = ["Сохранять пропорции", "Вернуть обычные размеры"]
+          if (fields.indexOf(field) != -1) {
+            console.log($(this))
+            $(this.parentElement).css({
+              "position": "relative",
+              "left": "25rem",
+              "top": "-0.2rem",
+            })
+          }
+        })
+
+
+        $("select").each(function() {
+          field = $('label[for="' + this.id + '"]').html()
+          var fields = ["Выравнивание"]
+          if (fields.indexOf(field) != -1) {
+            console.log($(this))
+            $(this).attr('style',
+              "position: relative;" +
+              "transform: translateX(50%);" +
+              "width: 24rem !important;"
+            )
+            $('label[for="' + this.id + '"]').css({
+              "position": "relative",
+              "left": "12rem",
+            })
+          }
+        })
+      }
+    })
+});
