@@ -18,7 +18,7 @@ $burger-background-color: #2f323a;
 		min-height: $head-min-height;
 		box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.7);
 
-		.burger-menu {
+		.burger-menu-icon {
 			display: none;
 			position: absolute;
 			left: 1.5rem;
@@ -224,86 +224,164 @@ $burger-background-color: #2f323a;
 		}
 	}
 
-	.burger-list {
+	.burger-menu {
 		display: none;
+		width: 43%;
+		border-right: 1px solid #BBBBBB;
+		position: fixed;
 		left: 0;
-		padding: 0;
-		z-index: 999;
-		background: $burger-background-color;
-		width: 60% !important;
+		background: #FFFFFF;
+		z-index: 150;
 		height: 100%;
-		position: absolute;
-		overflow-y: auto;
 
-		.burger-list-auth {
+		&-logo-container {
 			width: 100%;
-			height: 15rem;
-			border-top: 1px solid rgba(255,255,255,0.1);
+			text-align: center;
+			max-height: 10rem;
+			overflow: hidden;
+			border-bottom: 2px solid #BBBBBB;
+			border-top: 2px solid #BBBBBB;
 
-			&-item {
+			img {
+				height: auto;
+				width: 28.5rem;
+				top: -7rem;
+				position: relative;
+			}
+		}
+
+		&-join-us-btn-container {
+			height: 7rem;
+			width: 100%;
+			line-height: 4rem;
+			text-align: center;
+			background: #e9e9e9;
+			border-bottom: 1px solid #BBBBBB;
+
+			a {
+				width: 37%;
+				font-size: 1.7rem;
 				display: inline-block;
-				width: calc(50% - .14rem);
-				font-size: 5rem;
-				height: 100%;
-				overflow: hidden;
-				background: darken(#14679e, 3%);
-				line-height: 6rem;
-				text-align: center;
+				height: 4rem;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				text-decoration: none;
+				font-family: "Roboto Light", Helvetica;
+				color: #FFFFFF;
+				color: $join-us-btn-text-color;
+				border-radius: 3px;
+				background: $join-us-btn-background-color;
+				transition: background 0.3s, color 0.3s;
 
 				&:hover {
-					background: darken(#14679e, 6%);
+					color: $join-us-btn-text-color-hover;
+					background: darken($join-us-btn-background-color, 5%);
 				}
+			}
+
+			&:before {
+				content: "";
+				width: 29%;
+				border-top: 1px solid #BBBBBB;
+				display: inline-block;
+				margin-right: 0.2rem;
+				top: 0.8rem;
+				position: relative;
+			}
+
+			&:after {
+				content: "";
+				width: 29%;
+				border-top: 1px solid #BBBBBB;
+				display: inline-block;
+				margin-left: 0.2rem;
+				top: 0.8rem;
+				position: relative;
+			}
+		}
+
+		&-topics-container {
+			background: #e9e9e9;
+			z-index: -1;
+			position: relative;
+			height: 100%;
+			max-height: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 70%;
+			line-height: 5rem;
+			border-left: 1px solid #BBBBBB;
+			border-right: 1px solid #BBBBBB;
+			padding-top: 5rem;
+			top: -3.5rem;
+			padding-bottom: 23rem;
+			overflow: hidden;
+
+			.topic-container-for-overflow {
+				max-height: 100%;
+				overflow-y: auto;
 
 				a {
-					display: inline-block;
+					text-decoration: none;
+					max-width: 100%;
+				}
+
+				.burger-menu-topic {
 					width: 100%;
-					font-family: Roboto Regular;
-					color: #ffffff;
+					font-size: 2rem;
+					text-align: center;
+					border-top: 1px solid #DDDDDD;
+					color: #555555;
+					font-family: "Roboto Regular", Helvetica;
+					transition: 0.2s;
+
+					&:last-child {
+						border-bottom: 1px solid #DDDDDD;
+					}
 
 					&:hover {
-						text-decoration: none;
+						background: lighten(#e9e9e9, 4%);
+						color: #222222;
 					}
 				}
 			}
 		}
 
-		&-item {
-			width: 100%;
-			height: 10rem;
-			line-height: 10rem;
+		&-footer {
+			border-top: 1px solid #BBBBBB;
+			border-right: 1px solid #BBBBBB;
+			height: 8rem;
+			line-height: 3rem;
+			position: fixed;
+			width: 43%;
+			background: #e9e9e9;
+			bottom: 0;
 			text-align: center;
-			font-size: 3.5rem;
-			overflow: hidden;
-			border-top: 0.2rem solid rgba(255,255,255,0.1);
 
-			&--active {
-				background: #14679e;
-
-				&:hover {
-					background: darken(#14679e, 6%) !important;
-				}
-			}
-
-			&:hover {
-				background: #000000;
-			}
-
-			&.no-hover {
-				background: rgb(47, 50, 58);
-			}
-
-			a {
+			.burger-menu-logout-btn {
+				position: relative;
 				display: inline-block;
-				width: 100%;
-				font-family: Roboto Regular;
-				color: #ffffff;
+				font-size: 1.6rem;
+			}
 
-				&:hover {
-					text-decoration: none;
-				}
+			.burger-menu-sign-in-btn {
+				position: relative;
+				display: inline-block;
+				font-size: 1.6rem;
+				margin-top: 1rem;
+				width: 100%;
+			}
+
+			.burger-menu-sign-up-btn {
+				position: relative;
+				display: inline-block;
+				font-size: 1.6rem;
+				width: 100%;
 			}
 		}
 	}
+
 }
 @media (max-width: 1085px) {
 	.header {
@@ -339,7 +417,7 @@ $burger-background-color: #2f323a;
 
 		.head {
 
-			.burger-menu {
+			.burger-menu-icon {
 				width: 5rem;
 				height: 5rem;
 				top: $head-min-height / 2;

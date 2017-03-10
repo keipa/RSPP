@@ -1,36 +1,46 @@
-<div class="burger-menu"></div>
+<div class="burger-menu-icon"></div>
 
-<div class="burger-list">
-	<div class="burger-list-item burger-list-item--active">
-		<%= link_to "Вступить в союз", join_rspp_path  %>
-	</div>
-	<% if user_signed_in? && current_user.admin? %>
-		<div class="burger-list-item">
-			<%= link_to "Кабинет", admin_path(:rspp) %>
-		</div>
-	<% end %>
+<div class="burger-menu">
+  <div class="burger-menu-logo-container">
+    <%= link_to root_path, "data-turbolinks": false do %>
+      <%= image_tag ('logo.png') %>
+    <% end %>
+  </div>
+  <div class="burger-menu-join-us-btn-container">
+    <%= link_to join_rspp_path do %>
+      Вступить в союз
+    <% end %>
+  </div>
+  <div class="burger-menu-topics-container">
+    <div class="topic-container-for-overflow">
+      <% @topics.each do |topic| %>
+        <%= link_to topic_path(topic.smart_id) do %>
+          <div class="burger-menu-topic">
+            <%= topic.text %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="burger-menu-footer">
+    <% if user_signed_in? %>
+      <div class="burger-menu-logout-btn">
+        <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+      </div>
+      <% if current_user.admin? %>
+        <%= link_to "Кабинет", admin_path(:rspp) %>
+      <% end %>
+    <% else %>
+      <div class="burger-menu-sign-in-btn">
+        <%= link_to "Войти", new_user_session_path %>
+        </div>
+      <div class="burger-menu-sign-up-btn">
+        <%= link_to "Регистрация", new_user_registration_path %>
+      </div>
+    <% end %>
+  </div>
+  <div class="burger-list-item burger-list-item--active">
+    <%= link_to "Вступить в союз", join_rspp_path  %>
+  </div>
 
-	<% @topics.each do |topic| %>
-		<div class="burger-list-item">
-			<%= link_to topic.text, topic_path(topic.smart_id)%>
-		</div>
-	<% end %>
-
-	<div class="burger-list-item"><%= link_to "Галерея", gallery_path(:photo) %></div>
-	<div class="burger-list-item no-hover"></div>
-
-	<% if user_signed_in? %>
-		<div class="burger-list-item burger-list-item--active">
-				<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-		</div>
-	<% else %>
-		<div class="burger-list-auth">
-			<div class="burger-list-auth-item">
-				<%= link_to "Войти", new_user_session_path %>
-				</div>
-			<div class="burger-list-auth-item">
-				<%= link_to "Регистрация", new_user_registration_path %>
-			</div>
-		</div>
-	<% end %>
 </div>

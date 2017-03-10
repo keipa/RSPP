@@ -68,7 +68,7 @@ $appeal-button-background-color: #519CFF;
 			&-item {
 				width: 100%;
 				margin-top: 2.5rem;
-				margin-bottom: 2rem;
+				margin-bottom: 4rem;
 				display: inline-block;
 
 				.img-container {
@@ -105,6 +105,10 @@ $appeal-button-background-color: #519CFF;
 						padding-left: 1rem;
 						font-family: 'Roboto Regular';
 						font-size: 1.2rem;
+
+						&.no-padding {
+						  padding: 0;
+						}
 					}
 
 					.more-btn {
