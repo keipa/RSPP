@@ -428,10 +428,14 @@ $burger-background-color: #2f323a;
 	}
 }
 
-@media (max-width: 771px) {
+@media (max-width: 785px) {
 	.header {
 
 		.head {
+
+			.authentication {
+				display: none;
+			}
 
 			.user-info {
 				display: none;
