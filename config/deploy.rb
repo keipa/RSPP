@@ -74,6 +74,10 @@ namespace :deploy do
     end
   end
 
+  task :symlink_config, roles: :app do
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
