@@ -34,6 +34,9 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
+
+
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -65,17 +68,6 @@ namespace :deploy do
       before 'deploy:restart', 'puma:start'
       invoke 'deploy'
     end
-  end
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
-  end
-
-  task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
   end
 
   before :starting,     :check_revision
