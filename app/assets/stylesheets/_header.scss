@@ -257,10 +257,9 @@ $burger-background-color: #2f323a;
 			line-height: 4rem;
 			text-align: center;
 			background: #e9e9e9;
-			border-bottom: 1px solid #BBBBBB;
 
 			a {
-				width: 37%;
+				width: 50%;
 				font-size: 1.7rem;
 				display: inline-block;
 				height: 4rem;
@@ -269,7 +268,6 @@ $burger-background-color: #2f323a;
 				transform: translateY(-50%);
 				text-decoration: none;
 				font-family: "Roboto Light", Helvetica;
-				color: #FFFFFF;
 				color: $join-us-btn-text-color;
 				border-radius: 3px;
 				background: $join-us-btn-background-color;
@@ -280,26 +278,6 @@ $burger-background-color: #2f323a;
 					background: darken($join-us-btn-background-color, 5%);
 				}
 			}
-
-			&:before {
-				content: "";
-				width: 29%;
-				border-top: 1px solid #BBBBBB;
-				display: inline-block;
-				margin-right: 0.2rem;
-				top: 0.8rem;
-				position: relative;
-			}
-
-			&:after {
-				content: "";
-				width: 29%;
-				border-top: 1px solid #BBBBBB;
-				display: inline-block;
-				margin-left: 0.2rem;
-				top: 0.8rem;
-				position: relative;
-			}
 		}
 
 		&-topics-container {
@@ -308,12 +286,7 @@ $burger-background-color: #2f323a;
 			position: relative;
 			height: 100%;
 			max-height: 100%;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 70%;
 			line-height: 5rem;
-			border-left: 1px solid #BBBBBB;
-			border-right: 1px solid #BBBBBB;
 			padding-top: 5rem;
 			top: -3.5rem;
 			padding-bottom: 23rem;
@@ -323,6 +296,28 @@ $burger-background-color: #2f323a;
 				max-height: 100%;
 				overflow-y: scroll;
 				width: calc(100% + 20px);
+				background:
+				/* Shadow covers */
+				linear-gradient(#e9e9e9 30%, rgba(255,255,255,0)),
+				linear-gradient(rgba(255,255,255,0), #e9e9e9 70%) 0 100%,
+				/* Shadows */
+				radial-gradient(50% 0, farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)),
+				radial-gradient(50% 100%,farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+
+				background:
+					/* Shadow covers */
+					linear-gradient(#e9e9e9 30%, rgba(255,255,255,0)),
+					linear-gradient(rgba(255,255,255,0), #e9e9e9 70%) 0 100%,
+
+				/* Shadows */
+				radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+				radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+				background-color: #e9e9e9;
+				background-repeat: no-repeat;
+				background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+
+				/* Opera doesn't support this in the shorthand */
+				background-attachment: local, local, scroll, scroll;
 
 				a {
 					text-decoration: none;
@@ -331,15 +326,17 @@ $burger-background-color: #2f323a;
 
 				.burger-menu-topic {
 					width: 100%;
-					font-size: 2rem;
+					font-size: 2.3rem;
 					text-align: center;
-					border-top: 1px solid #DDDDDD;
+					border-top: 1px solid #CCCCCC;
 					color: #555555;
-					font-family: "Roboto Regular", Helvetica;
+					font-family: "Roboto Medium", Helvetica;
 					transition: 0.2s;
+					padding: 0.8rem 0;
+
 
 					&:last-child {
-						border-bottom: 1px solid #DDDDDD;
+						border-bottom: 1px solid #CCCCCC;
 					}
 
 					&:hover {
@@ -351,7 +348,6 @@ $burger-background-color: #2f323a;
 		}
 
 		&-footer {
-			border-top: 1px solid #BBBBBB;
 			border-right: 1px solid #BBBBBB;
 			height: 8rem;
 			line-height: 3rem;
@@ -362,25 +358,37 @@ $burger-background-color: #2f323a;
 			bottom: 0;
 			text-align: center;
 
-			.burger-menu-logout-btn {
-				position: relative;
-				display: inline-block;
-				font-size: 1.6rem;
-			}
-
 			.burger-menu-sign-in-btn {
-				position: relative;
+				padding: 0.7rem 1.1rem;
+				font-size: 1.7rem;
 				display: inline-block;
-				font-size: 1.6rem;
-				margin-top: 1rem;
-				width: 100%;
+				position: relative;
+				font-family: "Roboto Light", Helvetica;
+				background: #626262;
+				transition: background 0.3s, color 0.3s;
+				color: #FFFFFF;
+				text-decoration: none;
+
+				&:hover {
+					background: darken(#626262, 5%);
+				}
 			}
 
-			.burger-menu-sign-up-btn {
-				position: relative;
+			.burger-menu-sign-up-btn, .burger-menu-logout-btn {
+				padding: 0.6rem 1.1rem;
+				font-size: 1.7rem;
 				display: inline-block;
-				font-size: 1.6rem;
-				width: 100%;
+				position: relative;
+				font-family: "Roboto Light", Helvetica;
+				border: 1px solid #626262;
+				transition: border 0.3s color 0.3s;
+				color: #333333;
+				text-decoration: none;
+
+				&:hover {
+					border-color: #000000;
+					color: #000000;
+				}
 			}
 		}
 	}
@@ -432,26 +440,6 @@ $burger-background-color: #2f323a;
 	}
 }
 
-@media (max-width: 833px) {
-	.header {
-
-		.burger-menu {
-
-			&-join-us-btn-container {
-				line-height: 1.7rem;
-
-				a {
-					padding-top: 0.2rem;
-				}
-
-				&:before, &:after {
-					top: 0;
-				}
-			}
-		}
-	}
-}
-
 @media (max-width: 785px) {
 	.header {
 
@@ -466,6 +454,26 @@ $burger-background-color: #2f323a;
 			}
 		}
 
+	}
+}
+
+@media (max-width: 755px) {
+	.header {
+
+		.burger-menu {
+
+			&-join-us-btn-container {
+				line-height: 1.7rem;
+
+				a {
+					padding: 0.2rem 1.5rem;
+				}
+
+				&:before, &:after {
+					top: 0;
+				}
+			}
+		}
 	}
 }
 

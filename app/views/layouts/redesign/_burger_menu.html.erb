@@ -24,23 +24,26 @@
   </div>
   <div class="burger-menu-footer">
     <% if user_signed_in? %>
-      <div class="burger-menu-logout-btn">
-        <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-      </div>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <div class="burger-menu-logout-btn">
+          Выйти
+        </div>
+      <% end %>
       <% if current_user.admin? %>
+        <br>
         <%= link_to "Кабинет", admin_path(:rspp) %>
       <% end %>
     <% else %>
-      <div class="burger-menu-sign-in-btn">
-        <%= link_to "Войти", new_user_session_path %>
+      <%= link_to new_user_session_path do %>
+        <div class="burger-menu-sign-in-btn">
+          Войти
         </div>
-      <div class="burger-menu-sign-up-btn">
-        <%= link_to "Регистрация", new_user_registration_path %>
-      </div>
+      <% end %>
+      <%= link_to new_user_registration_path do %>
+        <div class="burger-menu-sign-up-btn">
+          Регистрация
+        </div>
+      <% end %>
     <% end %>
   </div>
-  <div class="burger-list-item burger-list-item--active">
-    <%= link_to "Вступить в союз", join_rspp_path  %>
-  </div>
-
 </div>
