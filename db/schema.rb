@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306000834) do
+ActiveRecord::Schema.define(version: 20170316224228) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name",                      null: false
     t.text     "description", limit: 65535
     t.integer  "gallery_id"
     t.datetime "created_at",                null: false
@@ -57,15 +57,14 @@ ActiveRecord::Schema.define(version: 20170306000834) do
     t.string   "role",                           default: "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_name"
     t.index ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
     t.index ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "complaints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title",                    null: false
-    t.text     "body",       limit: 65535, null: false
+    t.string   "title"
+    t.text     "body",       limit: 65535
     t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -76,7 +75,6 @@ ActiveRecord::Schema.define(version: 20170306000834) do
     t.string   "name"
     t.string   "gallery_type"
     t.string   "smart_id"
-    t.string   "link"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -85,7 +83,6 @@ ActiveRecord::Schema.define(version: 20170306000834) do
     t.text     "title",              limit: 65535, null: false
     t.text     "description",        limit: 65535
     t.text     "text",               limit: 65535, null: false
-    t.string   "image_url"
     t.integer  "user_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
@@ -98,12 +95,15 @@ ActiveRecord::Schema.define(version: 20170306000834) do
   end
 
   create_table "partners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image_url",          null: false
-    t.string   "link",               null: false
+    t.string   "link"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "main"
+    t.text     "description",        limit: 65535
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -127,7 +127,6 @@ ActiveRecord::Schema.define(version: 20170306000834) do
 
   create_table "slides", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "text",               limit: 65535
-    t.string   "image_url"
     t.integer  "slider_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
@@ -139,13 +138,10 @@ ActiveRecord::Schema.define(version: 20170306000834) do
   end
 
   create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title"
-    t.text     "content",     limit: 65535
+    t.string   "question",   null: false
     t.boolean  "active"
-    t.text     "users",       limit: 65535
-    t.integer  "count_votes",               default: 0
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -183,8 +179,6 @@ ActiveRecord::Schema.define(version: 20170306000834) do
   create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "youtube_link"
     t.string   "iframe_link"
-    t.string   "video_id"
-    t.string   "title"
     t.text     "description",  limit: 65535
     t.string   "published_at"
     t.string   "video_type"

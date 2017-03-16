@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'news_posts#index'
     resources :news_posts, only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :partners, only: [:index, :create, :destroy, :edit, :update]
-		resources :topics, only: [:index, :new, :create, :destroy, :edit, :update]
+    resources :partners, only:   [:index, :create, :edit, :update, :destroy]
+		resources :topics, only:     [:index, :new, :create, :edit, :update, :destroy]
+
     resources :surveys
     resources :users
     resources :sliders
@@ -16,12 +17,12 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :galleries, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :galleries, only: [:show] do
     collection do
       get '/:gallery_type', to: 'galleries#show', as: 'type'
     end
 
-    resources :albums, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :albums, only:   [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :pictures
       resources :videos, only: [:new, :create, :edit, :update, :destroy]
     end
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
 	get 'home/statement', to: 'home#statement', as: 'statement'
 	get 'home/registration_card', to: 'home#registration_card', as: 'registration_card'
   post 'home/get_pdf', to: 'home#get_pdf', as: 'get_pdf'
+  post 'home/send_email_with_pdf', to: 'home#send_email_with_pdf', as: 'send_email_with_pdf'
 
   resources :complaints
 end

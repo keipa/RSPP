@@ -9,6 +9,7 @@ class HomeController < ApplicationController
     @videos = Video.all.where(video_type: 'interview')
       .order(created_at: :desc).limit(4)
     @partners = Partner.all
+    @main_partner = Partner.where(main: true).first
     @survey =
       Survey.all.where(active: true)&.user_not_voted(current_user)&.sample ||
       Survey.all.where(active: true)&.sample
@@ -16,6 +17,16 @@ class HomeController < ApplicationController
   end
 
   def join_rspp
+  end
+
+  def send_email_with_pdf
+    binding.pry
+    PdfMailer.send_email(
+      params["registration_toPDF_email"],
+      params["statement_toPDF_email"],
+      params["bill_toPDF_email"],
+      current_user
+    ).deliver_now
   end
 
   def registration_card

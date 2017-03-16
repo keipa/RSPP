@@ -20,6 +20,18 @@
         </div>
         Добавить изображение:
         <%= f.file_field :image, id: "partner-image-input" %>
+
+        Стратегический партнер?
+        <%= f.check_box :main %>
+
+        <br>
+
+        <div class="textarea-label">
+          Описание
+        </div>
+        <div class="textarea-content">
+          <%= f.text_area :description, class: "form-input" %>
+        </div>
       </div>
 
       <div class="actions text-center">

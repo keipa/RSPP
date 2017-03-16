@@ -358,6 +358,10 @@ $burger-background-color: #2f323a;
 			bottom: 0;
 			text-align: center;
 
+			a {
+				display: inline-block;
+			}
+
 			.burger-menu-sign-in-btn {
 				padding: 0.7rem 1.1rem;
 				font-size: 1.7rem;

@@ -1,18 +1,22 @@
 <div class="col-lg-12 col-md-12 col-sm-12 business-news-container">
   <h1>
-    Деловые новости
     <%= link_to news_posts_path(type: :business), class: 'all-news-link' do %>
+      Деловые новости
       <span class="all-news-arrow"></span>
       <span class="all-news-arrow"></span>
     <% end %>
   </h1>
+
   <% @business_news.each do |post| %>
     <div class="col-lg-6 col-md-12 col-sm-12 post">
-      <div class="title"><p><%= post.title %></p></div>
+      <div class="title">
+        <p><%= post.title %></p>
+      </div>
       <div class="description"><%= post.description %></div>
       <div class="more-btn">
         <%= link_to "Далее...", news_post_path(post) %>
       </div>
     </div>
   <% end %>
+
 </div>

@@ -9,9 +9,15 @@
 	<div class="final-page-pdf-content">
 		<!-- Final button  -->
     <%= form_tag get_pdf_path, method: :post, id: "send-PDF-form" do %>
-      <%= hidden_field_tag :registration_toPDF, id: "registration_toPDF" %>
-      <%= hidden_field_tag :statement_toPDF, id: "statement_toPDF" %>
-      <%= hidden_field_tag :bill_toPDF, id: "bill_toPDF" %>
+      <%= hidden_field_tag :registration_toPDF %>
+      <%= hidden_field_tag :statement_toPDF %>
+      <%= hidden_field_tag :bill_toPDF %>
+    <% end %>
+
+    <%= form_tag send_email_with_pdf_path, method: :post, id: "send-email-form" do %>
+      <%= hidden_field_tag :registration_toPDF_email %>
+      <%= hidden_field_tag :statement_toPDF_email %>
+      <%= hidden_field_tag :bill_toPDF_email %>
     <% end %>
 
 		<div class="spinner">
@@ -19,7 +25,7 @@
 		</div>
 
 		<button class="send-data-pdf btn-download" id="get-pdf">
-				Скачать документы <span class="glyphicon glyphicon-download-alt"></span>
+			Скачать документы <span class="glyphicon glyphicon-download-alt"></span>
 		</button>
 
 	</div>

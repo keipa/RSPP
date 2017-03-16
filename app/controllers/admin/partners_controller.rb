@@ -18,11 +18,13 @@ class Admin::PartnersController < Admin::AdminController
 
   def update
     @partner = Partner.find(params[:id])
+    Partner.where(main: true).update_all(main: false) if partner_params[:main]
     @partner.update(partner_params)
     redirect_to admin_partners_path
   end
 
   def create
+    Partner.where(main: true).update_all(main: false) if partner_params[:main]
     @partner = Partner.create(partner_params)
     redirect_to admin_partners_path
   end
@@ -30,6 +32,6 @@ class Admin::PartnersController < Admin::AdminController
   private
 
   def partner_params
-    params.require(:partner).permit(:image, :link)
+    params.require(:partner).permit(:image, :link, :main, :description)
   end
 end

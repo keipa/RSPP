@@ -158,6 +158,97 @@ $(document).on('turbolinks:load', function() {
 		$('.spinner').hide();
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+	$(".finish-button").click(function() {
+		var pdfData = {}
+
+		$("input").each(function() {
+			if (this.type == "checkbox") {
+				pdfData[this.id] = this.checked
+			} else {
+				pdfData[this.id] = this.value
+			}
+
+		})
+
+		var registrationForm;
+
+		$.ajax({
+			type: "GET",
+			url: "registration_card",
+			async: true
+		}).done(function(response) {
+			registrationForm = response
+
+			for (var valueID in pdfData) {
+				if (pdfData.hasOwnProperty(valueID)) {
+					if (typeof(pdfData[valueID]) != "boolean") {
+						registrationForm = registrationForm.replace("%INS-id-" + valueID + "%", pdfData[valueID])
+					} else if (pdfData[valueID] == true) {
+						registrationForm = registrationForm
+							.replace(
+								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\">",
+								"<input id=\"" + valueID + "\" type=\"checkbox\" class=\"registration-card-checkbox\" checked>"
+							)
+					}
+				}
+			}
+
+			$("#registration_toPDF_email").val(registrationForm)
+
+
+			$.ajax({
+				type: "GET",
+				url: "statement",
+			}).done(function(response) {
+				statementForm = response
+
+				statementForm = statementForm.replace("%INS-id-name%", pdfData[13])
+
+				$("#statement_toPDF_email").val(statementForm)
+
+				$.ajax({
+					type: "GET",
+					url: "bill",
+				}).done(function(response) {
+					billForm = response
+
+					$("#bill_toPDF_email").val(billForm)
+
+
+					$("#send-email-form").submit()
+				})
+			})
+		})
+
+	})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	$("#get-pdf").click(function() {
 		startSpinner();
 		setTimeout(stopSpinner, 4000);
