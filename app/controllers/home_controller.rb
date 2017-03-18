@@ -14,18 +14,29 @@ class HomeController < ApplicationController
       Survey.all.where(active: true)&.user_not_voted(current_user)&.sample ||
       Survey.all.where(active: true)&.sample
     @slider = Slider.includes(:slides).last
+    @feedback = Feedback.new
   end
 
   def join_rspp
   end
 
   def send_email_with_pdf
-    binding.pry
+    card = WickedPdf.new.pdf_from_string(params["registration_toPDF_email"])
+    statement = WickedPdf.new.pdf_from_string(params["statement_toPDF_email"])
+    bill = WickedPdf.new.pdf_from_string(params["bill_toPDF_email"])
+
     PdfMailer.send_email(
-      params["registration_toPDF_email"],
-      params["statement_toPDF_email"],
-      params["bill_toPDF_email"],
-      current_user
+      email: current_user.email,
+      card: card,
+      statement: statement,
+      bill: bill
+    ).deliver_now if user_signed_in?
+
+    PdfMailer.send_email(
+      email: "rspp@rspp.by",
+      card: card,
+      statement: statement,
+      bill: bill
     ).deliver_now
   end
 

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :partners, only:   [:index, :create, :edit, :update, :destroy]
 		resources :topics, only:     [:index, :new, :create, :edit, :update, :destroy]
 
+    resources :feedbacks, only:  [:index, :show, :destroy]
+
     resources :surveys
     resources :users
     resources :sliders
@@ -54,5 +56,5 @@ Rails.application.routes.draw do
   post 'home/get_pdf', to: 'home#get_pdf', as: 'get_pdf'
   post 'home/send_email_with_pdf', to: 'home#send_email_with_pdf', as: 'send_email_with_pdf'
 
-  resources :complaints
+  resources :feedbacks, only: [:create]
 end

@@ -1,0 +1,49 @@
+<div class="burger-menu-icon"></div>
+
+<div class="burger-menu">
+  <div class="burger-menu-logo-container">
+    <%= link_to root_path, "data-turbolinks": false do %>
+      <%= image_tag ('logo.png') %>
+    <% end %>
+  </div>
+  <div class="burger-menu-join-us-btn-container">
+    <%= link_to join_rspp_path do %>
+      Вступить в союз
+    <% end %>
+  </div>
+  <div class="burger-menu-topics-container">
+    <div class="topic-container-for-overflow">
+      <% @topics.each do |topic| %>
+        <%= link_to topic_path(topic.smart_id) do %>
+          <div class="burger-menu-topic">
+            <%= topic.text %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="burger-menu-footer">
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <div class="burger-menu-logout-btn">
+          Выйти
+        </div>
+      <% end %>
+      <% if current_user.admin? %>
+        <br>
+        <%= link_to "Кабинет", admin_path(:rspp) %>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <div class="burger-menu-sign-in-btn">
+          Войти
+        </div>
+      <% end %>
+      <%= link_to new_user_registration_path do %>
+        <div class="burger-menu-sign-up-btn">
+          Регистрация
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316224228) do
+ActiveRecord::Schema.define(version: 20170306000834) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                      null: false
@@ -62,13 +62,12 @@ ActiveRecord::Schema.define(version: 20170316224228) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "complaints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title"
+  create_table "feedbacks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
     t.text     "body",       limit: 65535
-    t.integer  "user_id"
+    t.string   "email"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["user_id"], name: "index_complaints_on_user_id", using: :btree
   end
 
   create_table "galleries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,13 +79,13 @@ ActiveRecord::Schema.define(version: 20170316224228) do
   end
 
   create_table "news_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "title",              limit: 65535, null: false
+    t.text     "title",              limit: 65535
     t.text     "description",        limit: 65535
-    t.text     "text",               limit: 65535, null: false
+    t.text     "text",               limit: 65535
+    t.text     "post_type",          limit: 65535
     t.integer  "user_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.string   "post_type",                        null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -96,14 +95,14 @@ ActiveRecord::Schema.define(version: 20170316224228) do
 
   create_table "partners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "link"
+    t.text     "description",        limit: 65535
+    t.boolean  "main"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "main"
-    t.text     "description",        limit: 65535
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -191,7 +190,6 @@ ActiveRecord::Schema.define(version: 20170316224228) do
   add_foreign_key "albums", "galleries"
   add_foreign_key "answers_users", "answers"
   add_foreign_key "answers_users", "users"
-  add_foreign_key "complaints", "users"
   add_foreign_key "news_posts", "users"
   add_foreign_key "sliders", "slides", column: "slides_id"
   add_foreign_key "slides", "sliders"

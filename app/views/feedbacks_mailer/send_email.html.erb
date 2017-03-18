@@ -1,0 +1,30 @@
+<div style="font-size: 20px">
+  <h1>Новое обращение</h1>
+
+  <% if @feedback.name %>
+    <h3>
+      <b>
+        Имя:
+      </b>
+    </h3>
+    <%= @feedback.name %>
+    <br>
+  <% end %>
+
+  <% if @feedback.email %>
+    <h3>
+      <b>
+        Почта:
+      </b>
+    </h3>
+    <%= @feedback.email %>
+    <br>
+  <% end %>
+  <h3>
+    <b>
+      Суть обращения:<br>
+    </b>
+  </h3>
+  <%= @feedback.body %>
+</div>
+

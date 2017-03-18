@@ -1,0 +1,71 @@
+<div class="admin-content">
+  <div class="add-new-item-btn-wrapper text-center">
+    <%= link_to new_admin_news_post_path, class: "btn btn-default" do %>
+      Добавить новость
+    <% end %>
+  </div>
+
+  <table class="table table-striped text-center">
+    <tr>
+      <td style="width: 30%;">
+        <b>
+          Заголовок
+        </b>
+      </td>
+      <td style="width: 30%;">
+        <b>
+          Описание
+        </b>
+      </td>
+      <td style="width: 15%;">
+        <b>
+          Автор
+        </b>
+      </td>
+      <td style="width: 17%;">
+        <b>
+          Время публикации
+        </b>
+      </td>
+      <td style="width: 8%;">
+      </td>
+    </tr>
+
+    <% @news_posts.each do |news_post| %>
+      <tr>
+        <td class="info-cell">
+          <% if news_post.title.chars[40] %>
+              <%= news_post.title.chars.first(40).join + "..." %>
+          <% else %>
+              <%= news_post.title %>
+          <% end %>
+        </td>
+
+        <td class="info-cell">
+          <% if news_post.description.chars[40] %>
+              <%= news_post.description.chars.first(40).join + "..." %>
+          <% else %>
+              <%= news_post.description %>
+          <% end %>
+        </td>
+
+        <td class="info-cell">
+          <%= news_post.author %>
+        </td>
+
+        <td class="info-cell">
+          <%= l news_post.created_at, format: :long %>
+        </td>
+
+        <td class="text-right">
+          <%= link_to edit_admin_news_post_path(news_post), class: "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to admin_news_post_path(news_post), method: :delete, class: "btn btn-danger" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

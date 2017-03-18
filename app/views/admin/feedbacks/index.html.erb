@@ -1,0 +1,64 @@
+<div class="admin-content">
+  <table class="table table-striped text-center">
+    <tr>
+      <td style="width: 30%;">
+        <b>
+          Имя пользователя
+        </b>
+      </td>
+      <td style="width: 15%;">
+        <b>
+          Email пользователя
+        </b>
+      </td>
+      <td style="width: 30%;">
+        <b>
+          Cуть обращения
+        </b>
+      </td>
+      <td style="width: 17%;">
+        <b>
+          Время отправки
+        </b>
+      </td>
+      <td style="width: 8%;">
+      </td>
+    </tr>
+
+    <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td class="info-cell">
+          <% if feedback.name.chars[40] %>
+              <%= feedback.name.chars.first(40).join + "..." %>
+          <% else %>
+              <%= feedback.name %>
+          <% end %>
+        </td>
+
+        <td class="info-cell">
+          <%= feedback.email %>
+        </td>
+
+        <td class="info-cell">
+          <%= link_to admin_feedback_path(feedback) do %>
+            <% if feedback.body.chars[40] %>
+              <%= feedback.body.chars.first(40).join.squish + "..." %>
+            <% else %>
+              <%= feedback.body %>
+            <% end %>
+          <% end %>
+        </td>
+
+        <td class="info-cell">
+          <%= l feedback.created_at, format: :long %>
+        </td>
+
+        <td class="text-right">
+          <%= link_to admin_feedbacks_path(feedback), method: :delete, class: "btn btn-danger" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

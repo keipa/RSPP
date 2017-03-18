@@ -39,16 +39,27 @@
     </div>
   </div>
 
-  <div class="appeal-survey col-lg-4 col-md-4 col-sm-12">
-    <div class="appeal">
-      <div class="appeal-header">
+  <div class="feedback-survey col-lg-4 col-md-4 col-sm-12">
+    <div class="feedback">
+      <div class="feedback-header">
         <h2>
           Обратиться
         </h2>
       </div>
-      <div class="appeal-content">
-        <input type="email" placeholder="Email" id="email-appeal">
-        <button type="button" class="appeal-button">Написать обращение</button>
+      <div class="feedback-content">
+        <%= form_for @feedback do |f| %>
+          <p class="label-name">Как к вам можно обращаться:</p>
+          <%= f.text_field :name, id: "name-feedback",
+            placeholder: "Алексей Алексеевич",
+            value: current_user&.name %>
+          <p class="label-email">Ваш email для связи:</p>
+          <%= f.text_field :email, id: "email-feedback",
+            placeholder: "some@email.com",
+            value: current_user&.email %>
+          <p class="label-body">Суть обращения:</p>
+          <%= f.text_area :body, id: "body-feedback", required: "true" %>
+          <%= f.submit "Отправить обращение", class: "feedback-button" %>
+        <% end %>
       </div>
     </div>
 

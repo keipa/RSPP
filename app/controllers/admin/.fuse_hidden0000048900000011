@@ -7,7 +7,6 @@ class Admin::PartnersController < Admin::AdminController
   def destroy
     @partner = Partner.find(params[:id])
     @partner.destroy
-    redirect_to admin_partners_path
   end
 
   def edit
