@@ -11,7 +11,7 @@ class Admin::NewsPostsController < Admin::AdminController
 
   def create
     @post = NewsPost.create(news_post_params.merge(user_id: current_user.id))
-    redirect_to admin_news_posts_path
+    redirect_to admin_news_posts_path(post_type: @post.post_type)
   end
 
   def edit
@@ -21,13 +21,13 @@ class Admin::NewsPostsController < Admin::AdminController
   def update
     @post = NewsPost.find(params[:id])
     @post.update(news_post_params)
-    redirect_to admin_news_posts_path
+    redirect_to admin_news_posts_path(post_type: @post.post_type)
   end
 
   def destroy
     @post = NewsPost.find(params[:id])
     @post.destroy
-    redirect_to admin_news_posts_path
+    redirect_to admin_news_posts_path(post_type: @post.post_type)
   end
 
   private

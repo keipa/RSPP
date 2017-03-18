@@ -4,16 +4,16 @@
 			<%= @topic.text %>
 		</h1>
 	</div>
-	<div class="col-lg-9 topic-body">
+	<div class="col-lg-12 topic-body">
 		<div class="ckeditor-content">
 			<%= @topic.description&.html_safe %>
 		</div>
 	</div>
 
-	<div class="col-lg-3 other-topics-bookmark-style">
+<!-- 	<div class="col-lg-3 other-topics-bookmark-style">
 		<div class="other-topics-nav">
 			<%= link_to @parent_topic.text, topic_path(@parent_topic.smart_id), class: "parent-topic" %>
 			<%= render 'subtopics' %>
 		</div>
-	</div>
+	</div> -->
 </div>

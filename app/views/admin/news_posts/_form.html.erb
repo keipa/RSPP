@@ -26,7 +26,7 @@
         ["Новости РСПП", :rspp],
         ["Деловые новости", :business],
         ["СМИ о нас", :mass_media]
-      ]) %>
+      ], @post.post_type || params[:post_type]) %>
     </div>
 
     <div class="actions text-center">
