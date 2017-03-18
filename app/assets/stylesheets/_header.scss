@@ -549,13 +549,13 @@ $burger-background-color: #2f323a;
 }
 
 @media (min-width: 991px) {
-	// !important to override 'display: block' applied by jquery
-	.shadow {
-		display: none !important;
-	}
-
 	.header {
+		// !important to override 'display: block' applied by jquery
 		.burger-menu {
+			display: none !important;
+		}
+
+		.shadow {
 			display: none !important;
 		}
 	}
