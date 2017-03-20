@@ -21,7 +21,7 @@
 			</div>
 			<div class="actions col-lg-4 col-lg-offset-4 text-center">
 				<%= f.submit "Сохранить", class: "create-btn" %>
-				<%= link_to 'Назад',@gallery.link, class: "back-btn" %>
+				<%= link_to 'Назад', gallery_path(@gallery.smart_id), class: "back-btn" %>
 			</div>
 		<% end %>
 	</div>

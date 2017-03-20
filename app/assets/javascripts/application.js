@@ -31,4 +31,5 @@
 //= require admin_partners
 //= require shadow
 //= require header
+//= require photo_gallery
 // require_tree .

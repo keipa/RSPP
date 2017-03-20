@@ -6,4 +6,9 @@ $(document).on('turbolinks:load', function() {
       direction: 'left'
     })
   })
+
+  $(".close-modal").click(function() {
+    $(".modal-window").fadeOut(300)
+    $(".shadow").fadeOut(300)
+  })
 })

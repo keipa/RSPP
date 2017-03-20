@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
 	$('.survey-content-add-field').click(function() {
-		console.log("AAAAAAAAAAA")
 		$('.survey-content .survey-content-add-field').before(createOptionField());
 	})
 

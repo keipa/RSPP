@@ -1,0 +1,74 @@
+.photo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  z-index: 200;
+
+  .close-cross {
+    width: 50%;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4.2rem;
+    padding-right: 0.7rem;
+    color: #777777;
+
+    .close-modal {
+      font-size: 2.3rem;
+      cursor: pointer;
+    }
+  }
+
+  .active-photo-slider {
+    width: 50%;
+    position: relative;
+    background: #FFFFFF;
+    margin: 0 auto;
+    margin-top: 3.5rem;
+    padding: 2rem;
+    padding-top: 4rem;
+
+    .photo-container {
+      text-align: center;
+      height: 50rem;
+
+      img {
+        max-height: 50rem;
+        max-width: 100%;
+        width: auto;
+        left: 50%;
+        top: 50%;
+        position: relative;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .other-photos-slider {
+    width: 50%;
+    position: relative;
+    background: #FFFFFF;
+    margin: 0 auto;
+    height: 13rem;
+    padding-bottom: 1rem;
+
+    .photo-container {
+      background: #EDEDED;
+      margin-left: 1rem;
+      padding: 0.7rem;
+      height: 12rem;
+
+      img {
+        max-width: 100%;
+        max-height: 10.6rem;
+        margin: 0 auto;
+        top: 50%;
+        position: relative;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
