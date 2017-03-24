@@ -8,34 +8,39 @@
 	</div>
 
 	<div class="album-content">
-		<div class="col-lg-9">
-			<% @pictures&.each_with_index do |picture, position| %>
-				<%= render 'photo', album: @album, picture: picture, position: position %>
-			<% end %>
-		</div>
-		<div class="col-lg-3 album-description">
-			<%= @album.description %>
-		</div>
+		<% unless @album.description.empty? %>
+			<div class="col-lg-9">
+				<% @pictures&.each_with_index do |picture, position| %>
+					<%= render 'photo', album: @album, picture: picture, position: position %>
+				<% end %>
+			</div>
+			<div class="col-lg-3 album-description">
+				<%= @album.description %>
+			</div>
+		<% else %>
+			<div class="col-lg-12">
+				<% @pictures&.each_with_index do |picture, position| %>
+					<%= render 'photo', album: @album, picture: picture, position: position %>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 </div>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div class="shadow"></div>
 <div class="modal-window photo-modal">
 	<div class="close-cross text-right">
 		<span class="glyphicon glyphicon-remove close-modal"></span>
 	</div>
-  <div class="active-photo-slider">
-  	<% @pictures.each do |picture, position| %>
-  		<div class="photo-container">
-      	<%= image_tag picture&.image&.url %>
-      </div>
-    <% end %>
-  </div>
+	<div class="active-photo-slider">
+		<% @pictures&.each do |picture| %>
+			<div class="photo-container">
+	    	<%= image_tag picture&.image&.url %>
+	    </div>
+	  <% end %>
+	</div>
   <div class="other-photos-slider">
-  	<% @pictures.each do |picture| %>
+  	<% @pictures&.each do |picture| %>
   		<div class="photo-container">
   			<%= image_tag picture&.image&.url %>
   		</div>

@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
 
   def update
     @album.update(album_params)
-		redirect_to @gallery.link
+    redirect_to gallery_path(@gallery.smart_id)
   end
 
   def show

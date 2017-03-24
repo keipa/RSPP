@@ -15,9 +15,11 @@ class Admin::SurveysController < Admin::AdminController
 
   def edit
     @survey = Survey.find(params[:id])
+    @answers = @survey.answers
   end
 
   def update
+    binding.pry
     @survey = Survey.find(params[:id])
     @survey.update(surveys_params)
     redirect_to admin_surveys_path
@@ -36,7 +38,7 @@ class Admin::SurveysController < Admin::AdminController
         :question,
         :active,
         :answer,
-        answers_attributes: [:text],
+        answers_attributes: [:id, :text],
       )
   end
 end

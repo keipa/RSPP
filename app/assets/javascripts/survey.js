@@ -4,10 +4,16 @@ $(document).on('turbolinks:load', function() {
 		$('.survey-content .survey-content-add-field').before(createOptionField());
 	})
 
-	$('.survey-content').click(function(e) {
-		if ($(e.target).hasClass('remove-option')) {
-			$(e.target).parent().remove()
-		}
+	$('.remove-option').click(function() {
+		ID = this.previousElementSibling.previousElementSibling.value
+		$.ajax({
+      type: "DELETE",
+      url: "/admin/answers/" + ID,
+      dataType: 'json',
+      data: { id: ID }
+    })
+		this.previousElementSibling.remove()
+		$(this).remove()
 	})
 
 	function createOptionField(value) {

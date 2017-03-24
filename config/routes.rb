@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :feedbacks, only:  [:index, :show, :destroy]
 
     resources :surveys
+    resources :answers, only: [:destroy]
+
     resources :users
     resources :sliders
 
