@@ -7,7 +7,11 @@ class Answer < ApplicationRecord
   end
 
   def in_percents
-    sprintf('%.2f', users_voted * 100 / survey.users_voted.to_f)
+    if survey.users_voted.to_f > 0
+      sprintf('%.2f', users_voted * 100 / survey.users_voted.to_f)
+    else
+      "0.00"
+    end
   end
 
   def user_voted?(user)

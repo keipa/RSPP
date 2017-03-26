@@ -1,5 +1,7 @@
 $(document).on('turbolinks:load', function() {
 
+  i = 10000;
+
 	$('.survey-content-add-field').click(function() {
 		$('.survey-content .survey-content-add-field').before(createOptionField());
 	})
@@ -12,14 +14,15 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json',
       data: { id: ID }
     })
-		this.previousElementSibling.remove()
+    $(this).closest(".option").remove()
 		$(this).remove()
 	})
 
 	function createOptionField(value) {
+    i += 1
 		return $('<div/>').addClass('options-content')
 			.append($('<input/>').val(value)
-				.attr("name","survey[answers_attributes][][text]")
+				.attr("name","survey[answers_attributes]["+ i +"][text]")
 				.attr('type', 'text')
 				.attr('placeholder', 'Вариант ответа')
 				.addClass('input-option form-input'))

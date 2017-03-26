@@ -1,13 +1,21 @@
-<%= @feedback.name %>
+<div class="admin-feedback container">
 
-<br>
+  <div class="col-lg-6 user-name">
+    <%= @feedback.name %>
+  </div>
 
-<%= @feedback.email %>
+  <div class="col-lg-6 text-right email">
+    <%= @feedback.email %>
+  </div>
 
-<br>
+  <div class="col-lg-12 body">
+    <% @feedback.body.split("\n").each do |paragraph| %>
+      <%= paragraph %>
+      <br>
+    <% end %>
+  </div>
 
-<%= @feedback.body %>
-
-<br>
-
-<%= link_to "Назад", admin_feedbacks_path %>
+  <div class="col-lg-12 back-link">
+    <%= link_to "Назад", admin_feedbacks_path %>
+  </div>
+</div>

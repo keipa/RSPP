@@ -41,15 +41,27 @@ class HomeController < ApplicationController
   end
 
   def registration_card
-    render layout: false
+    if request.xhr?
+      render layout: false
+    else
+      redirect_to root_path
+    end
   end
 
   def bill
-    render layout: false
+    if request.xhr?
+      render layout: false
+    else
+      redirect_to root_path
+    end
   end
 
   def statement
-    render layout: false
+    if request.xhr?
+      render layout: false
+    else
+      redirect_to root_path
+    end
   end
 
   def get_pdf
@@ -57,6 +69,8 @@ class HomeController < ApplicationController
     pdf1 = create_pdf_file("Регистрационная карта.pdf", params["registration_toPDF"])
     pdf2 = create_pdf_file("Заявление.pdf", params["statement_toPDF"])
     pdf3 = create_pdf_file("Счет.pdf", params["bill_toPDF"])
+
+    Zip.unicode_names = true
 
     t = Tempfile.new('temporary.zip')
     Zip::File.open(t.path, Zip::File::CREATE) do |z|

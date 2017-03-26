@@ -8,9 +8,11 @@
       <div class="survey-content">
         <div class="options-content">
           <%= f.fields_for :answers do |a| %>
-            <%= a.hidden_field :id %>
-            <%= a.text_field :text, class: "input-option form-input" %>
-            <span class="glyphicon glyphicon-remove remove-option"></span>
+            <div class="option">
+              <%= a.hidden_field :id %>
+              <%= a.text_field :text, class: "input-option form-input" %>
+              <span class="glyphicon glyphicon-remove remove-option"></span>
+            </div>
           <% end %>
         </div>
         <div class="survey-content-add-field" title="Добавить вариант ответа">

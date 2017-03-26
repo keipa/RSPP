@@ -84,9 +84,9 @@ $(document).on('turbolinks:load', function() {
 	}
 
 	function addAlertMessages(elements) {
-		$(elements).each(function(i, element) {
-			alertMessage('warning', 'Некорректные данные', $(element).closest('div'), 5000)
-		})
+		// $(elements).each(function(i, element) {
+		// 	alertMessage('warning', 'Некорректные данные', $(element).closest('div'), 5000)
+		// })
 	}
 
 	function checkRequiredFields(e) {

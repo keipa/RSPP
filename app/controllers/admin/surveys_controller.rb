@@ -19,7 +19,6 @@ class Admin::SurveysController < Admin::AdminController
   end
 
   def update
-    binding.pry
     @survey = Survey.find(params[:id])
     @survey.update(surveys_params)
     redirect_to admin_surveys_path

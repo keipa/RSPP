@@ -1,0 +1,19 @@
+.admin-feedback {
+  margin-top: 4rem;
+
+  .user-name, .email {
+    font-size: 3rem;
+  }
+
+  .body {
+    font-size: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #999999;
+    padding-top: 2rem;
+  }
+
+  .back-link {
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+}
