@@ -32,4 +32,6 @@
 //= require shadow
 //= require header
 //= require photo_gallery
+//= require exchange_rates
+
 // require_tree .

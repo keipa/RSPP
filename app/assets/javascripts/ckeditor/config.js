@@ -59,7 +59,7 @@ CKEDITOR.editorConfig = function(config) {
 }
 
 
-CKEDITOR.on('dialogDefinition', function( ev ) {
+CKEDITOR.on('dialogDefinition', function(ev) {
     // Take the dialog name and its definition from the event data.
     var dialogName = ev.data.name;
     var dialogDefinition = ev.data.definition;
@@ -70,7 +70,6 @@ CKEDITOR.on('dialogDefinition', function( ev ) {
       dialogDefinition.removeContents('Link');
 
       infoTab = dialogDefinition.getContents('info');
-      infoTab.remove('txtUrl');
       infoTab.remove('browse');
       infoTab.remove('htmlPreview');
     }
@@ -81,7 +80,6 @@ CKEDITOR.on('dialogDefinition', function( ev ) {
 
       infoTab = dialogDefinition.getContents('info');
       infoTab.remove('browse');
-      infoTab.remove('linkType');
     }
 
     dialog.on('show', function() {
