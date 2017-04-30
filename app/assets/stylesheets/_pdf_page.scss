@@ -9,6 +9,11 @@ $btn-background-color: rgba(81, 156, 255, 1);
 	width: 60%;
 	margin: 0 auto;
 
+  .pdf-page-content {
+    display: inline-block;
+    width: 100%;
+  }
+
 	.pdf-page-title {
 		text-align: center;
 		border-bottom: 1px solid #EDEDED;

@@ -1,5 +1,4 @@
 class AlbumsController < ApplicationController
-  before_action :set_gallery
   before_action :set_album, except: [:create, :new]
   skip_before_action :verify_authenticity_token, only: [:create, :update, :edit]
 
