@@ -1,27 +1,34 @@
+<div class="shadow"></div>
+
 <div class="container">
-  <%= render 'new_slide_form' %>
+  <div class="col-lg-8 col-lg-offset-2">
+    <%= form_for [:admin, @slider], html: {class: "add-slider-form"} do |f| %>
 
-  <%= form_for [:admin, @slider], html: {class: "add-slider-form"} do |f| %>
-      <p class="info">Введите название слайдера:</p>
-      <p><%= f.text_field :name, autocomplete: "off", placeholder: "Название", required: "true" %></p>
+      <h2>Введите название слайдера:</h2>
+      <%= f.text_field :name, autocomplete: "off",
+        placeholder: "Название", required: "true", class: "form-input" %>
 
-      <a class="btn btn-success add-slide-btn">
-        <span class="glyphicon glyphicon-plus"></span>
-        Добавить слайд
-      </a>
+      <div class="actions text-center">
+        <%= f.submit "Сохранить", class: "create-btn" %>
+        <%= link_to "Назад", admin_sliders_path, class: "back-btn" %>
+      </div>
 
       <% @slider.slides.each_with_index do |slide, index| %>
-        <div class="slide">
-          <img class="slide-image" src="<%= slide.image_url %>">
-          <textarea class="slide-text"><%= slide.text %></textarea>
-        </div>
+
+        <%= f.fields_for slide do |slide_form| %>
+          <h2>Добавить слайд</h2>
+          <div class="form-input add-slide-form">
+            <h2>Добавить изображение:</h2>
+            <%= slide_form.file_field :image, id: "upload-slide-picture" %>
+
+            <h2>Добавить текст:</h2>
+            <%= slide_form.text_field :text, class: "form-input" %>
+          </div>
+        <% end %>
       <% end %>
 
-      <p><%= f.submit "Сохранить слайдер", class: "btn btn-danger" %></p>
-      <p><%= link_to "Назад", admin_sliders_path %></p>
-    </div>
-
-
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
 

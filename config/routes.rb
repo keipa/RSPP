@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     resources :users
     resources :sliders
+    resources :slides
 
     get 'news_posts/:post_type', to: 'news_posts#index'
   end

@@ -25,7 +25,8 @@
 @import "_admin_content_part";
 @import "_partner_form";
 @import "_photo_gallery";
-@import "_admin_feedbacks.scss";
+@import "_admin_feedbacks";
+@import "_admin_sliders";
 @import "ckeditor";
 
 html {
@@ -64,12 +65,13 @@ form {
     margin-bottom: 2rem;
 
     .create-btn {
-      padding: 1.1rem 1.5rem;
+      padding: 1rem 1.5rem;
       background: #519cff;
       color: #FFFFFF;
-      border: none;
+      border: 1px solid #519cff;
       font-size: 1.5rem;
       transition: 0.2s;
+      height: 42px;
 
       &:hover {
         background: darken(#519cff, 10%);

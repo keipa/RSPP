@@ -1,6 +1,6 @@
 class NewsPost < ApplicationRecord
   belongs_to :user
-  
+
   has_attached_file :image
 
   default_scope -> { order('created_at DESC') }

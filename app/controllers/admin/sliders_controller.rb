@@ -13,11 +13,12 @@ class Admin::SlidersController < Admin::AdminController
   end
 
   def create
+    binding.pry
     @slider = Slider.create(name: slider_params[:name])
     slider_params[:slides].each_with_index do |slide, index|
       @slider.slides.create(
         text: slider_params[:slides][index.to_s][:text],
-        image_url: slider_params[:slides][index.to_s][:image_url]
+        image: slider_params[:slides][index.to_s][:image]
       )
     end
 
@@ -29,18 +30,19 @@ class Admin::SlidersController < Admin::AdminController
   end
 
   def update
+    binding.pry
     @slider = Slider.find(params[:id])
     @slider.update(name: slider_params[:name])
     slider_params[:slides].each_with_index do |slide, index|
       if @slider.slides[index]
         @slider.slides[index].update(
           text: slider_params[:slides][index.to_s][:text],
-          image_url: slider_params[:slides][index.to_s][:image_url]
+          image: slider_params[:slides][index.to_s][:image]
         )
       else
         @slider.slides.create(
           text: slider_params[:slides][index.to_s][:text],
-          image_url: slider_params[:slides][index.to_s][:image_url]
+          image: slider_params[:slides][index.to_s][:image]
         )
       end
     end
@@ -56,6 +58,6 @@ class Admin::SlidersController < Admin::AdminController
   private
 
   def slider_params
-    params.require(:slider).permit(:name, slides: [:text, :image_url])
+    params.require(:slider).permit(:name, slides: [:text, :image])
   end
 end

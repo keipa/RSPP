@@ -1,10 +1,9 @@
-<div class="add-news-post-btn-wrapper text-center" style="padding: 10px 0; background: #FFFFFF;">
-    <%= link_to new_admin_slider_path do %>
-        <button class="btn btn-default add-slide-btn" style="font-size: 20px;">
-            Добавить слайдер
-        </button>
+<div class="admin-content">
+  <div class="add-new-item-btn-wrapper text-center">
+    <%= link_to new_admin_slider_path, class: "btn btn-default" do %>
+      Добавить слайдер
     <% end %>
-</div>
+  </div>
 
 <table class="table table-striped text-center" style="font-size: 20px;">
     <tr>
@@ -61,7 +60,7 @@
                     </button>
                 <% end %>
                 <%= link_to admin_slider_path(slider), method: :delete do %>
-                    <button class="btn btn-danger"> 
+                    <button class="btn btn-danger">
                         Удалить
                     </button>
                 <% end %>
