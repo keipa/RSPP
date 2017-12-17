@@ -10,7 +10,7 @@ set :puma_workers,    0
 
 set :rvm_ruby_version, 'ruby-2.4.0'
 set :pty,             true
-set :use_sudo,        false
+set :use_sudo,        true
 set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
@@ -79,4 +79,3 @@ end
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
-
