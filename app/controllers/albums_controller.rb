@@ -39,7 +39,7 @@ class AlbumsController < ApplicationController
   def set_album
     puts @gallery
     puts @galleries
-    @album = @gallery.albums.includes(videos: [:comments]).find(params[:id])
+    @album = @gallery.albums&.includes(videos: [:comments]).find(params[:id])
   end
 
   def album_params
