@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :set_gallery, except: [:create, :new]
+
   before_action :set_album, except: [:create, :new]
   skip_before_action :verify_authenticity_token, only: [:create, :update, :edit]
 
@@ -37,8 +39,6 @@ class AlbumsController < ApplicationController
   end
 
   def set_album
-    puts @gallery
-    puts @galleries
     @album = @gallery.albums&.includes(videos: [:comments]).find(params[:id])
   end
 
